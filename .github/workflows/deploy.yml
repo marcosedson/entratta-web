@@ -12,16 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: 22
-          script: |
-            cd /opt/entratta-site/nextapp
-            git pull origin main
-            docker compose -f /opt/entratta-site/nextapp/docker-compose.yml build --no-cache
-            docker compose -f /opt/entratta-site/nextapp/docker-compose.yml up -d --force-recreate
-            echo "Deploy finalizado: $(date)"
+      - name: Deploy via Coolify
+        run: |
+          curl -fsSL -X GET \
+            "https://coolify.entratta.com.br/api/v1/deploy?uuid=focseagmdyc05gq0d77f2su3&force=false" \
+            -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}" \
+            -H "Accept: application/json"
