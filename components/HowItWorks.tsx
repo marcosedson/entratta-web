@@ -1,18 +1,18 @@
 const STEPS = [
   {
     num: '01',
-    title: 'Configure Online',
-    desc: 'Escolha a medida, cor, texto e envie a logo da sua empresa. O preview atualiza em tempo real — você vê exatamente como ficará.',
+    title: 'Fale pelo WhatsApp',
+    desc: 'Mande a medida, sua logo e o que você quer. Um especialista responde em minutos com orçamento sem compromisso.',
   },
   {
     num: '02',
-    title: 'Envie pelo WhatsApp',
-    desc: 'Com um clique, seu pedido completo vai direto para um especialista Entratta via WhatsApp. Orçamento confirmado em minutos.',
+    title: 'Aprove o Preview',
+    desc: 'Nossa equipe cria o layout do seu capacho e envia para aprovação. Ajuste o que precisar antes de produzir.',
   },
   {
     num: '03',
     title: 'Receba em Casa',
-    desc: 'Produção artesanal em até 7 dias úteis. Entregamos em todo o Brasil com segurança e embalagem reforçada.',
+    desc: 'Produção em até 3 dias úteis. Entregamos em todo o Brasil com rastreamento e embalagem reforçada.',
   },
 ]
 
