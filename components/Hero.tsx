@@ -347,7 +347,7 @@ export function Hero() {
                 height={1024}
                 priority
                 className="relative rounded-2xl"
-                style={{ width: '100%', height: 'auto' }}
+                style={{ width: '100%', height: 'auto', mixBlendMode: 'multiply' }}
               />
 
               {/* Canvas de ripple — simula pressão na superfície de vinil */}
