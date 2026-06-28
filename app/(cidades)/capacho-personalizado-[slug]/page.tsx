@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { notFound } from "next/navigation"
 import { getCityBySlug, getAllCitySlugs, cities } from "@/lib/cities"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
@@ -11,35 +12,37 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const city = getCityBySlug(slug)
+  const city = getCityBySlug(slug) || ({} as any)
 
-  if (!city) {
-    return { title: "Página não encontrada" }
-  }
-
-  const title = `Capacho Personalizado em ${city.name} | ENTRATTA Fabricante GO`
-  const description = `Capacho personalizado com logo para empresas e condomínios em ${city.name}. Fabricante direto em Goiás. Entrega rápida. Orçamento grátis no WhatsApp.`
+  const title = city.name
+    ? `Capacho Personalizado em ${city.name} | ENTRATTA Fabricante GO`
+    : "Capacho Personalizado com Logo | Fabricante | Entratta"
+  const description = city.name
+    ? `Capacho personalizado com logo para empresas e condomínios em ${city.name}. Fabricante direto em Goiás. Entrega rápida. Orçamento grátis no WhatsApp.`
+    : "Fabricante de capachos personalizados em vinil com logo da sua empresa. Entrega em 3 dias para todo o Brasil. Orçamento grátis no WhatsApp."
 
   return {
     title,
     description,
-    alternates: {
-      canonical: `https://entratta.com.br/capacho-personalizado-${city.slug}`,
-    },
-    openGraph: {
-      title,
-      description,
-      url: `https://entratta.com.br/capacho-personalizado-${city.slug}`,
-      type: "website",
-      images: [
-        {
-          url: `/api/og?city=${encodeURIComponent(city.name)}&state=${city.state}`,
-          width: 1200,
-          height: 630,
-          alt: `Capacho Personalizado em ${city.name}`,
-        },
-      ],
-    },
+    ...(city.slug && {
+      alternates: {
+        canonical: `https://entratta.com.br/capacho-personalizado-${city.slug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `https://entratta.com.br/capacho-personalizado-${city.slug}`,
+        type: "website",
+        images: [
+          {
+            url: `/api/og?city=${encodeURIComponent(city.name)}&state=${city.state}`,
+            width: 1200,
+            height: 630,
+            alt: `Capacho Personalizado em ${city.name}`,
+          },
+        ],
+      },
+    }),
   }
 }
 
@@ -47,6 +50,7 @@ export async function generateStaticParams() {
   return getAllCitySlugs().map((slug) => ({ slug }))
 }
 
+export const dynamicParams = true
 export const revalidate = 3600
 
 function CitySchema({ city }: { city: (typeof cities)[0] }) {
@@ -121,18 +125,7 @@ export default async function CityPage({ params }: Props) {
   const city = getCityBySlug(slug)
 
   if (!city) {
-    return (
-      <>
-        <Header />
-        <main className="flex-1">
-          <div className="px-4 py-20 max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl font-bold mb-4">Página não encontrada</h1>
-            <p className="text-gray-600">A cidade que você procura não está disponível.</p>
-          </div>
-        </main>
-        <Footer />
-      </>
-    )
+    notFound()
   }
 
   return (

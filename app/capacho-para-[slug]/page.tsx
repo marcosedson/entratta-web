@@ -38,6 +38,7 @@ export async function generateStaticParams() {
   return getAllSegmentSlugs().map((slug) => ({ slug }))
 }
 
+export const dynamicParams = true
 export const revalidate = false
 
 function SegmentSchema({ segment }: { segment: typeof segments[0] }) {
