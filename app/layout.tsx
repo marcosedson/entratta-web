@@ -26,9 +26,9 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
-  title: "Capachos e Tapetes Personalizados com Logo | Entratta",
+  title: "Capacho Personalizado com Logo | Fabricante | Entratta",
   description:
-    "Monte seu capacho de vinil com logo, texto e cores da sua empresa. Preview realista em tempo real. Orçamento imediato pelo WhatsApp. Entrega em todo o Brasil em 7 dias úteis.",
+    "Fabricante de capachos personalizados em vinil com logo da sua empresa. Entrega em 3 dias para todo o Brasil. Orçamento grátis no WhatsApp.",
   keywords: [
     "tapete vinil personalizado",
     "capacho personalizado empresa",
@@ -93,23 +93,55 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Entratta",
+  name: "ENTRATTA Capachos Personalizados",
   description:
-    "Capachos e tapetes de vinil lisos, com artes prontas ou personalizados com logo para empresas e residências. Entrega em todo o Brasil.",
+    "Fabricante de capachos personalizados em vinil com logo para empresas, condomínios, indústrias e residências. Entrega em 3 dias para todo o Brasil.",
   url: "https://entratta.com.br",
-  telephone: "+5564992066855",
+  telephone: "+55-64-99206-6855",
+  image: "https://entratta.com.br/og-image.jpg",
   priceRange: "$$",
-  sameAs: ["https://www.instagram.com/entrattaofficial"],
-  areaServed: { "@type": "Country", name: "Brasil" },
+  sameAs: [
+    "https://www.instagram.com/entrattaofficial",
+    "https://lista.mercadolivre.com.br/_CustId_3459954476"
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "R. Urupema, Nº 236 - Planalto",
+    addressLocality: "Itumbiara",
+    addressRegion: "GO",
+    postalCode: "75533-130",
+    addressCountry: "BR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -18.4186,
+    longitude: -49.2155,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:00",
+    closes: "18:00",
+  },
+  areaServed: [
+    { "@type": "City", name: "Itumbiara", addressRegion: "GO" },
+    { "@type": "City", name: "Araporã", addressRegion: "MG" },
+    { "@type": "City", name: "Morrinhos", addressRegion: "GO" },
+    { "@type": "City", name: "Goiatuba", addressRegion: "GO" },
+    { "@type": "City", name: "Centralina", addressRegion: "MG" },
+    { "@type": "City", name: "Caldas Novas", addressRegion: "GO" },
+    { "@type": "City", name: "Rio Verde", addressRegion: "GO" },
+    { "@type": "City", name: "Goiânia", addressRegion: "GO" },
+  ],
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "500",
+    ratingValue: "5.0",
+    reviewCount: "18",
     bestRating: "5",
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+5564992066855",
+    telephone: "+55-64-99206-6855",
     contactType: "customer service",
     availableLanguage: "Portuguese",
     contactOption: "TollFree",

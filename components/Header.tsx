@@ -35,7 +35,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto flex items-center justify-between h-16 gap-4">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 flex-shrink-0">
-          <Image src="/logo.png" alt="Entratta" width={40} height={40} className="rounded-xl flex-shrink-0" priority />
+          <Image src="/logo.png" alt="ENTRATTA — Fabricante de Capachos Personalizados em Vinil" width={40} height={40} className="rounded-xl flex-shrink-0" priority />
           <div>
             <div
               style={{

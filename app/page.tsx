@@ -6,13 +6,16 @@ import { SocialProof } from '@/components/SocialProof'
 import { ProblemSolution } from '@/components/ProblemSolution'
 import { Testimonials } from '@/components/Testimonials'
 import { FAQ } from '@/components/FAQ'
+import { FAQSchema } from '@/components/FAQSchema'
 import { CTAFinal } from '@/components/CTAFinal'
+import { CitiesLinks } from '@/components/CitiesLinks'
 import { Footer } from '@/components/Footer'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 
 export default function Home() {
   return (
     <>
+      <FAQSchema />
       <Header />
       <main>
         <Hero />
@@ -23,6 +26,7 @@ export default function Home() {
         <Testimonials />
         <FAQ />
         <CTAFinal />
+        <CitiesLinks />
       </main>
       <Footer />
       <FloatingWhatsApp />

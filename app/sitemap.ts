@@ -1,14 +1,42 @@
-import type { MetadataRoute } from 'next'
+import { MetadataRoute } from "next"
+import { getAllCitySlugs } from "@/lib/cities"
+
+const baseUrl = "https://entratta.com.br"
+
+const staticPages = [
+  {
+    url: baseUrl,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 1.0,
+  },
+  {
+    url: `${baseUrl}/como-funciona`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/lojas`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/depoimentos`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  },
+]
+
+const cityPages = getAllCitySlugs().map((slug) => ({
+  url: `${baseUrl}/capacho-personalizado-${slug}`,
+  lastModified: new Date(),
+  changeFrequency: "monthly" as const,
+  priority: 0.8,
+}))
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://entratta.com.br'
-  const now = new Date()
-
-  return [
-    { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: `${base}/monte-o-seu`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${base}/como-funciona`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/depoimentos`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${base}/lojas`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-  ]
+  return [...staticPages, ...cityPages]
 }

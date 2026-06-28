@@ -93,7 +93,7 @@ export function ProblemSolution() {
           <div className="ps-card-before rounded-2xl overflow-hidden relative" style={{ minHeight: '360px' }}>
             <Image
               src="/ps-antes.jpg"
-              alt="Entrada sem identidade de marca"
+              alt="Entrada comercial genérica sem identidade de marca ou capacho personalizado"
               fill
               style={{ objectFit: 'cover', objectPosition: 'bottom center', filter: 'grayscale(30%)' }}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -139,7 +139,7 @@ export function ProblemSolution() {
           <div className="ps-card-after rounded-2xl overflow-hidden relative" style={{ minHeight: '360px' }}>
             <Image
               src="/ps-depois.png"
-              alt="Entrada com capacho personalizado Entratta"
+              alt="Entrada comercial com capacho personalizado vinil ENTRATTA com logo e identidade visual da marca"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center center' }}
               sizes="(max-width: 768px) 100vw, 50vw"
