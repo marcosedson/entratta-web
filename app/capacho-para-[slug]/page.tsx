@@ -37,7 +37,8 @@ export async function generateStaticParams() {
   return getAllSegmentSlugs().map((slug) => ({ slug }))
 }
 
-export const revalidate = 3600 // ISR: regenerate every hour
+export const dynamicParams = false
+export const revalidate = 86400
 
 function SegmentSchema({ segment }: { segment: typeof segments[0] }) {
   const schema = {
