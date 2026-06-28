@@ -5,11 +5,12 @@ import { Footer } from "@/components/Footer"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const segment = getSegmentBySlug(params.slug)
+  const { slug } = await params
+  const segment = getSegmentBySlug(slug)
 
   if (!segment) {
     return { title: "Página não encontrada" }
@@ -65,8 +66,9 @@ function SegmentSchema({ segment }: { segment: typeof segments[0] }) {
   )
 }
 
-export default function SegmentPage({ params }: Props) {
-  const segment = getSegmentBySlug(params.slug)
+export default async function SegmentPage({ params }: Props) {
+  const { slug } = await params
+  const segment = getSegmentBySlug(slug)
 
   if (!segment) {
     return (

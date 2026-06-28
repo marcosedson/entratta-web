@@ -5,11 +5,12 @@ import { Footer } from "@/components/Footer"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const city = getCityBySlug(params.slug)
+  const { slug } = await params
+  const city = getCityBySlug(slug)
 
   if (!city) {
     return { title: "Página não encontrada" }
@@ -66,8 +67,9 @@ function CitySchema({ city }: { city: (typeof cities)[0] }) {
   )
 }
 
-export default function CityPage({ params }: Props) {
-  const city = getCityBySlug(params.slug)
+export default async function CityPage({ params }: Props) {
+  const { slug } = await params
+  const city = getCityBySlug(slug)
 
   if (!city) {
     return (

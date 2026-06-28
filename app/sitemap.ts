@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next"
 import { getAllCitySlugs } from "@/lib/cities"
+import { getAllSegmentSlugs } from "@/lib/segments"
 
 const baseUrl = "https://entratta.com.br"
 
@@ -37,6 +38,13 @@ const cityPages = getAllCitySlugs().map((slug) => ({
   priority: 0.8,
 }))
 
+const segmentPages = getAllSegmentSlugs().map((slug) => ({
+  url: `${baseUrl}/capacho-para-${slug}`,
+  lastModified: new Date(),
+  changeFrequency: "monthly" as const,
+  priority: 0.7,
+}))
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...staticPages, ...cityPages]
+  return [...staticPages, ...cityPages, ...segmentPages]
 }

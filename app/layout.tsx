@@ -58,7 +58,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Entratta" }],
   creator: "Entratta",
   metadataBase: new URL("https://entratta.com.br"),
-  alternates: { canonical: "/" },
   openGraph: {
     title: "Capachos e Tapetes Personalizados com Logo | Entratta",
     description:
