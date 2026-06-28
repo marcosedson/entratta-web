@@ -3,6 +3,7 @@ import { getCityBySlug, getAllCitySlugs, cities } from "@/lib/cities"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
+import { Breadcrumb } from "@/components/Breadcrumb"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -30,6 +31,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: `https://entratta.com.br/capacho-personalizado-${city.slug}`,
       type: "website",
+      images: [
+        {
+          url: `/api/og?city=${encodeURIComponent(city.name)}&state=${city.state}`,
+          width: 1200,
+          height: 630,
+          alt: `Capacho Personalizado em ${city.name}`,
+        },
+      ],
     },
   }
 }
@@ -67,6 +76,46 @@ function CitySchema({ city }: { city: (typeof cities)[0] }) {
   )
 }
 
+function FAQSchema({ city }: { city: (typeof cities)[0] }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Quanto custa um capacho personalizado em ${city.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Nossos capachos personalizados começam a partir de R$ 72. O preço varia conforme tamanho, material e complexidade do design. Solicite um orçamento personalizado via WhatsApp.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Qual o prazo de entrega para ${city.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Produzimos em até 3 dias úteis. A entrega em ${city.name} depende da localização específica. Consultamos o prazo exato ao fazer o orçamento.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Quais tamanhos de capacho estão disponíveis?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Fazemos capachos sob medida. Desde pequenos (40×60cm) até grandes personalizações industriais. Nenhum pedido é muito pequeno ou grande demais.",
+        },
+      },
+    ],
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 export default async function CityPage({ params }: Props) {
   const { slug } = await params
   const city = getCityBySlug(slug)
@@ -89,9 +138,17 @@ export default async function CityPage({ params }: Props) {
   return (
     <>
       <CitySchema city={city} />
+      <FAQSchema city={city} />
       <Header />
       <main className="flex-1">
         <div className="px-4 py-16 md:py-24 max-w-3xl mx-auto">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Capacho Personalizado", href: "/como-funciona" },
+              { label: city.name },
+            ]}
+          />
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
             Capacho Personalizado em {city.name}, {city.state}
           </h1>
@@ -135,6 +192,38 @@ export default async function CityPage({ params }: Props) {
             >
               Pedir Orçamento no WhatsApp
             </a>
+          </section>
+
+          <section className="mt-12 pt-12 border-t border-gray-200">
+            <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+              Perguntas Frequentes
+            </h2>
+            <div className="space-y-4">
+              <details className="border border-gray-200 rounded-lg p-4">
+                <summary className="font-bold cursor-pointer text-gray-800">
+                  Quanto custa um capacho personalizado em {city.name}?
+                </summary>
+                <p className="mt-3 text-gray-700">
+                  Nossos capachos personalizados começam a partir de R$ 72. O preço varia conforme tamanho, material e complexidade do design. Solicite um orçamento personalizado via WhatsApp.
+                </p>
+              </details>
+              <details className="border border-gray-200 rounded-lg p-4">
+                <summary className="font-bold cursor-pointer text-gray-800">
+                  Qual o prazo de entrega para {city.name}?
+                </summary>
+                <p className="mt-3 text-gray-700">
+                  Produzimos em até 3 dias úteis. A entrega em {city.name} depende da localização específica. Consultamos o prazo exato ao fazer o orçamento.
+                </p>
+              </details>
+              <details className="border border-gray-200 rounded-lg p-4">
+                <summary className="font-bold cursor-pointer text-gray-800">
+                  Quais tamanhos de capacho estão disponíveis?
+                </summary>
+                <p className="mt-3 text-gray-700">
+                  Fazemos capachos sob medida. Desde pequenos (40×60cm) até grandes personalizações industriais. Nenhum pedido é muito pequeno ou grande demais.
+                </p>
+              </details>
+            </div>
           </section>
 
           <section className="mt-12 pt-12 border-t border-gray-200">
