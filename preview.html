@@ -1,0 +1,989 @@
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENTRATTA — Monte seu Capacho</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap');
+:root {
+  --verde:#22C55E; --verdel:#15803D; --azul:#0F2D52; --azulm:#1B3A5C;
+  --bg:#060E16; --bg2:#0B1520; --bg3:#101C2A; --bord:rgba(34,197,94,.15);
+  --txt:#94A3B8; --br:#E2E8F0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;background:var(--bg);color:var(--br);font-family:'Inter',sans-serif;font-size:13px;}
+
+/* ── HEADER ── */
+.header{
+  background:linear-gradient(135deg,#030810,#081428);
+  border-bottom:2px solid var(--verde);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  position:sticky;top:0;z-index:50;
+}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:var(--azul);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:#fff;}
+.logo-tag{font-size:.65rem;color:var(--verde);font-weight:600;letter-spacing:1px;}
+.header-badge{
+  background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);
+  border-radius:20px;padding:5px 12px;
+  font-size:.68rem;font-weight:700;color:var(--verde);
+  display:flex;align-items:center;gap:6px;
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--verde);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* ── LAYOUT ── */
+.layout{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  min-height:calc(100vh - 64px);
+}
+@media(max-width:720px){.layout{grid-template-columns:1fr;}}
+
+/* ── PAINEL ── */
+.panel{
+  background:var(--bg2);
+  border-right:1px solid var(--bord);
+  padding:16px 14px 32px;
+  overflow-y:auto;
+  max-height:calc(100vh - 64px);
+}
+.panel::-webkit-scrollbar{width:3px;}
+.panel::-webkit-scrollbar-thumb{background:rgba(34,197,94,.2);border-radius:3px;}
+
+.sec{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:11px;padding:13px 14px;margin-bottom:10px;
+}
+.sec-title{
+  font-size:.58rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--verde);margin-bottom:11px;
+}
+
+/* inputs */
+input[type=text],input[type=tel]{
+  width:100%;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);border-radius:8px;
+  padding:9px 11px;color:var(--br);font-size:.82rem;
+  font-family:'Inter',sans-serif;outline:none;
+  transition:border-color .15s;
+}
+input[type=text]:focus,input[type=tel]:focus{border-color:rgba(34,197,94,.4);}
+input::placeholder{color:#1E3A5C;}
+
+/* medidas grid */
+.medidas-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.med-btn{
+  padding:9px 6px;border-radius:8px;cursor:pointer;outline:none;
+  border:1.5px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.02);
+  color:var(--txt);font-size:.75rem;font-weight:600;
+  transition:all .15s;text-align:center;position:relative;
+}
+.med-btn:hover{border-color:#4B6A8A;}
+.med-btn.ativo{border-color:var(--verde);background:rgba(34,197,94,.1);color:var(--verde);}
+.pop-tag{
+  position:absolute;top:-6px;right:-4px;
+  background:var(--verde);color:#000;
+  font-size:.52rem;font-weight:800;padding:1px 5px;border-radius:5px;
+}
+
+/* chips de cor */
+.cores-row{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+.cor-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.cor-chip{
+  width:30px;height:30px;border-radius:50%;cursor:pointer;
+  border:2px solid rgba(255,255,255,.1);
+  transition:all .15s;flex-shrink:0;
+}
+.cor-chip.ativo{border:3px solid var(--verde);transform:scale(1.18);box-shadow:0 0 0 2px rgba(34,197,94,.25);}
+.cor-label{font-size:.58rem;color:#2E4A6A;text-align:center;max-width:36px;line-height:1.2;}
+
+/* bordas */
+.bordas-row{display:flex;gap:7px;}
+.borda-btn{
+  flex:1;padding:7px 4px;border-radius:7px;cursor:pointer;outline:none;
+  border:1.5px solid rgba(255,255,255,.07);background:transparent;
+  color:var(--txt);font-size:.7rem;font-weight:600;transition:all .15s;
+}
+.borda-btn.ativo{border-color:var(--verde);background:rgba(34,197,94,.1);color:var(--verde);}
+
+/* fontes */
+.fontes-row{display:flex;gap:6px;flex-wrap:wrap;}
+.fonte-btn{
+  padding:5px 10px;border-radius:6px;cursor:pointer;outline:none;
+  border:1.5px solid rgba(255,255,255,.07);background:transparent;
+  color:var(--txt);font-size:.7rem;font-weight:600;transition:all .15s;
+}
+.fonte-btn.ativo{border-color:var(--verde);background:rgba(34,197,94,.1);color:var(--verde);}
+
+/* upload logo */
+.upload-btn{
+  width:100%;padding:9px 14px;border-radius:8px;cursor:pointer;outline:none;
+  border:1.5px dashed rgba(34,197,94,.3);background:rgba(34,197,94,.04);
+  color:var(--verde);font-size:.75rem;font-weight:700;transition:all .15s;
+}
+.upload-btn:hover{background:rgba(34,197,94,.08);}
+.logo-preview-wrap{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
+.remove-btn{
+  background:transparent;border:none;color:#EF4444;
+  font-size:.68rem;cursor:pointer;padding:3px 7px;border-radius:4px;
+}
+
+/* CTA WPP */
+.cta-wpp{
+  display:block;width:100%;padding:14px 16px;
+  background:linear-gradient(135deg,var(--verde),var(--verdel));
+  border:none;border-radius:11px;
+  color:#fff;font-size:.9rem;font-weight:800;
+  text-align:center;cursor:pointer;outline:none;
+  box-shadow:0 8px 24px rgba(34,197,94,.3);
+  letter-spacing:-.2px;transition:all .15s;
+  margin-bottom:8px;text-decoration:none;display:flex;
+  align-items:center;justify-content:center;gap:8px;
+}
+.cta-wpp:hover{background:linear-gradient(135deg,var(--verdel),#0A4020);transform:translateY(-1px);}
+
+.cta-copy{
+  width:100%;padding:10px;border-radius:9px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  color:var(--txt);font-size:.75rem;font-weight:600;
+  cursor:pointer;outline:none;transition:all .2s;
+}
+.cta-copy:hover{color:var(--br);}
+.cta-copy.copiado{color:var(--verde);}
+
+/* ── PREVIEW AREA ── */
+.preview-area{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:28px 20px;gap:20px;
+}
+.live-badge{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.18);
+  border-radius:20px;padding:5px 14px;
+}
+.live-badge span{font-size:.68rem;color:var(--verde);font-weight:700;}
+
+#tapete-svg{
+  border-radius:14px;
+  box-shadow:0 24px 64px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05);
+  display:block;max-width:100%;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+}
+
+/* info chips */
+.info-chips{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  width:100%;max-width:480px;
+}
+.ic{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:8px 10px;}
+.ic-l{font-size:.58rem;color:#2E4A6A;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px;}
+.ic-v{font-size:.74rem;color:var(--br);font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+.garantias{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+.gar{font-size:.68rem;color:#1E3A5C;font-weight:600;}
+
+/* Custom medida inputs */
+.custom-row{display:flex;gap:8px;margin-top:8px;}
+.custom-row input{text-align:center;}
+/* orientacao removida — tapete sempre landscape */
+/* drag hint */
+.drag-hint{font-size:.62rem;color:#1E3550;text-align:center;margin-top:7px;line-height:1.5;}
+/* logo scale row */
+.logo-scale-wrap{margin-top:8px;}
+.logo-scale-wrap input[type=range]{
+  width:100%;accent-color:#22C55E;cursor:pointer;
+  height:4px;margin-top:2px;
+}
+/* guias SVG */
+#guia-v,#guia-h{transition:opacity .1s;}
+/* sombra texto vertical */
+.svg-texto-v{writing-mode:vertical-rl;}
+
+/* MODAL / PREÇO */
+.preco-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);
+  border-radius:10px;padding:8px 14px;
+  font-family:'Inter',monospace;font-weight:800;font-size:1.1rem;color:var(--verde);
+  margin-top:4px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="22" height="22" viewBox="0 0 22 22">
+        <rect x="2" y="3" width="18" height="3.5" rx="1.5" fill="#22C55E"/>
+        <rect x="2" y="9" width="13" height="3.5" rx="1.5" fill="#22C55E"/>
+        <rect x="2" y="15" width="18" height="3.5" rx="1.5" fill="#22C55E"/>
+        <rect x="2" y="3" width="3.5" height="15" rx="1.5" fill="#22C55E"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">ENTRATTA</div>
+      <div class="logo-tag">Monte seu capacho personalizado</div>
+    </div>
+  </div>
+  <div class="header-badge">
+    <div class="pulse"></div>
+    Preview em tempo real
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- PAINEL ESQUERDO -->
+  <div class="panel">
+
+    <!-- DADOS -->
+    <div class="sec">
+      <div class="sec-title">Seus dados</div>
+      <input type="text" id="inp-nome" placeholder="Seu nome ou empresa" style="margin-bottom:8px;" oninput="atualizar()">
+      <input type="tel" id="inp-wpp" placeholder="WhatsApp com DDD">
+    </div>
+
+    <!-- MEDIDA -->
+    <div class="sec">
+      <div class="sec-title">Medida do capacho</div>
+      <div class="medidas-grid">
+        <button class="med-btn" onclick="setMedida('40x60')" id="med-40x60">40 × 60 cm</button>
+        <button class="med-btn ativo" onclick="setMedida('60x90')" id="med-60x90">
+          60 × 90 cm<span class="pop-tag">POP</span>
+        </button>
+        <button class="med-btn" onclick="setMedida('50x80')" id="med-50x80">50 × 80 cm</button>
+        <button class="med-btn" onclick="setMedida('80x120')" id="med-80x120">
+          80 × 120 cm<span class="pop-tag">POP</span>
+        </button>
+        <button class="med-btn" onclick="setMedida('100x150')" id="med-100x150">100 × 150 cm</button>
+        <button class="med-btn" onclick="setMedida('custom')" id="med-custom">Sob medida</button>
+      </div>
+      <div id="custom-inputs" style="display:none;">
+        <div class="custom-row">
+          <input type="text" id="inp-largura" placeholder="Largura (cm)" maxlength="4" oninput="atualizar()">
+          <span style="display:flex;align-items:center;color:#4B6A8A;font-size:1.1rem;">×</span>
+          <input type="text" id="inp-comprimento" placeholder="Comprim. (cm)" maxlength="4" oninput="atualizar()">
+        </div>
+      </div>
+      <div id="preco-display" style="margin-top:10px;"></div>
+    </div>
+
+    <!-- COR TAPETE -->
+    <div class="sec">
+      <div class="sec-title">Cor do tapete</div>
+      <div class="cores-row" id="cores-tapete"></div>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="sec">
+      <div class="sec-title">Texto personalizado</div>
+      <input type="text" id="inp-texto" placeholder="BEM-VINDO · SEU NOME · CLÍNICA" maxlength="40" oninput="atualizar()" style="margin-bottom:8px;">
+      <div style="font-size:.65rem;color:#2E4A6A;margin-bottom:8px;" id="char-count">0/40 caracteres</div>
+      <div class="fontes-row" id="fontes-row"></div>
+      <div style="font-size:.62rem;color:#1E3550;text-align:center;margin-top:8px;">✋ Arraste o texto no preview para mover</div>
+
+    </div>
+
+    <!-- COR TEXTO -->
+    <div class="sec">
+      <div class="sec-title">Cor do texto</div>
+      <div class="cores-row" id="cores-texto"></div>
+    </div>
+
+    <!-- BORDA -->
+    <div class="sec">
+      <div class="sec-title">Acabamento</div>
+      <div class="bordas-row" id="bordas-row"></div>
+    </div>
+
+    <!-- COR DA BORDA -->
+    <div class="sec" id="sec-cor-borda" style="display:none;">
+      <div class="sec-title">Cor da borda</div>
+      <div class="cores-row" id="cores-borda"></div>
+    </div>
+
+    <!-- LOGO -->
+    <div class="sec">
+      <div class="sec-title">Logo da empresa (opcional)</div>
+      <input type="file" id="file-logo" accept="image/*" style="display:none" onchange="loadLogo(this)">
+      <button class="upload-btn" onclick="document.getElementById('file-logo').click()" id="upload-lbl">
+        ⬆ Enviar logo (PNG, JPG, SVG)
+      </button>
+      <div id="logo-preview-area" style="display:none;" class="logo-preview-wrap">
+        <img id="logo-preview-img" style="height:38px;border-radius:4px;object-fit:contain;" alt="logo">
+        <button class="remove-btn" onclick="removeLogo()">Remover</button>
+      </div>
+      <div class="logo-scale-wrap" id="logo-scale-wrap" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
+          <span style="font-size:.62rem;color:#2E4A6A;font-weight:600;">Tamanho</span>
+          <span style="font-size:.62rem;color:var(--verde);font-weight:700;" id="logo-scale-label">100%</span>
+        </div>
+        <input type="range" id="logo-scale" min="30" max="190" value="100" oninput="setLogoScale(this.value)">
+        <div style="display:flex;justify-content:space-between;font-size:.58rem;color:#1E3A5C;"><span>Menor</span><span>Maior</span></div>
+      </div>
+      <div id="logo-rot-wrap" style="display:none;margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <span style="font-size:.62rem;color:#2E4A6A;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Rotação</span>
+          <span style="font-size:.68rem;color:var(--verde);font-weight:800;" id="rot-label">0°</span>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <button onclick="rotLogo(-15)" style="flex:1;padding:7px 0;border-radius:7px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);color:var(--txt);font-size:.85rem;font-weight:700;transition:all .15s;" onmouseover="this.style.borderColor='#22C55E'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">↺ −15°</button>
+          <button onclick="rotLogo(0,'reset')" style="flex:1;padding:7px 0;border-radius:7px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);color:var(--txt);font-size:.75rem;font-weight:700;transition:all .15s;" onmouseover="this.style.borderColor='#22C55E'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">Reset</button>
+          <button onclick="rotLogo(15)" style="flex:1;padding:7px 0;border-radius:7px;cursor:pointer;border:1.5px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);color:var(--txt);font-size:.85rem;font-weight:700;transition:all .15s;" onmouseover="this.style.borderColor='#22C55E'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">+15° ↻</button>
+        </div>
+        <div class="drag-hint" style="margin-top:6px;">✋ Arraste a logo no preview para mover</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="padding:0 0 8px;">
+      <a id="btn-wpp" href="#" target="_blank" class="cta-wpp">
+        💬 Pedir pelo WhatsApp
+      </a>
+      <button class="cta-copy" id="btn-copy" onclick="copiarMsg()">
+        📋 Copiar resumo do pedido
+      </button>
+      <p style="font-size:.65rem;color:#1E3550;text-align:center;margin-top:10px;line-height:1.6;">
+        Um especialista ENTRATTA confirma os detalhes e envia o orçamento.
+      </p>
+    </div>
+
+  </div><!-- /panel -->
+
+  <!-- PREVIEW -->
+  <div class="preview-area">
+
+    <div class="live-badge">
+      <div class="pulse"></div>
+      <span>Preview ao vivo — atualiza enquanto você configura</span>
+    </div>
+
+    <!-- TAPETE SVG -->
+    <svg id="tapete-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="vinyl" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+          <path d="M0,5 C2,2 6,8 9,5 C12,2 16,8 18,5" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M0,13 C3,10 7,16 10,13 C13,10 17,16 20,13" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M5,0 C2,4 7,7 5,11 C2,15 7,18 5,20" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.1" stroke-linecap="round"/>
+          <ellipse cx="13" cy="8" rx="3.5" ry="2" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.9" transform="rotate(-25,13,8)"/>
+        </pattern>
+        <pattern id="vinyl-light" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+          <path d="M0,5 C2,2 6,8 9,5 C12,2 16,8 18,5" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M0,13 C3,10 7,16 10,13 C13,10 17,16 20,13" fill="none" stroke="rgba(0,0,0,0.07)" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M5,0 C2,4 7,7 5,11 C2,15 7,18 5,20" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1.1" stroke-linecap="round"/>
+        </pattern>
+      </defs>
+      <!-- elementos preenchidos via JS -->
+      <rect id="tapete-bg" rx="12"/>
+      <rect id="tapete-texture" rx="12"/>
+      <rect id="tapete-veil" rx="12"/>
+      <rect id="borda1" fill="none"/>
+      <rect id="borda2" fill="none"/>
+      <image id="logo-img" preserveAspectRatio="xMidYMid meet"/>
+      <!-- Guias de centralização (aparecem ao arrastar) -->
+      <line id="guia-v" stroke="#22C55E" stroke-width="1.2" stroke-dasharray="5,4" opacity="0" pointer-events="none"/>
+      <line id="guia-h" stroke="#22C55E" stroke-width="1.2" stroke-dasharray="5,4" opacity="0" pointer-events="none"/>
+      <circle id="guia-centro" r="6" fill="none" stroke="#22C55E" stroke-width="1.5" opacity="0" pointer-events="none"/>
+      <circle id="guia-centro-inner" r="2" fill="#22C55E" opacity="0" pointer-events="none"/>
+      <!-- Área de arrasto invisível sobre a logo -->
+      <rect id="logo-drag-handle" fill="rgba(0,0,0,0)" display="none" cursor="move" rx="4" style="touch-action:none;"/>
+      <text id="tapete-texto" text-anchor="middle" dominant-baseline="central"/>
+      <!-- Área de arrasto invisível sobre o texto -->
+      <rect id="texto-drag-handle" fill="rgba(0,0,0,0)" display="none" cursor="move" rx="4" style="touch-action:none;"/>
+      <text id="tapete-medida" text-anchor="end" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.25)" letter-spacing="0.5"/>
+    </svg>
+
+    <!-- CHIPS INFO -->
+    <div class="info-chips">
+      <div class="ic"><div class="ic-l">Medida</div><div class="ic-v" id="chip-medida">60×90 cm</div></div>
+      <div class="ic"><div class="ic-l">Cor</div><div class="ic-v" id="chip-cor">Preto</div></div>
+      <div class="ic"><div class="ic-l">Texto</div><div class="ic-v" id="chip-texto">—</div></div>
+      <div class="ic"><div class="ic-l">Preço</div><div class="ic-v" id="chip-preco" style="color:#22C55E;">R$ 162</div></div>
+    </div>
+
+    <div class="garantias">
+      <span class="gar">✓ Sem compromisso</span>
+      <span class="gar">✓ Orçamento em minutos</span>
+      <span class="gar">✓ Entrega todo o Brasil</span>
+      <span class="gar">✓ Produção em 7 dias úteis</span>
+    </div>
+
+  </div><!-- /preview -->
+
+</div><!-- /layout -->
+
+<script>
+// ── DADOS ──
+const CORES_TAPETE = [
+  {id:'preto',    label:'Preto',       hex:'#1a1a1a'},
+  {id:'cinza',    label:'Cinza',       hex:'#4a4a4a'},
+  {id:'verde',    label:'Verde',       hex:'#15803D'},
+  {id:'azul',     label:'Azul',        hex:'#0F2D52'},
+  {id:'vermelho', label:'Vermelho',    hex:'#991B1B'},
+  {id:'marrom',   label:'Marrom',      hex:'#78350F'},
+  {id:'bege',     label:'Bege',        hex:'#D4B896'},
+];
+const CORES_TEXTO = [
+  {id:'branco',   label:'Branco',   hex:'#FFFFFF'},
+  {id:'verde',    label:'Verde',    hex:'#22C55E'},
+  {id:'amarelo',  label:'Amarelo',  hex:'#EAB308'},
+  {id:'vermelho', label:'Vermelho', hex:'#EF4444'},
+  {id:'azul',     label:'Azul',     hex:'#3B82F6'},
+  {id:'preto',    label:'Preto',    hex:'#111111'},
+];
+const MEDIDAS = {
+  '40x60':  {l:'40×60 cm',  w:0.40, c:0.60},
+  '50x80':  {l:'50×80 cm',  w:0.50, c:0.80},
+  '60x90':  {l:'60×90 cm',  w:0.60, c:0.90},
+  '80x120': {l:'80×120 cm', w:0.80, c:1.20},
+  '100x150':{l:'100×150 cm',w:1.00, c:1.50},
+  'custom': {l:'Sob medida', w:null, c:null},
+};
+const BORDAS = [{id:'sem',l:'Sem borda'},{id:'fina',l:'Borda fina'},{id:'dupla',l:'Borda dupla'}];
+const FONTES = [
+  {id:'bold',  l:'Bold',     f:'Inter,sans-serif',    w:'800'},
+  {id:'light', l:'Clean',    f:'Inter,sans-serif',    w:'300'},
+  {id:'serif', l:'Elegante', f:'Georgia,serif',       w:'700'},
+];
+
+// ── ESTADO ──
+const S = {
+  medida:'60x90', corTapete:'preto', corTexto:'branco', corBorda:'branco',
+  texto:'', borda:'sem', fonte:'bold',
+  logoSrc:null, customL:'', customC:'',
+  nome:'', wpp:'',
+  logoRotacao:0,
+  logoX:null, logoY:null,
+  logoScale:1.0,
+  textoX:null, textoY:null,  // null = auto-centrado
+};
+
+// ── DRAG STATE (target: 'logo' | 'texto') ──
+const drag = {active:false, target:'', svgX0:0, svgY0:0, startX:0, startY:0};
+const SNAP = 14;
+
+// ── INIT ──
+function init() {
+  // Cores tapete
+  const ct = document.getElementById('cores-tapete');
+  CORES_TAPETE.forEach(c => {
+    const wrap = document.createElement('div');
+    wrap.className='cor-wrap';
+    const chip = document.createElement('div');
+    chip.className='cor-chip' + (c.id===S.corTapete?' ativo':'');
+    chip.id='ct-'+c.id;
+    chip.style.background=c.hex;
+    chip.onclick=()=>setCorTapete(c.id);
+    const lbl=document.createElement('div');
+    lbl.className='cor-label';
+    lbl.textContent=c.label;
+    wrap.appendChild(chip); wrap.appendChild(lbl);
+    ct.appendChild(wrap);
+  });
+  // Cores texto
+  const ctx=document.getElementById('cores-texto');
+  CORES_TEXTO.forEach(c=>{
+    const wrap=document.createElement('div'); wrap.className='cor-wrap';
+    const chip=document.createElement('div');
+    chip.className='cor-chip'+(c.id===S.corTexto?' ativo':'');
+    chip.id='ctx-'+c.id;
+    chip.style.background=c.hex;
+    if(c.id==='branco')chip.style.border='2px solid #555';
+    chip.onclick=()=>setCorTexto(c.id);
+    const lbl=document.createElement('div'); lbl.className='cor-label'; lbl.textContent=c.label;
+    wrap.appendChild(chip); wrap.appendChild(lbl);
+    ctx.appendChild(wrap);
+  });
+  // Bordas
+  const br=document.getElementById('bordas-row');
+  BORDAS.forEach(b=>{
+    const btn=document.createElement('button');
+    btn.className='borda-btn'+(b.id===S.borda?' ativo':'');
+    btn.id='brd-'+b.id; btn.textContent=b.l;
+    btn.onclick=()=>setBorda(b.id);
+    br.appendChild(btn);
+  });
+  // Fontes
+  const fr=document.getElementById('fontes-row');
+  FONTES.forEach(f=>{
+    const btn=document.createElement('button');
+    btn.className='fonte-btn'+(f.id===S.fonte?' ativo':'');
+    btn.id='fnt-'+f.id; btn.textContent=f.l;
+    btn.onclick=()=>setFonte(f.id);
+    fr.appendChild(btn);
+  });
+
+  // Cores borda (mesmas do texto)
+  const cb=document.getElementById('cores-borda');
+  const CORES_BORDA_LIST=[
+    {id:'branco',label:'Branco',hex:'#FFFFFF'},
+    {id:'verde', label:'Verde', hex:'#22C55E'},
+    {id:'amarelo',label:'Amarelo',hex:'#EAB308'},
+    {id:'vermelho',label:'Vermelho',hex:'#EF4444'},
+    {id:'azul',  label:'Azul',  hex:'#3B82F6'},
+    {id:'preto', label:'Preto', hex:'#111111'},
+    {id:'ouro',  label:'Ouro',  hex:'#B8860B'},
+  ];
+  CORES_BORDA_LIST.forEach(co=>{
+    const wrap=document.createElement('div'); wrap.className='cor-wrap';
+    const chip=document.createElement('div');
+    chip.className='cor-chip'+(co.id===S.corBorda?' ativo':'');
+    chip.id='cb-'+co.id; chip.style.background=co.hex;
+    if(co.id==='branco') chip.style.border='2px solid #555';
+    chip.onclick=()=>setCorBorda(co.id);
+    const lbl=document.createElement('div'); lbl.className='cor-label'; lbl.textContent=co.label;
+    wrap.appendChild(chip); wrap.appendChild(lbl);
+    cb.appendChild(wrap);
+  });
+
+  atualizar();
+}
+
+// ── SETTERS ──
+function setMedida(id){
+  S.medida=id;
+  document.querySelectorAll('.med-btn').forEach(b=>b.classList.remove('ativo'));
+  document.getElementById('med-'+id).classList.add('ativo');
+  document.getElementById('custom-inputs').style.display = id==='custom'?'block':'none';
+  atualizar();
+}
+function setCorTapete(id){
+  S.corTapete=id;
+  document.querySelectorAll('[id^="ct-"]').forEach(c=>c.classList.remove('ativo'));
+  document.getElementById('ct-'+id).classList.add('ativo');
+  atualizar();
+}
+function setCorTexto(id){
+  S.corTexto=id;
+  document.querySelectorAll('[id^="ctx-"]').forEach(c=>c.classList.remove('ativo'));
+  document.getElementById('ctx-'+id).classList.add('ativo');
+  atualizar();
+}
+function setBorda(id){
+  S.borda=id;
+  document.querySelectorAll('.borda-btn').forEach(b=>b.classList.remove('ativo'));
+  document.getElementById('brd-'+id).classList.add('ativo');
+  // Mostrar seletor de cor só quando tem borda
+  document.getElementById('sec-cor-borda').style.display = id==='sem' ? 'none' : 'block';
+  atualizar();
+}
+function setCorBorda(id){
+  S.corBorda=id;
+  document.querySelectorAll('[id^="cb-"]').forEach(c=>c.classList.remove('ativo'));
+  document.getElementById('cb-'+id).classList.add('ativo');
+  atualizar();
+}
+function setFonte(id){
+  S.fonte=id;
+  document.querySelectorAll('.fonte-btn').forEach(b=>b.classList.remove('ativo'));
+  document.getElementById('fnt-'+id).classList.add('ativo');
+  atualizar();
+}
+function rotLogo(delta, modo){
+  if(modo==='reset'){ S.logoRotacao=0; }
+  else { S.logoRotacao = (S.logoRotacao + delta + 360) % 360; }
+  // Mostrar valor (preferindo -180 a 180)
+  let exibe = S.logoRotacao;
+  if(exibe > 180) exibe = exibe - 360;
+  document.getElementById('rot-label').textContent = exibe+'°';
+  atualizar();
+}
+function setLogoScale(v){
+  S.logoScale = parseFloat(v)/100;
+  document.getElementById('logo-scale-label').textContent = v+'%';
+  atualizar();
+}
+function loadLogo(inp){
+  const f=inp.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=e=>{
+    S.logoSrc=e.target.result;
+    S.logoX=null; S.logoY=null; // reset posição ao carregar nova logo
+    document.getElementById('logo-preview-img').src=S.logoSrc;
+    document.getElementById('logo-preview-area').style.display='flex';
+    document.getElementById('logo-scale-wrap').style.display='block';
+    document.getElementById('logo-rot-wrap').style.display='block';
+    document.getElementById('upload-lbl').textContent='✓ Logo carregada — clique para trocar';
+    atualizar();
+  };
+  r.readAsDataURL(f);
+}
+function removeLogo(){
+  S.logoSrc=null; S.logoX=null; S.logoY=null; S.logoScale=1.0; S.logoRotacao=0;
+  document.getElementById('logo-preview-area').style.display='none';
+  document.getElementById('logo-scale-wrap').style.display='none';
+  document.getElementById('logo-rot-wrap').style.display='none';
+  document.getElementById('logo-scale').value=100;
+  document.getElementById('logo-scale-label').textContent='100%';
+  document.getElementById('upload-lbl').textContent='⬆ Enviar logo (PNG, JPG, SVG)';
+  document.getElementById('file-logo').value='';
+  atualizar();
+}
+
+// ── CALCULAR PREÇO ──
+function calcPreco(){
+  const m=MEDIDAS[S.medida];
+  if(S.medida==='custom'){
+    const l=parseFloat(document.getElementById('inp-largura').value)||0;
+    const c=parseFloat(document.getElementById('inp-comprimento').value)||0;
+    if(l>0&&c>0) return Math.round((l/100)*(c/100)*300);
+    return null;
+  }
+  return Math.round(m.w * m.c * 300);
+}
+
+// ── ATUALIZAR TUDO ──
+function atualizar(){
+  S.texto=document.getElementById('inp-texto').value;
+  S.nome=document.getElementById('inp-nome').value;
+  S.wpp=document.getElementById('inp-wpp').value;
+  document.getElementById('char-count').textContent=S.texto.length+'/40 caracteres';
+
+  const corObj = CORES_TAPETE.find(c=>c.id===S.corTapete);
+  const txtObj = CORES_TEXTO.find(c=>c.id===S.corTexto);
+  const fntObj = FONTES.find(f=>f.id===S.fonte);
+  const isLight = ['bege','cinza'].includes(S.corTapete);
+
+  // Dimensões SVG proporcionais
+  const m = MEDIDAS[S.medida];
+  let larg, comp;
+  if(S.medida==='custom'){
+    larg=parseFloat(document.getElementById('inp-largura').value)||60;
+    comp=parseFloat(document.getElementById('inp-comprimento').value)||90;
+  } else {
+    larg=m.w*100; comp=m.c*100;
+  }
+  // Tapete sempre horizontal (landscape) no preview
+  let dLarg = larg, dComp = comp;
+  if (dLarg < dComp) { const t=dLarg; dLarg=dComp; dComp=t; }
+  const ratio = dLarg / dComp;
+  const W = Math.min(460, window.innerWidth - 60);
+  const H = Math.round(W / ratio);
+  const PAD = 18;
+
+  const svg=document.getElementById('tapete-svg');
+  svg.setAttribute('width', W);
+  svg.setAttribute('height', H);
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  // Fundo
+  const bg=document.getElementById('tapete-bg');
+  bg.setAttribute('x',0); bg.setAttribute('y',0);
+  bg.setAttribute('width',W); bg.setAttribute('height',H);
+  bg.setAttribute('fill', corObj.hex);
+
+  // Textura vinyl
+  const tx=document.getElementById('tapete-texture');
+  tx.setAttribute('x',0); tx.setAttribute('y',0);
+  tx.setAttribute('width',W); tx.setAttribute('height',H);
+  tx.setAttribute('fill', isLight ? 'url(#vinyl-light)' : 'url(#vinyl)');
+
+  // Veil
+  const vl=document.getElementById('tapete-veil');
+  vl.setAttribute('x',0); vl.setAttribute('y',0);
+  vl.setAttribute('width',W); vl.setAttribute('height',H);
+  vl.setAttribute('fill', isLight ? 'rgba(0,0,0,0.08)' : 'rgba(0,0,0,0.15)');
+
+  // Bordas
+  const b1=document.getElementById('borda1');
+  const b2=document.getElementById('borda2');
+  const bordaHex = (()=>{
+    const CORES_BORDA_MAP={branco:'#FFFFFF',verde:'#22C55E',amarelo:'#EAB308',vermelho:'#EF4444',azul:'#3B82F6',preto:'#111111',ouro:'#B8860B'};
+    return CORES_BORDA_MAP[S.corBorda] || '#FFFFFF';
+  })();
+  if(S.borda==='fina'){
+    b1.setAttribute('x',PAD/2); b1.setAttribute('y',PAD/2);
+    b1.setAttribute('width',W-PAD); b1.setAttribute('height',H-PAD);
+    b1.setAttribute('stroke', bordaHex); b1.setAttribute('stroke-width','4');
+    b1.setAttribute('rx','8'); b1.setAttribute('opacity','0.80');
+    b2.setAttribute('stroke-width','0');
+  } else if(S.borda==='dupla'){
+    b1.setAttribute('x',PAD/2); b1.setAttribute('y',PAD/2);
+    b1.setAttribute('width',W-PAD); b1.setAttribute('height',H-PAD);
+    b1.setAttribute('stroke', bordaHex); b1.setAttribute('stroke-width','5');
+    b1.setAttribute('rx','8'); b1.setAttribute('opacity','0.80');
+    b2.setAttribute('x',PAD); b2.setAttribute('y',PAD);
+    b2.setAttribute('width',W-PAD*2); b2.setAttribute('height',H-PAD*2);
+    b2.setAttribute('stroke', bordaHex); b2.setAttribute('stroke-width','2');
+    b2.setAttribute('rx','5'); b2.setAttribute('opacity','0.45');
+  } else {
+    b1.setAttribute('stroke-width','0');
+    b2.setAttribute('stroke-width','0');
+  }
+
+  // Logo com escala e posição customizada
+  const logoEl=document.getElementById('logo-img');
+  const handle=document.getElementById('logo-drag-handle');
+  if(S.logoSrc){
+    const baseLW=Math.min(130, W*0.32);
+    const baseLH=Math.min(90, H*0.38);
+    const lw=baseLW*S.logoScale;
+    const lh=baseLH*S.logoScale;
+    const autoX=(W-lw)/2;
+    const autoY=S.texto ? H/2-lh-10 : (H-lh)/2;
+    const lx = S.logoX!==null ? S.logoX-lw/2 : autoX;
+    const ly = S.logoY!==null ? S.logoY-lh/2 : autoY;
+    logoEl.setAttribute('href',S.logoSrc);
+    logoEl.setAttribute('x',lx); logoEl.setAttribute('y',ly);
+    logoEl.setAttribute('width',lw); logoEl.setAttribute('height',lh);
+    // Rotação da logo em torno do próprio centro
+    const rCX = lx + lw/2;
+    const rCY = ly + lh/2;
+    if(S.logoRotacao !== 0){
+      logoEl.setAttribute('transform', `rotate(${S.logoRotacao},${rCX},${rCY})`);
+    } else {
+      logoEl.removeAttribute('transform');
+    }
+    // Handle de arrasto (área um pouco maior que a logo)
+    handle.setAttribute('x',lx-6); handle.setAttribute('y',ly-6);
+    handle.setAttribute('width',lw+12); handle.setAttribute('height',lh+12);
+    handle.setAttribute('display','block');
+    // Atualizar guides para dimensões atuais
+    const gv=document.getElementById('guia-v');
+    const gh=document.getElementById('guia-h');
+    const gc=document.getElementById('guia-centro');
+    const gci=document.getElementById('guia-centro-inner');
+    gv.setAttribute('x1',W/2); gv.setAttribute('y1',0);
+    gv.setAttribute('x2',W/2); gv.setAttribute('y2',H);
+    gh.setAttribute('x1',0); gh.setAttribute('y1',H/2);
+    gh.setAttribute('x2',W); gh.setAttribute('y2',H/2);
+    gc.setAttribute('cx',W/2); gc.setAttribute('cy',H/2);
+    gci.setAttribute('cx',W/2); gci.setAttribute('cy',H/2);
+  } else {
+    logoEl.setAttribute('href','');
+    logoEl.setAttribute('width','0'); logoEl.setAttribute('height','0');
+    handle.setAttribute('display','none');
+  }
+
+  // Texto com posição customizável (arrasto)
+  const textoEl=document.getElementById('tapete-texto');
+  const textoDH=document.getElementById('texto-drag-handle');
+  if(S.texto){
+    const maxFont = Math.min(42, Math.max(12, Math.floor(W / (S.texto.length * 0.60 + 1))));
+    const autoTX = W/2;
+    const autoTY = S.logoSrc ? H*0.76 : H/2;
+    const tx = S.textoX!==null ? S.textoX : autoTX;
+    const ty = S.textoY!==null ? S.textoY : autoTY;
+    textoEl.setAttribute('x', tx);
+    textoEl.setAttribute('y', ty);
+    textoEl.setAttribute('fill', txtObj.hex);
+    textoEl.setAttribute('font-size', maxFont);
+    textoEl.setAttribute('font-family', fntObj.f);
+    textoEl.setAttribute('font-weight', fntObj.w);
+    textoEl.setAttribute('letter-spacing', S.fonte==='light'?'4':'2');
+    textoEl.removeAttribute('transform');
+    textoEl.textContent = S.texto.toUpperCase();
+    // Drag handle: rect estimado sobre o texto
+    const estW = Math.min(W-20, maxFont * S.texto.length * 0.62 + 16);
+    const estH = maxFont * 1.5;
+    textoDH.setAttribute('x', tx - estW/2);
+    textoDH.setAttribute('y', ty - estH/2);
+    textoDH.setAttribute('width', estW);
+    textoDH.setAttribute('height', estH);
+    textoDH.setAttribute('display','block');
+  } else if(!S.logoSrc){
+    textoEl.setAttribute('fill','rgba(255,255,255,0.15)');
+    textoEl.setAttribute('x', W/2);
+    textoEl.setAttribute('y', H/2);
+    textoEl.setAttribute('font-size', '13');
+    textoEl.setAttribute('font-family', 'Inter,sans-serif');
+    textoEl.setAttribute('font-weight', '500');
+    textoEl.setAttribute('letter-spacing', '3');
+    textoEl.removeAttribute('transform');
+    textoEl.textContent = 'SEU TEXTO AQUI';
+    textoDH.setAttribute('display','none');
+  } else {
+    textoEl.textContent='';
+    textoDH.setAttribute('display','none');
+  }
+
+  // Medida watermark
+  const mEl=document.getElementById('tapete-medida');
+  mEl.setAttribute('x', W-10);
+  mEl.setAttribute('y', H-10);
+  const label = S.medida==='custom'
+    ? (larg+'×'+comp+' cm')
+    : MEDIDAS[S.medida].l;
+  mEl.textContent = label;
+
+  // Preço
+  const preco = calcPreco();
+  const precoFmt = preco ? 'R$ '+preco.toLocaleString('pt-BR') : '—';
+  document.getElementById('chip-medida').textContent = label;
+  document.getElementById('chip-cor').textContent = corObj.label;
+  document.getElementById('chip-texto').textContent = S.texto || '—';
+  document.getElementById('chip-preco').textContent = precoFmt;
+
+  // Preço display
+  const pd=document.getElementById('preco-display');
+  if(preco){
+    pd.innerHTML='<div class="preco-badge">💰 '+precoFmt+' <span style="font-size:.65rem;font-weight:400;color:#4ADE80;margin-left:4px;">tapete pronto</span></div>';
+  } else {
+    pd.innerHTML='';
+  }
+
+  // WPP link
+  updateWPP(preco, label);
+}
+
+function updateWPP(preco, medidaLabel){
+  const m = MEDIDAS[S.medida];
+  const corObj = CORES_TAPETE.find(c=>c.id===S.corTapete);
+  const corTxtObj = CORES_TEXTO.find(c=>c.id===S.corTexto);
+  const bordaObj = [{id:'sem',l:'Sem borda'},{id:'fina',l:'Borda fina'},{id:'dupla',l:'Borda dupla'}].find(b=>b.id===S.borda);
+
+  const CORES_BORDA_LABEL={branco:'Branco',verde:'Verde',amarelo:'Amarelo',vermelho:'Vermelho',azul:'Azul',preto:'Preto',ouro:'Ouro'};
+  const msg = `Olá! Quero montar meu capacho personalizado 🚪
+
+👤 Nome: ${S.nome||'não informado'}
+📐 Medida: ${medidaLabel}
+🎨 Cor do tapete: ${corObj.label}
+✏️ Texto: ${S.texto||'sem texto'}
+🖊️ Cor do texto: ${corTxtObj.label}
+🔲 Borda: ${bordaObj.l}${S.borda!=='sem'?' — Cor: '+(CORES_BORDA_LABEL[S.corBorda]||S.corBorda):''}
+🖼️ Logo: ${S.logoSrc?'SIM — envio no próximo passo':'não'}
+💰 Preço estimado: ${preco?'R$'+preco:'a calcular'}
+
+Aguardo o orçamento! 😊`;
+
+  document.getElementById('btn-wpp').href =
+    'https://wa.me/5564992066855?text='+encodeURIComponent(msg);
+}
+
+function copiarMsg(){
+  const btn=document.getElementById('btn-copy');
+  const m=MEDIDAS[S.medida];
+  const corObj=CORES_TAPETE.find(c=>c.id===S.corTapete);
+  const label=S.medida==='custom'
+    ? (document.getElementById('inp-largura').value||'?')+'×'+(document.getElementById('inp-comprimento').value||'?')+' cm'
+    : m.l;
+  const preco=calcPreco();
+  const msg=`ENTRATTA Capachos — Pedido
+Medida: ${label}
+Cor: ${corObj.label}
+Texto: ${S.texto||'—'}
+Logo: ${S.logoSrc?'Sim':'Não'}
+Preço estimado: ${preco?'R$'+preco:'a calcular'}
+WhatsApp: (64) 99206-6855`;
+  navigator.clipboard.writeText(msg).then(()=>{
+    btn.textContent='✓ Copiado!';
+    btn.classList.add('copiado');
+    setTimeout(()=>{btn.textContent='📋 Copiar resumo do pedido';btn.classList.remove('copiado');},2200);
+  });
+}
+
+// ── DRAG DA LOGO ──
+function getSVGPt(e, svg){
+  const r=svg.getBoundingClientRect();
+  const W=parseFloat(svg.getAttribute('width'));
+  const H=parseFloat(svg.getAttribute('height'));
+  const cx = e.touches ? e.touches[0].clientX : e.clientX;
+  const cy = e.touches ? e.touches[0].clientY : e.clientY;
+  return {x:(cx-r.left)/r.width*W, y:(cy-r.top)/r.height*H};
+}
+
+function initDrag(){
+  const svg=document.getElementById('tapete-svg');
+
+  function startDrag(e, tgt){
+    e.preventDefault();
+    const pt=getSVGPt(e, svg);
+    drag.active=true; drag.target=tgt;
+    drag.svgX0=pt.x; drag.svgY0=pt.y;
+    if(tgt==='logo'){
+      const el=document.getElementById('logo-img');
+      const lw=parseFloat(el.getAttribute('width')||0);
+      const lh=parseFloat(el.getAttribute('height')||0);
+      const lx=parseFloat(el.getAttribute('x')||0);
+      const ly=parseFloat(el.getAttribute('y')||0);
+      drag.startX = S.logoX!==null ? S.logoX : lx+lw/2;
+      drag.startY = S.logoY!==null ? S.logoY : ly+lh/2;
+    } else {
+      const el=document.getElementById('tapete-texto');
+      drag.startX = S.textoX!==null ? S.textoX : parseFloat(el.getAttribute('x')||0);
+      drag.startY = S.textoY!==null ? S.textoY : parseFloat(el.getAttribute('y')||0);
+    }
+  }
+
+  function moveDrag(e){
+    if(!drag.active) return;
+    e.preventDefault();
+    const W=parseFloat(svg.getAttribute('width'));
+    const H=parseFloat(svg.getAttribute('height'));
+    const pt=getSVGPt(e,svg);
+    let nx=drag.startX+(pt.x-drag.svgX0);
+    let ny=drag.startY+(pt.y-drag.svgY0);
+    nx=Math.max(20, Math.min(W-20, nx));
+    ny=Math.max(20, Math.min(H-20, ny));
+    const snapX=Math.abs(nx-W/2)<SNAP;
+    const snapY=Math.abs(ny-H/2)<SNAP;
+    if(snapX) nx=W/2;
+    if(snapY) ny=H/2;
+    // Guias
+    const gv=document.getElementById('guia-v');
+    const gh=document.getElementById('guia-h');
+    const gc=document.getElementById('guia-centro');
+    const gci=document.getElementById('guia-centro-inner');
+    gv.setAttribute('x1',W/2);gv.setAttribute('y1',0);gv.setAttribute('x2',W/2);gv.setAttribute('y2',H);
+    gh.setAttribute('x1',0);gh.setAttribute('y1',H/2);gh.setAttribute('x2',W);gh.setAttribute('y2',H/2);
+    gc.setAttribute('cx',W/2);gc.setAttribute('cy',H/2);
+    gci.setAttribute('cx',W/2);gci.setAttribute('cy',H/2);
+    gv.setAttribute('opacity', snapX?'1':'0');
+    gh.setAttribute('opacity', snapY?'1':'0');
+    gc.setAttribute('opacity',(snapX&&snapY)?'1':'0');
+    gci.setAttribute('opacity',(snapX&&snapY)?'1':'0');
+    if(drag.target==='logo'){
+      S.logoX=nx; S.logoY=ny;
+      const el=document.getElementById('logo-img');
+      const lw=parseFloat(el.getAttribute('width')||0);
+      const lh=parseFloat(el.getAttribute('height')||0);
+      el.setAttribute('x', nx-lw/2); el.setAttribute('y', ny-lh/2);
+      const dh=document.getElementById('logo-drag-handle');
+      dh.setAttribute('x', nx-lw/2-6); dh.setAttribute('y', ny-lh/2-6);
+    } else {
+      S.textoX=nx; S.textoY=ny;
+      const el=document.getElementById('tapete-texto');
+      el.setAttribute('x', nx); el.setAttribute('y', ny);
+      const tw=parseFloat(document.getElementById('texto-drag-handle').getAttribute('width')||60);
+      const th=parseFloat(document.getElementById('texto-drag-handle').getAttribute('height')||20);
+      const dh=document.getElementById('texto-drag-handle');
+      dh.setAttribute('x', nx-tw/2); dh.setAttribute('y', ny-th/2);
+    }
+  }
+
+  function endDrag(){
+    if(!drag.active) return;
+    drag.active=false;
+    ['guia-v','guia-h','guia-centro','guia-centro-inner'].forEach(id=>{
+      document.getElementById(id).setAttribute('opacity','0');
+    });
+    updateWPP(calcPreco(), MEDIDAS[S.medida].l);
+  }
+
+  // Logo handle
+  const logoH=document.getElementById('logo-drag-handle');
+  logoH.addEventListener('mousedown', e=>startDrag(e,'logo'));
+  logoH.addEventListener('touchstart', e=>startDrag(e,'logo'), {passive:false});
+  // Texto handle
+  const textoH=document.getElementById('texto-drag-handle');
+  textoH.addEventListener('mousedown', e=>startDrag(e,'texto'));
+  textoH.addEventListener('touchstart', e=>startDrag(e,'texto'), {passive:false});
+
+  window.addEventListener('mousemove', moveDrag);
+  window.addEventListener('touchmove', moveDrag, {passive:false});
+  window.addEventListener('mouseup', endDrag);
+  window.addEventListener('touchend', endDrag);
+}
+
+window.addEventListener('resize', atualizar);
+init();
+initDrag();
+</script>
+</body>
+</html>

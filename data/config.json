@@ -1,0 +1,13 @@
+{
+  "diasUteis": 7,
+  "coresDisponiveis": [
+    "preto",
+    "verde",
+    "azul",
+    "vermelho",
+    "marrom",
+    "bege",
+    "cinza"
+  ],
+  "aviso": ""
+}

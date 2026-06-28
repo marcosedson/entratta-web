@@ -37,6 +37,8 @@ export async function generateStaticParams() {
   return getAllCitySlugs().map((slug) => ({ slug }))
 }
 
+export const revalidate = 3600 // ISR: regenerate every hour
+
 function CitySchema({ city }: { city: (typeof cities)[0] }) {
   const schema = {
     "@context": "https://schema.org",
