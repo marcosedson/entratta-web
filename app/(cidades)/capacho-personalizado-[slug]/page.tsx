@@ -37,8 +37,7 @@ export async function generateStaticParams() {
   return getAllCitySlugs().map((slug) => ({ slug }))
 }
 
-export const dynamicParams = false
-export const revalidate = 86400
+export const revalidate = false
 
 function CitySchema({ city }: { city: (typeof cities)[0] }) {
   const schema = {
