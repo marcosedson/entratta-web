@@ -1,5 +1,6 @@
 import { Metadata } from "next"
-import { getSegmentBySlug, getAllSegmentSlugs, segments } from "@/lib/segments"
+import { notFound } from "next/navigation"
+import { getSegmentBySlug, getAllSegmentSlugs, SEGMENTS_DATA } from "@/lib/segments"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
@@ -38,10 +39,9 @@ export async function generateStaticParams() {
   return getAllSegmentSlugs().map((slug) => ({ slug }))
 }
 
-export const dynamicParams = true
-export const revalidate = false
+export const dynamic = 'force-dynamic'
 
-function SegmentSchema({ segment }: { segment: typeof segments[0] }) {
+function SegmentSchema({ segment }: { segment: typeof SEGMENTS_DATA[0] }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -72,18 +72,7 @@ export default async function SegmentPage({ params }: Props) {
   const segment = getSegmentBySlug(slug)
 
   if (!segment) {
-    return (
-      <>
-        <Header />
-        <main className="flex-1">
-          <div className="px-4 py-20 max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl font-bold mb-4">Página não encontrada</h1>
-            <p className="text-gray-600">O segmento que você procura não está disponível.</p>
-          </div>
-        </main>
-        <Footer />
-      </>
-    )
+    notFound()
   }
 
   return (

@@ -8,7 +8,8 @@ export interface Segment {
   diferencial: string
 }
 
-export const segments: Segment[] = [
+// Inline segments data — guaranteed to be bundled
+export const SEGMENTS_DATA: Segment[] = [
   {
     slug: "empresa",
     name: "Empresa",
@@ -145,11 +146,11 @@ export const segments: Segment[] = [
 ]
 
 export function getSegmentBySlug(slug: string): Segment | undefined {
-  return segments.find((segment) => segment.slug === slug)
+  return SEGMENTS_DATA.find((segment) => segment.slug === slug)
 }
 
 export function getAllSegmentSlugs(): string[] {
-  return segments.map((segment) => segment.slug)
+  return SEGMENTS_DATA.map((segment) => segment.slug)
 }
 
 export function getSegmentUrl(slug: string): string {

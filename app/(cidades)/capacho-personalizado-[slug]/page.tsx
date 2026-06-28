@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { getCityBySlug, getAllCitySlugs, cities } from "@/lib/cities"
+import { getCityBySlug, getAllCitySlugs, CITIES_DATA } from "@/lib/data"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
@@ -50,10 +50,9 @@ export async function generateStaticParams() {
   return getAllCitySlugs().map((slug) => ({ slug }))
 }
 
-export const dynamicParams = true
-export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
-function CitySchema({ city }: { city: (typeof cities)[0] }) {
+function CitySchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -80,7 +79,7 @@ function CitySchema({ city }: { city: (typeof cities)[0] }) {
   )
 }
 
-function FAQSchema({ city }: { city: (typeof cities)[0] }) {
+function FAQSchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

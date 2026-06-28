@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next"
-import { getAllCitySlugs } from "@/lib/cities"
+import { getAllCitySlugs } from "@/lib/data"
 import { getAllSegmentSlugs } from "@/lib/segments"
 
 const baseUrl = "https://entratta.com.br"
