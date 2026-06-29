@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import jsPDF from 'jspdf'
 import { ConfiguratorState } from '@/lib/hooks'
 import { ConfiguratorService } from '@/lib/services'
+import { LogoProcessingService } from '@/lib/services/logo-processing.service'
 import {
   CARPET_COLORS,
   TEXT_COLORS,
@@ -17,6 +18,7 @@ interface CreateOrderRequest {
   svgPreview: string
   clientName?: string
   clientWhatsApp?: string
+  logoBase64?: string
 }
 
 interface OrderResponse {
@@ -419,7 +421,7 @@ END_TAP`
 export async function POST(request: NextRequest) {
   try {
     const body: CreateOrderRequest = await request.json()
-    const { state, svgPreview, clientName = 'Cliente', clientWhatsApp = '' } = body
+    const { state, svgPreview, clientName = 'Cliente', clientWhatsApp = '', logoBase64: clientLogoBase64 } = body
 
     if (!state || !svgPreview) {
       return NextResponse.json(
@@ -431,20 +433,51 @@ export async function POST(request: NextRequest) {
     const orderId = generateOrderId()
     const storageFolder = getStorageFolder(orderId)
 
-    // Load logo
-    let logoBase64 = ''
+    // Load Entratta logo (para PDF)
+    let entrattaLogoBase64 = ''
     try {
       const logoPath = join(process.cwd(), 'public', 'logo.png')
       const logoBuffer = readFileSync(logoPath)
-      logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
+      entrattaLogoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
     } catch (err) {
-      console.warn('Could not load logo')
+      console.warn('Could not load Entratta logo')
     }
 
-    // Generate files
-    const pdfBuffer = generatePDF(state, logoBase64)
+    // Generate basic files
+    const pdfBuffer = generatePDF(state, entrattaLogoBase64)
     const cdrBase64 = generateCorelDrawFile(state, orderId)
     const tapFiles = generateMultipleTAPFiles(orderId, state)
+
+    // Process client logo (if provided)
+    let logoTapFiles: string[] = []
+    let logoColors: any[] = []
+    if (clientLogoBase64) {
+      try {
+        // Converte base64 para buffer
+        const logoBuffer = Buffer.from(clientLogoBase64.replace(/^data:image\/(png|jpeg);base64,/, ''), 'base64')
+
+        // Processa logo (extrai cores e gera .TAP)
+        const logoResult = await LogoProcessingService.processLogoComplete(logoBuffer, orderId)
+
+        if (logoResult.success) {
+          logoTapFiles = logoResult.tapFiles
+          logoColors = logoResult.colors
+
+          console.log(`✅ Logo do cliente processada:`)
+          console.log(`   Cores: ${logoColors.map((c: any) => c.label).join(', ')}`)
+          console.log(`   .TAP files: ${logoTapFiles.length}`)
+        }
+      } catch (error) {
+        console.warn('Erro ao processar logo do cliente:', error)
+      }
+    }
+
+    // Combina todos os .TAP files (base + logo)
+    const allTapFiles = [
+      ...tapFiles.slice(0, 3), // 001-tapete, 002-texto, 003-borda
+      ...logoTapFiles,         // 004+: logo cores
+      ...tapFiles.slice(3),    // cascata (último)
+    ]
 
     // Log para administração
     console.log(`
@@ -453,9 +486,11 @@ export async function POST(request: NextRequest) {
 ├─ Cliente: ${clientName}
 ├─ WhatsApp: ${clientWhatsApp}
 ├─ Medida: ${state.medida}
-├─ Cor: ${state.corTapete}
+├─ Cor tapete: ${state.corTapete}
 ├─ Pasta: ${storageFolder}
-└─ Arquivos .TAP: ${tapFiles.length}
+├─ Arquivos .TAP base: ${tapFiles.length}
+${logoTapFiles.length > 0 ? `├─ Arquivos .TAP logo: ${logoTapFiles.length} (cores: ${logoColors.map((c: any) => c.label).join(', ')})` : ''}
+└─ Total .TAP: ${allTapFiles.length}
     `)
 
     // Create response
@@ -463,13 +498,13 @@ export async function POST(request: NextRequest) {
       success: true,
       orderId,
       storageFolder,
-      tapFiles,
+      tapFiles: allTapFiles,
       files: {
         pdf: pdfBuffer.toString('base64'),
         cdr: cdrBase64,
-        tap: tapFiles.map((f) => f).join(', '),
+        tap: allTapFiles.map((f) => f).join(', '),
       },
-      message: `✅ Pedido ${orderId} criado com sucesso! 📁 ${tapFiles.length} arquivos .TAP gerados para produção. 📧 Email enviado para administração. 📱 WhatsApp enviado para grupo "Novos Pedidos".`,
+      message: `✅ Pedido ${orderId} criado com sucesso! 📁 ${allTapFiles.length} arquivos .TAP gerados para produção${logoTapFiles.length > 0 ? ` (incluindo ${logoTapFiles.length} para logo)` : ''}. 📧 Email enviado para administração. 📱 WhatsApp enviado para grupo "Novos Pedidos".`,
     }
 
     return NextResponse.json(response)

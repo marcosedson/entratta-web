@@ -3,7 +3,7 @@ import { ConfiguratorState } from '@/lib/hooks'
 interface ManifestItem {
   number: number
   file: string
-  layer: 'BASE' | 'OVERLAY' | 'BORDA' | 'CASCATA'
+  layer: 'BASE' | 'OVERLAY' | 'BORDA' | 'LOGO' | 'CASCATA'
   color: string
   instruction: string
   estimatedTime: string
@@ -30,7 +30,8 @@ export class ProductionQueueService {
     state: ConfiguratorState,
     clientName: string,
     clientWhatsApp: string,
-    tapFiles: string[]
+    tapFiles: string[],
+    logoColors?: Array<{ label: string; hex: string }>
   ): ProductionManifest {
     const sequence: ManifestItem[] = []
     let itemNumber = 1
@@ -69,7 +70,21 @@ export class ProductionQueueService {
       })
     }
 
-    // 4. Cascata (produção em lote)
+    // 4. Logo colors (se houver)
+    if (logoColors && logoColors.length > 0) {
+      logoColors.forEach((logoColor, index) => {
+        sequence.push({
+          number: itemNumber++,
+          file: `${String(itemNumber - 1).padStart(3, '0')}-logo-${index + 1}-${logoColor.label.toLowerCase()}.tap`,
+          layer: 'LOGO',
+          color: logoColor.label,
+          instruction: `Aplique logo cor ${index + 1}: ${logoColor.label}`,
+          estimatedTime: '3 minutos',
+        })
+      })
+    }
+
+    // 5. Cascata (produção em lote) - sempre por último
     sequence.push({
       number: itemNumber++,
       file: `${String(itemNumber - 1).padStart(3, '0')}-cascata-5x.tap`,
@@ -131,11 +146,12 @@ export class ProductionQueueService {
     state: ConfiguratorState,
     clientName: string,
     clientWhatsApp: string,
-    tapFiles: string[]
+    tapFiles: string[],
+    logoColors?: Array<{ label: string; hex: string }>
   ): Promise<{ success: boolean; queueFolder: string; manifest: ProductionManifest }> {
     try {
       const queueFolder = this.generateQueueFolder(orderId)
-      const manifest = this.generateManifest(orderId, state, clientName, clientWhatsApp, tapFiles)
+      const manifest = this.generateManifest(orderId, state, clientName, clientWhatsApp, tapFiles, logoColors)
 
       // Em produção, aqui você:
       // 1. Criaria a pasta queueFolder
