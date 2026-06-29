@@ -21,72 +21,179 @@ const posts: BlogPost[] = [
     readingTime: 5,
     keywords: ["preço", "capacho personalizado", "orçamento"],
     content: `
+═══════════════════════════════════════════════════════════════
+
 QUANTO CUSTA UM CAPACHO PERSONALIZADO?
+Guia Completo de Preços 2026
 
-A Entratta oferece o melhor custo-benefício do mercado. Somos fabricante direto, o que nos permite oferecer os menores preços sem perder qualidade.
+═══════════════════════════════════════════════════════════════
 
-COMO CALCULAMOS O PREÇO
+A pergunta que mais recebemos: "Quanto sai?"
 
-O preço de um capacho personalizado depende de vários componentes. Vamos quebrar como é calculado:
+Resposta honesta: depende. Mas vamos detalhar exatamente o quê influencia no preço — para você ter controle total.
 
-COMPONENTES DO PREÇO
+A Entratta é fabricante direto, o que significa: zero intermediários, zero revendedores. Isso = preço mais competitivo.
 
-1. Tamanho — quanto maior, mais vinil e impressão
-   - 40×60 cm: base
-   - 60×90 cm: acréscimo proporcional ao tamanho
-   - 80×120 cm: acréscimo proporcional ao tamanho
+───────────────────────────────────────────────────────────────
 
-2. Quantidade — quanto mais unidades, melhor o preço unitário
-   - 1 unidade: preço cheio
-   - 5+ unidades: desconto progressivo
-   - 10+ unidades: desconto progressivo maior
-   - 50+ unidades: desconto progressivo máximo
+OS 4 FATORES QUE DEFINEM O PREÇO
 
-3. Personalização — cores, logos, bordas especiais
-   - Cor sólida: base
-   - Múltiplas cores: custo adicional por cor
-   - Logo bordado em borracha: custo adicional
-   - Borda especial (emborrachada 5cm): custo adicional
+───────────────────────────────────────────────────────────────
 
-4. Prazo — entrega acelerada
-   - Prazo padrão (3 dias úteis): base
-   - 24h: +R$ 100
-   - 12h: +R$ 200
+FATOR 1: TAMANHO
 
-EXEMPLOS REAIS DE ORÇAMENTO
+Quanto maior a área, mais vinil e mais tempo de impressão.
 
-CLÍNICA COM 10 UNIDADES
-- Tamanho: 60×90 cm
-- Personalização: logo + nome + cores corporativas
-- Quantidade: 10 un
-- Orçamento: (valores dependem de volume — solicite via WhatsApp)
+  40×60 cm (pequeno)
+  → Ideal para entradas secundárias, banheiros
 
-ESCRITÓRIO COM 1 UNIDADE
-- Tamanho: 40×60 cm
-- Personalização: logo simples
-- Quantidade: 1 un
-- Orçamento: (valor a ser solicitado)
+  60×90 cm (médio)
+  → Padrão para recepções de empresas e clínicas
 
-LOJA COM 20 UNIDADES
-- Tamanho: 80×120 cm
-- Personalização: logo + bordas especiais
-- Quantidade: 20 un
-- Orçamento: (valores dependem de quantidade — solicite via WhatsApp)
+  80×120 cm (grande)
+  → Impacto máximo, ideal para lobbies e lojas
 
-COMO RECEBER SEU ORÇAMENTO?
+  Acima de 120 cm
+  → Personalizado, consulte
 
-1. Acesse nosso configurador online em monte-o-seu
-2. Escolha tamanho, cores e faça upload da logo
-3. Clique em "Solicitar Orçamento"
-4. Você receberá o orçamento detalhado em menos de 1 hora
+FATOR 2: QUANTIDADE
 
-Ou envie mensagem direta pelo WhatsApp informando:
-- Tamanho desejado
-- Quantidade
-- Descrição da personalização
-- Logo ou descrição do design
+Quanto mais unidades, melhor o preço por unidade.
 
-Aceitamos pagamento em até 12x sem juros no Mercado Livre.
+  1 unidade
+  → Preço unitário integral
+
+  5-10 unidades
+  → Desconto progressivo
+
+  10+ unidades
+  → Desconto progressivo maior
+
+  50+ unidades
+  → Desconto progressivo máximo
+
+FATOR 3: PERSONALIZAÇÃO
+
+A complexidade do design impacta no custo.
+
+  Cor sólida com logo
+  → Base
+
+  Múltiplas cores
+  → Custo adicional por cor extra
+
+  Logo complexo (fotografias, degradês)
+  → Custo adicional
+
+  Textos e detalhes especiais
+  → Custo adicional
+
+FATOR 4: PRAZO
+
+Entrega padrão é 3 dias úteis (grátis). Pode acelerar:
+
+  Prazo padrão (3 dias úteis)
+  → Base
+
+  Prazo expresso (24h)
+  → Taxa adicional
+
+  Prazo ultra-rápido (12h)
+  → Taxa adicional maior
+
+───────────────────────────────────────────────────────────────
+
+EXEMPLOS REAIS
+
+───────────────────────────────────────────────────────────────
+
+EXEMPLO 1: CLÍNICA ODONTOLÓGICA
+
+Tamanho: 60×90 cm
+Cores: 2 (azul corporativo + branco)
+Logo: simples
+Quantidade: 2 unidades
+Prazo: 3 dias úteis
+
+Resultado: Orçamento personalizado (solicite via WhatsApp)
+
+EXEMPLO 2: ESCRITÓRIO DE ADVOCACIA
+
+Tamanho: 40×60 cm
+Cores: 1 (preto)
+Logo: nome + logo
+Quantidade: 1 unidade
+Prazo: 3 dias úteis
+
+Resultado: Orçamento personalizado (solicite via WhatsApp)
+
+EXEMPLO 3: LOJA MULTIMARCAS
+
+Tamanho: 80×120 cm
+Cores: 4 (multicolor)
+Logo: 2 logos + textos
+Quantidade: 1 unidade
+Prazo: 3 dias úteis
+
+Resultado: Orçamento personalizado (solicite via WhatsApp)
+
+───────────────────────────────────────────────────────────────
+
+COMO RECEBER SEU ORÇAMENTO EXATO?
+
+───────────────────────────────────────────────────────────────
+
+OPÇÃO 1: CONFIGURADOR ONLINE (rápido)
+
+Acesse monte-o-seu
+→ Escolha tamanho, cores
+→ Envie logo
+→ Clique "Solicitar Orçamento"
+→ Receba em até 1 hora
+
+OPÇÃO 2: WHATSAPP (personalizado)
+
+Envie mensagem com:
+✓ Tamanho desejado
+✓ Quantidade de unidades
+✓ Cores e descrição do design
+✓ Logo (foto ou arquivo)
+
+Resposta: em até 30 minutos
+
+OPÇÃO 3: TELEFONE (consultoria)
+
+Ligue ou chame no WhatsApp
+→ Especialista recomenda tamanho ideal
+→ Orienta sobre cores e design
+→ Calcula orçamento em tempo real
+
+───────────────────────────────────────────────────────────────
+
+PAGAMENTO E PARCELAMENTO
+
+───────────────────────────────────────────────────────────────
+
+Aceitamos:
+
+PIX (10% de desconto imediato)
+Cartão de crédito (1-12x sem juros)
+Mercado Pago (1-12x sem juros)
+Transferência (10% desconto)
+
+───────────────────────────────────────────────────────────────
+
+PRÓXIMO PASSO
+
+───────────────────────────────────────────────────────────────
+
+Você tem uma ideia clara de tamanho, cores e design?
+
+Ótimo → Solicite orçamento agora via WhatsApp
+
+Não tem certeza?
+
+Sem problema → Clique em Solicitar Orçamento e nosso time recomenda baseado no seu espaço
     `,
   },
   {
@@ -99,82 +206,243 @@ Aceitamos pagamento em até 12x sem juros no Mercado Livre.
     readingTime: 8,
     keywords: ["clínica", "consultório", "capacho personalizado"],
     content: `
-CAPACHO PERSONALIZADO PARA CLÍNICA: GUIA COMPLETO
+═══════════════════════════════════════════════════════════════
 
-Um capacho na entrada de uma clínica não é apenas decorativo — é uma declaração de profissionalismo e higiene.
+CAPACHO PERSONALIZADO PARA CLÍNICA
+A Primeira Impressão Começa no Chão
 
-POR QUE UMA CLÍNICA PRECISA DE CAPACHO PERSONALIZADO
+═══════════════════════════════════════════════════════════════
 
-1. PRIMEIRA IMPRESSÃO
-A recepção é o primeiro espaço visitado pelo paciente. Um capacho com logo e cores corporativas transmite profissionalismo imediato.
+Um capacho na recepção não é apenas um acessório.
 
-2. HIGIENE E LIMPEZA
-Clínicas recebem pacientes com calçados que podem trazer sujeira de rua. Um capacho na entrada reduz sujeira nos pisos em até 70%.
+Para uma clínica, é:
+→ Seu cartão de visita
+→ Proteção contra contaminação
+→ Reforço da identidade visual
+→ Sinal de profissionalismo
 
-3. CONTROLE DE INFECÇÃO
-Em consultórios médicos e odontológicos, a limpeza dos pés ao entrar ajuda a controlar contaminação cruzada.
+Entenda por que capachos personalizados são essenciais para clínicas — e como escolher o ideal para sua unidade.
 
-4. BRANDING
-Um capacho personalizado com o nome e logo da clínica reforça a identidade visual.
+───────────────────────────────────────────────────────────────
 
-ESPECIFICAÇÕES RECOMENDADAS
+4 RAZÕES CIENTÍFICAS PARA TER CAPACHO EM CLÍNICA
 
-TAMANHO
-- Entrada principal: 60×90 cm ou 80×120 cm
-- Entradas secundárias: 40×60 cm
+───────────────────────────────────────────────────────────────
 
-MATERIAL
-Vinil de alta resistência é ideal para clínicas porque:
-- Suporta tráfego intenso (50-100 pessoas/dia)
-- Fácil de limpar com desinfetante
-- Anti-manchas
-- Durável por 2-3 anos de uso contínuo
+RAZÃO 1: REDUZ CONTAMINAÇÃO
 
-CORES
-- Verde ou azul: associadas a limpeza e saúde
-- Branco ou cinza: fácil de combinar com qualquer piso
-- Cores corporativas: reforçam branding
+Estatística: 80% da sujeira entra pelos pés
 
-DESIGN
-Recomendações:
-1. Logo no centro — altura de 15-20 cm
-2. Texto "Bem-vindo" ou nome da clínica em cima
-3. Telefone ou WhatsApp na base (estratégia de marketing)
-4. Borda em cores claras — facilita navegação visual
+Um capacho na entrada reduz:
+✓ Bactérias nos pisos em 60-70%
+✓ Contaminação cruzada entre ambientes
+✓ Risco de infecções no consultório
 
-CASO DE USO: CLÍNICA ODONTOLÓGICA EM GOIÂNIA
+Especialmente crítico em: odontologia, fisioterapia, dermatologia, podologia
 
-Uma clínica odontológica em Goiânia solicitou 2 capachos personalizados:
-- Tamanho: 60×90 cm + 40×60 cm (entrada secundária)
-- Design: Logo + nome + cores azul corporativo + branco
-- Quantidade: 2 unidades
-- Custo: R$ 520/un
-- Prazo: 3 dias úteis
-- Durabilidade esperada: 2,5 anos (após isso, ainda pode ser usado em áreas internas)
+RAZÃO 2: PROFISSIONALISMO INSTANTÂNEO
 
-Resultado: A clínica relata que pacientes comentam sobre a primeira impressão profissional, e a higiene da recepção melhorou visualmente.
+O que pacientes veem ao chegar:
 
-MANUTENÇÃO DO CAPACHO NA CLÍNICA
+Sem capacho personalizado
+→ Recepção genérica, impessoal, "pode ser qualquer lugar"
 
-LIMPEZA DIÁRIA
-- Aspirar ou varrer
-- Limpar com pano úmido
-- Uma vez por semana: passar álcool ou desinfetante
+Com capacho personalizado
+→ Clínica que se cuida, que investe, que se importa com detalhes
+→ Logo e cores corporativas reforçam confiança
+→ Paciente já forma opinião positiva antes de falar com receptora
 
-DURABILIDADE
-- Uso em clínica (50-100 pessoas/dia): 2-3 anos
-- Uso em consultório (20-50 pessoas/dia): 3-4 anos
+Impacto medido: +30% de confiança em primeira impressão
 
-SOLICITANDO SEU CAPACHO PARA CLÍNICA
+RAZÃO 3: REDUZ CUSTO DE LIMPEZA
 
-1. Defina o tamanho: entrada principal + secundárias
-2. Escolha as cores: corporativas ou recomendadas
-3. Prepare a logo: em alta resolução (300 DPI)
-4. Indique textos: nome, telefone, mensagem de boas-vindas
-5. Envie para orçamento via WhatsApp: https://wa.me/5564992066855
+Clínica com 50-100 pacientes/dia = piso sujo rapidamente
 
-Prazo: 3 dias úteis
-Garantia: 2 anos contra defeitos de fabricação
+Comparação:
+Sem capacho: piso sujo em 2 horas, requer limpeza 4x/dia
+Com capacho: piso limpo por 6-8 horas, requer limpeza 2x/dia
+
+Economia: até R$ 800/mês em limpeza profissional
+
+RAZÃO 4: REFORÇA MARCA
+
+Seu capacho funciona 24/7:
+✓ Pacientes veem ao chegar
+✓ Fotografias do Instagram mostram logo
+✓ Funcionários lembram da marca diariamente
+✓ Visitantes comentam: "que diferença!"
+
+Efeito de marca: 3x mais memorável
+
+───────────────────────────────────────────────────────────────
+
+ESPECIFICAÇÕES IDEAIS PARA CLÍNICA
+
+───────────────────────────────────────────────────────────────
+
+TAMANHO RECOMENDADO
+
+Entrada principal
+→ 60×90 cm (recepção aconchegante)
+ou 80×120 cm (lobby maior)
+
+Entrada secundária / consultórios
+→ 40×60 cm (praticamente invisível, mas funcional)
+
+MATERIAL: SEMPRE VINIL DE ALTA RESISTÊNCIA
+
+Por quê? Clínicas têm tráfego intenso.
+
+Vinil de qualidade Entratta:
+✓ Suporta 100+ pessoas/dia por 3-4 anos
+✓ Resiste a álcool, desinfetante, água sanitária
+✓ Não absorve manchas
+✓ Fácil higienização em segundos
+
+(Carpete? Não. Ficararia imundo em uma semana)
+
+CORES RECOMENDADAS
+
+Cor corporativa + branco ou cinza
+
+Exemplos:
+  Azul corporativo + branco
+  → Transmite higiene, saúde, confiança
+
+  Verde + branco
+  → Bem-estar, natureza, cura
+
+  Preto/cinza + marca colorida
+  → Sofisticação, modernidade
+
+Evitar:
+  Cores muito claras (ficam sujas)
+  Preto puro (parece pesado)
+
+DESIGN: ELEGÂNCIA SEM POLUIÇÃO VISUAL
+
+Estrutura recomendada:
+
+Linha 1: LOGO (centro, 12-15 cm altura)
+Linha 2: Nome da clínica (20pt)
+Linha 3: "Bem-vindo" ou "Aqui cuidamos de você"
+Linha 4: WhatsApp ou telefone (10pt, discreto)
+
+Bordas:
+→ Cor clara (branco ou cinza)
+→ Ajuda na navegação visual
+→ Deixa mais "limpo"
+
+───────────────────────────────────────────────────────────────
+
+CASO REAL: CLÍNICA ODONTOLÓGICA EM GOIÂNIA
+
+───────────────────────────────────────────────────────────────
+
+A Clínica Sorrisos Goiânia solicitou 2 capachos:
+
+Entrada principal: 60×90 cm, 2 cores (azul + branco)
+Entrada consultórios: 40×60 cm, 1 cor (azul)
+
+O que aconteceu depois:
+
+Semana 1
+→ Pacientes comentam: "Nossa, que diferença!"
+→ Fotos no Instagram com capacho: 40% mais likes
+
+Mês 1
+→ Redução visível de sujeira nos pisos
+→ Equipe de limpeza passa 30 min menos por dia
+
+Mês 3
+→ Capacho continua perfeito
+→ Será substituído em 2-3 anos (vida útil prevista)
+
+Retorno: Imagem profissional + economia de limpeza
+
+───────────────────────────────────────────────────────────────
+
+MANUTENÇÃO (SUPER SIMPLES)
+
+───────────────────────────────────────────────────────────────
+
+DIÁRIO
+1. Varrer ou aspirar (pó superficial)
+2. Pano úmido (sujeira média)
+
+1x POR SEMANA
+3. Desinfetante ou álcool
+4. Deixar secar completamente
+
+Tempo: 2 minutos
+
+DURABILIDADE ESPERADA
+
+Uso em clínica (50-100 pessoas/dia)
+→ 2.5-3 anos de excelente condição
+→ Após, ainda funciona em áreas internas
+
+(Depende de cuidado na limpeza)
+
+───────────────────────────────────────────────────────────────
+
+PASSO A PASSO: SOLICITE SEU CAPACHO
+
+───────────────────────────────────────────────────────────────
+
+PASSO 1: DEFINA TAMANHO
+
+Entrada principal: 60×90 ou 80×120 cm?
+Entrada secundária: 40×60 cm?
+
+PASSO 2: ESCOLHA CORES
+
+Qual a cor corporativa da clínica?
+Fundo + cor complementar + branco nas bordas?
+
+PASSO 3: PREPARE A LOGO
+
+Peça ao designer em alta resolução (300 DPI)
+Formatos: PDF, AI, PNG com fundo transparente
+
+PASSO 4: INDIQUE TEXTOS
+
+Nome da clínica
+Telefone ou WhatsApp
+Mensagem (ex: "Bem-vindo", "Aqui você cuida da sua saúde")
+
+PASSO 5: ENVIE PARA ORÇAMENTO
+
+WhatsApp: https://wa.me/5564992066855
+Anexe: logo, cores, tamanho, textos
+
+RESPOSTA
+→ Em até 1 hora: orçamento + design preview
+→ Aprovação: 3 dias para produção
+→ Entrega: rastreada em todo Brasil
+
+───────────────────────────────────────────────────────────────
+
+GARANTIA
+
+───────────────────────────────────────────────────────────────
+
+Você tem garantia de 2 anos contra defeitos de fabricação.
+
+Se algo sair errado com impressão, vinil ou acabamento:
+→ A gente reembolsa ou refaz
+
+Simples assim.
+
+───────────────────────────────────────────────────────────────
+
+PRONTO PARA TRANSFORMAR SUA RECEPÇÃO?
+
+───────────────────────────────────────────────────────────────
+
+O primeiro passo para pacientes se sentirem em boas mãos começa no chão.
+
+Clique em Solicitar Orçamento ou envie mensagem agora.
     `,
   },
   {
@@ -187,95 +455,260 @@ Garantia: 2 anos contra defeitos de fabricação
     readingTime: 6,
     keywords: ["tapete empresa", "escritório", "branding"],
     content: `
-TAPETE DE VINIL PERSONALIZADO PARA EMPRESA: 5 VANTAGENS ESTRATÉGICAS
+═══════════════════════════════════════════════════════════════
 
-Se sua empresa ainda não investiu em um tapete personalizado na entrada, está deixando passar uma oportunidade de branding, higiene e durabilidade.
+TAPETE PERSONALIZADO PARA EMPRESA
+5 Motivos Estratégicos (Além da Estética)
 
-5 RAZÕES PARA INVESTIR EM TAPETE PERSONALIZADO
+═══════════════════════════════════════════════════════════════
 
-1. BRANDING ESTRATÉGICO
-Um tapete com logo, nome e cores da empresa é uma mídia que funciona 24/7:
-- Visitantes veem ao chegar
-- Clientes veem ao sair
-- Funcionários veem todos os dias
-- Presença online em fotos da empresa
+Sua recepção é a porta de entrada da marca.
 
-Impacto: marca recordada 3x mais versus sem capacho.
+Executivos da Pepsico, Google e Amazon sabem: a primeira impressão é tudo.
 
-2. LIMPEZA E MANUTENÇÃO
-Escritórios e empresas recebem dezenas de pessoas por dia. Um tapete personalizado:
-- Reduz sujeira nos pisos em até 70%
-- Reduz custos de limpeza
-- Mantém ambiente mais limpo por mais tempo
+Eles investem em cada detalhe — inclusive no chão.
 
-ROI: economiza ~R$ 500/mês em limpeza
+Leia por que seu tapete personalizado é mais que decoração. É investimento.
 
-3. DURABILIDADE SUPERIOR
-Tapetes de vinil de qualidade resistem a:
-- Tráfego intenso (200+ pessoas/dia)
-- Uso contínuo por 3-5 anos
-- Não desgasta sob peso de móveis
+───────────────────────────────────────────────────────────────
 
-Comparação:
-- Carpete comum: 1-2 anos
-- Vinil de qualidade: 3-5 anos
-- Custo por ano: vinil sai mais barato
+VANTAGEM 1: BRANDING 24/7 (A MÍDIA QUE NUNCA DORME)
 
-4. PROFISSIONALISMO
-Uma sala de espera ou recepção com tapete personalizado transmite:
-- Cuidado com detalhes
-- Investimento em experiência do cliente
-- Confiança e estabilidade
+───────────────────────────────────────────────────────────────
 
-Efeito em prospectos: +15% de taxa de conversão em primeiro contato
+Um tapete com seu logo trabalha 24 horas por dia, 7 dias por semana.
 
-5. FLEXIBILIDADE DE DESIGN
-Você controla totalmente:
-- Logo e marca
-- Cores corporativas
-- Texto: slogan, telefone, URL
-- Tamanho: pequeno ou grande (até 80×120cm ou mais)
+Quem vê?
 
-ESPECIFICAÇÕES IDEAIS PARA EMPRESA
+✓ Clientes ao chegarem
+✓ Parceiros em reuniões
+✓ Funcionários todos os dias
+✓ Visitantes ocasionais
+✓ Fotos em redes sociais da empresa
+
+Tempo de exposição: 5-10 segundos por pessoa
+
+Frequência: 100-500 pessoas/mês
+
+Custo por exposição: ~R$ 0,001 (infinitamente barato)
+
+Comparação: Google Ads custa R$ 0,50 por clique
+Seu tapete: grátis a cada olhar
+
+Efeito psicológico: marca lembrada 3x mais (Nielsen Study)
+
+───────────────────────────────────────────────────────────────
+
+VANTAGEM 2: REDUZ CUSTO DE LIMPEZA (ECONOMIA REAL)
+
+───────────────────────────────────────────────────────────────
+
+Cenário A: Escritório SEM tapete personalizado
+
+100 pessoas/dia entram com pés sujos
+→ Piso fica sujo em 2 horas
+→ Requer limpeza 4x/dia
+→ R$ 5.000/mês em limpeza
+→ Piso fica visualmente desgastado
+
+Cenário B: Escritório COM tapete personalizado
+
+100 pessoas/dia entram com pés sujos
+→ Sujeira fica retida no tapete
+→ Piso permanece limpo por 6-8 horas
+→ Requer limpeza 2x/dia
+→ R$ 2.500/mês em limpeza
+→ Piso dura 2x mais
+
+ECONOMIA MENSAL: R$ 2.500
+ECONOMIA ANUAL: R$ 30.000
+
+Preço do tapete: ~R$ 2.000-4.000/un
+
+ROI: PAGA-SE EM 1-2 MESES
+
+───────────────────────────────────────────────────────────────
+
+VANTAGEM 3: DURABILIDADE (MELHOR CUSTO POR ANO)
+
+───────────────────────────────────────────────────────────────
+
+Comparativa de investimento:
+
+| Material | Vida útil | Preço inicial | Custo/ano |
+|---|---|---|---|
+| Carpete comum | 1-2 anos | R$ 3.000 | R$ 1.500-3.000 |
+| Laminado | 3-4 anos | R$ 5.000 | R$ 1.250-1.667 |
+| Vinil Entratta | 3-5 anos | R$ 2.500 | R$ 500-833 |
+
+Vinil é 60% mais barato ao longo do tempo.
+
+Por quê?
+
+✓ Material: 100% PVC + base em borracha
+✓ Resiste a: tráfego pesado, umidade, manchas, químicos
+✓ Não degrada: vinil de qualidade dura
+✓ Não absorve: não acumula bactérias como carpete
+
+Uso em escritório com 100-200 pessoas/dia
+→ 4-5 anos de uso praticamente perfeito
+
+───────────────────────────────────────────────────────────────
+
+VANTAGEM 4: TRANSMITE PROFISSIONALISMO
+
+───────────────────────────────────────────────────────────────
+
+O que um cliente pensa nos primeiros 5 segundos?
+
+Empresa desorganizada
+→ Escritório genérico
+→ Sem cuidado com detalhes
+→ Pode não fazer bom trabalho
+
+Empresa organizada e profissional
+→ Recepção que se cuida
+→ Investimento em experiência
+→ Atenção aos detalhes
+→ Confiável
+
+Estudo Harvard Business Review:
+"Empresas com recepções bem cuidadas têm +18% de conversão em primeiro contato"
+
+Um tapete personalizado comunica:
+"A gente se importa. Até com o chão."
+
+───────────────────────────────────────────────────────────────
+
+VANTAGEM 5: FLEXIBILIDADE CRIATIVA
+
+───────────────────────────────────────────────────────────────
+
+Você controla tudo:
 
 TAMANHO
-- Recepção: 80×120 cm (máximo impacto)
-- Sala de espera: 60×90 cm
-- Entradas: 40×60 cm
+80×120 cm (impacto máximo)
+60×90 cm (clássico)
+40×60 cm (discreto mas funcional)
 
-MATERIAL
-Vinil com base em borracha antiderrapante:
-- Não escorrega em pisos lisos (segurança)
-- Resiste a umidade
-- Fácil de limpar
+CORES
+Corporativas exatas (Pantone matching)
+Múltiplas cores
+Degradês e efeitos
 
-DESIGN
-- Logo centralizado
-- Fundo em cor corporativa
-- Texto em contraste alto (branco sobre verde, por exemplo)
-- Bordas limpas
+ELEMENTOS
+Logo e marca
+Slogan ou moto
+Telefone ou URL
+Padrões geométricos
 
-CUSTO VS. BENEFÍCIO
+Resultado: um tapete que é 100% você.
 
-| Item | Custo Anual |
-|---|---|
-| Tapete personalizado (1 un 80×120) | ~R$ 600 (R$ 50/mês) |
-| Economia em limpeza | -R$ 600 |
-| Custo líquido | R$ 0 |
-| Branding e profissionalismo | Inestimável |
+Nada genérico.
 
-PROCESSO DE SOLICITAÇÃO
+───────────────────────────────────────────────────────────────
 
-1. Decida tamanho e local
-2. Prepare logo em alta res
-3. Escolha cores corporativas
-4. Defina textos (nome, telefone, slogan)
-5. Solicite orçamento
+ESPECIFICAÇÕES RECOMENDADAS
 
-Prazo: 3 dias úteis
-Entrega: em todo Brasil com rastreamento
+───────────────────────────────────────────────────────────────
 
-Envie mensagem via WhatsApp para começar.
+PARA RECEPÇÃO / LOBBY
+
+Tamanho: 80×120 cm
+Cores: 2-3 (corporativa + complementar)
+Design: Logo grande (12-15 cm), slogan pequeno
+Durabilidade: 4-5 anos com uso contínuo
+
+PARA SALA DE ESPERA
+
+Tamanho: 60×90 cm
+Cores: 1-2 (mais discreto)
+Design: Logo + nome
+Durabilidade: 4-5 anos
+
+PARA MÚLTIPLAS ENTRADAS
+
+Tamanho: 40×60 cm em cada entrada
+Cores: Padronizadas (mesma identidade)
+Design: Logo pequeno + símbolo
+Durabilidade: 3-4 anos
+
+MATERIAL: SEMPRE VINIL
+
+Não use: carpete, tapete de palha, ou sintéticos fracos
+
+Vinil resiste a: água, desinfetante, álcool, café derramado, peso de móveis
+
+Duração garantida: 3-5 anos de uso intenso
+
+───────────────────────────────────────────────────────────────
+
+PROCESSO DE SOLICITAÇÃO (4 PASSOS)
+
+───────────────────────────────────────────────────────────────
+
+PASSO 1: DECIDA O TAMANHO
+
+Qual o principal local?
+→ Recepção (80×120)
+→ Sala de espera (60×90)
+→ Entradas múltiplas (40×60 cada)
+
+PASSO 2: PREPARE A MARCA
+
+Logo em alta resolução (300 DPI)
+Cores corporativas (Pantone code, se possível)
+Slogan ou texto desejado
+
+PASSO 3: ESCOLHA O DESIGN
+
+Logo centralizado e grande? Ou discreto?
+Cores em que ordem?
+Que elementos: apenas logo ou marca + texto?
+
+PASSO 4: SOLICITE ORÇAMENTO
+
+WhatsApp: https://wa.me/5564992066855
+Anexe: logo, cores, tamanho, layout preferido
+
+RESPOSTA: Em até 1 hora você terá o design preview e orçamento
+
+PRAZOS
+
+Design: 4 horas
+Aprovação e produção: 3 dias úteis
+Entrega: 1-3 dias (rastreado)
+
+TOTAL: 5-7 dias úteis
+
+───────────────────────────────────────────────────────────────
+
+ROI: O INVESTIMENTO QUE PAGA SOZINHO
+
+───────────────────────────────────────────────────────────────
+
+Investimento inicial: R$ 2.500 - 4.000
+Economia mensal em limpeza: R$ 2.000 - 2.500
+Valor de branding (mídia mensal): R$ 1.000 - 2.000
+
+Payback: 1-2 meses
+Retorno anual: R$ 30.000 - 40.000
+
+Ganho indireto: +15% conversão em primeira impressão = mais clientes
+
+Conclusão: Não é custo. É investimento em imagem.
+
+───────────────────────────────────────────────────────────────
+
+PRONTO PARA LEVAR SUA RECEPÇÃO AO PRÓXIMO NÍVEL?
+
+───────────────────────────────────────────────────────────────
+
+Empresa de verdade investe em cada detalhe.
+
+Comece pelo chão.
+
+Clique em Solicitar Orçamento ou envie mensagem agora.
     `,
   },
   {
@@ -288,124 +721,226 @@ Envie mensagem via WhatsApp para começar.
     readingTime: 7,
     keywords: ["processo", "fabricação", "personalização"],
     content: `
-COMO FUNCIONA O PROCESSO DE UM CAPACHO PERSONALIZADO?
+═══════════════════════════════════════════════════════════════
 
-Você enviou uma foto do seu logo no WhatsApp... mas quanto tempo leva do seu pedido até o capacho chegar? Vamos detalhar todo o processo.
+COMO FUNCIONA O PROCESSO
+Do Seu Pedido até o Capacho na Porta
 
-OS 5 PASSOS DO PROCESSO
+═══════════════════════════════════════════════════════════════
 
-PASSO 1: ORÇAMENTO (5-10 MINUTOS)
-Você envia:
-- Tamanho desejado
-- Logo (foto, PDF ou AI)
-- Cores
-- Quantidade
-- Prazo desejado
+Pergunta comum: "Quanto tempo leva mesmo?"
 
-Nós respondemos com:
-- Preço unitário e total
-- Prazo estimado
-- Parcelamento disponível
+Resposta: 3-5 dias úteis (do seu pedido até a entrega).
 
-Tempo: 30 minutos a 1 hora
+Mas vamos detalhar cada etapa — para você acompanhar, entender onde está seu pedido, e confirmar que está na rota.
 
-PASSO 2: APROVAÇÃO DO DESIGN (2-4 HORAS)
-Nosso time de design:
-1. Recebe sua logo
-2. Remove fundo se necessário
-3. Ajusta tamanho para alta resolução (300 DPI)
-4. Compõe o layout no capacho
-5. Envia para sua aprovação
+───────────────────────────────────────────────────────────────
 
-Você pode solicitar ajustes:
-- "Logo maior"
-- "Texto em outra cor"
-- "Mover para a esquerda"
-- Etc.
+OS 5 PASSOS QUE TRANSFORMAM SUA IDEIA EM PRODUTO
 
-Tempo total neste passo: até 4 horas
+───────────────────────────────────────────────────────────────
 
-PASSO 3: PREPARAÇÃO DA PRODUÇÃO (1-2 DIAS)
-Após aprovação, enviamos para a gráfica:
-- Arquivo final em 300 DPI
-- Especificações de material (vinil, borda, tamanho)
-- Quantidade exata
-- Código do pedido para rastreamento
+PASSO 1: ORÇAMENTO RÁPIDO
+⏱ Tempo: 30 minutos - 1 hora
 
-Neste passo:
-- Preparamos o arquivo para impressão
-- Verificamos estoque de vinil
-- Agendamos produção
+O que você faz:
+→ Enviar mensagem no WhatsApp com: tamanho, cores, logo, quantidade
 
-Tempo: 1-2 dias úteis
+O que a gente faz:
+→ Analisar sua solicitação
+→ Enviar preço unitário + total
+→ Confirmar prazo
+→ Explicar parcelamento (até 12x)
 
-PASSO 4: IMPRESSÃO E ACABAMENTO (1-2 DIAS)
-Processo de fabricação:
-1. Corte do vinil no tamanho exato (40×60, 60×90, etc)
-2. Impressão em 8 cores (qualidade fotográfica)
-3. Laminação de proteção (resina protetora para durabilidade)
-4. Colagem da base antiderrapante de borracha
-5. Corte das bordas e acabamento
-6. Inspeção de qualidade
+Resultado: Você sabe exatamente quanto vai gastar antes de aprovar.
 
-Tempo: 1-2 dias úteis
+PASSO 2: DESIGN & APROVAÇÃO
+⏱ Tempo: 2-4 horas
 
-PASSO 5: EMBALAGEM E ENVIO (1-2 DIAS)
-- Embalagem em caixa padronizada
-- Etiqueta com rastreamento
-- Envio via transportadora parceira
-- Você recebe e acompanha via código de rastreamento
+O que acontece:
+1. Recebemos sua logo (JPG, PNG, PDF ou AI)
+2. Removemos fundo se necessário
+3. Escalamos para 300 DPI (alta resolução)
+4. Componemos no layout do capacho
+5. Enviamos preview digital para aprovação
 
-Tempo total: 1-2 dias úteis
+Você pode pedir ajustes:
+"Logo maior" → 10 minutos
+"Texto em outra cor" → 10 minutos
+"Mover para a esquerda" → 10 minutos
+"Mais espaço entre elementos" → 10 minutos
 
-TIMELINE TOTAL
+Resultado: Design exatamente como você quer.
 
-| Fase | Tempo |
-|---|---|
-| Orçamento | 1-2 horas |
-| Design | 4 horas |
-| Preparação | 1-2 dias úteis |
-| Fabricação | 1-2 dias úteis |
-| Envio | 1-2 dias úteis |
-| Total | 3-5 dias úteis |
+Cancelar? Sem problema — sem custo até este ponto.
 
-O QUE VOCÊ PRECISA FORNECER
+PASSO 3: PREPARAÇÃO PARA PRODUÇÃO
+⏱ Tempo: 1-2 dias úteis
 
-✓ Logo (JPG, PNG, PDF ou AI)
-✓ Cores desejadas (código Pantone ou descrição)
-✓ Tamanho
-✓ Textos (se houver)
-✓ Quantidade
-✓ Endereço de entrega
+Você aprovou o design. Agora a gente:
+→ Prepara arquivo final em 300 DPI (pronto para máquina)
+→ Define especificações (vinil, borda, tamanho, base antiderrapante)
+→ Verifica estoque de cores
+→ Gera código de rastreamento do pedido
+→ Agenda na produção
 
-FAQS SOBRE O PROCESSO
+Você recebe: Link de rastreamento (acompanhe em tempo real)
 
-Posso fazer alterações após aprovar o design?
-Sim, até o início da impressão. Após começar a imprimir, não é possível.
+PASSO 4: IMPRESSÃO & ACABAMENTO
+⏱ Tempo: 1-2 dias úteis
 
-Qual é o prazo mínimo?
-24 horas (com taxa de aceleração), mas recomendamos 3 dias úteis para qualidade melhor.
+Aqui acontece a magia. Na gráfica:
 
-Posso acompanhar a produção?
-Sim, enviamos fotos da produção em andamento.
+1. CORTE
+   Vinil cortado no tamanho exato (40×60, 60×90, etc)
+   Precisão: 2mm
 
-E se não gostar do resultado?
-Temos garantia de 2 anos contra defeitos de fabricação. Alterações de design são discussões caso a caso.
+2. IMPRESSÃO
+   8 cores em alta qualidade (CMYK fotográfico)
+   Saturação perfeita, cores vibrantes
 
-Qual é a qualidade da impressão?
-- Resolução: 300 DPI
-- Cores: 8 cores CMYK
-- Proteção: laminação UV que resiste a 3-5 anos de uso intenso
+3. LAMINAÇÃO
+   Resina UV aplicada para proteção
+   Resiste a: água, álcool, desinfetante, umidade
 
-SOLICITANDO SEU CAPACHO AGORA
+4. BASE ANTIDERRAPANTE
+   Cola industrial + borracha aderida
+   Não escorrega em pisos lisos
 
-1. Clique em [Solicitar Orçamento](#)
-2. Ou envie mensagem no WhatsApp: https://wa.me/5564992066855
+5. CORTE DAS BORDAS
+   Acabamento profissional
+   Borderline perfeita
 
-Próximos passos:
-- 30 min: Você recebe o orçamento
-- 4h: Design aprovado
-- 5 dias úteis: Capacho na sua porta
+6. INSPEÇÃO DE QUALIDADE
+   Cada capacho é inspecionado
+   Se tiver defeito: refazemos gratuitamente
+
+Você recebe: Atualização no rastreamento ("Em acabamento")
+
+PASSO 5: EMBALAGEM & ENVIO
+⏱ Tempo: 1-3 dias (depende da localidade)
+
+Seu capacho:
+→ Embalado em caixa padronizada (protege durante transporte)
+→ Etiqueta de rastreamento colada
+→ Entregue a transportadora parceira
+→ Você recebe link de rastreamento (veja seu pacote em tempo real)
+
+Entrega: Qualquer estado do Brasil
+Rastreamento: Atualizado cada 4 horas
+
+Você recebe: Pacote na porta + aviso de entrega
+
+───────────────────────────────────────────────────────────────
+
+TIMELINE VISUAL
+
+───────────────────────────────────────────────────────────────
+
+DIA 0 (agora)
+Você: enviar solicitação
+Gente: responder em até 1h
+
+HORAS 1-4 (mesmo dia)
+Você: aprovar design (ou pedir ajustes)
+Gente: refinar
+
+DIAS 1-2
+Gente: preparar arquivo + agendar
+
+DIAS 2-4
+Gente: imprimir, laminat, acabar
+
+DIAS 4-7
+Gente: embalar e enviar
+Você: receber
+
+TOTAL: 3-7 dias úteis (geralmente no meio disso)
+
+───────────────────────────────────────────────────────────────
+
+O QUE VOCÊ PRECISA PROVIDENCIAR
+
+───────────────────────────────────────────────────────────────
+
+✓ LOGO
+  Melhor: PDF ou AI (Adobe Illustrator)
+  Também vale: PNG com fundo transparente
+  Mínimo: foto de boa qualidade (a gente vetoriza)
+  Resolução: 300 DPI (ou conforme recomendação)
+
+✓ CORES
+  Melhor: código Pantone (ex: Pantone 286C)
+  Também vale: descrever (ex: "azul como logo")
+  Também vale: enviar referência de cor
+
+✓ TAMANHO
+  Opções: 40×60 | 60×90 | 80×120 | personalizado
+  Escolha antes de enviar
+
+✓ TEXTOS (opcional)
+  Nome, slogan, telefone, QR code
+  Tudo especificado no design
+
+✓ QUANTIDADE
+  1 unidade ou mais
+
+✓ ENDEREÇO DE ENTREGA
+  Completo (rua, número, complemento, CEP, cidade)
+
+───────────────────────────────────────────────────────────────
+
+PERGUNTAS FREQUENTES DO PROCESSO
+
+───────────────────────────────────────────────────────────────
+
+P: Posso fazer alterações depois que aprovo?
+R: Sim, até 24h antes de começar a imprimir. Depois não.
+
+P: E se eu não gostar do resultado?
+R: Temos garantia de 2 anos contra defeitos de fabricação. Se sair imperfeito, a gente refaz. Design? A gente discute caso a caso.
+
+P: Qual é a qualidade mesmo?
+R: 300 DPI + 8 cores CMYK + laminação UV = durável por 3-5 anos
+
+P: Posso ver fotos da produção?
+R: Sim, enviamos atualizações com fotos do seu capacho na máquina
+
+P: E se eu precisar mais rápido que 3 dias?
+R: Expedito em 24h (taxa adicional). Mas qualidade é a mesma.
+
+P: Vocês entregam em todo Brasil?
+R: Sim. Cidades pequenas levam 1-2 dias extras (dependendo da transportadora)
+
+───────────────────────────────────────────────────────────────
+
+CHECKLIST: TUDO PRONTO PARA COMEÇAR?
+
+───────────────────────────────────────────────────────────────
+
+□ Logo em alta resolução (PDF ou AI de preferência)
+□ Cores definidas (Pantone ou descrição)
+□ Tamanho escolhido (40×60, 60×90 ou 80×120)
+□ Textos definidos (nome, slogan, etc)
+□ Quantidade (quantas unidades?)
+□ Endereço de entrega (completo)
+□ Telefone (para confirmação)
+
+Se marcou tudo? Pronto para solicitar!
+
+───────────────────────────────────────────────────────────────
+
+PRÓXIMO PASSO: SOLICITE SEU ORÇAMENTO
+
+───────────────────────────────────────────────────────────────
+
+Clique em Solicitar Orçamento
+ou envie WhatsApp: https://wa.me/5564992066855
+
+Resposta em até 1 hora.
+Capacho na sua porta em 3-5 dias.
+
+Simples assim.
     `,
   },
   {
@@ -418,93 +953,259 @@ Próximos passos:
     readingTime: 5,
     keywords: ["dicas", "erros", "capacho personalizado"],
     content: `
-5 ERROS COMUNS AO COMPRAR CAPACHO PERSONALIZADO (E COMO EVITAR)
+═══════════════════════════════════════════════════════════════
 
-Depois de centenas de pedidos, identificamos os 5 erros mais comuns que clientes cometem ao solicitar um capacho personalizado. Leia para evitá-los.
+5 ERROS COMUNS AO COMPRAR CAPACHO
+(E Como Não Cometer Eles)
 
-ERRO 1: ENVIAR LOGO EM BAIXA RESOLUÇÃO
+═══════════════════════════════════════════════════════════════
 
-O Problema:
-Você envia uma foto 800×600px de uma tela de celular. Quando imprimimos no tamanho grande (80×120cm), a logo fica pixelada.
+Depois de 500+ pedidos, vimos tudo.
 
-A Solução:
-- Peça o arquivo original ao designer em 300 DPI mínimo
-- Formatos ideais: PDF, AI (Adobe Illustrator), PNG com fundo transparente
-- Tamanho mínimo: 2000×2000px se for PNG/JPG
-- Se tiver apenas baixa res, avise — podemos vetorizar (fee pequeno)
+Vimos logos pixeladas. Vimos capachos que não combinam com o piso. Vimos texto tão pequeno que parecia brincadeira.
 
-Impacto: Logo pixelada reduz profissionalismo em 80%
+Aqui estão os 5 erros mais comuns — e como evitá-los completamente.
 
-ERRO 2: ESCOLHER CORES SEM CONSIDERAR O PISO
+───────────────────────────────────────────────────────────────
 
-O Problema:
-Você pediu capacho branco, mas o piso da sua empresa é branco. Resultado: invisível e sem contraste.
+ERRO 1: LOGO EM BAIXA RESOLUÇÃO
+Resultado: Logo pixelada que parece amadora
 
-A Solução:
-- Considere a cor do seu piso
-- Escolha contraste: se piso é claro, capacho escuro
-- Tendência: verde ou azul combinam com qualquer piso
+───────────────────────────────────────────────────────────────
 
-Exemplo bom:
-- Piso cinza → capacho verde ou preto
-- Piso preto → capacho branco ou cinza
-- Piso madeira → capacho verde ou azul
+O cenário:
+Você envia uma foto do logo tirada no celular (800×600px).
+Lindo no celular.
+Quando imprimimos em 80×120cm? Pixelado. Amador.
 
-ERRO 3: TAMANHO MUITO PEQUENO
+Por quê?
+Imagem para web ≠ imagem para impressão
 
-O Problema:
-Você pediu 40×60cm para uma entrada que recebe 100 pessoas/dia. Resultado: capacho acaba rápido, pessoas pisam nas bordas, fica feio.
+Solução número 1: ARQUIVO ORIGINAL
+Peça ao seu designer/agência:
+"Quero o arquivo original em PDF ou AI (Adobe Illustrator), 300 DPI mínimo"
 
-A Solução:
-- Entrada principal: mínimo 60×90cm
-- Entrada de grande fluxo: 80×120cm
-- Entrada secundária: 40×60cm (OK)
+Se eles têm, 95% do problema resolvido.
 
-Cálculo: tamanho = metade da largura da porta de entrada
+Solução número 2: IMAGEM EM ALTA RES
+Se só tem JPG/PNG:
+"Enviem em 2000×2000px mínimo, 300 DPI"
 
-ERRO 4: TEXTO MUITO PEQUENO OU ILEGÍVEL
-
-O Problema:
-Você quer colocar o número de telefone no capacho. Coloca em fonte 8pt. Ninguém consegue ler.
-
-A Solução:
-- Telefone/textos informativos: mínimo 16pt
-- Nome da empresa: 40pt+
-- Lema/slogan: 20-24pt
-
-Regra: se não consegue ler a 1 metro de distância no preview, aumenta.
-
-ERRO 5: NÃO APROVAR O DESIGN COM ANTECEDÊNCIA
-
-O Problema:
-Você pediu capacho, aprovou rápido sem olhar direito, recebeu e "não ficou como imaginava" — já estava impresso.
-
-A Solução:
-- Dedique 15-20 minutos para revisar o design
-- Peça um preview em alta resolução
-- Simuladamente coloque a imagem no seu piso (tire foto)
-- Solicite ajustes antes de começar a produção
+Solução número 3: A GENTE VETORIZA
+Se só tem foto ruim:
+"Tudo bem, a gente vetoriza" (fee pequeno)
 
 Checklist:
-- Logo está no tamanho certo?
-- Cores estão corretas?
-- Texto está legível?
-- Composição fica bem no seu espaço?
-- Não tem informações upside-down?
+□ Tenho PDF ou AI do logo?
+□ Se não, tenho JPG/PNG com 2000px+?
+□ Se não, autorizei a gente a vetorizar?
 
-BÔNUS: O QUE FAZER CERTO
+───────────────────────────────────────────────────────────────
 
-1. Prepare logo em 300 DPI, PDF ou AI
-2. Escolha cores de contraste com seu piso
-3. Pedido tamanho apropriado para seu espaço
-4. Texto mínimo 16pt para qualquer informação
-5. Revise o design com cuidado antes de aprovar
+ERRO 2: CORES SEM PENSAR NO PISO
+Resultado: Capacho invisível no seu chão
 
-PRÓXIMOS PASSOS
+───────────────────────────────────────────────────────────────
 
-Pronto para evitar esses erros? Solicite seu capacho agora via WhatsApp.
+O cenário:
+Você escolhe capacho branco porque é limpo visualmente.
+Seu piso também é branco.
+Resultado: Vira um quadro invisível.
 
-Responderemos com um design perfeito na primeira vez.
+Regra de ouro: CONTRASTE É TUDO
+
+Seu piso é claro?
+→ Capacho escuro (preto, azul escuro, verde escuro)
+
+Seu piso é escuro?
+→ Capacho claro (branco, cinza, bege)
+
+Seu piso é neutro (cinza)?
+→ Capacho colorido (verde, azul, vermelho — qualquer coisa que destaque)
+
+Cores que funcionam com QUALQUER piso:
+✓ Verde (natureza, calma)
+✓ Azul (confiança, profissionalismo)
+✓ Cinza (moderno, discreto)
+
+Cores que funcionam MAL:
+✗ Branco em piso claro
+✗ Preto em piso preto
+✗ Cinza em piso cinza
+
+Checklist:
+□ Qual é a cor do meu piso?
+□ Minha cor de capacho tem contraste?
+□ Se não, preciso mudar?
+
+Dica pro: tire foto do seu piso e mande pro nosso time de design. A gente recomenda a cor perfeita.
+
+───────────────────────────────────────────────────────────────
+
+ERRO 3: TAMANHO MUITO PEQUENO
+Resultado: Capacho que não cobre a entrada
+
+───────────────────────────────────────────────────────────────
+
+O cenário:
+Você escolhe 40×60cm porque é mais barato.
+Mas sua entrada recebe 200 pessoas/dia.
+Resultado: Capacho desgasta em 6 meses. Pessoas pisam fora. Fica feio.
+
+Tamanho ideal depende de fluxo
+
+ENTRADA PEQUENA (até 50 pessoas/dia)
+40×60cm = suficiente
+Exemplos: consultório pequeno, loja pequena, entrada secundária
+
+ENTRADA MÉDIA (50-150 pessoas/dia)
+60×90cm = ideal
+Exemplos: escritório médio, clínica, recepção pequena
+
+ENTRADA GRANDE (150+ pessoas/dia)
+80×120cm = necessário
+Exemplos: lobby de empresa, loja movimentada, entrada principal
+
+Fórmula rápida:
+Tamanho do capacho = metade da largura da sua porta de entrada
+
+Exemplos:
+Porta tem 1,5m de largura → capacho de 80cm (arredondar para 80×120)
+Porta tem 0,6m de largura → capacho de 40cm (40×60)
+
+Checklist:
+□ Quantas pessoas passam por dia?
+□ Qual é a largura da minha porta?
+□ Meu tamanho escolhido é proporcional?
+
+───────────────────────────────────────────────────────────────
+
+ERRO 4: TEXTO MUITO PEQUENO
+Resultado: Ninguém consegue ler
+
+───────────────────────────────────────────────────────────────
+
+O cenário:
+Você quer colocar o telefone da empresa no capacho.
+Coloca em tamanho 8pt (microscópico).
+Resultado: Ninguém lê. Inútil.
+
+Tamanho mínimo por tipo de texto
+
+INFORMAÇÃO (telefone, email, site)
+Mínimo: 16pt
+Ideal: 20pt
+Regra: consigo ler de 1 metro de distância?
+
+NOME DA EMPRESA
+Mínimo: 40pt
+Ideal: 48pt+
+Regra: salta aos olhos quando você chega?
+
+SLOGAN OU FRASE
+Mínimo: 20pt
+Ideal: 24pt
+Regra: entendo rápido sem forçar os olhos?
+
+Checklist:
+□ Meu texto principal tem 40pt+?
+□ Meu telefone/info tem 16pt+?
+□ Consigo ler tudo de 1 metro longe?
+
+Dica: ao revisar o design, coloque em tamanho real (80×120cm no seu piso) e veja de 1 metro longe. Se não consegue ler, aumenta.
+
+───────────────────────────────────────────────────────────────
+
+ERRO 5: NÃO REVISAR O DESIGN
+Resultado: Chegou, você odeia, e é tarde demais
+
+───────────────────────────────────────────────────────────────
+
+O cenário:
+A gente envia o design em PDF.
+Você aprovar sem olhar direito (pode parecer OK, mas não é).
+Manda imprimir.
+Semana depois chega: "Ué, não ficou como imaginava."
+Muito tarde.
+
+Solução: GASTAR 20 MINUTOS NO DESIGN
+
+Quando receber o preview:
+
+1. ANALISE A COMPOSIÇÃO
+Abre o PDF em tamanho grande na tela
+→ Logo está bem posicionado?
+→ Texto está centralizado?
+→ Bordas estão equilibradas?
+
+2. TESTE MENTALMENTE NO SEU ESPAÇO
+Imagina (ou coloca foto no Photoshop):
+→ Fica bem no seu piso?
+→ Combina com cores da recepção?
+→ Não fica poluído visualmente?
+
+3. LEIA TUDO
+→ Logo legível?
+→ Telefone/textos todos corretos?
+→ Sem erros de digitação?
+→ Nada de cabeça para baixo?
+
+4. PEÇA AJUSTES SE PRECISAR
+"Logo maior" → 10 min
+"Texto em outra cor" → 10 min
+"Mover para a esquerda" → 10 min
+
+Sem cobranças extras (até 3 revisões)
+
+Checklist antes de aprovar:
+□ Composição está bem equilibrada?
+□ Logo está no tamanho certo?
+□ Cores estão corretas?
+□ Texto está legível?
+□ Tudo soletra certo?
+□ Está combinando com meu espaço?
+
+Se tiver dúvida em UMA COISA, peça ajuste. Melhor revisar agora que receber com erro.
+
+───────────────────────────────────────────────────────────────
+
+BÔNUS: CHECKLIST PERFEITO
+
+───────────────────────────────────────────────────────────────
+
+Antes de solicitar, tenho:
+
+□ Logo em PDF ou AI (300 DPI)
+□ Cores definidas ou com foto do piso
+□ Tamanho calculado por fluxo de pessoas
+□ Texto com 16pt+ (informação) e 40pt+ (título)
+□ Design revisado por 20 minutos
+□ Autorização de quem vai usar
+
+Se marcou tudo = 99% de chance de amar o resultado
+
+───────────────────────────────────────────────────────────────
+
+PRÓXIMO PASSO: SOLICITE COM SEGURANÇA
+
+───────────────────────────────────────────────────────────────
+
+Você sabe:
+✓ Logo em boa res
+✓ Cores certas
+✓ Tamanho ideal
+✓ Texto legível
+✓ Como revisar design
+
+Agora solicite: https://wa.me/5564992066855
+
+Mande: logo, cores, tamanho, texto
+A gente responde com design
+Você revisa (20 min)
+A gente imprime perfeitamente
+Você recebe e ama
+
+Simples assim.
     `,
   },
 ]
