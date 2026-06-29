@@ -89,7 +89,8 @@ const jsonLd = {
   url: "https://entratta.com.br",
   telephone: "+55-64-99206-6855",
   image: "https://entratta.com.br/opengraph-image.png",
-  priceRange: "$$",
+  priceRange: "$",
+  slogan: "O capacho personalizado mais barato do Brasil — fabricante direto, sem intermediários.",
   sameAs: [
     "https://www.instagram.com/entrattaofficial",
     "https://lista.mercadolivre.com.br/_CustId_3459954476"

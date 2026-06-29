@@ -68,7 +68,8 @@ export function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.15 })
 
-      tl.from('.hero-badge', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out' })
+      tl.from('.hero-price-badge', { opacity: 0, scale: 0.8, duration: 0.6, ease: 'power3.out' })
+        .from('.hero-badge', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out' }, '-=0.4')
         .from('.hero-h1', { opacity: 0, y: 70, duration: 0.9, ease: 'power3.out' }, '-=0.5')
         .from('.hero-desc', { opacity: 0, y: 40, duration: 0.8, ease: 'power3.out' }, '-=0.55')
         .from('.hero-cta', { opacity: 0, y: 30, duration: 0.75, ease: 'power3.out' }, '-=0.5')
@@ -216,6 +217,24 @@ export function Hero() {
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left: copy */}
         <div>
+          <div
+            className="hero-price-badge mb-4"
+            style={{
+              display: 'inline-block',
+              background: 'rgba(34,197,94,0.12)',
+              border: '1px solid rgba(34,197,94,0.3)',
+              borderRadius: '24px',
+              padding: '8px 16px',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '1.5px',
+              color: '#22C55E',
+              marginBottom: '1rem',
+            }}
+          >
+            🎯 MAIS BARATO DO MERCADO
+          </div>
+
           <div
             className="hero-badge mb-6"
             style={{ display: 'flex', alignItems: 'center', gap: '10px' }}

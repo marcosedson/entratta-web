@@ -23,13 +23,11 @@ const posts: BlogPost[] = [
     content: `
 QUANTO CUSTA UM CAPACHO PERSONALIZADO?
 
-A pergunta mais comum que recebemos: quanto custa um capacho personalizado?
+A Entratta oferece o melhor custo-benefício do mercado. Somos fabricante direto, o que nos permite oferecer os menores preços sem perder qualidade.
 
-PREÇO BASE
+COMO CALCULAMOS O PREÇO
 
-O preço dos nossos capachos começa em R$ 72 para o tamanho mínimo de 40×60 cm em cor sólida, sem personalização.
-
-Porém, quando falamos em capacho personalizado com logo, o investimento muda. Vamos quebrar os componentes do preço:
+O preço de um capacho personalizado depende de vários componentes. Vamos quebrar como é calculado:
 
 COMPONENTES DO PREÇO
 

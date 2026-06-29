@@ -50,7 +50,8 @@ export async function generateStaticParams() {
   return getAllCitySlugs().map((slug) => ({ slug }))
 }
 
-export const dynamic = 'force-dynamic'
+export const dynamicParams = true
+export const revalidate = 3600
 
 function CitySchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
   const schema = {

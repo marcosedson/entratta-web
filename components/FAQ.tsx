@@ -4,6 +4,10 @@ import { useState } from 'react'
 
 const FAQS = [
   {
+    q: 'Vocês são realmente os mais baratos do mercado?',
+    a: 'Sim! Somos fabricante direto, sem intermediários. Comparamos com 10+ concorrentes — sempre ofrecemos o melhor custo-benefício. Envie mensagem no WhatsApp para verificar seu orçamento específico.',
+  },
+  {
     q: 'Qual é o prazo de produção e entrega?',
     a: 'A produção leva até 3 dias úteis após a confirmação do pedido. Entregamos via transportadora para todo o Brasil, com rastreamento. O prazo de entrega varia de 3 a 10 dias úteis após a produção, dependendo do seu CEP.',
   },
@@ -93,8 +97,8 @@ export function FAQ() {
               letterSpacing: 0,
             }}
           >
-            Respondemos suas{' '}
-            <span style={{ color: '#16A34A', fontStyle: 'italic' }}>dúvidas</span>
+            Todas as respostas que você{' '}
+            <span style={{ color: '#16A34A', fontStyle: 'italic' }}>precisa</span>
           </h2>
         </div>
 

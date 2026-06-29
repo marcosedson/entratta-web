@@ -66,7 +66,8 @@ logo:/public/logo.png  whatsapp:5564992066855
 | | |
 |---|---|
 | Produto | Capachos/tapetes vinil personalizados por CNC |
-| Preço | R$ 300/m² · mínimo R$ 72 (40×60cm) · até 12x |
+| Preço | **Mais barato do mercado** — fabricante direto, zero intermediários · orçamento via WhatsApp |
 | Públicos | B2B: clínicas, escritórios, lojas · B2C: presentes, residências |
-| Canais | Site (configurador→WhatsApp) · Shopee · ML (links `#` → preencher) |
+| Canais | Site (configurador→WhatsApp · página `/melhor-preco`) · Shopee · ML (links `#` → preencher) |
 | Estado | v0.2: configurador+TAP prontos · ✗ pagamento, dashboard, SheetCAM real |
+| Estratégia SEO | Posicionamento psicológico "mais barato" sem números no site · capturas de lead via WhatsApp · FAQ schema com claim de melhor preço |

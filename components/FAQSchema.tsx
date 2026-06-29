@@ -5,6 +5,14 @@ export function FAQSchema() {
     mainEntity: [
       {
         "@type": "Question",
+        name: "Vocês são realmente os mais baratos do mercado?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sim! Somos fabricante direto, sem intermediários. Comparamos com 10+ concorrentes — sempre ofrecemos o melhor custo-benefício. Envie mensagem no WhatsApp para verificar seu orçamento específico.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "Qual é o prazo de produção e entrega?",
         acceptedAnswer: {
           "@type": "Answer",

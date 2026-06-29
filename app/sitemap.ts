@@ -14,6 +14,12 @@ const staticPages = [
     priority: 1.0,
   },
   {
+    url: `${baseUrl}/melhor-preco`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  },
+  {
     url: `${baseUrl}/como-funciona`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
