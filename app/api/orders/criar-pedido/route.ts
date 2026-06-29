@@ -112,13 +112,21 @@ function generatePDF(
   // Usa a imagem capturada do canvas se disponível
   if (svgPreview) {
     try {
-      const previewWidth = 160
+      const previewWidth = 170
       const previewHeight = (previewWidth * (measurement?.c || 60)) / (measurement?.w || 40)
-      pdf.addImage(svgPreview, 'PNG', 25, yPos, previewWidth, previewHeight)
-      yPos += previewHeight + 10
+
+      // svgPreview vem como data URL JPEG do canvas
+      pdf.addImage(svgPreview, 'JPEG', 20, yPos, previewWidth, previewHeight)
+
+      console.log(`✅ Preview adicionado ao PDF: ${previewWidth}×${previewHeight}mm`)
+      yPos += previewHeight + 12
     } catch (error) {
-      console.warn('Erro ao adicionar preview do canvas:', error)
+      console.warn('⚠️ Erro ao adicionar preview do canvas:', error)
+      console.warn(`   Preview received: ${svgPreview ? 'YES' : 'NO'}`)
+      console.warn(`   Preview size: ${(svgPreview?.length || 0) / 1024}KB`)
     }
+  } else {
+    console.warn('⚠️ Nenhum preview capturado do canvas')
   }
 
   yPos += 5
@@ -472,10 +480,11 @@ export async function POST(request: NextRequest) {
       console.warn('Could not load Entratta logo')
     }
 
-    // Captura o preview do canvas SVG (será passado depois)
-    let svgPreviewBase64 = ''
+    // Usa preview capturado do canvas
+    console.log(`\n📸 Preview capturado: ${svgPreview ? 'SIM' : 'NÃO'}`)
     if (svgPreview) {
-      svgPreviewBase64 = svgPreview // Já vem como data URL do frontend
+      console.log(`   Tamanho: ${(svgPreview.length / 1024).toFixed(2)} KB`)
+      console.log(`   Tipo: ${svgPreview.substring(0, 30)}...`)
     }
 
     // Process client logo FIRST (se fornecida) para detectar cores
@@ -502,8 +511,8 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Agora GERA o PDF com as cores corretas da logo
-    const pdfBuffer = generatePDF(state, entrattaLogoBase64, svgPreviewBase64, logoColors)
+    // Agora GERA o PDF com o preview real capturado do canvas
+    const pdfBuffer = generatePDF(state, entrattaLogoBase64, svgPreview, logoColors)
     const svgContent = SVGGenerator.generateSVG(state, clientLogoBase64, orderId)
     const cdrBase64 = generateCorelDrawFile(state, orderId)
     const tapFiles = generateMultipleTAPFiles(orderId, state)
