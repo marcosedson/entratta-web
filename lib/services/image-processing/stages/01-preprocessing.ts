@@ -1,4 +1,5 @@
 import type { ProcessingConfig, PreprocessedImage } from '../types'
+import { SuperResolutionUpscaler } from '../utils/super-resolution'
 
 export class PreprocessingStage {
   static async process(
@@ -8,9 +9,36 @@ export class PreprocessingStage {
     // 1. Carrega imagem
     const image = await this.loadImage(imageBase64)
 
+    // 1.5 Super-Resolution para logos pequenas
+    let workingImage = image
+    if (SuperResolutionUpscaler.shouldUpscale(image.width, image.height)) {
+      console.log(`🔍 Logo detectada como pequena (${image.width}×${image.height})`)
+      const upscaleFactor = SuperResolutionUpscaler.calculateUpscaleFactor(
+        image.width,
+        image.height,
+        config.quality === 'ultra' ? 600 : 400
+      )
+
+      if (upscaleFactor > 1) {
+        console.log(`📈 Aplicando super-resolution (${upscaleFactor}x)...`)
+        const upscaledCanvas = document.createElement('canvas')
+        const ctx = upscaledCanvas.getContext('2d')!
+        const imageData = ctx.getImageData(0, 0, image.width, image.height)
+
+        // Usa upscaling progressivo para melhor qualidade
+        const upscaledData = SuperResolutionUpscaler.upscaleProgressive(imageData, upscaleFactor)
+
+        upscaledCanvas.width = upscaledData.width
+        upscaledCanvas.height = upscaledData.height
+        ctx.putImageData(upscaledData, 0, 0)
+        workingImage = upscaledCanvas
+        console.log(`   ✅ Super-resolution completo: ${upscaledData.width}×${upscaledData.height}`)
+      }
+    }
+
     // 2. Redimensiona baseado na qualidade
     const targetDpi = this.getDpiForQuality(config.quality)
-    const resized = await this.resizeImage(image, targetDpi)
+    const resized = await this.resizeImage(workingImage, targetDpi)
 
     // 3. Aplica filtros baseado na qualidade
     if (config.quality === 'high' || config.quality === 'ultra') {
@@ -23,7 +51,7 @@ export class PreprocessingStage {
     }
 
     console.log(`✅ Preprocessing completo (${config.quality})`)
-    console.log(`   Resolução: ${resized.width}×${resized.height}`)
+    console.log(`   Resolução final: ${resized.width}×${resized.height}`)
     console.log(`   DPI: ${targetDpi}`)
 
     return resized
