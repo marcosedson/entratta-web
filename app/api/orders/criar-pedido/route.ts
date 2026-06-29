@@ -3,6 +3,7 @@ import jsPDF from 'jspdf'
 import { ConfiguratorState } from '@/lib/hooks'
 import { ConfiguratorService } from '@/lib/services'
 import { LogoProcessingService } from '@/lib/services/logo-processing.service'
+import { CoordinateScaler } from '@/lib/services/coordinate-scaler'
 import {
   CARPET_COLORS,
   TEXT_COLORS,
@@ -432,6 +433,30 @@ export async function POST(request: NextRequest) {
 
     const orderId = generateOrderId()
     const storageFolder = getStorageFolder(orderId)
+
+    // ═══ VALIDAÇÃO DE ESCALA ═══
+    // Garante que as dimensões do SVG correspondem às dimensões reais do tapete
+    const measurement = MEASUREMENTS[state.medida]
+    if (measurement && measurement.w && measurement.c) {
+      const realDims = {
+        larguraCm: measurement.w * 100,    // Converte para CM
+        comprimentoCm: measurement.c * 100,
+      }
+
+      const canvasDims = {
+        canvasWidth: 460,  // W padrão do SVG
+        canvasHeight: Math.round(460 / (realDims.larguraCm / realDims.comprimentoCm)),
+      }
+
+      const mapping = CoordinateScaler.calculateMapping(realDims, canvasDims)
+      const report = CoordinateScaler.getScalingReport(realDims, canvasDims, mapping)
+
+      console.log(report)
+
+      // Armazena mapping para uso posterior nos .TAP files
+      ;(state as any)._coordinateMapping = mapping
+      ;(state as any)._realDimensions = realDims
+    }
 
     // Load Entratta logo (para PDF)
     let entrattaLogoBase64 = ''

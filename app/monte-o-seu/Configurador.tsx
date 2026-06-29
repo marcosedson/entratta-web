@@ -147,7 +147,9 @@ export default function Configurador({ lockedTamanho, lockedCor, pedidoInicial, 
 
   // ── Texto helpers ──
   function addTexto() {
-    setTextos(prev => [...prev, { id: makeId(), texto: '', corId: 'branco', fonteId: 'bold', x: null, y: null, tamanho: 0 }])
+    // Sugere tamanho baseado na largura disponível
+    const suggestedSize = Math.min(32, Math.max(12, Math.floor(W / 10)))
+    setTextos(prev => [...prev, { id: makeId(), texto: '', corId: 'branco', fonteId: 'bold', x: null, y: null, tamanho: suggestedSize }])
   }
   function updateTexto(id: string, patch: Partial<TextoItem>) {
     setTextos(prev => prev.map(t => t.id === id ? { ...t, ...patch } : t))
