@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Plus_Jakarta_Sans, Cormorant_Garamond, Syne } from "next/font/google"
 import "./globals.css"
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider"
+import { GoogleAnalytics } from "@/components/GoogleAnalytics"
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -188,6 +189,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <GoogleAnalytics />
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>
