@@ -370,11 +370,14 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
             c.width = W * scale; c.height = H * scale
             const ctx = c.getContext('2d')!
             ctx.scale(scale, scale)
+            // Preenche com fundo escuro antes de desenhar
             ctx.fillStyle = '#0A1628'
             ctx.fillRect(0, 0, W, H)
+            // Desenha a imagem SVG renderizada
             ctx.drawImage(img, 0, 0, W, H)
             URL.revokeObjectURL(url)
-            resolve(c.toDataURL('image/jpeg', 0.92))
+            // Usa PNG ao invés de JPEG para melhor qualidade com transparências
+            resolve(c.toDataURL('image/png'))
           } catch { URL.revokeObjectURL(url); resolve(null) }
         }
         img.onerror = () => { URL.revokeObjectURL(url); resolve(null) }

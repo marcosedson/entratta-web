@@ -1,0 +1,24 @@
+{
+  "orderId": "2026-06-ENTRATTA-RYW8N",
+  "createdAt": "2026-06-29T22:20:24.780Z",
+  "clientName": "TESTE",
+  "clientWhatsApp": "34997656230",
+  "medida": "40x60",
+  "corTapete": "cinza",
+  "corTexto": "verde",
+  "corBorda": "preto",
+  "borda": "sem",
+  "texto": "TESTE PREVIEW",
+  "logoColors": [],
+  "colorAccuracy": 99.2,
+  "detailPreservation": 98.5,
+  "processingTime": 0,
+  "files": {
+    "pdf": "2026-06-ENTRATTA-RYW8N-projeto.pdf",
+    "taps": [
+      "2026-06-ENTRATTA-RYW8N-tapete-cinza.tap",
+      "2026-06-ENTRATTA-RYW8N-texto-verde.tap",
+      "2026-06-ENTRATTA-RYW8N-cascata-5x.tap"
+    ]
+  }
+}
