@@ -1,30 +1,8 @@
-'use client'
-import { Suspense } from 'react'
-import dynamic from 'next/dynamic'
-import { useSearchParams } from 'next/navigation'
-import { Header } from '@/components/Header'
-
-const Configurador = dynamic(() => import('./Configurador'), { ssr: false })
-
-function ConfiguradorWithParams() {
-  const params = useSearchParams()
-  return (
-    <Configurador
-      lockedTamanho={params.get('tamanho') ?? undefined}
-      lockedCor={params.get('cor') ?? undefined}
-      pedidoInicial={params.get('pedido') ?? undefined}
-      canal={(params.get('canal') ?? undefined) as 'ml' | 'shopee' | undefined}
-    />
-  )
-}
+import { redirect } from 'next/navigation'
 
 export default function ConfiguradorPage() {
-  return (
-    <>
-      <Header />
-      <Suspense fallback={<div style={{ minHeight: 'calc(100vh - 64px)', background: '#F1F5F9' }} />}>
-        <ConfiguradorWithParams />
-      </Suspense>
-    </>
-  )
+  // Configurador em desenvolvimento - não disponível em produção
+  // Deixar comentado localmente para refinamento
+  // TODO: Ativar quando pronto para produção
+  redirect('/')
 }

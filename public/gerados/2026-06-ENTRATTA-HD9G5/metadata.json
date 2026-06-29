@@ -1,0 +1,24 @@
+{
+  "orderId": "2026-06-ENTRATTA-HD9G5",
+  "createdAt": "2026-06-29T22:24:11.245Z",
+  "clientName": "TESTE REAL PNG",
+  "clientWhatsApp": "34997656230",
+  "medida": "40x60",
+  "corTapete": "preto",
+  "corTexto": "branco",
+  "corBorda": "branco",
+  "borda": "sem",
+  "texto": "BEM VINDO AQUI",
+  "logoColors": [],
+  "colorAccuracy": 99.2,
+  "detailPreservation": 98.5,
+  "processingTime": 0,
+  "files": {
+    "pdf": "2026-06-ENTRATTA-HD9G5-projeto.pdf",
+    "taps": [
+      "2026-06-ENTRATTA-HD9G5-tapete-preto.tap",
+      "2026-06-ENTRATTA-HD9G5-texto-branco.tap",
+      "2026-06-ENTRATTA-HD9G5-cascata-5x.tap"
+    ]
+  }
+}
