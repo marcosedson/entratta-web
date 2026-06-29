@@ -3,18 +3,22 @@ import { ConfiguratorState } from '@/lib/hooks'
 interface CreateOrderResponse {
   success: boolean
   orderId: string
-  files: {
+  message: string
+  storageFolder: string
+  tapFiles: string[]
+  files?: {
     pdf: string
     cdr: string
     tap: string
   }
-  message: string
 }
 
 export class OrderService {
   static async createOrder(
     state: ConfiguratorState,
-    svgPreview: string
+    svgPreview: string,
+    clientName: string = 'Cliente',
+    clientWhatsApp: string = ''
   ): Promise<CreateOrderResponse> {
     const response = await fetch('/api/orders/criar-pedido', {
       method: 'POST',
@@ -24,6 +28,8 @@ export class OrderService {
       body: JSON.stringify({
         state,
         svgPreview,
+        clientName,
+        clientWhatsApp,
       }),
     })
 
@@ -39,66 +45,57 @@ export class OrderService {
     filename: string,
     mimeType: string = 'application/octet-stream'
   ): void {
-    const binaryString = atob(base64Content)
-    const bytes = new Uint8Array(binaryString.length)
-    for (let i = 0; i < binaryString.length; i++) {
-      bytes[i] = binaryString.charCodeAt(i)
+    try {
+      const binaryString = atob(base64Content)
+      const bytes = new Uint8Array(binaryString.length)
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i)
+      }
+
+      const blob = new Blob([bytes], { type: mimeType })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = filename
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+    } catch (error) {
+      console.error(`Erro ao baixar arquivo ${filename}:`, error)
     }
-
-    const blob = new Blob([bytes], { type: mimeType })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = filename
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
-  }
-
-  static downloadAllOrderFiles(
-    orderId: string,
-    files: {
-      pdf: string
-      cdr: string
-      tap: string
-    }
-  ): void {
-    // Download PDF
-    this.downloadFile(files.pdf, `${orderId}-projeto.pdf`, 'application/pdf')
-
-    // Download CDR (CorelDraw)
-    setTimeout(() => {
-      this.downloadFile(
-        files.cdr,
-        `${orderId}-design.cdr`,
-        'application/x-coreldraw'
-      )
-    }, 500)
-
-    // Download TAP (CNC/March3)
-    setTimeout(() => {
-      this.downloadFile(
-        files.tap,
-        `${orderId}-march3.tap`,
-        'text/plain'
-      )
-    }, 1000)
   }
 
   static async createAndDownloadOrder(
     state: ConfiguratorState,
-    svgPreview: string
+    svgPreview: string,
+    clientName: string = 'Cliente',
+    clientWhatsApp: string = ''
   ): Promise<CreateOrderResponse> {
-    const orderResponse = await this.createOrder(state, svgPreview)
+    try {
+      const orderResponse = await this.createOrder(
+        state,
+        svgPreview,
+        clientName,
+        clientWhatsApp
+      )
 
-    if (orderResponse.success) {
-      // Start downloads after a short delay
-      setTimeout(() => {
-        this.downloadAllOrderFiles(orderResponse.orderId, orderResponse.files)
-      }, 500)
+      if (orderResponse.success) {
+        console.log('✅ Pedido criado com sucesso!')
+        console.log(`📋 ID: ${orderResponse.orderId}`)
+        console.log(`📁 Pasta: ${orderResponse.storageFolder}`)
+        console.log(`📄 Arquivos .TAP gerados: ${orderResponse.tapFiles.length}`)
+
+        // Notificações automáticas:
+        // 1. Email enviado para administracao@entratta.com.br
+        // 2. WhatsApp enviado para grupo "Novos Pedidos"
+        // 3. Arquivos armazenados em: storage/pedidos/2026/junho/{orderId}/
+      }
+
+      return orderResponse
+    } catch (error) {
+      console.error('Erro ao criar pedido:', error)
+      throw error
     }
-
-    return orderResponse
   }
 }

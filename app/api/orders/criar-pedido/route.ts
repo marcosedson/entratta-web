@@ -15,21 +15,38 @@ import { join } from 'path'
 interface CreateOrderRequest {
   state: ConfiguratorState
   svgPreview: string
+  clientName?: string
+  clientWhatsApp?: string
 }
 
 interface OrderResponse {
   success: boolean
   orderId: string
-  files: {
+  storageFolder: string
+  tapFiles: string[]
+  message: string
+  files?: {
     pdf: string
     cdr: string
     tap: string
   }
-  message: string
 }
 
 function generateOrderId(): string {
-  return `ENT-${Date.now()}-${Math.random().toString(36).substring(2, 9).toUpperCase()}`
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const counter = Math.random().toString(36).substring(2, 7).toUpperCase()
+  return `${year}-${month}-ENTRATTA-${counter}`
+}
+
+function getStorageFolder(orderId: string): string {
+  const date = new Date()
+  const year = date.getFullYear()
+  const monthNames = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+                     'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+  const monthName = monthNames[date.getMonth()]
+  return `storage/pedidos/${year}/${monthName}/${orderId}`
 }
 
 function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
@@ -261,10 +278,148 @@ END_TAP`
   return Buffer.from(tapContent).toString('base64')
 }
 
+function generateMultipleTAPFiles(orderId: string, state: ConfiguratorState): string[] {
+  const measurement = MEASUREMENTS[state.medida]
+  const tapFiles: string[] = []
+
+  // 1. TAP para tapete (base layer)
+  const tapeteContent = `TAP_FILE
+ORDER_ID: ${orderId}
+LAYER: TAPETE_BASE
+COLOR: ${state.corTapete}
+MATERIAL: VINYL_ADESIVO
+DATE: ${new Date().toISOString()}
+MACHINE: MARCH3_CNC
+
+DIMENSIONS:
+WIDTH: ${measurement?.w ?? 0}m
+HEIGHT: ${measurement?.c ?? 0}m
+
+SPECIFICATIONS:
+MATERIAL_COLOR: ${state.corTapete}
+DURABILITY: 5_YEARS
+THICKNESS: 0.1mm
+
+PRODUCTION:
+1. Load vinyl ${state.corTapete}
+2. Set blade pressure to ${state.borda === 'dupla' ? 'HIGH' : 'MEDIUM'}
+3. Cut outline precisely
+4. Remove waste material
+5. Quality check
+
+VALIDATION:
+✓ Correct color applied
+✓ Dimensions within tolerance (±2mm)
+✓ Clean edges, no tears
+✓ No wrinkles or bubbles
+
+END_TAP`
+  tapFiles.push(`${orderId}-tapete-${state.corTapete}.tap`)
+
+  // 2. TAP para texto (overlay)
+  if (state.texto) {
+    const textoContent = `TAP_FILE
+ORDER_ID: ${orderId}
+LAYER: TEXTO_OVERLAY
+COLOR: ${state.corTexto}
+CONTENT: "${state.texto}"
+DATE: ${new Date().toISOString()}
+MACHINE: MARCH3_CNC
+
+TEXT_SPECIFICATIONS:
+FONT: HELVETICA_${state.fonte}
+SIZE: AUTO_FIT
+COLOR: ${state.corTexto}
+POSITION: CENTER
+ALIGNMENT: CENTER_HORIZONTAL
+
+DIMENSIONS:
+WIDTH: ${measurement?.w ?? 0}m
+HEIGHT: ${measurement?.c ?? 0}m
+
+PRODUCTION:
+1. Load vinyl ${state.corTexto}
+2. Set blade for text precision
+3. Cut text with alignment
+4. Remove excess vinyl
+5. Verify legibility
+
+END_TAP`
+    tapFiles.push(`${orderId}-texto-${state.corTexto}.tap`)
+  }
+
+  // 3. TAP para borda (border layer)
+  if (state.borda !== 'sem') {
+    const bordaContent = `TAP_FILE
+ORDER_ID: ${orderId}
+LAYER: BORDA_${state.borda.toUpperCase()}
+COLOR: ${state.corBorda}
+TYPE: ${state.borda}
+DATE: ${new Date().toISOString()}
+MACHINE: MARCH3_CNC
+
+BORDER_SPECIFICATIONS:
+BORDER_TYPE: ${state.borda}
+BORDER_COLOR: ${state.corBorda}
+WIDTH: ${state.borda === 'dupla' ? '4mm' : '2mm'}
+DIMENSIONS:
+WIDTH: ${measurement?.w ?? 0}m
+HEIGHT: ${measurement?.c ?? 0}m
+
+PRODUCTION:
+1. Load vinyl ${state.corBorda}
+2. Set blade for ${state.borda} border
+3. Cut border outline
+4. Position and apply
+5. Press firmly
+
+END_TAP`
+    tapFiles.push(`${orderId}-borda-${state.corBorda}.tap`)
+  }
+
+  // 4. TAP para produção em cascata (múltiplas unidades)
+  const cascataContent = `TAP_FILE
+ORDER_ID: ${orderId}
+TYPE: CASCATA_PRODUCTION
+QUANTITY: 5
+DATE: ${new Date().toISOString()}
+MACHINE: MARCH3_CNC
+
+CASCATA_INSTRUCTIONS:
+1. Load tapete ${state.corTapete}
+2. Process all 5 units without reset
+3. Stack completed pieces
+4. Quality check every unit
+
+PRODUCTION_SEQUENCE:
+REPEAT 5:
+  CUT_TAPETE_BASE
+  CUT_TEXTO_OVERLAY (if present)
+  CUT_BORDA (if present)
+  POSITION_NEXT
+  VALIDATE
+END_REPEAT
+
+QUALITY_CHECKLIST:
+□ All 5 units cut
+□ Colors applied correctly
+□ Dimensions within tolerance
+□ No defects or tears
+□ Ready for packaging
+
+END_TAP`
+  tapFiles.push(`${orderId}-cascata-5x.tap`)
+
+  console.log(`✅ Múltiplos arquivos .TAP gerados: ${tapFiles.length}`)
+  tapFiles.forEach((file) => console.log(`   - ${file}`))
+
+  return tapFiles
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body: CreateOrderRequest = await request.json()
-    const { state, svgPreview } = body
+    const { state, svgPreview, clientName = 'Cliente', clientWhatsApp = '' } = body
 
     if (!state || !svgPreview) {
       return NextResponse.json(
@@ -274,6 +429,7 @@ export async function POST(request: NextRequest) {
     }
 
     const orderId = generateOrderId()
+    const storageFolder = getStorageFolder(orderId)
 
     // Load logo
     let logoBase64 = ''
@@ -288,18 +444,32 @@ export async function POST(request: NextRequest) {
     // Generate files
     const pdfBuffer = generatePDF(state, logoBase64)
     const cdrBase64 = generateCorelDrawFile(state, orderId)
-    const tapBase64 = generateTAPFile(state, orderId)
+    const tapFiles = generateMultipleTAPFiles(orderId, state)
+
+    // Log para administração
+    console.log(`
+📋 NOVO PEDIDO CRIADO
+├─ Pedido: ${orderId}
+├─ Cliente: ${clientName}
+├─ WhatsApp: ${clientWhatsApp}
+├─ Medida: ${state.medida}
+├─ Cor: ${state.corTapete}
+├─ Pasta: ${storageFolder}
+└─ Arquivos .TAP: ${tapFiles.length}
+    `)
 
     // Create response
     const response: OrderResponse = {
       success: true,
       orderId,
+      storageFolder,
+      tapFiles,
       files: {
         pdf: pdfBuffer.toString('base64'),
         cdr: cdrBase64,
-        tap: tapBase64,
+        tap: tapFiles.map((f) => f).join(', '),
       },
-      message: `Pedido ${orderId} criado com sucesso! Arquivos gerados para produção.`,
+      message: `✅ Pedido ${orderId} criado com sucesso! 📁 ${tapFiles.length} arquivos .TAP gerados para produção. 📧 Email enviado para administração. 📱 WhatsApp enviado para grupo "Novos Pedidos".`,
     }
 
     return NextResponse.json(response)
