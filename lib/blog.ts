@@ -21,17 +21,17 @@ const posts: BlogPost[] = [
     readingTime: 5,
     keywords: ["preço", "capacho personalizado", "orçamento"],
     content: `
-# Quanto Custa um Capacho Personalizado?
+QUANTO CUSTA UM CAPACHO PERSONALIZADO?
 
 A pergunta mais comum que recebemos: quanto custa um capacho personalizado?
 
-## Preço Base
+PREÇO BASE
 
 O preço dos nossos capachos começa em R$ 72 para o tamanho mínimo de 40×60 cm em cor sólida, sem personalização.
 
 Porém, quando falamos em capacho personalizado com logo, o investimento muda. Vamos quebrar os componentes do preço:
 
-### Componentes do Preço
+COMPONENTES DO PREÇO
 
 1. Tamanho — quanto maior, mais vinil e impressão
    - 40×60 cm: base
@@ -55,27 +55,27 @@ Porém, quando falamos em capacho personalizado com logo, o investimento muda. V
    - 24h: +R$ 100
    - 12h: +R$ 200
 
-## Exemplos Reais de Orçamento
+EXEMPLOS REAIS DE ORÇAMENTO
 
-### Clínica com 10 unidades
+CLÍNICA COM 10 UNIDADES
 - Tamanho: 60×90 cm
 - Personalização: logo + nome + cores corporativas
 - Quantidade: 10 un
 - Orçamento: R$ 850/un = R$ 8.500 total (desconto 25% aplicado)
 
-### Escritório com 1 unidade
+ESCRITÓRIO COM 1 UNIDADE
 - Tamanho: 40×60 cm
 - Personalização: logo simples
 - Quantidade: 1 un
 - Orçamento: R$ 280/un
 
-### Loja com 20 unidades
+LOJA COM 20 UNIDADES
 - Tamanho: 80×120 cm
 - Personalização: logo + bordas especiais
 - Quantidade: 20 un
 - Orçamento: R$ 420/un = R$ 8.400 total (desconto 35% aplicado)
 
-## Como Receber seu Orçamento?
+COMO RECEBER SEU ORÇAMENTO?
 
 1. Acesse nosso configurador online em monte-o-seu
 2. Escolha tamanho, cores e faça upload da logo
@@ -101,50 +101,50 @@ Aceitamos pagamento em até 12x sem juros no Mercado Livre.
     readingTime: 8,
     keywords: ["clínica", "consultório", "capacho personalizado"],
     content: `
-# Capacho Personalizado para Clínica: Guia Completo
+CAPACHO PERSONALIZADO PARA CLÍNICA: GUIA COMPLETO
 
 Um capacho na entrada de uma clínica não é apenas decorativo — é uma declaração de profissionalismo e higiene.
 
-## Por que uma Clínica Precisa de Capacho Personalizado
+POR QUE UMA CLÍNICA PRECISA DE CAPACHO PERSONALIZADO
 
-### 1. Primeira Impressão
+1. PRIMEIRA IMPRESSÃO
 A recepção é o primeiro espaço visitado pelo paciente. Um capacho com logo e cores corporativas transmite profissionalismo imediato.
 
-### 2. Higiene e Limpeza
+2. HIGIENE E LIMPEZA
 Clínicas recebem pacientes com calçados que podem trazer sujeira de rua. Um capacho na entrada reduz sujeira nos pisos em até 70%.
 
-### 3. Controle de Infecção
+3. CONTROLE DE INFECÇÃO
 Em consultórios médicos e odontológicos, a limpeza dos pés ao entrar ajuda a controlar contaminação cruzada.
 
-### 4. Branding
+4. BRANDING
 Um capacho personalizado com o nome e logo da clínica reforça a identidade visual.
 
-## Especificações Recomendadas
+ESPECIFICAÇÕES RECOMENDADAS
 
-### Tamanho
+TAMANHO
 - Entrada principal: 60×90 cm ou 80×120 cm
 - Entradas secundárias: 40×60 cm
 
-### Material
+MATERIAL
 Vinil de alta resistência é ideal para clínicas porque:
 - Suporta tráfego intenso (50-100 pessoas/dia)
 - Fácil de limpar com desinfetante
 - Anti-manchas
 - Durável por 2-3 anos de uso contínuo
 
-### Cores
+CORES
 - Verde ou azul: associadas a limpeza e saúde
 - Branco ou cinza: fácil de combinar com qualquer piso
 - Cores corporativas: reforçam branding
 
-### Design
+DESIGN
 Recomendações:
 1. Logo no centro — altura de 15-20 cm
 2. Texto "Bem-vindo" ou nome da clínica em cima
 3. Telefone ou WhatsApp na base (estratégia de marketing)
 4. Borda em cores claras — facilita navegação visual
 
-## Caso de Uso: Clínica Odontológica em Goiânia
+CASO DE USO: CLÍNICA ODONTOLÓGICA EM GOIÂNIA
 
 Uma clínica odontológica em Goiânia solicitou 2 capachos personalizados:
 - Tamanho: 60×90 cm + 40×60 cm (entrada secundária)
@@ -156,18 +156,18 @@ Uma clínica odontológica em Goiânia solicitou 2 capachos personalizados:
 
 Resultado: A clínica relata que pacientes comentam sobre a primeira impressão profissional, e a higiene da recepção melhorou visualmente.
 
-## Manutenção do Capacho na Clínica
+MANUTENÇÃO DO CAPACHO NA CLÍNICA
 
-### Limpeza Diária
+LIMPEZA DIÁRIA
 - Aspirar ou varrer
 - Limpar com pano úmido
 - Uma vez por semana: passar álcool ou desinfetante
 
-### Durabilidade
+DURABILIDADE
 - Uso em clínica (50-100 pessoas/dia): 2-3 anos
 - Uso em consultório (20-50 pessoas/dia): 3-4 anos
 
-## Solicitando seu Capacho para Clínica
+SOLICITANDO SEU CAPACHO PARA CLÍNICA
 
 1. **Defina o tamanho:** entrada principal + secundárias
 2. **Escolha as cores:** corporativas ou recomendadas
@@ -189,13 +189,13 @@ Resultado: A clínica relata que pacientes comentam sobre a primeira impressão 
     readingTime: 6,
     keywords: ["tapete empresa", "escritório", "branding"],
     content: `
-# Tapete de Vinil Personalizado para Empresa: 5 Vantagens Estratégicas
+TAPETE DE VINIL PERSONALIZADO PARA EMPRESA: 5 VANTAGENS ESTRATÉGICAS
 
 Se sua empresa ainda não investiu em um tapete personalizado na entrada, está deixando passar uma oportunidade de branding, higiene e durabilidade.
 
-## 5 Razões Para Investir em Tapete Personalizado
+5 RAZÕES PARA INVESTIR EM TAPETE PERSONALIZADO
 
-### 1. Branding Estratégico
+1. BRANDING ESTRATÉGICO
 Um tapete com logo, nome e cores da empresa é uma mídia que funciona 24/7:
 - Visitantes veem ao chegar
 - Clientes veem ao sair
@@ -204,7 +204,7 @@ Um tapete com logo, nome e cores da empresa é uma mídia que funciona 24/7:
 
 Impacto: marca recordada 3x mais versus sem capacho.
 
-### 2. Limpeza e Manutenção
+2. LIMPEZA E MANUTENÇÃO
 Escritórios e empresas recebem dezenas de pessoas por dia. Um tapete personalizado:
 - Reduz sujeira nos pisos em até 70%
 - Reduz custos de limpeza
@@ -212,7 +212,7 @@ Escritórios e empresas recebem dezenas de pessoas por dia. Um tapete personaliz
 
 ROI: economiza ~R$ 500/mês em limpeza
 
-### 3. Durabilidade Superior
+3. DURABILIDADE SUPERIOR
 Tapetes de vinil de qualidade resistem a:
 - Tráfego intenso (200+ pessoas/dia)
 - Uso contínuo por 3-5 anos
@@ -223,7 +223,7 @@ Comparação:
 - Vinil de qualidade: 3-5 anos
 - Custo por ano: vinil sai mais barato
 
-### 4. Profissionalismo
+4. PROFISSIONALISMO
 Uma sala de espera ou recepção com tapete personalizado transmite:
 - Cuidado com detalhes
 - Investimento em experiência do cliente
@@ -231,33 +231,33 @@ Uma sala de espera ou recepção com tapete personalizado transmite:
 
 Efeito em prospectos: +15% de taxa de conversão em primeiro contato
 
-### 5. Flexibilidade de Design
+5. FLEXIBILIDADE DE DESIGN
 Você controla totalmente:
 - Logo e marca
 - Cores corporativas
 - Texto: slogan, telefone, URL
 - Tamanho: pequeno ou grande (até 80×120cm ou mais)
 
-## Especificações Ideais Para Empresa
+ESPECIFICAÇÕES IDEAIS PARA EMPRESA
 
-### Tamanho
+TAMANHO
 - Recepção: 80×120 cm (máximo impacto)
 - Sala de espera: 60×90 cm
 - Entradas: 40×60 cm
 
-### Material
+MATERIAL
 Vinil com base em borracha antiderrapante:
 - Não escorrega em pisos lisos (segurança)
 - Resiste a umidade
 - Fácil de limpar
 
-### Design
+DESIGN
 - Logo centralizado
 - Fundo em cor corporativa
 - Texto em contraste alto (branco sobre verde, por exemplo)
 - Bordas limpas
 
-## Custo vs. Benefício
+CUSTO VS. BENEFÍCIO
 
 | Item | Custo Anual |
 |---|---|
@@ -266,7 +266,7 @@ Vinil com base em borracha antiderrapante:
 | Custo líquido | R$ 0 |
 | Branding e profissionalismo | Inestimável |
 
-## Processo de Solicitação
+PROCESSO DE SOLICITAÇÃO
 
 1. Decida tamanho e local
 2. Prepare logo em alta res
@@ -290,13 +290,13 @@ Envie mensagem via WhatsApp para começar.
     readingTime: 7,
     keywords: ["processo", "fabricação", "personalização"],
     content: `
-# Como Funciona o Processo de um Capacho Personalizado?
+COMO FUNCIONA O PROCESSO DE UM CAPACHO PERSONALIZADO?
 
 Você enviou uma foto do seu logo no WhatsApp... mas quanto tempo leva do seu pedido até o capacho chegar? Vamos detalhar todo o processo.
 
-## Os 5 Passos do Processo
+OS 5 PASSOS DO PROCESSO
 
-### Passo 1: Orçamento (5-10 minutos)
+PASSO 1: ORÇAMENTO (5-10 MINUTOS)
 Você envia:
 - Tamanho desejado
 - Logo (foto, PDF ou AI)
@@ -311,7 +311,7 @@ Nós respondemos com:
 
 Tempo:** 30 minutos a 1 hora
 
-### Passo 2: Aprovação do Design (2-4 horas)
+PASSO 2: APROVAÇÃO DO DESIGN (2-4 HORAS)
 Nosso time de design:
 1. Recebe sua logo
 2. Remove fundo se necessário
@@ -327,7 +327,7 @@ Você pode solicitar ajustes:
 
 Tempo total neste passo:** até 4 horas
 
-### Passo 3: Preparação da Produção (1-2 dias)
+PASSO 3: PREPARAÇÃO DA PRODUÇÃO (1-2 DIAS)
 Após aprovação, enviamos para a gráfica:
 - Arquivo final em 300 DPI
 - Especificações de material (vinil, borda, tamanho)
@@ -341,7 +341,7 @@ Neste passo:
 
 Tempo:** 1-2 dias úteis
 
-### Passo 4: Impressão e Acabamento (1-2 dias)
+PASSO 4: IMPRESSÃO E ACABAMENTO (1-2 DIAS)
 Processo de fabricação:
 1. Corte do vinil no tamanho exato (40×60, 60×90, etc)
 2. Impressão em 8 cores (qualidade fotográfica)
@@ -352,7 +352,7 @@ Processo de fabricação:
 
 Tempo:** 1-2 dias úteis
 
-### Passo 5: Embalagem e Envio (1-2 dias)
+PASSO 5: EMBALAGEM E ENVIO (1-2 DIAS)
 - Embalagem em caixa padronizada
 - Etiqueta com rastreamento
 - Envio via transportadora parceira
@@ -360,7 +360,7 @@ Tempo:** 1-2 dias úteis
 
 Tempo total: 1-2 dias úteis
 
-## Timeline Total
+TIMELINE TOTAL
 
 | Fase | Tempo |
 |---|---|
@@ -371,7 +371,7 @@ Tempo total: 1-2 dias úteis
 | Envio | 1-2 dias úteis |
 | Total | 3-5 dias úteis |
 
-## O que Você Precisa Fornecer
+O QUE VOCÊ PRECISA FORNECER
 
 ✓ Logo (JPG, PNG, PDF ou AI)
 ✓ Cores desejadas (código Pantone ou descrição)
@@ -380,26 +380,26 @@ Tempo total: 1-2 dias úteis
 ✓ Quantidade
 ✓ Endereço de entrega
 
-## FAQs sobre o Processo
+FAQS SOBRE O PROCESSO
 
-### Posso fazer alterações após aprovar o design?
+Posso fazer alterações após aprovar o design?
 Sim, até o início da impressão. Após começar a imprimir, não é possível.
 
-### Qual é o prazo mínimo?
+Qual é o prazo mínimo?
 24 horas (com taxa de aceleração), mas recomendamos 3 dias úteis para qualidade melhor.
 
-### Posso acompanhar a produção?
+Posso acompanhar a produção?
 Sim, enviamos fotos da produção em andamento.
 
-### E se não gostar do resultado?
+E se não gostar do resultado?
 Temos garantia de 2 anos contra defeitos de fabricação. Alterações de design são discussões caso a caso.
 
-### Qual é a qualidade da impressão?
+Qual é a qualidade da impressão?
 - Resolução: 300 DPI
 - Cores: 8 cores CMYK
 - Proteção: laminação UV que resiste a 3-5 anos de uso intenso
 
-## Solicitando Seu Capacho Agora
+SOLICITANDO SEU CAPACHO AGORA
 
 1. Clique em [Solicitar Orçamento](#)
 2. Ou envie mensagem no WhatsApp: https://wa.me/5564992066855
@@ -420,11 +420,11 @@ Próximos passos:
     readingTime: 5,
     keywords: ["dicas", "erros", "capacho personalizado"],
     content: `
-# 5 Erros Comuns ao Comprar Capacho Personalizado (E Como Evitar)
+5 ERROS COMUNS AO COMPRAR CAPACHO PERSONALIZADO (E COMO EVITAR)
 
 Depois de centenas de pedidos, identificamos os 5 erros mais comuns que clientes cometem ao solicitar um capacho personalizado. Leia para evitá-los.
 
-## Erro #1: Enviar Logo em Baixa Resolução
+ERRO #1: ENVIAR LOGO EM BAIXA RESOLUÇÃO
 
 O Problema:
 Você envia uma foto 800×600px de uma tela de celular. Quando imprimimos no tamanho grande (80×120cm), a logo fica pixelada.
@@ -437,7 +437,7 @@ A Solução:
 
 Impacto: Logo pixelada reduz profissionalismo em 80%
 
-## Erro #2: Escolher Cores sem Considerar o Piso
+ERRO #2: ESCOLHER CORES SEM CONSIDERAR O PISO
 
 O Problema:
 Você pediu capacho branco, mas o piso da sua empresa é branco. Resultado: invisível e sem contraste.
@@ -452,7 +452,7 @@ Exemplo bom:
 - Piso preto → capacho branco ou cinza
 - Piso madeira → capacho verde ou azul
 
-## Erro #3: Tamanho Muito Pequeno
+ERRO #3: TAMANHO MUITO PEQUENO
 
 O Problema:
 Você pediu 40×60cm para uma entrada que recebe 100 pessoas/dia. Resultado: capacho acaba rápido, pessoas pisam nas bordas, fica feio.
@@ -464,7 +464,7 @@ A Solução:
 
 Cálculo: tamanho = metade da largura da porta de entrada
 
-## Erro #4: Texto Muito Pequeno ou Ilegível
+ERRO #4: TEXTO MUITO PEQUENO OU ILEGÍVEL
 
 O Problema:
 Você quer colocar o número de telefone no capacho. Coloca em fonte 8pt. Ninguém consegue ler.
@@ -476,7 +476,7 @@ A Solução:
 
 Regra: se não consegue ler a 1 metro de distância no preview, aumenta.
 
-## Erro #5: Não Aprovar o Design com Antecedência
+ERRO #5: NÃO APROVAR O DESIGN COM ANTECEDÊNCIA
 
 O Problema:
 Você pediu capacho, aprovou rápido sem olhar direito, recebeu e "não ficou como imaginava" — já estava impresso.
@@ -494,7 +494,7 @@ Checklist:
 - Composição fica bem no seu espaço?
 - Não tem informações upside-down?
 
-## Bônus: O que Fazer Certo
+BÔNUS: O QUE FAZER CERTO
 
 1. Prepare logo em 300 DPI, PDF ou AI
 2. Escolha cores de contraste com seu piso
@@ -502,7 +502,7 @@ Checklist:
 4. Texto mínimo 16pt para qualquer informação
 5. Revise o design com cuidado antes de aprovar
 
-## Próximos Passos
+PRÓXIMOS PASSOS
 
 Pronto para evitar esses erros? Solicite seu capacho agora via WhatsApp.
 
