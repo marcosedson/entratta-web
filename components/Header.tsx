@@ -9,6 +9,7 @@ const WPP_URL = 'https://wa.me/5564992066855'
 const NAV_LINKS = [
   { href: '/#produtos', label: 'Produtos' },
   { href: '/como-funciona', label: 'Como Funciona' },
+  { href: '/blog', label: 'Blog' },
   { href: '/depoimentos', label: 'Depoimentos' },
 ]
 
