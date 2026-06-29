@@ -4,6 +4,7 @@ import { ConfiguratorState } from '@/lib/hooks'
 import { ConfiguratorService } from '@/lib/services'
 import { LogoProcessingService } from '@/lib/services/logo-processing.service'
 import { CoordinateScaler } from '@/lib/services/coordinate-scaler'
+import { SVGGenerator } from '@/lib/services/svg-generator'
 import {
   CARPET_COLORS,
   TEXT_COLORS,
@@ -481,6 +482,7 @@ export async function POST(request: NextRequest) {
 
     // Generate basic files
     const pdfBuffer = generatePDF(state, entrattaLogoBase64)
+    const svgContent = SVGGenerator.generateSVG(state, clientLogoBase64, orderId)
     const cdrBase64 = generateCorelDrawFile(state, orderId)
     const tapFiles = generateMultipleTAPFiles(orderId, state)
 
@@ -570,6 +572,7 @@ ${logoTapFiles.length > 0 ? `├─ Arquivos .TAP logo: ${logoTapFiles.length} (
         body: JSON.stringify({
           orderId,
           pdf: `data:application/pdf;base64,${pdfBuffer.toString('base64')}`,
+          svg: svgContent,
           tapFiles: allTapFiles.map((fname) => ({
             filename: fname,
             content: `TAP_FILE\nORDER_ID: ${orderId}\nFILE: ${fname}\nDATE: ${new Date().toISOString()}\nEND_TAP`,

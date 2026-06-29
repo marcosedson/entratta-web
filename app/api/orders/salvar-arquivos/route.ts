@@ -5,6 +5,7 @@ import { join } from 'path'
 interface SaveFilesRequest {
   orderId: string
   pdf: string
+  svg?: string
   tapFiles: Array<{ filename: string; content: string }>
   metadata: Record<string, any>
 }
@@ -12,7 +13,7 @@ interface SaveFilesRequest {
 export async function POST(request: NextRequest) {
   try {
     const body: SaveFilesRequest = await request.json()
-    const { orderId, pdf, tapFiles, metadata } = body
+    const { orderId, pdf, svg, tapFiles, metadata } = body
 
     // Cria pasta
     const baseDir = join(process.cwd(), 'public', 'gerados', orderId)
@@ -22,6 +23,11 @@ export async function POST(request: NextRequest) {
     if (pdf) {
       const pdfBuffer = Buffer.from(pdf.replace(/^data:application\/pdf;base64,/, ''), 'base64')
       writeFileSync(join(baseDir, `${orderId}-projeto.pdf`), pdfBuffer)
+    }
+
+    // Salva SVG (vetorial para CorelDraw)
+    if (svg) {
+      writeFileSync(join(baseDir, `${orderId}-projeto.svg`), svg)
     }
 
     // Salva .TAP files
@@ -114,11 +120,12 @@ Próximas etapas:
       publicUrl: `/gerados/${orderId}/`,
       files: {
         pdf: `${orderId}-projeto.pdf`,
+        svg: svg ? `${orderId}-projeto.svg` : null,
         taps: tapFiles.map((t) => t.filename),
         summary: 'RESUMO.txt',
         metadata: 'metadata.json',
       },
-      message: `✅ Arquivos salvos! Acesse: http://localhost:3000/gerados/${orderId}/`,
+      message: `✅ Arquivos salvos! PDF + SVG + .TAP files. Acesse: http://localhost:3000/gerados/${orderId}/`,
     })
   } catch (error) {
     console.error('❌ Erro ao salvar arquivos:', error)
