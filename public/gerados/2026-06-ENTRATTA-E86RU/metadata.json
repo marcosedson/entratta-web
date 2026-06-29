@@ -1,0 +1,32 @@
+{
+  "orderId": "2026-06-ENTRATTA-E86RU",
+  "createdAt": "2026-06-29T21:25:23.766Z",
+  "clientName": "marcos edson",
+  "clientWhatsApp": "34997656230",
+  "medida": "40x60",
+  "corTapete": "cinza",
+  "corTexto": "preto",
+  "corBorda": "branco",
+  "borda": "sem",
+  "texto": "BEM VINDO",
+  "logoColors": [
+    {
+      "hex": "#000000",
+      "label": "Preto",
+      "vinyl_hex": "#000000",
+      "available": true
+    }
+  ],
+  "colorAccuracy": 99.2,
+  "detailPreservation": 98.5,
+  "processingTime": 0,
+  "files": {
+    "pdf": "2026-06-ENTRATTA-E86RU-projeto.pdf",
+    "taps": [
+      "2026-06-ENTRATTA-E86RU-tapete-cinza.tap",
+      "2026-06-ENTRATTA-E86RU-texto-preto.tap",
+      "2026-06-ENTRATTA-E86RU-cascata-5x.tap",
+      "2026-06-ENTRATTA-E86RU-logo-01-preto.tap"
+    ]
+  }
+}

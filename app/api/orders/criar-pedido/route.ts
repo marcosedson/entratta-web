@@ -96,136 +96,147 @@ function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
   const borderColor = BORDER_COLORS.find((c) => c.id === state.corBorda)
   const borderObj = BORDERS.find((b) => b.id === state.borda)
 
-  // FUNDO
-  pdf.setFontSize(9)
+  // ═══ PREVIEW VISUAL DO TAPETE ═══
+  pdf.setFontSize(10)
   pdf.setFont('Helvetica', 'bold')
   pdf.setTextColor(...darkBlue)
-  pdf.text('FUNDO:', 15, yPos)
-
-  if (carpetColor) {
-    pdf.setFillColor(
-      parseInt(carpetColor.hex.slice(1, 3), 16),
-      parseInt(carpetColor.hex.slice(3, 5), 16),
-      parseInt(carpetColor.hex.slice(5, 7), 16)
-    )
-    pdf.rect(30, yPos - 2.5, 6, 6, 'F')
-    pdf.setFontSize(8)
-    pdf.setTextColor(80, 80, 80)
-    pdf.text(carpetColor.label, 40, yPos)
-  }
-  yPos += 10
-
-  // LOGO
-  pdf.setFontSize(9)
-  pdf.setFont('Helvetica', 'bold')
-  pdf.setTextColor(...darkBlue)
-  pdf.text('LOGO:', 15, yPos)
-  yPos += 7
-
-  pdf.setFontSize(7)
-  let xPos = 30
-  const colors = [
-    { name: 'BRANCO', hex: '#FFFFFF' },
-    ...TEXT_COLORS.map((c) => ({ name: c.label.toUpperCase(), hex: c.hex })),
-  ]
-
-  colors.forEach((color) => {
-    pdf.setFillColor(
-      parseInt(color.hex.slice(1, 3), 16),
-      parseInt(color.hex.slice(3, 5), 16),
-      parseInt(color.hex.slice(5, 7), 16)
-    )
-    pdf.setDrawColor(color.hex === '#FFFFFF' ? 200 : 0, color.hex === '#FFFFFF' ? 200 : 0, color.hex === '#FFFFFF' ? 200 : 0)
-    pdf.setLineWidth(0.2)
-    pdf.rect(xPos, yPos - 2, 5, 5, 'FD')
-
-    pdf.setTextColor(80, 80, 80)
-    pdf.text(color.name, xPos - 0.5, yPos + 5, { align: 'center', maxWidth: 8 })
-
-    xPos += 8
-    if (xPos > pageWidth - 25) {
-      xPos = 30
-      yPos += 10
-    }
-  })
-  yPos += 10
-
-  // BORDA
-  pdf.setFontSize(9)
-  pdf.setFont('Helvetica', 'bold')
-  pdf.setTextColor(...darkBlue)
-  pdf.text('BORDA:', 15, yPos)
+  pdf.text('PREVIEW DO TAPETE:', 15, yPos)
   yPos += 8
 
-  // PREVIEW
-  pdf.setFontSize(9)
-  pdf.setFont('Helvetica', 'normal')
-  pdf.setTextColor(80, 80, 80)
-  pdf.text('PREVIEW:', 15, yPos)
-  yPos += 4
+  // Desenha representação visual do tapete
+  const previewWidth = 60
+  const previewHeight = (previewWidth * (measurement?.c || 60)) / (measurement?.w || 40)
 
+  if (carpetColor) {
+    // Fundo do tapete (cor real)
+    pdf.setFillColor(
+      parseInt(carpetColor.hex.slice(1, 3), 16),
+      parseInt(carpetColor.hex.slice(3, 5), 16),
+      parseInt(carpetColor.hex.slice(5, 7), 16)
+    )
+    pdf.rect(50, yPos, previewWidth, previewHeight, 'F')
+
+    // Borda se houver
+    if (borderObj?.id !== 'sem' && borderColor) {
+      const borderW = borderObj?.id === 'fina' ? 1 : 2
+      pdf.setDrawColor(
+        parseInt(borderColor.hex.slice(1, 3), 16),
+        parseInt(borderColor.hex.slice(3, 5), 16),
+        parseInt(borderColor.hex.slice(5, 7), 16)
+      )
+      pdf.setLineWidth(borderW * 0.5)
+      pdf.rect(50, yPos, previewWidth, previewHeight)
+    }
+
+    // Texto simulado no preview
+    if (state.texto && textColor) {
+      pdf.setFont('Helvetica', 'bold')
+      pdf.setFontSize(6)
+      pdf.setTextColor(
+        parseInt(textColor.hex.slice(1, 3), 16),
+        parseInt(textColor.hex.slice(3, 5), 16),
+        parseInt(textColor.hex.slice(5, 7), 16)
+      )
+      pdf.text(state.texto.substring(0, 20), 50 + previewWidth / 2, yPos + previewHeight / 2, {
+        align: 'center',
+        maxWidth: previewWidth - 4,
+      })
+    }
+
+    // Dimensões do preview
+    pdf.setFont('Helvetica', 'normal')
+    pdf.setFontSize(7)
+    pdf.setTextColor(100, 100, 100)
+    pdf.text(`${measurement?.w}cm × ${measurement?.c}cm`, 50 + previewWidth / 2, yPos + previewHeight + 4, {
+      align: 'center',
+    })
+  }
+
+  yPos += previewHeight + 12
+
+  // ═══ CORES UTILIZADAS ═══
+  pdf.setFontSize(9)
+  pdf.setFont('Helvetica', 'bold')
+  pdf.setTextColor(...darkBlue)
+  pdf.text('CORES UTILIZADAS:', 15, yPos)
+  yPos += 7
+
+  // Cor do tapete
+  pdf.setFont('Helvetica', 'normal')
+  pdf.setFontSize(8)
+  pdf.setTextColor(80, 80, 80)
+  pdf.text('Fundo:', 15, yPos)
   if (carpetColor) {
     pdf.setFillColor(
       parseInt(carpetColor.hex.slice(1, 3), 16),
       parseInt(carpetColor.hex.slice(3, 5), 16),
       parseInt(carpetColor.hex.slice(5, 7), 16)
     )
-    pdf.rect(15, yPos, pageWidth - 30, 70, 'F')
+    pdf.rect(40, yPos - 2.5, 6, 6, 'F')
+    pdf.text(carpetColor.label, 50, yPos)
+  }
+  yPos += 8
 
-    pdf.setFontSize(14)
-    pdf.setFont('Helvetica', 'bold')
-    const textColorRGB: [number, number, number] = [255, 255, 255]
-    if (state.texto) {
-      pdf.setTextColor(...textColorRGB)
-      pdf.text(state.texto, pageWidth / 2, yPos + 35, { align: 'center' })
-    }
-  } else {
-    pdf.setDrawColor(150, 150, 150)
-    pdf.setLineWidth(0.3)
-    pdf.rect(15, yPos, pageWidth - 30, 70)
+  // Cor do texto (se houver)
+  if (state.texto && textColor) {
+    pdf.text('Texto:', 15, yPos)
+    pdf.setFillColor(
+      parseInt(textColor.hex.slice(1, 3), 16),
+      parseInt(textColor.hex.slice(3, 5), 16),
+      parseInt(textColor.hex.slice(5, 7), 16)
+    )
+    pdf.rect(40, yPos - 2.5, 6, 6, 'F')
+    pdf.text(textColor.label, 50, yPos)
+    yPos += 8
   }
 
-  // Dimension markers
-  const previewY = yPos + 70
-  const previewX = 15
-  const previewW = pageWidth - 30
+  // Cor da borda (se houver)
+  if (borderColor && borderObj && borderObj.id !== 'sem') {
+    pdf.text('Borda:', 15, yPos)
+    pdf.setFillColor(
+      parseInt(borderColor.hex.slice(1, 3), 16),
+      parseInt(borderColor.hex.slice(3, 5), 16),
+      parseInt(borderColor.hex.slice(5, 7), 16)
+    )
+    pdf.rect(40, yPos - 2.5, 6, 6, 'F')
+    pdf.text(`${borderColor.label} (${borderObj.l})`, 50, yPos)
+    yPos += 8
+  }
 
-  pdf.setDrawColor(...darkBlue)
-  pdf.setLineWidth(0.6)
-  pdf.line(previewX, previewY + 3, previewX + previewW, previewY + 3)
-  pdf.line(previewX, previewY, previewX, previewY + 6)
-  pdf.line(previewX + previewW, previewY, previewX + previewW, previewY + 6)
-
-  pdf.setFontSize(11)
+  // ═══ ESPECIFICAÇÕES ═══
+  pdf.setFontSize(9)
   pdf.setFont('Helvetica', 'bold')
   pdf.setTextColor(...darkBlue)
-  pdf.text(`${measurement?.w ?? 0}m`, pageWidth / 2, previewY + 10, { align: 'center' })
+  pdf.text('ESPECIFICAÇÕES:', 15, yPos)
+  yPos += 7
 
-  const heightX = pageWidth - 12
-  pdf.line(heightX, yPos, heightX, previewY + 3)
-  pdf.line(heightX - 3, yPos, heightX + 3, yPos)
-  pdf.line(heightX - 3, previewY + 3, heightX + 3, previewY + 3)
+  pdf.setFont('Helvetica', 'normal')
+  pdf.setFontSize(8)
+  pdf.setTextColor(80, 80, 80)
 
-  pdf.setFontSize(9)
-  pdf.text(`${measurement?.c ?? 0}m`, heightX + 8, yPos + 35, { align: 'left' })
+  const borderLabel = borderObj ? borderObj.l : 'Sem'
+  const specs = [
+    [`Medida: ${measurement?.l || 'Customizada'}`, `Cor Tapete: ${carpetColor?.label || '—'}`],
+    [`Borda: ${borderLabel}`, `Texto: "${state.texto || 'Sem texto'}"`],
+  ]
 
-  // Footer
+  specs.forEach((row) => {
+    pdf.text(row[0], 15, yPos)
+    pdf.text(row[1], pageWidth / 2, yPos)
+    yPos += 5
+  })
+
+  // ═══ FOOTER ═══
+  yPos = pageHeight - 15
   pdf.setFontSize(7)
   pdf.setTextColor(150, 150, 150)
   pdf.setFont('Helvetica', 'normal')
-
-  const footerText = [
-    'IMAGENS MERAMENTE ILUSTRATIVAS - Podem ocorrer algumas alterações devido ao tipo e ajustes do seu monitor',
-    'Ao receber este layout, atenda-se aos seguintes MEDIDAS, CORES E LOGO. Por ser tratar de uma peça personalizada,',
-    'após sua produção não será possível sua modificação. Importante saber que, letras pequenas terão altura superior a 5CM,',
-    'para que a produção seja realizada, caso seja inferior, haverá a necessidade de aumentar o tamanho do tapete ou abreviar as palavras.',
-  ]
-
-  let footerY = pageHeight - 18
-  footerText.forEach((line) => {
-    pdf.text(line, 15, footerY, { maxWidth: pageWidth - 30 })
-    footerY += 3.5
-  })
+  pdf.text(
+    'ENTRATTA · entratta.com.br · WhatsApp: (64) 99206-6855 · Cores podem variar conforme calibração do monitor.',
+    pageWidth / 2,
+    yPos,
+    { align: 'center', maxWidth: pageWidth - 20 }
+  )
 
   return Buffer.from(pdf.output('arraybuffer'))
 }
