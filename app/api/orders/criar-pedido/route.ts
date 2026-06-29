@@ -481,17 +481,33 @@ export async function POST(request: NextRequest) {
 
     // Log para administração
     console.log(`
-📋 NOVO PEDIDO CRIADO
-├─ Pedido: ${orderId}
+╔════════════════════════════════════════════════════════════════╗
+║                    NOVO PEDIDO CRIADO                         ║
+╚════════════════════════════════════════════════════════════════╝
+
+📋 Detalhes:
+├─ Pedido ID: ${orderId}
 ├─ Cliente: ${clientName}
 ├─ WhatsApp: ${clientWhatsApp}
 ├─ Medida: ${state.medida}
 ├─ Cor tapete: ${state.corTapete}
+│
+📁 Armazenamento:
 ├─ Pasta: ${storageFolder}
 ├─ Arquivos .TAP base: ${tapFiles.length}
 ${logoTapFiles.length > 0 ? `├─ Arquivos .TAP logo: ${logoTapFiles.length} (cores: ${logoColors.map((c: any) => c.label).join(', ')})` : ''}
 └─ Total .TAP: ${allTapFiles.length}
+
+📧 Notificações:
+├─ Email: [COMENTADO - descomentar em produção]
+└─ WhatsApp: [COMENTADO - descomentar em produção]
+
+✅ Status: SUCESSO
     `)
+
+    // TODO: Descomentar em produção
+    // await EmailService.sendOrderNotification(...)
+    // await WhatsAppService.sendOrderNotification(...)
 
     // Create response
     const response: OrderResponse = {
