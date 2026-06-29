@@ -103,6 +103,11 @@ function generatePDF(
   const borderObj = BORDERS.find((b) => b.id === state.borda)
 
   // ═══ PREVIEW VISUAL DO TAPETE (CAPTURADO DO CANVAS) ═══
+  console.log(`\n🖼️ ADICIONANDO PREVIEW AO PDF:`)
+  console.log(`   Preview exists: ${svgPreview ? 'YES ✅' : 'NO ❌'}`)
+  console.log(`   Preview size: ${(svgPreview?.length || 0) / 1024}KB`)
+  console.log(`   Preview type: ${svgPreview ? svgPreview.substring(0, 50) : 'N/A'}...`)
+
   pdf.setFontSize(10)
   pdf.setFont('Helvetica', 'bold')
   pdf.setTextColor(...darkBlue)
@@ -115,18 +120,25 @@ function generatePDF(
       const previewWidth = 170
       const previewHeight = (previewWidth * (measurement?.c || 60)) / (measurement?.w || 40)
 
+      console.log(`   Attempting to add image:`)
+      console.log(`     - Width: ${previewWidth}mm`)
+      console.log(`     - Height: ${previewHeight}mm`)
+      console.log(`     - Position: (20, ${yPos})`)
+      console.log(`     - Format: JPEG`)
+
       // svgPreview vem como data URL JPEG do canvas
       pdf.addImage(svgPreview, 'JPEG', 20, yPos, previewWidth, previewHeight)
 
-      console.log(`✅ Preview adicionado ao PDF: ${previewWidth}×${previewHeight}mm`)
+      console.log(`✅ Preview adicionado ao PDF com SUCESSO!`)
       yPos += previewHeight + 12
     } catch (error) {
-      console.warn('⚠️ Erro ao adicionar preview do canvas:', error)
-      console.warn(`   Preview received: ${svgPreview ? 'YES' : 'NO'}`)
-      console.warn(`   Preview size: ${(svgPreview?.length || 0) / 1024}KB`)
+      console.error('❌ ERRO ao adicionar preview do canvas:')
+      console.error(`   Message: ${error instanceof Error ? error.message : String(error)}`)
+      console.error(`   Preview size: ${(svgPreview?.length || 0) / 1024}KB`)
+      console.error(`   Stack: ${error instanceof Error ? error.stack : 'N/A'}`)
     }
   } else {
-    console.warn('⚠️ Nenhum preview capturado do canvas')
+    console.warn('⚠️ AVISO CRÍTICO: Nenhum preview capturado do canvas - PDF sem imagem real!')
   }
 
   yPos += 5
