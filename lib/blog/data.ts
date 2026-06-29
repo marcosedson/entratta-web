@@ -417,7 +417,7 @@ GARANTIA
 
 ───────────────────────────────────────────────────────────────
 
-Você tem garantia de 2 anos contra defeitos de fabricação.
+Você tem garantia de 90 dias contra defeitos de fabricação.
 
 Se algo sair errado com impressão, vinil ou acabamento:
 → A gente reembolsa ou refaz
@@ -888,7 +888,7 @@ P: Posso fazer alterações depois que aprovo?
 R: Sim, até 24h antes de começar a imprimir. Depois não.
 
 P: E se eu não gostar do resultado?
-R: Temos garantia de 2 anos contra defeitos de fabricação. Se sair imperfeito, a gente refaz. Design? A gente discute caso a caso.
+R: Temos garantia de 90 dias contra defeitos de fabricação. Se sair imperfeito, a gente refaz. Design? A gente discute caso a caso.
 
 P: Qual é a qualidade mesmo?
 R: 300 DPI + 8 cores CMYK + laminação UV = durável por 3-5 anos
