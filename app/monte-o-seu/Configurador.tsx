@@ -636,45 +636,92 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
     return doc.output('arraybuffer')
   }
 
-  // ── Criar Pedido: gera preview + PDF e compartilha via Web Share (mobile) ou baixa (desktop) ──
+  // ── Criar Pedido: processa logo + envia para servidor ──
   async function criarPedido() {
     if (!aprovado || orderStep === 'building') return
     setOrderStep('building')
     try {
-      const previewDataUrl = await captureSVGPreview()
-      const finalPdfBuffer = await buildOrderPDF(previewDataUrl)
-      const pdfBlob = new Blob([finalPdfBuffer], { type: 'application/pdf' })
-      const pdfFile = new File([pdfBlob], `pedido-entratta.pdf`, { type: 'application/pdf' })
+      console.log(`\n🚀 INICIANDO CRIAÇÃO DE PEDIDO`)
+      console.log(`📋 Dados:`)
+      console.log(`   Nome: ${nome || 'N/A'}`)
+      console.log(`   WhatsApp: ${wpp || 'N/A'}`)
+      console.log(`   Medida: ${medidaLabel}`)
+      console.log(`   Logos: ${logos.length}`)
 
-      const shareFiles: File[] = [pdfFile]
-      let previewFile: File | null = null
-      if (previewDataUrl) {
-        const previewBlob = await fetch(previewDataUrl).then(r => r.blob())
-        previewFile = new File([previewBlob], 'preview-capacho.jpg', { type: 'image/jpeg' })
-        shareFiles.unshift(previewFile)
+      const previewDataUrl = await captureSVGPreview()
+
+      // Processa logo com AdvancedImageProcessingService se houver
+      let processedLogoBase64 = ''
+      let logoColors: any[] = []
+
+      if (logos.length > 0) {
+        console.log(`\n🎨 Processando logo com AdvancedImageProcessingService...`)
+        const { AdvancedImageProcessingService } = await import('@/lib/services/image-processing')
+
+        for (const logo of logos) {
+          try {
+            const result = await AdvancedImageProcessingService.processLogo(logo.src, {
+              quality: 'high',
+              preserveColors: true,
+              removeBackground: logo.removingBg,
+              segmentByColor: true,
+              targetVinylInventory: [],
+            })
+
+            if (result.success) {
+              processedLogoBase64 = logo.src
+              logoColors = result.colorReport
+              console.log(`   ✅ Logo processada: ${result.colorReport.length} cores detectadas`)
+            }
+          } catch (e) {
+            console.warn(`⚠️ Erro ao processar logo:`, e)
+          }
+        }
       }
 
-      const msg = buildMsg()
-      const wppUrl = `https://wa.me/5564992066855?text=${encodeURIComponent(msg)}`
+      // Envia para servidor
+      console.log(`\n📤 Enviando para servidor...`)
+      const response = await fetch('/api/orders/criar-pedido', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          state: {
+            medida,
+            corTapete,
+            corTexto: textos.length > 0 ? textos[0].corId : 'branco',
+            corBorda,
+            borda,
+            texto: textos.length > 0 ? textos[0].texto : '',
+            fonte: textos.length > 0 ? textos[0].fonteId : 'bold',
+            wpp,
+            nome,
+            customL,
+            customC,
+          },
+          svgPreview: previewDataUrl,
+          clientName: nome || 'Cliente',
+          clientWhatsApp: wpp || '',
+          logoBase64: processedLogoBase64,
+        }),
+      })
 
-      const canWebShare = typeof navigator.share === 'function' && !!navigator.canShare?.({ files: shareFiles })
-      if (canWebShare) {
-        await navigator.share({ title: 'Pedido Entratta', text: msg, files: shareFiles })
-        setOrderStep('done_share')
-      } else {
-        const dl = (blob: Blob, name: string) => {
-          const url = URL.createObjectURL(blob)
-          const a = document.createElement('a')
-          a.href = url; a.download = name; a.click()
-          setTimeout(() => URL.revokeObjectURL(url), 1500)
-        }
-        if (previewFile) dl(previewFile, 'preview-capacho.jpg')
-        dl(pdfFile, `pedido-entratta.pdf`)
-        setTimeout(() => window.open(wppUrl, '_blank'), 600)
+      const result = await response.json()
+
+      if (result.success) {
+        console.log(`\n✅ PEDIDO CRIADO COM SUCESSO!`)
+        console.log(`   ID: ${result.orderId}`)
+        console.log(`   Pasta: ${result.storageFolder}`)
+        console.log(`   Arquivos: ${result.tapFiles.length} .TAP`)
+
+        // Abre página de confirmação
+        window.open(`/gerados/${result.orderId}/`, '_blank')
         setOrderStep('done_download')
+      } else {
+        throw new Error(result.message || 'Erro ao criar pedido')
       }
     } catch (err: unknown) {
-      if ((err as { name?: string })?.name !== 'AbortError') console.error('[criarPedido]', err)
+      console.error(`❌ Erro ao criar pedido:`, err)
+      if ((err as { name?: string })?.name !== 'AbortError') alert(`Erro: ${err instanceof Error ? err.message : 'Desconhecido'}`)
       setOrderStep('idle')
     }
   }
