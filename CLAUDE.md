@@ -71,12 +71,55 @@ npm run lint         # Run ESLint
 - `/depoimentos` — Testimonials with Review schema
 - `/blog` — Blog landing, `/blog/[slug]` for articles
 
+## 7-Layer Architecture (SOLID + DRY)
+
+### Layer 1: Types (`lib/types/`)
+Centralized TypeScript interfaces. Add new types here before using them.
+- `city.ts`, `segment.ts`, `blog.ts`, `configurator.ts`, `common.ts`
+
+### Layer 2: Constants (`lib/constants/`)
+Immutable config values. Never hardcode these in components.
+- `colors.ts` — all color palettes (carpet, text, border)
+- `measurements.ts` — sizes (40×60, 60×90, etc)
+- `borders.ts` — border types
+- `fonts.ts` — font options
+- `navigation.ts` — nav links, WhatsApp phone
+
+### Layer 3: Data (`lib/data/`)
+Raw data only. No logic. Read-only arrays.
+- `cities.ts` — 50+ Brazilian cities
+- `segments.ts` — 7 business segments
+
+### Layer 4: Repositories (`lib/repositories/`)
+Data access queries. Single source of truth for data methods.
+- `city.repo.ts` — `CityRepository.getBySlug()`, `getAll()`, `getByState()`
+- `segment.repo.ts` — `SegmentRepository.getBySlug()`, `getAll()`
+
+### Layer 5: Schemas (`lib/schemas/`)
+Zod runtime validation. Use for data validation at boundaries.
+- `color.schema.ts`, `city.schema.ts`, `blog.schema.ts`, `configurator.schema.ts`
+- `export type Color = z.infer<typeof ColorSchema>`
+
+### Layer 6: Hooks (`lib/hooks/`)
+Custom React logic. Encapsulate state and side effects.
+- `useConfigurator()` — Configurator state management (220 lines)
+- `useHeroAnimation()` — Hero animations + ripple effect (170 lines)
+
+### Layer 7: Services (`lib/services/`)
+Business logic. Stateless, testable, reusable methods.
+- `BlogService` — `getBySlug()`, `getByCategory()`, `getRelated()`
+- `CityService` — `search()`, `getByState()`, `getNearby()`
+- `SegmentService` — `search()`, `getByUseCase()`
+- `ConfiguratorService` — `calculatePrice()`, `validateText()`
+- `SEOService` — `generateTitle()`, `generateBreadcrumbs()`
+
 ## Blog System
 
-**Location:** `lib/blog.ts`
+**Location:** `lib/blog/` (split into data/utils/types)
 
 - 5 hand-crafted articles (not AI-generic)
 - Each article: title, description, keywords, content, category, readingTime
+- **Access via:** `BlogService.getBySlug()` (not direct import)
 - Content structure:
   - Main separator: `═══ TITLE ═══`
   - Section separator: `─── Section Name ───`
@@ -174,13 +217,17 @@ When adding features, apply SOLID:
 ### DRY Checklist Before Committing
 - [ ] No hardcoded colors (use `lib/constants/colors.ts`)
 - [ ] No hardcoded measurements (use `lib/constants/measurements.ts`)
-- [ ] Data separated from logic (`lib/data/` vs `lib/services/`)
+- [ ] Data separated from logic (`lib/data/` vs `lib/repositories/` vs `lib/services/`)
 - [ ] Component < 200 lines (use sub-components if not)
 - [ ] Reusable logic extracted to hooks (`lib/hooks/`)
+- [ ] Business logic in services (`lib/services/`)
+- [ ] Data access via repositories (`lib/repositories/`)
 - [ ] Types in `lib/types/`, not in components
 - [ ] Constants in `lib/constants/`, not scattered
+- [ ] Runtime validation via schemas (`lib/schemas/`)
 
-### Example: Adding a New Feature
+### Example: Adding a New Feature (7-Layer Pattern)
+
 ```typescript
 // ❌ DON'T: Put everything in one component file
 export function NewFeature() {
@@ -189,8 +236,31 @@ export function NewFeature() {
   return <div>...</div> // ← UI here
 }
 
-// ✅ DO: Separate concerns
-// components/NewFeature/index.tsx (50 lines, orchestrator)
+// ✅ DO: Follow 7-layer architecture
+// lib/types/newFeature.ts (20 lines)
+export interface NewFeatureState { ... }
+
+// lib/constants/newFeature.ts (30 lines, static values)
+export const COLORS = [...]
+export const DEFAULTS = { ... }
+
+// lib/schemas/newFeature.schema.ts (20 lines, Zod validation)
+export const NewFeatureSchema = z.object({ ... })
+export type NewFeature = z.infer<typeof NewFeatureSchema>
+
+// lib/hooks/useNewFeature.ts (100 lines, React state + side effects)
+export function useNewFeature() {
+  const [state, setState] = useState<NewFeatureState>(...)
+  return { state, update: ... }
+}
+
+// lib/services/newFeature.service.ts (80 lines, business rules)
+export class NewFeatureService {
+  static calculate(state: NewFeatureState): Result { ... }
+  static validate(state: NewFeatureState): ValidationResult { ... }
+}
+
+// components/NewFeature/index.tsx (60 lines, orchestrator)
 import { useNewFeature } from '@/lib/hooks/useNewFeature'
 import { NewFeatureContent } from './NewFeatureContent'
 export function NewFeature() {
@@ -198,17 +268,10 @@ export function NewFeature() {
   return <NewFeatureContent {...state} onChange={update} />
 }
 
-// lib/hooks/useNewFeature.ts (100 lines, state + logic)
-export function useNewFeature() { ... }
-
-// lib/constants/newFeature.ts (30 lines, data)
-export const COLORS = [...]
-
-// lib/services/newFeature.service.ts (80 lines, business rules)
-export class NewFeatureService { ... }
-
-// lib/types/newFeature.ts (20 lines, types)
-export interface NewFeatureState { ... }
+// components/NewFeature/NewFeatureContent.tsx (100 lines, UI only)
+export function NewFeatureContent({ state, onChange }: Props) {
+  return <div>...</div>
+}
 ```
 
 ## Browser Testing
