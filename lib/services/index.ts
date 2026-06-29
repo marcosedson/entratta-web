@@ -9,3 +9,6 @@ export { EmailService } from './email.service'
 export { WhatsAppService } from './whatsapp.service'
 export { StorageService } from './storage.service'
 export { ProductionQueueService } from './production-queue.service'
+
+// LogoProcessingService não é exportado aqui (Node.js only - usada apenas em APIs)
+// Importe diretamente: import { LogoProcessingService } from '@/lib/services/logo-processing.service'

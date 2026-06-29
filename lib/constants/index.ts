@@ -15,3 +15,6 @@ export { NAV_LINKS, WPP_PHONE, WPP_URL } from './navigation'
 
 // Configurator
 export { CONFIGURATOR_SNAP, CONFIGURATOR_PADDING, CONFIGURATOR_DEFAULTS } from './configurator'
+
+// Vinyl Inventory (for logo processing)
+export { VINYL_INVENTORY, findClosestVinylColor, type VinylColor } from './vinyl-inventory'
