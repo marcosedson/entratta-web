@@ -3,8 +3,14 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon'
+import { trackWhatsAppClick, trackLeadGenerated } from '@/lib/analytics'
 
 const WPP_URL = 'https://wa.me/5564992066855'
+
+const handleWhatsAppClick = (source: string) => {
+  trackWhatsAppClick(source, 'header')
+  trackLeadGenerated(source, 'whatsapp')
+}
 
 const NAV_LINKS = [
   { href: '/#produtos', label: 'Produtos' },
@@ -84,6 +90,7 @@ export function Header() {
             href={WPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleWhatsAppClick('header_desktop')}
             className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-black transition-transform hover:-translate-y-0.5"
             style={{ background: 'linear-gradient(135deg,#22C55E,#15803D)' }}
           >
@@ -135,6 +142,7 @@ export function Header() {
             href={WPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleWhatsAppClick('header_mobile')}
             className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-black mt-1"
             style={{ background: 'linear-gradient(135deg,#22C55E,#15803D)' }}
           >

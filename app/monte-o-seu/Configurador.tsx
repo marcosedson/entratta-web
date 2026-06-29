@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { trackOrderCompleted, trackConfiguradorConfig } from '@/lib/analytics'
 import {
   TextoItem, LogoItem,
   CORES_TAPETE, CORES_TEXTO, CORES_BORDA, MEDIDAS, BORDAS, FONTES,
@@ -587,6 +588,10 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
         console.log(`   ID: ${result.orderId}`)
         console.log(`   Pasta: ${result.storageFolder}`)
         console.log(`   Arquivos: ${result.tapFiles.length} .TAP`)
+
+        // Rastreia conversão no GA
+        trackOrderCompleted(result.orderId, medidaLabel)
+        trackConfiguradorConfig(medidaLabel, corTapete)
 
         // Abre página de confirmação
         window.open(`/gerados/${result.orderId}/`, '_blank')

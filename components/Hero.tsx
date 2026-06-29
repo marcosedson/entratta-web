@@ -2,8 +2,14 @@
 import Image from 'next/image'
 import { useHeroAnimation } from '@/lib/hooks'
 import { MagneticWrap } from './Hero/MagneticWrap'
+import { trackWhatsAppClick, trackLeadGenerated, trackCTAClick } from '@/lib/analytics'
 
 const WPP_URL = 'https://wa.me/5564992066855'
+
+const handleHeroCTAClick = (type: 'whatsapp_cta' | 'mercado_livre') => {
+  trackCTAClick('whatsapp', 'hero_section')
+  trackLeadGenerated('hero', 'whatsapp')
+}
 
 export function Hero() {
   const {
@@ -140,6 +146,7 @@ export function Hero() {
                 href="https://wa.me/5564992066855?text=Ol%C3%A1!%20Quero%20pedir%20meu%20capacho%20personalizado.%20Podem%20me%20ajudar%3F"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleHeroCTAClick('whatsapp_cta')}
                 className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-black text-base active:scale-[0.98]"
                 style={{
                   background: 'linear-gradient(135deg,#22C55E,#15803D)',
@@ -153,6 +160,7 @@ export function Hero() {
               href={WPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => { trackWhatsAppClick('hero_secondary'); trackLeadGenerated('hero', 'whatsapp'); }}
               className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5"
               style={{
                 background: 'rgba(15,23,42,0.05)',
@@ -183,6 +191,7 @@ export function Hero() {
               href="https://lista.mercadolivre.com.br/_CustId_3459954476"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackCTAClick('product', 'hero_mercado_livre')}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-opacity hover:opacity-80"
               style={{
                 background: 'rgba(52,131,250,0.08)',

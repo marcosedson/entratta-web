@@ -1,9 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { trackWhatsAppClick, trackLeadGenerated } from '@/lib/analytics'
 
 const WPP_URL =
   'https://wa.me/5564992066855?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Entratta%20e%20quero%20saber%20mais%20sobre%20capachos%20personalizados%20%F0%9F%9A%AA'
+
+const handleFloatingWhatsAppClick = () => {
+  trackWhatsAppClick('floating_button')
+  trackLeadGenerated('floating_button', 'whatsapp')
+}
 
 export function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false)
@@ -38,6 +44,7 @@ export function FloatingWhatsApp() {
         href={WPP_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleFloatingWhatsAppClick}
         onMouseEnter={() => setTooltip(true)}
         onMouseLeave={() => setTooltip(false)}
         className="w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-110 active:scale-95"

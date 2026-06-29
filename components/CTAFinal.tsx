@@ -1,4 +1,13 @@
+'use client'
+
+import { trackWhatsAppClick, trackLeadGenerated } from '@/lib/analytics'
+
 const WPP_URL = 'https://wa.me/5564992066855?text=Ol%C3%A1!%20Quero%20montar%20meu%20capacho%20personalizado'
+
+const handleCTAClick = (type: 'verify_price' | 'specialist') => {
+  trackWhatsAppClick(`cta_final_${type}`)
+  trackLeadGenerated('cta_final', 'whatsapp')
+}
 
 export function CTAFinal() {
   return (
@@ -43,6 +52,7 @@ export function CTAFinal() {
             href="https://wa.me/5564992066855?text=Ol%C3%A1!%20Quero%20verificar%20se%20a%20Entratta%20realmente%20tem%20o%20melhor%20pre%C3%A7o.%20Pode%20me%20ajudar%20com%20um%20or%C3%A7amento%3F"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleCTAClick('verify_price')}
             className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-black text-lg transition-all hover:-translate-y-0.5 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg,#22C55E,#15803D)',
@@ -55,6 +65,7 @@ export function CTAFinal() {
             href={WPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleCTAClick('specialist')}
             className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5 w-full sm:w-auto"
             style={{
               background: 'rgba(255,255,255,0.05)',
