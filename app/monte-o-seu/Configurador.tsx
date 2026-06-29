@@ -510,6 +510,12 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
       console.log(`   Logos: ${logos.length}`)
 
       const previewDataUrl = await captureSVGPreview()
+      console.log(`\n📸 CANVAS PREVIEW CAPTURADO:`)
+      console.log(`   Tamanho: ${previewDataUrl ? (previewDataUrl.length / 1024).toFixed(2) : 0} KB`)
+      console.log(`   Status: ${previewDataUrl ? '✅ SUCESSO' : '❌ FALHOU'}`)
+      if (!previewDataUrl) {
+        console.warn(`⚠️ AVISO: Preview não foi capturado! PDF pode ficar vazio`)
+      }
 
       // Processa logo com AdvancedImageProcessingService se houver
       let processedLogoBase64 = ''
@@ -542,28 +548,33 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
 
       // Envia para servidor
       console.log(`\n📤 Enviando para servidor...`)
+      const payload = {
+        state: {
+          medida,
+          corTapete,
+          corTexto: textos.length > 0 ? textos[0].corId : 'branco',
+          corBorda,
+          borda,
+          texto: textos.length > 0 ? textos[0].texto : '',
+          fonte: textos.length > 0 ? textos[0].fonteId : 'bold',
+          wpp,
+          nome,
+          customL,
+          customC,
+        },
+        svgPreview: previewDataUrl,
+        clientName: nome || 'Cliente',
+        clientWhatsApp: wpp || '',
+        logoBase64: processedLogoBase64,
+      }
+
+      console.log(`   Payload incluindo preview: ${payload.svgPreview ? 'SIM ✅' : 'NÃO ❌'}`)
+      console.log(`   Preview size no payload: ${payload.svgPreview ? (payload.svgPreview.length / 1024).toFixed(2) : 0}KB`)
+
       const response = await fetch('/api/orders/criar-pedido', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          state: {
-            medida,
-            corTapete,
-            corTexto: textos.length > 0 ? textos[0].corId : 'branco',
-            corBorda,
-            borda,
-            texto: textos.length > 0 ? textos[0].texto : '',
-            fonte: textos.length > 0 ? textos[0].fonteId : 'bold',
-            wpp,
-            nome,
-            customL,
-            customC,
-          },
-          svgPreview: previewDataUrl,
-          clientName: nome || 'Cliente',
-          clientWhatsApp: wpp || '',
-          logoBase64: processedLogoBase64,
-        }),
+        body: JSON.stringify(payload),
       })
 
       const result = await response.json()

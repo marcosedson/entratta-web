@@ -480,11 +480,15 @@ export async function POST(request: NextRequest) {
       console.warn('Could not load Entratta logo')
     }
 
-    // Usa preview capturado do canvas
-    console.log(`\n📸 Preview capturado: ${svgPreview ? 'SIM' : 'NÃO'}`)
+    // Usa preview capturado do canvas - CRITICAMENTE IMPORTANTE
+    console.log(`\n📸 SVG PREVIEW DO CANVAS:`)
+    console.log(`   Recebido: ${svgPreview ? '✅ SIM' : '❌ NÃO'}`)
     if (svgPreview) {
       console.log(`   Tamanho: ${(svgPreview.length / 1024).toFixed(2)} KB`)
-      console.log(`   Tipo: ${svgPreview.substring(0, 30)}...`)
+      console.log(`   Tipo: ${svgPreview.substring(0, 50)}...`)
+      console.log(`   ⚠️ ISSO É A IMAGEM REAL DO CANVAS - DEVE ESTAR NO PDF`)
+    } else {
+      console.warn(`\n⚠️ AVISO CRÍTICO: Nenhum preview capturado! PDF terá imagem genérica!`)
     }
 
     // Process client logo FIRST (se fornecida) para detectar cores
