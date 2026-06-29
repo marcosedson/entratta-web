@@ -1,0 +1,138 @@
+import { Segment } from '@/lib/types'
+
+// Raw segments data — guaranteed to be bundled
+export const SEGMENTS_DATA: Segment[] = [
+  {
+    slug: "empresa",
+    name: "Empresa",
+    title: "Capacho Personalizado para Empresa",
+    description: "Crie uma primeira impressão profissional com capachos personalizados que reforçam a identidade da sua marca desde a entrada.",
+    useCases: [
+      "Escritórios comerciais",
+      "Sedes administrativas",
+      "Centros de negócios",
+      "Salas de espera",
+    ],
+    benefits: [
+      "Reforça identidade corporativa",
+      "Melhora percepção de profissionalismo",
+      "Impacto na primeira impressão do cliente",
+      "Durável e fácil de limpar",
+    ],
+    diferencial: "Empresas confiam na ENTRATTA para criar uma entrada que comunica seriedade e qualidade.",
+  },
+  {
+    slug: "condominio",
+    name: "Condomínio",
+    title: "Capacho Personalizado para Condomínio",
+    description: "Valorize a entrada do condomínio com capachos que elevam o padrão arquitetônico e protegem os pisos internos.",
+    useCases: [
+      "Lobby de condomínios",
+      "Entradas de torres",
+      "Áreas comuns",
+      "Portarias",
+    ],
+    benefits: [
+      "Reduz sujeira nos corredores",
+      "Integra-se ao design arquitetônico",
+      "Sinalização clara para visitantes",
+      "Antiderrapante e seguro",
+    ],
+    diferencial: "Condomínios de alto padrão usam capachos ENTRATTA para marcar diferença nas áreas comuns.",
+  },
+  {
+    slug: "industria",
+    name: "Indústria",
+    title: "Demarcação e Capacho Industrial",
+    description: "Capachos industriais duráveis com demarcações de segurança, apropriados para ambientes de alto tráfego e uso intenso.",
+    useCases: [
+      "Linhas de produção",
+      "Áreas de almoxarifado",
+      "Entradas de fábrica",
+      "Salas de máquinas",
+    ],
+    benefits: [
+      "Vinil reforçado 6mm de espessura",
+      "Resistente a produtos químicos",
+      "Demarcações de segurança integradas",
+      "Reduz fadiga dos colaboradores",
+    ],
+    diferencial: "Indústrias aprovam nossos capachos por durabilidade em ambientes de alto estresse.",
+  },
+  {
+    slug: "supermercado",
+    name: "Supermercado",
+    title: "Capacho Comercial para Varejo",
+    description: "Capachos que aumentam o fluxo de frequência e criam um ambiente acolhedor na entrada do seu estabelecimento.",
+    useCases: [
+      "Entradas de lojas",
+      "Áreas de circulação",
+      "Check-out",
+      "Seções de atendimento",
+    ],
+    benefits: [
+      "Comunica marca e promoções",
+      "Melhora limpeza do piso",
+      "Impacto visual na entrada",
+      "Fácil customização sazonal",
+    ],
+    diferencial: "Varejistas aumentam conversão com capachos que reforçam a identidade da loja.",
+  },
+  {
+    slug: "clinica",
+    name: "Clínica",
+    title: "Capacho Personalizado para Clínica",
+    description: "Capachos higiênicos e profissionais que transmitem confiança e qualidade em ambientes de saúde.",
+    useCases: [
+      "Entradas de clínicas",
+      "Recepção de consultórios",
+      "Salas de espera",
+      "Áreas de atendimento",
+    ],
+    benefits: [
+      "Fácil limpeza e higiene",
+      "Reduz contaminação de pisos",
+      "Reforça profissionalismo",
+      "Conforto visual para pacientes",
+    ],
+    diferencial: "Clínicas e consultórios escolhem ENTRATTA pela higiene e profissionalismo garantidos.",
+  },
+  {
+    slug: "hotel",
+    name: "Hotel",
+    title: "Capacho Luxo para Hotelaria",
+    description: "Capachos premium que elevam a experiência do hóspede e reforçam o conceito de luxo desde o primeiro passo.",
+    useCases: [
+      "Entradas de hotéis",
+      "Lobbies",
+      "Salas de eventos",
+      "Acessos de suítes",
+    ],
+    benefits: [
+      "Design sofisticado",
+      "Branding diferenciado",
+      "Sensação premium ao toque",
+      "Reduz sujeira nas áreas internas",
+    ],
+    diferencial: "Hotéis e resorts escolhem ENTRATTA para criar uma experiência memorável na entrada.",
+  },
+  {
+    slug: "demarcacao-piso-industrial",
+    name: "Demarcação Piso",
+    title: "Demarcação de Piso Industrial",
+    description: "Sinalização visual e proteção de piso para ambientes industriais, com demarcações de segurança em vinil durável.",
+    useCases: [
+      "Identificação de zonas",
+      "Demarcações de segurança",
+      "Sinalização de trânsito",
+      "Proteção de pisos especiais",
+    ],
+    benefits: [
+      "Vinil antiderrapante",
+      "Alta visibilidade",
+      "Conforme normas ABNT",
+      "Durabilidade garantida",
+    ],
+    diferencial: "Indústrias confiam em demarcações ENTRATTA para segurança e conformidade regulatória.",
+  },
+]
