@@ -2,6 +2,7 @@ import { MetadataRoute } from "next"
 import { getAllCitySlugs } from "@/lib/data"
 import { getAllSegmentSlugs } from "@/lib/segments"
 import { getAllBlogPosts } from "@/lib/blog"
+import { getAllCitySegmentCombos } from "@/lib/city-segment"
 
 const baseUrl = "https://entratta.com.br"
 
@@ -59,6 +60,13 @@ const blogPages = getAllBlogPosts().map((post) => ({
   priority: 0.6,
 }))
 
+const citySegmentPages = getAllCitySegmentCombos().map((combo) => ({
+  url: `${baseUrl}/capacho-para-${combo.segment.slug}-em-${combo.city.slug}`,
+  lastModified: new Date(),
+  changeFrequency: "monthly" as const,
+  priority: 0.5,
+}))
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...staticPages, ...cityPages, ...segmentPages, ...blogPages]
+  return [...staticPages, ...cityPages, ...segmentPages, ...blogPages, ...citySegmentPages]
 }
