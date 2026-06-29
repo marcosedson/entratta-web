@@ -53,7 +53,12 @@ function getStorageFolder(orderId: string): string {
   return `storage/pedidos/${year}/${monthName}/${orderId}`
 }
 
-function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
+function generatePDF(
+  state: ConfiguratorState,
+  logoBase64: string,
+  svgPreview?: string,
+  logoColors: any[] = []
+): Buffer {
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
@@ -97,77 +102,41 @@ function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
   const borderColor = BORDER_COLORS.find((c) => c.id === state.corBorda)
   const borderObj = BORDERS.find((b) => b.id === state.borda)
 
-  // ═══ PREVIEW VISUAL DO TAPETE ═══
+  // ═══ PREVIEW VISUAL DO TAPETE (CAPTURADO DO CANVAS) ═══
   pdf.setFontSize(10)
   pdf.setFont('Helvetica', 'bold')
   pdf.setTextColor(...darkBlue)
   pdf.text('PREVIEW DO TAPETE:', 15, yPos)
   yPos += 8
 
-  // Desenha representação visual do tapete
-  const previewWidth = 60
-  const previewHeight = (previewWidth * (measurement?.c || 60)) / (measurement?.w || 40)
-
-  if (carpetColor) {
-    // Fundo do tapete (cor real)
-    pdf.setFillColor(
-      parseInt(carpetColor.hex.slice(1, 3), 16),
-      parseInt(carpetColor.hex.slice(3, 5), 16),
-      parseInt(carpetColor.hex.slice(5, 7), 16)
-    )
-    pdf.rect(50, yPos, previewWidth, previewHeight, 'F')
-
-    // Borda se houver
-    if (borderObj?.id !== 'sem' && borderColor) {
-      const borderW = borderObj?.id === 'fina' ? 1 : 2
-      pdf.setDrawColor(
-        parseInt(borderColor.hex.slice(1, 3), 16),
-        parseInt(borderColor.hex.slice(3, 5), 16),
-        parseInt(borderColor.hex.slice(5, 7), 16)
-      )
-      pdf.setLineWidth(borderW * 0.5)
-      pdf.rect(50, yPos, previewWidth, previewHeight)
+  // Usa a imagem capturada do canvas se disponível
+  if (svgPreview) {
+    try {
+      const previewWidth = 160
+      const previewHeight = (previewWidth * (measurement?.c || 60)) / (measurement?.w || 40)
+      pdf.addImage(svgPreview, 'PNG', 25, yPos, previewWidth, previewHeight)
+      yPos += previewHeight + 10
+    } catch (error) {
+      console.warn('Erro ao adicionar preview do canvas:', error)
     }
-
-    // Texto simulado no preview
-    if (state.texto && textColor) {
-      pdf.setFont('Helvetica', 'bold')
-      pdf.setFontSize(6)
-      pdf.setTextColor(
-        parseInt(textColor.hex.slice(1, 3), 16),
-        parseInt(textColor.hex.slice(3, 5), 16),
-        parseInt(textColor.hex.slice(5, 7), 16)
-      )
-      pdf.text(state.texto.substring(0, 20), 50 + previewWidth / 2, yPos + previewHeight / 2, {
-        align: 'center',
-        maxWidth: previewWidth - 4,
-      })
-    }
-
-    // Dimensões do preview
-    pdf.setFont('Helvetica', 'normal')
-    pdf.setFontSize(7)
-    pdf.setTextColor(100, 100, 100)
-    pdf.text(`${measurement?.w}cm × ${measurement?.c}cm`, 50 + previewWidth / 2, yPos + previewHeight + 4, {
-      align: 'center',
-    })
   }
 
-  yPos += previewHeight + 12
+  yPos += 5
 
-  // ═══ CORES UTILIZADAS ═══
+  // ═══ CORES UTILIZADAS (DETECTADAS DO CANVAS) ═══
   pdf.setFontSize(9)
   pdf.setFont('Helvetica', 'bold')
   pdf.setTextColor(...darkBlue)
   pdf.text('CORES UTILIZADAS:', 15, yPos)
   yPos += 7
 
-  // Cor do tapete
   pdf.setFont('Helvetica', 'normal')
   pdf.setFontSize(8)
   pdf.setTextColor(80, 80, 80)
-  pdf.text('Fundo:', 15, yPos)
+
+  // Cor do tapete
   if (carpetColor) {
+    pdf.text('Fundo:', 15, yPos)
     pdf.setFillColor(
       parseInt(carpetColor.hex.slice(1, 3), 16),
       parseInt(carpetColor.hex.slice(3, 5), 16),
@@ -175,20 +144,27 @@ function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
     )
     pdf.rect(40, yPos - 2.5, 6, 6, 'F')
     pdf.text(carpetColor.label, 50, yPos)
-  }
-  yPos += 8
-
-  // Cor do texto (se houver)
-  if (state.texto && textColor) {
-    pdf.text('Texto:', 15, yPos)
-    pdf.setFillColor(
-      parseInt(textColor.hex.slice(1, 3), 16),
-      parseInt(textColor.hex.slice(3, 5), 16),
-      parseInt(textColor.hex.slice(5, 7), 16)
-    )
-    pdf.rect(40, yPos - 2.5, 6, 6, 'F')
-    pdf.text(textColor.label, 50, yPos)
     yPos += 8
+  }
+
+  // Mostra cores da LOGO detectadas (não o textColor padrão)
+  if (logoColors && logoColors.length > 0) {
+    logoColors.forEach((color: any) => {
+      pdf.text(`Logo - ${color.label}:`, 15, yPos)
+      try {
+        const rgb = color.hex.slice(1)
+        pdf.setFillColor(
+          parseInt(rgb.slice(0, 2), 16),
+          parseInt(rgb.slice(2, 4), 16),
+          parseInt(rgb.slice(4, 6), 16)
+        )
+      } catch (e) {
+        pdf.setFillColor(200, 200, 200)
+      }
+      pdf.rect(40, yPos - 2.5, 6, 6, 'F')
+      pdf.text(color.hex, 50, yPos)
+      yPos += 8
+    })
   }
 
   // Cor da borda (se houver)
@@ -218,7 +194,7 @@ function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
   const borderLabel = borderObj ? borderObj.l : 'Sem'
   const specs = [
     [`Medida: ${measurement?.l || 'Customizada'}`, `Cor Tapete: ${carpetColor?.label || '—'}`],
-    [`Borda: ${borderLabel}`, `Texto: "${state.texto || 'Sem texto'}"`],
+    [`Borda: ${borderLabel}`, `Cor Borda: ${borderColor?.label || 'N/A'}`],
   ]
 
   specs.forEach((row) => {
@@ -226,6 +202,22 @@ function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
     pdf.text(row[1], pageWidth / 2, yPos)
     yPos += 5
   })
+
+  // Lista textos personalizados
+  yPos += 3
+  if (state.texto) {
+    pdf.setFont('Helvetica', 'bold')
+    pdf.setFontSize(8)
+    pdf.setTextColor(...darkBlue)
+    pdf.text('TEXTO PERSONALIZADO:', 15, yPos)
+    yPos += 5
+
+    pdf.setFont('Helvetica', 'normal')
+    pdf.setFontSize(7)
+    pdf.setTextColor(80, 80, 80)
+    pdf.text(`"${state.texto}"`, 15, yPos)
+    yPos += 4
+  }
 
   // ═══ FOOTER ═══
   yPos = pageHeight - 15
@@ -480,13 +472,13 @@ export async function POST(request: NextRequest) {
       console.warn('Could not load Entratta logo')
     }
 
-    // Generate basic files
-    const pdfBuffer = generatePDF(state, entrattaLogoBase64)
-    const svgContent = SVGGenerator.generateSVG(state, clientLogoBase64, orderId)
-    const cdrBase64 = generateCorelDrawFile(state, orderId)
-    const tapFiles = generateMultipleTAPFiles(orderId, state)
+    // Captura o preview do canvas SVG (será passado depois)
+    let svgPreviewBase64 = ''
+    if (svgPreview) {
+      svgPreviewBase64 = svgPreview // Já vem como data URL do frontend
+    }
 
-    // Process client logo (if provided)
+    // Process client logo FIRST (se fornecida) para detectar cores
     let logoTapFiles: string[] = []
     let logoColors: any[] = []
     if (clientLogoBase64) {
@@ -509,6 +501,12 @@ export async function POST(request: NextRequest) {
         console.warn('Erro ao processar logo do cliente:', error)
       }
     }
+
+    // Agora GERA o PDF com as cores corretas da logo
+    const pdfBuffer = generatePDF(state, entrattaLogoBase64, svgPreviewBase64, logoColors)
+    const svgContent = SVGGenerator.generateSVG(state, clientLogoBase64, orderId)
+    const cdrBase64 = generateCorelDrawFile(state, orderId)
+    const tapFiles = generateMultipleTAPFiles(orderId, state)
 
     // Combina todos os .TAP files (base + logo)
     const allTapFiles = [
