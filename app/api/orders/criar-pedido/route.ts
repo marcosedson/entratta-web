@@ -1,0 +1,313 @@
+import { NextRequest, NextResponse } from 'next/server'
+import jsPDF from 'jspdf'
+import { ConfiguratorState } from '@/lib/hooks'
+import { ConfiguratorService } from '@/lib/services'
+import {
+  CARPET_COLORS,
+  TEXT_COLORS,
+  BORDER_COLORS,
+  MEASUREMENTS,
+  BORDERS,
+} from '@/lib/constants'
+import { readFileSync } from 'fs'
+import { join } from 'path'
+
+interface CreateOrderRequest {
+  state: ConfiguratorState
+  svgPreview: string
+}
+
+interface OrderResponse {
+  success: boolean
+  orderId: string
+  files: {
+    pdf: string
+    cdr: string
+    tap: string
+  }
+  message: string
+}
+
+function generateOrderId(): string {
+  return `ENT-${Date.now()}-${Math.random().toString(36).substring(2, 9).toUpperCase()}`
+}
+
+function generatePDF(state: ConfiguratorState, logoBase64: string): Buffer {
+  const pdf = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4',
+  })
+
+  const pageWidth = pdf.internal.pageSize.getWidth()
+  const pageHeight = pdf.internal.pageSize.getHeight()
+
+  const brandGreen: [number, number, number] = [34, 197, 94]
+  const darkBlue: [number, number, number] = [15, 23, 42]
+
+  // Header
+  pdf.setFillColor(255, 255, 255)
+  pdf.rect(0, 0, pageWidth, 45, 'F')
+
+  pdf.setDrawColor(...darkBlue)
+  pdf.setLineWidth(1.5)
+  pdf.rect(10, 10, pageWidth - 20, pageHeight - 20)
+
+  if (logoBase64) {
+    pdf.addImage(logoBase64, 'PNG', 15, 12, 18, 18)
+  }
+
+  pdf.setFontSize(16)
+  pdf.setFont('Helvetica', 'bold')
+  pdf.setTextColor(...darkBlue)
+  pdf.text('PROJETO DE CAPACHO PERSONALIZADO', 40, 22)
+
+  pdf.setFontSize(8)
+  pdf.setFont('Helvetica', 'normal')
+  pdf.setTextColor(100, 100, 100)
+  const date = new Date().toLocaleDateString('pt-BR')
+  pdf.text(`APROVADO - ${date}`, pageWidth - 35, 22)
+
+  let yPos = 36
+
+  const measurement = MEASUREMENTS[state.medida]
+  const carpetColor = CARPET_COLORS.find((c) => c.id === state.corTapete)
+  const textColor = TEXT_COLORS.find((c) => c.id === state.corTexto)
+  const borderColor = BORDER_COLORS.find((c) => c.id === state.corBorda)
+  const borderObj = BORDERS.find((b) => b.id === state.borda)
+
+  // FUNDO
+  pdf.setFontSize(9)
+  pdf.setFont('Helvetica', 'bold')
+  pdf.setTextColor(...darkBlue)
+  pdf.text('FUNDO:', 15, yPos)
+
+  if (carpetColor) {
+    pdf.setFillColor(
+      parseInt(carpetColor.hex.slice(1, 3), 16),
+      parseInt(carpetColor.hex.slice(3, 5), 16),
+      parseInt(carpetColor.hex.slice(5, 7), 16)
+    )
+    pdf.rect(30, yPos - 2.5, 6, 6, 'F')
+    pdf.setFontSize(8)
+    pdf.setTextColor(80, 80, 80)
+    pdf.text(carpetColor.label, 40, yPos)
+  }
+  yPos += 10
+
+  // LOGO
+  pdf.setFontSize(9)
+  pdf.setFont('Helvetica', 'bold')
+  pdf.setTextColor(...darkBlue)
+  pdf.text('LOGO:', 15, yPos)
+  yPos += 7
+
+  pdf.setFontSize(7)
+  let xPos = 30
+  const colors = [
+    { name: 'BRANCO', hex: '#FFFFFF' },
+    ...TEXT_COLORS.map((c) => ({ name: c.label.toUpperCase(), hex: c.hex })),
+  ]
+
+  colors.forEach((color) => {
+    pdf.setFillColor(
+      parseInt(color.hex.slice(1, 3), 16),
+      parseInt(color.hex.slice(3, 5), 16),
+      parseInt(color.hex.slice(5, 7), 16)
+    )
+    pdf.setDrawColor(color.hex === '#FFFFFF' ? 200 : 0, color.hex === '#FFFFFF' ? 200 : 0, color.hex === '#FFFFFF' ? 200 : 0)
+    pdf.setLineWidth(0.2)
+    pdf.rect(xPos, yPos - 2, 5, 5, 'FD')
+
+    pdf.setTextColor(80, 80, 80)
+    pdf.text(color.name, xPos - 0.5, yPos + 5, { align: 'center', maxWidth: 8 })
+
+    xPos += 8
+    if (xPos > pageWidth - 25) {
+      xPos = 30
+      yPos += 10
+    }
+  })
+  yPos += 10
+
+  // BORDA
+  pdf.setFontSize(9)
+  pdf.setFont('Helvetica', 'bold')
+  pdf.setTextColor(...darkBlue)
+  pdf.text('BORDA:', 15, yPos)
+  yPos += 8
+
+  // PREVIEW
+  pdf.setFontSize(9)
+  pdf.setFont('Helvetica', 'normal')
+  pdf.setTextColor(80, 80, 80)
+  pdf.text('PREVIEW:', 15, yPos)
+  yPos += 4
+
+  if (carpetColor) {
+    pdf.setFillColor(
+      parseInt(carpetColor.hex.slice(1, 3), 16),
+      parseInt(carpetColor.hex.slice(3, 5), 16),
+      parseInt(carpetColor.hex.slice(5, 7), 16)
+    )
+    pdf.rect(15, yPos, pageWidth - 30, 70, 'F')
+
+    pdf.setFontSize(14)
+    pdf.setFont('Helvetica', 'bold')
+    const textColorRGB: [number, number, number] = [255, 255, 255]
+    if (state.texto) {
+      pdf.setTextColor(...textColorRGB)
+      pdf.text(state.texto, pageWidth / 2, yPos + 35, { align: 'center' })
+    }
+  } else {
+    pdf.setDrawColor(150, 150, 150)
+    pdf.setLineWidth(0.3)
+    pdf.rect(15, yPos, pageWidth - 30, 70)
+  }
+
+  // Dimension markers
+  const previewY = yPos + 70
+  const previewX = 15
+  const previewW = pageWidth - 30
+
+  pdf.setDrawColor(...darkBlue)
+  pdf.setLineWidth(0.6)
+  pdf.line(previewX, previewY + 3, previewX + previewW, previewY + 3)
+  pdf.line(previewX, previewY, previewX, previewY + 6)
+  pdf.line(previewX + previewW, previewY, previewX + previewW, previewY + 6)
+
+  pdf.setFontSize(11)
+  pdf.setFont('Helvetica', 'bold')
+  pdf.setTextColor(...darkBlue)
+  pdf.text(`${measurement?.w ?? 0}m`, pageWidth / 2, previewY + 10, { align: 'center' })
+
+  const heightX = pageWidth - 12
+  pdf.line(heightX, yPos, heightX, previewY + 3)
+  pdf.line(heightX - 3, yPos, heightX + 3, yPos)
+  pdf.line(heightX - 3, previewY + 3, heightX + 3, previewY + 3)
+
+  pdf.setFontSize(9)
+  pdf.text(`${measurement?.c ?? 0}m`, heightX + 8, yPos + 35, { align: 'left' })
+
+  // Footer
+  pdf.setFontSize(7)
+  pdf.setTextColor(150, 150, 150)
+  pdf.setFont('Helvetica', 'normal')
+
+  const footerText = [
+    'IMAGENS MERAMENTE ILUSTRATIVAS - Podem ocorrer algumas alterações devido ao tipo e ajustes do seu monitor',
+    'Ao receber este layout, atenda-se aos seguintes MEDIDAS, CORES E LOGO. Por ser tratar de uma peça personalizada,',
+    'após sua produção não será possível sua modificação. Importante saber que, letras pequenas terão altura superior a 5CM,',
+    'para que a produção seja realizada, caso seja inferior, haverá a necessidade de aumentar o tamanho do tapete ou abreviar as palavras.',
+  ]
+
+  let footerY = pageHeight - 18
+  footerText.forEach((line) => {
+    pdf.text(line, 15, footerY, { maxWidth: pageWidth - 30 })
+    footerY += 3.5
+  })
+
+  return Buffer.from(pdf.output('arraybuffer'))
+}
+
+function generateCorelDrawFile(state: ConfiguratorState, orderId: string): string {
+  // CDR (CorelDraw) é formato binário - retornamos base64
+  // Em produção, você geraria um arquivo CDR real
+  const cdrContent = `CDR Template for Order ${orderId}
+Medida: ${state.medida}
+Cor Tapete: ${state.corTapete}
+Texto: ${state.texto}
+Cor Texto: ${state.corTexto}
+Borda: ${state.borda}
+Cor Borda: ${state.corBorda}`
+
+  return Buffer.from(cdrContent).toString('base64')
+}
+
+function generateTAPFile(state: ConfiguratorState, orderId: string): string {
+  // TAP é formato de texto para CNC - simula dados de corte
+  const measurement = MEASUREMENTS[state.medida]
+
+  const tapContent = `TAP_FILE
+ORDER_ID: ${orderId}
+MACHINE: MARCH3
+DATE: ${new Date().toISOString()}
+MATERIAL: VINYL_ADESIVO
+
+DIMENSIONS:
+WIDTH: ${measurement?.w ?? 0}
+HEIGHT: ${measurement?.c ?? 0}
+
+COLOR:
+TAPE_COLOR: ${state.corTapete}
+TEXT_COLOR: ${state.corTexto}
+BORDER_COLOR: ${state.corBorda}
+
+TEXT:
+CONTENT: ${state.texto}
+
+BORDER:
+TYPE: ${state.borda}
+
+INSTRUCTIONS:
+1. Load vinyl with color ${state.corTapete}
+2. Set text color to ${state.corTexto}
+3. Apply border type: ${state.borda}
+4. Cut dimensions: ${measurement?.w ?? 0}m x ${measurement?.c ?? 0}m
+5. Quality check before shipping
+
+END_TAP`
+
+  return Buffer.from(tapContent).toString('base64')
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const body: CreateOrderRequest = await request.json()
+    const { state, svgPreview } = body
+
+    if (!state || !svgPreview) {
+      return NextResponse.json(
+        { error: 'Missing state or svgPreview' },
+        { status: 400 }
+      )
+    }
+
+    const orderId = generateOrderId()
+
+    // Load logo
+    let logoBase64 = ''
+    try {
+      const logoPath = join(process.cwd(), 'public', 'logo.png')
+      const logoBuffer = readFileSync(logoPath)
+      logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
+    } catch (err) {
+      console.warn('Could not load logo')
+    }
+
+    // Generate files
+    const pdfBuffer = generatePDF(state, logoBase64)
+    const cdrBase64 = generateCorelDrawFile(state, orderId)
+    const tapBase64 = generateTAPFile(state, orderId)
+
+    // Create response
+    const response: OrderResponse = {
+      success: true,
+      orderId,
+      files: {
+        pdf: pdfBuffer.toString('base64'),
+        cdr: cdrBase64,
+        tap: tapBase64,
+      },
+      message: `Pedido ${orderId} criado com sucesso! Arquivos gerados para produção.`,
+    }
+
+    return NextResponse.json(response)
+  } catch (error) {
+    console.error('Error creating order:', error)
+    return NextResponse.json(
+      { error: 'Failed to create order' },
+      { status: 500 }
+    )
+  }
+}
