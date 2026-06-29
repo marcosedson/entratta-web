@@ -19,18 +19,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `${segment.title} | Fabricante | ENTRATTA`
   const description = `${segment.description} Fabricante direto em Goiás. Entrega rápida. Orçamento grátis no WhatsApp.`
+  const pageUrl = `https://entratta.com.br/capacho-para-${segment.slug}`
 
   return {
     title,
     description,
     alternates: {
-      canonical: `https://entratta.com.br/capacho-para-${segment.slug}`,
+      canonical: pageUrl,
     },
     openGraph: {
       title,
       description,
-      url: `https://entratta.com.br/capacho-para-${segment.slug}`,
+      url: pageUrl,
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   }
 }
@@ -39,15 +45,16 @@ export async function generateStaticParams() {
   return getAllSegmentSlugs().map((slug) => ({ slug }))
 }
 
-export const dynamic = 'force-dynamic'
+export const dynamicParams = true
+export const revalidate = false
 
-function SegmentSchema({ segment }: { segment: typeof SEGMENTS_DATA[0] }) {
-  const schema = {
+function SegmentSchemas({ segment }: { segment: typeof SEGMENTS_DATA[0] }) {
+  const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: segment.title,
     provider: {
-      "@type": "Organization",
+      "@type": "LocalBusiness",
       name: "ENTRATTA Capachos Personalizados",
       telephone: "+55-64-99206-6855",
       url: "https://entratta.com.br",
@@ -59,11 +66,71 @@ function SegmentSchema({ segment }: { segment: typeof SEGMENTS_DATA[0] }) {
     },
   }
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://entratta.com.br",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: segment.title,
+        item: `https://entratta.com.br/capacho-para-${segment.slug}`,
+      },
+    ],
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Qual o preço do ${segment.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "O preço varia conforme tamanho, quantidade e personalização. Enviamos orçamento customizado em minutos pelo WhatsApp.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Qual o prazo de entrega do ${segment.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Produzimos em até 3 dias úteis. Entregamos em todo o Brasil com rastreamento.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Qual o tamanho mínimo para ${segment.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "O tamanho mínimo é 40×60 cm. Você pode escolher o tamanho que melhor se adapte ao seu espaço.",
+        },
+      },
+    ],
+  }
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+    </>
   )
 }
 
@@ -77,7 +144,7 @@ export default async function SegmentPage({ params }: Props) {
 
   return (
     <>
-      <SegmentSchema segment={segment} />
+      <SegmentSchemas segment={segment} />
       <Header />
       <main className="flex-1">
         <div className="px-4 py-16 md:py-24 max-w-3xl mx-auto">

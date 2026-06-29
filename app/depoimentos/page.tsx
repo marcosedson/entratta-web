@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   description:
     'Veja o que nossos clientes dizem sobre os capachos e tapetes de vinil da Entratta. Empresas e residências de todo o Brasil.',
   alternates: { canonical: '/depoimentos' },
+  openGraph: {
+    title: 'Depoimentos | Entratta',
+    description:
+      '+500 pedidos entregues. Veja o que nossos clientes falam sobre a qualidade e o atendimento.',
+    url: 'https://entratta.com.br/depoimentos',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Depoimentos | Entratta',
+    description:
+      '+500 clientes satisfeitos. Confira os depoimentos de quem confiou em nós.',
+  },
 }
 
 export default function DepoimentosPage() {

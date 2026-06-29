@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   description:
     'Veja como é simples pedir seu capacho personalizado na Entratta. Configure online, confirme pelo WhatsApp e receba em casa em até 7 dias úteis.',
   alternates: { canonical: '/como-funciona' },
+  openGraph: {
+    title: 'Como Funciona | Entratta',
+    description:
+      'Veja como é simples pedir seu capacho personalizado. 3 passos, 7 dias úteis — do pedido à entrega.',
+    url: 'https://entratta.com.br/como-funciona',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Como Funciona | Entratta',
+    description:
+      'Veja como é simples pedir seu capacho personalizado. 3 passos, 7 dias úteis.',
+  },
 }
 
 export default function ComoFuncionaPage() {

@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   description:
     'Compre capachos e tapetes de vinil personalizados da Entratta no Mercado Livre. Parcelamento em 12x, compra protegida e entrega rastreada em todo o Brasil.',
   alternates: { canonical: '/lojas' },
+  openGraph: {
+    title: 'Compre na Loja Oficial | Entratta',
+    description:
+      'Capachos personalizados com parcelamento em até 12x, compra protegida e entrega rastreada em todo o Brasil.',
+    url: 'https://entratta.com.br/lojas',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Compre na Loja Oficial | Entratta',
+    description:
+      'Parcelamento em 12x, compra protegida, entrega rastreada. Qualidade Entratta com segurança de marketplace.',
+  },
 }
 
 export default function LojasPage() {
