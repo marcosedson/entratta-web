@@ -448,7 +448,18 @@ export async function POST(request: NextRequest) {
     const body: CreateOrderRequest = await request.json()
     const { state, svgPreview, clientName = 'Cliente', clientWhatsApp = '', logoBase64: clientLogoBase64 } = body
 
+    console.log(`\n════════════════════════════════════════════════════════`)
+    console.log(`🔍 PAYLOAD RECEBIDO NA API:`)
+    console.log(`   state: ${state ? '✅' : '❌'}`)
+    console.log(`   svgPreview: ${svgPreview ? `✅ (${(svgPreview.length / 1024).toFixed(2)}KB, ${svgPreview.substring(0, 50)}...)` : '❌'}`)
+    console.log(`   clientName: ${clientName || 'vazio'}`)
+    console.log(`   clientLogoBase64: ${clientLogoBase64 ? '✅' : '❌'}`)
+    console.log(`════════════════════════════════════════════════════════\n`)
+
     if (!state || !svgPreview) {
+      console.error(`❌ ERRO CRÍTICO: Faltam dados!`)
+      console.error(`   state: ${state ? 'OK' : 'MISSING'}`)
+      console.error(`   svgPreview: ${svgPreview ? 'OK' : 'MISSING'}`)
       return NextResponse.json(
         { error: 'Missing state or svgPreview' },
         { status: 400 }

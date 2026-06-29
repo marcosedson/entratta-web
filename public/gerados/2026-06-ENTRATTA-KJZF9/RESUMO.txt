@@ -3,28 +3,28 @@
 ║                   RESUMO DO PEDIDO                            ║
 ╚════════════════════════════════════════════════════════════════╝
 
-📋 ID DO PEDIDO: 2026-06-ENTRATTA-I9EC8
-📅 Data: 29/06/2026, 18:44:33
+📋 ID DO PEDIDO: 2026-06-ENTRATTA-KJZF9
+📅 Data: 29/06/2026, 18:52:31
 
 👤 CLIENTE:
-  Nome: MARCOS EDSON
+  Nome: teste
   WhatsApp: 34997656230
 
 📐 ESPECIFICAÇÕES:
   Medida: 40x60
   Cor do tapete: cinza
-  Cor do texto: preto
+  Cor do texto: verde
   Cor da borda: branco
   Tipo de borda: sem
-  Texto personalizado: bem vindo
+  Texto personalizado: teste
 
 📁 ARQUIVOS GERADOS:
-  ✓ PDF: 2026-06-ENTRATTA-I9EC8-projeto.pdf
+  ✓ PDF: 2026-06-ENTRATTA-KJZF9-projeto.pdf
   ✓ .TAP files: 4
-    - 2026-06-ENTRATTA-I9EC8-tapete-cinza.tap
-    - 2026-06-ENTRATTA-I9EC8-texto-preto.tap
-    - 2026-06-ENTRATTA-I9EC8-cascata-5x.tap
-    - 2026-06-ENTRATTA-I9EC8-logo-01-preto.tap
+    - 2026-06-ENTRATTA-KJZF9-tapete-cinza.tap
+    - 2026-06-ENTRATTA-KJZF9-texto-verde.tap
+    - 2026-06-ENTRATTA-KJZF9-cascata-5x.tap
+    - 2026-06-ENTRATTA-KJZF9-logo-01-preto.tap
 
 🎨 CORES DETECTADAS (se logo):
   - Preto (#000000)
@@ -35,10 +35,10 @@
   Tempo de processamento: N/A
 
 📍 LOCALIZAÇÃO DOS ARQUIVOS:
-  /Users/marcosmarcon/projetos/entratta-web/public/gerados/2026-06-ENTRATTA-I9EC8
+  /Users/marcosmarcon/projetos/entratta-web/public/gerados/2026-06-ENTRATTA-KJZF9
 
 🔗 ACESSO WEB:
-  /gerados/2026-06-ENTRATTA-I9EC8/
+  /gerados/2026-06-ENTRATTA-KJZF9/
 
 ✅ Status: PRONTO PARA MARCH3 CNC
 

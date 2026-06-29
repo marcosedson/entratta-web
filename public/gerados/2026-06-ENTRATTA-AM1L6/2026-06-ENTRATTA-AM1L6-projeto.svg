@@ -21,7 +21,7 @@
     ENTRATTA - Capacho Personalizado
   </text>
   <text x="50" y="50" font-size="12" fill="#666666">
-    Pedido: 2026-06-ENTRATTA-607KK | Medida: 40×60 cm
+    Pedido: 2026-06-ENTRATTA-AM1L6 | Medida: 40×60 cm
   </text>
 
   <!-- Grupo do tapete -->
@@ -93,15 +93,15 @@
 
     <!-- Info -->
     <text x="0" y="60" font-size="11" fill="#666666">
-      Gerado por ENTRATTA | 29/06/2026 | Pedido: 2026-06-ENTRATTA-607KK
+      Gerado por ENTRATTA | 29/06/2026 | Pedido: 2026-06-ENTRATTA-AM1L6
     </text>
   </g>
 
   <!-- Metadata -->
   <metadata>
     <creator>ENTRATTA SVG Generator</creator>
-    <date>2026-06-29T21:48:18.172Z</date>
-    <orderId>2026-06-ENTRATTA-607KK</orderId>
+    <date>2026-06-29T21:51:36.806Z</date>
+    <orderId>2026-06-ENTRATTA-AM1L6</orderId>
     <dimensions>0.4cm x 0.6cm</dimensions>
     <carpet-color>#4a4a4a</carpet-color>
     <text-color>#111111</text-color>

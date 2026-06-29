@@ -7,7 +7,7 @@
     <style type="text/css">
       .tape-bg { fill: #4a4a4a; }
       .tape-border { stroke: #FFFFFF; fill: none; }
-      .tape-text { font-family: Arial, sans-serif; font-weight: bold; fill: #111111; }
+      .tape-text { font-family: Arial, sans-serif; font-weight: bold; fill: #22C55E; }
       .dimension-line { stroke: #666666; stroke-width: 0.5; }
       .dimension-text { font-family: Arial; font-size: 10px; fill: #333333; }
     </style>
@@ -21,7 +21,7 @@
     ENTRATTA - Capacho Personalizado
   </text>
   <text x="50" y="50" font-size="12" fill="#666666">
-    Pedido: 2026-06-ENTRATTA-I9EC8 | Medida: 40×60 cm
+    Pedido: 2026-06-ENTRATTA-KJZF9 | Medida: 40×60 cm
   </text>
 
   <!-- Grupo do tapete -->
@@ -39,7 +39,7 @@
           font-size="33.333333333333336"
           text-anchor="middle"
           dominant-baseline="middle">
-      BEM VINDO
+      TESTE
     </text>
 
     <!-- Logo (se houver) -->
@@ -85,27 +85,27 @@
     <text x="20" y="32" font-size="12" fill="#333333">Fundo: Cinza</text>
 
     <!-- Texto -->
-    <rect x="250" y="20" width="15" height="15" fill="#111111" stroke="#333" stroke-width="0.5"/>
-    <text x="270" y="32" font-size="12" fill="#333333">Texto: Preto</text>
+    <rect x="250" y="20" width="15" height="15" fill="#22C55E" stroke="#333" stroke-width="0.5"/>
+    <text x="270" y="32" font-size="12" fill="#333333">Texto: Verde</text>
 
     <!-- Borda -->
     
 
     <!-- Info -->
     <text x="0" y="60" font-size="11" fill="#666666">
-      Gerado por ENTRATTA | 29/06/2026 | Pedido: 2026-06-ENTRATTA-I9EC8
+      Gerado por ENTRATTA | 29/06/2026 | Pedido: 2026-06-ENTRATTA-KJZF9
     </text>
   </g>
 
   <!-- Metadata -->
   <metadata>
     <creator>ENTRATTA SVG Generator</creator>
-    <date>2026-06-29T21:44:33.011Z</date>
-    <orderId>2026-06-ENTRATTA-I9EC8</orderId>
+    <date>2026-06-29T21:52:31.045Z</date>
+    <orderId>2026-06-ENTRATTA-KJZF9</orderId>
     <dimensions>0.4cm x 0.6cm</dimensions>
     <carpet-color>#4a4a4a</carpet-color>
-    <text-color>#111111</text-color>
+    <text-color>#22C55E</text-color>
     <border-color>#FFFFFF</border-color>
-    <text-content>bem vindo</text-content>
+    <text-content>teste</text-content>
   </metadata>
 </svg>
