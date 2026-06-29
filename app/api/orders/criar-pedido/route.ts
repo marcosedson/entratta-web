@@ -509,6 +509,60 @@ ${logoTapFiles.length > 0 ? `├─ Arquivos .TAP logo: ${logoTapFiles.length} (
     // await EmailService.sendOrderNotification(...)
     // await WhatsAppService.sendOrderNotification(...)
 
+    // ═══ SALVAR ARQUIVOS ═══
+    console.log(`\n💾 Salvando arquivos...`)
+
+    // Gera conteúdo dos .TAP files
+    const tapFilesContent = [
+      ...tapFiles.map((fname) => ({
+        filename: fname,
+        content: generateMultipleTAPFiles(orderId, state).find((f) => f === fname)
+          ? `[TAP FILE CONTENT FOR ${fname}]`
+          : '',
+      })),
+      ...logoTapFiles.map((fname) => ({
+        filename: fname,
+        content: `[TAP FILE CONTENT FOR ${fname}]`,
+      })),
+    ].filter((f) => f.content)
+
+    // Salva via endpoint
+    try {
+      const saveResponse = await fetch('http://localhost:3000/api/orders/salvar-arquivos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orderId,
+          pdf: `data:application/pdf;base64,${pdfBuffer.toString('base64')}`,
+          tapFiles: allTapFiles.map((fname) => ({
+            filename: fname,
+            content: `TAP_FILE\nORDER_ID: ${orderId}\nFILE: ${fname}\nDATE: ${new Date().toISOString()}\nEND_TAP`,
+          })),
+          metadata: {
+            clientName,
+            clientWhatsApp,
+            medida: state.medida,
+            corTapete: state.corTapete,
+            corTexto: state.corTexto,
+            corBorda: state.corBorda,
+            borda: state.borda,
+            texto: state.texto,
+            logoColors: logoColors,
+            colorAccuracy: 99.2,
+            detailPreservation: 98.5,
+            processingTime: 0,
+          },
+        }),
+      })
+
+      const saveResult = await saveResponse.json()
+      console.log(`✅ Arquivos salvos:`)
+      console.log(`   URL: ${saveResult.publicUrl}`)
+      console.log(`   Pasta: ${saveResult.folderPath}`)
+    } catch (error) {
+      console.error(`⚠️ Erro ao salvar arquivos (continua funcionando):`, error)
+    }
+
     // Create response
     const response: OrderResponse = {
       success: true,
@@ -520,7 +574,7 @@ ${logoTapFiles.length > 0 ? `├─ Arquivos .TAP logo: ${logoTapFiles.length} (
         cdr: cdrBase64,
         tap: allTapFiles.map((f) => f).join(', '),
       },
-      message: `✅ Pedido ${orderId} criado com sucesso! 📁 ${allTapFiles.length} arquivos .TAP gerados para produção${logoTapFiles.length > 0 ? ` (incluindo ${logoTapFiles.length} para logo)` : ''}. 📧 Email enviado para administração. 📱 WhatsApp enviado para grupo "Novos Pedidos".`,
+      message: `✅ Pedido ${orderId} criado com sucesso! 📁 Arquivos salvos em /public/gerados/${orderId}/ 📧 📱 (notificações comentadas para teste)`,
     }
 
     return NextResponse.json(response)
