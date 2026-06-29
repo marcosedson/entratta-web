@@ -1,3 +1,7 @@
+export const metadata = {
+  robots: { index: false, follow: false },
+}
+
 export default function NotFound() {
   return (
     <div style={{ textAlign: "center", padding: "50px" }}>

@@ -66,21 +66,12 @@ export const metadata: Metadata = {
     siteName: "Entratta",
     locale: "pt_BR",
     type: "website",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Entratta — Capachos e Tapetes Personalizados",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Capachos Personalizados com Logo | Entratta",
     description:
       "Configure seu capacho de vinil. Preview ao vivo. Orçamento imediato no WhatsApp.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -97,7 +88,7 @@ const jsonLd = {
     "Fabricante de capachos personalizados em vinil com logo para empresas, condomínios, indústrias e residências. Entrega em 3 dias para todo o Brasil.",
   url: "https://entratta.com.br",
   telephone: "+55-64-99206-6855",
-  image: "https://entratta.com.br/og-image.jpg",
+  image: "https://entratta.com.br/opengraph-image.png",
   priceRange: "$$",
   sameAs: [
     "https://www.instagram.com/entrattaofficial",
@@ -143,7 +134,6 @@ const jsonLd = {
     telephone: "+55-64-99206-6855",
     contactType: "customer service",
     availableLanguage: "Portuguese",
-    contactOption: "TollFree",
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",

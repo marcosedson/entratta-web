@@ -1,17 +1,11 @@
 import { ImageResponse } from "next/og"
 
 export const runtime = "edge"
+export const alt = "Entratta — Capachos e Tapetes Personalizados"
+export const size = { width: 1200, height: 630 }
+export const contentType = "image/png"
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const city = searchParams.get("city") || "Entratta"
-  const state = searchParams.get("state") || "GO"
-
-  const fontData = await fetch(
-    new URL("https://fonts.gstatic.com/s/plusjakartasans/v8/LDIoaIVM3ZeGj6T8g0bHb25-Z1Nvo5Da61vN41m-qw.woff2"),
-    { next: { revalidate: 3600 } }
-  ).then((res) => res.arrayBuffer())
-
+export default function Image() {
   return new ImageResponse(
     (
       <div
@@ -29,10 +23,10 @@ export async function GET(request: Request) {
       >
         <div>
           <div style={{ fontSize: "72px", fontWeight: "bold", marginBottom: "20px" }}>
-            Capacho Personalizado em {city}
+            Capacho Personalizado com Logo
           </div>
           <div style={{ fontSize: "36px", color: "#22C55E", marginBottom: "20px" }}>
-            {state} • ENTRATTA Fabricante
+            ENTRATTA Fabricante — 3 dias úteis
           </div>
         </div>
 
@@ -56,16 +50,7 @@ export async function GET(request: Request) {
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
-      fonts: [
-        {
-          name: "Plus Jakarta Sans",
-          data: fontData,
-          style: "normal",
-          weight: 700,
-        },
-      ],
+      ...size,
     }
   )
 }
