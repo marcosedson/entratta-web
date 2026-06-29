@@ -1,14 +1,14 @@
 export interface FontOption {
   id: string
-  label: string
-  family: string
-  weight: string
+  l: string
+  f: string
+  w: string
 }
 
 export const FONTS: FontOption[] = [
-  { id: 'bold', label: 'Bold', family: 'Inter, sans-serif', weight: '800' },
-  { id: 'light', label: 'Clean', family: 'Inter, sans-serif', weight: '300' },
-  { id: 'serif', label: 'Elegante', family: 'Georgia, serif', weight: '700' },
+  { id: 'bold', l: 'Bold', f: 'Inter, sans-serif', w: '800' },
+  { id: 'light', l: 'Clean', f: 'Inter, sans-serif', w: '300' },
+  { id: 'serif', l: 'Elegante', f: 'Georgia, serif', w: '700' },
 ]
 
 export const DEFAULT_FONT = 'bold'

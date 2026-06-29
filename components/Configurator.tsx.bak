@@ -1,28 +1,162 @@
 'use client'
 
-import { useId } from 'react'
-import { useConfigurator } from '@/lib/hooks'
-import {
-  CARPET_COLORS,
-  TEXT_COLORS,
-  BORDER_COLORS,
-  MEASUREMENTS,
-  BORDERS,
-  FONTS,
-  CONFIGURATOR_PADDING,
-} from '@/lib/constants'
-import { ColorChip } from './Configurator/ColorChip'
-import { SectionTitle } from './Configurator/SectionTitle'
+import { useState, useRef, useEffect, useMemo, useId, useCallback } from 'react'
 
-// ── HELPERS (Maintain compatibility) ───────────────────────────────────────────
+// ── DATA ──────────────────────────────────────────────────────────────────────
 
-const CORES_TAPETE = CARPET_COLORS
-const CORES_TEXTO = TEXT_COLORS
-const CORES_BORDA = BORDER_COLORS
-const MEDIDAS = MEASUREMENTS
-const BORDAS = BORDERS
-const FONTES = FONTS
-const PAD = CONFIGURATOR_PADDING
+const CORES_TAPETE = [
+  { id: 'preto', label: 'Preto', hex: '#1a1a1a' },
+  { id: 'cinza', label: 'Cinza', hex: '#4a4a4a' },
+  { id: 'verde', label: 'Verde', hex: '#15803D' },
+  { id: 'azul', label: 'Azul', hex: '#0F2D52' },
+  { id: 'vermelho', label: 'Vermelho', hex: '#991B1B' },
+  { id: 'marrom', label: 'Marrom', hex: '#78350F' },
+  { id: 'bege', label: 'Bege', hex: '#D4B896' },
+]
+
+const CORES_TEXTO = [
+  { id: 'branco', label: 'Branco', hex: '#FFFFFF' },
+  { id: 'verde', label: 'Verde', hex: '#22C55E' },
+  { id: 'amarelo', label: 'Amarelo', hex: '#EAB308' },
+  { id: 'vermelho', label: 'Vermelho', hex: '#EF4444' },
+  { id: 'azul', label: 'Azul', hex: '#3B82F6' },
+  { id: 'preto', label: 'Preto', hex: '#111111' },
+]
+
+const CORES_BORDA = [
+  { id: 'branco', label: 'Branco', hex: '#FFFFFF' },
+  { id: 'verde', label: 'Verde', hex: '#22C55E' },
+  { id: 'amarelo', label: 'Amarelo', hex: '#EAB308' },
+  { id: 'vermelho', label: 'Vermelho', hex: '#EF4444' },
+  { id: 'azul', label: 'Azul', hex: '#3B82F6' },
+  { id: 'preto', label: 'Preto', hex: '#111111' },
+  { id: 'ouro', label: 'Ouro', hex: '#B8860B' },
+]
+
+const MEDIDAS: Record<string, { l: string; w: number; c: number }> = {
+  '40x60': { l: '40×60 cm', w: 0.4, c: 0.6 },
+  '50x80': { l: '50×80 cm', w: 0.5, c: 0.8 },
+  '60x90': { l: '60×90 cm', w: 0.6, c: 0.9 },
+  '80x120': { l: '80×120 cm', w: 0.8, c: 1.2 },
+  '100x150': { l: '100×150 cm', w: 1.0, c: 1.5 },
+  custom: { l: 'Sob medida', w: 0, c: 0 },
+}
+
+const BORDAS = [
+  { id: 'sem', l: 'Sem borda' },
+  { id: 'fina', l: 'Borda fina' },
+  { id: 'dupla', l: 'Borda dupla' },
+]
+
+const FONTES = [
+  { id: 'bold', l: 'Bold', f: 'Inter, sans-serif', w: '800' },
+  { id: 'light', l: 'Clean', f: 'Inter, sans-serif', w: '300' },
+  { id: 'serif', l: 'Elegante', f: 'Georgia, serif', w: '700' },
+]
+
+const WPP = '5564992066855'
+const SNAP = 14
+const PAD = 18
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+
+interface State {
+  medida: string
+  corTapete: string
+  corTexto: string
+  corBorda: string
+  texto: string
+  borda: string
+  fonte: string
+  logoSrc: string | null
+  customL: string
+  customC: string
+  nome: string
+  wpp: string
+  logoRotacao: number
+  logoX: number | null
+  logoY: number | null
+  logoScale: number
+  textoX: number | null
+  textoY: number | null
+}
+
+const DEFAULT: State = {
+  medida: '60x90',
+  corTapete: 'preto',
+  corTexto: 'branco',
+  corBorda: 'branco',
+  texto: '',
+  borda: 'sem',
+  fonte: 'bold',
+  logoSrc: null,
+  customL: '',
+  customC: '',
+  nome: '',
+  wpp: '',
+  logoRotacao: 0,
+  logoX: null,
+  logoY: null,
+  logoScale: 1.0,
+  textoX: null,
+  textoY: null,
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+
+function ColorChip({
+  hex,
+  label,
+  active,
+  onClick,
+  isLight,
+}: {
+  hex: string
+  label: string
+  active: boolean
+  onClick: () => void
+  isLight?: boolean
+}) {
+  return (
+    <div className="flex flex-col items-center gap-1">
+      <button
+        onClick={onClick}
+        title={label}
+        className="w-8 h-8 rounded-full transition-all duration-150 flex-shrink-0"
+        style={{
+          background: hex,
+          border: active
+            ? '3px solid #22C55E'
+            : isLight
+            ? '2px solid #555'
+            : '2px solid rgba(255,255,255,0.12)',
+          transform: active ? 'scale(1.18)' : 'scale(1)',
+          boxShadow: active ? '0 0 0 2px rgba(34,197,94,0.25)' : 'none',
+        }}
+      />
+      <span style={{ fontSize: '0.58rem', color: '#2E4A6A', textAlign: 'center', maxWidth: '36px', lineHeight: 1.2 }}>
+        {label}
+      </span>
+    </div>
+  )
+}
+
+function SecTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        fontSize: '0.58rem',
+        fontWeight: 700,
+        letterSpacing: '1.5px',
+        textTransform: 'uppercase',
+        color: '#22C55E',
+        marginBottom: '11px',
+      }}
+    >
+      {children}
+    </div>
+  )
+}
 
 // ── MAIN COMPONENT ─────────────────────────────────────────────────────────────
 
@@ -31,29 +165,207 @@ export function Configurator() {
   const patternId = `vinyl-${uid.replace(/:/g, '')}`
   const patternLightId = `vinyl-light-${uid.replace(/:/g, '')}`
 
-  const {
-    state: s,
-    set,
-    svgW,
-    svgH,
-    medidaLabel,
-    preco,
-    corTapeteObj,
-    corTextoObj,
-    fonteObj,
-    isLight,
-    bordaHex,
-    logoDims,
-    textoDims,
-    wppUrl,
-    snapGuides,
-    svgRef,
-    loadLogo,
-    removeLogo,
-    rotLogo,
-    copiarMsg,
-    copied,
-  } = useConfigurator()
+  const [s, setS] = useState<State>(DEFAULT)
+  const [svgW, setSvgW] = useState(460)
+  const [snapGuides, setSnapGuides] = useState({ v: false, h: false })
+  const [copied, setCopied] = useState(false)
+  const svgRef = useRef<SVGSVGElement>(null)
+  const dragRef = useRef({ active: false, target: '', svgX0: 0, svgY0: 0, startX: 0, startY: 0 })
+
+  // Refs to avoid stale closures in drag handlers
+  const svgDimsRef = useRef({ w: svgW, h: 0 })
+  const stateRef = useRef(s)
+  useEffect(() => { stateRef.current = s }, [s])
+
+  // ── Responsive SVG width
+  useEffect(() => {
+    const update = () => {
+      const w = Math.min(460, window.innerWidth - 60)
+      setSvgW(w)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
+  // ── Compute SVG dimensions
+  const { svgH, medidaLabel } = useMemo(() => {
+    let l: number, c: number
+    if (s.medida === 'custom') {
+      l = parseFloat(s.customL) || 60
+      c = parseFloat(s.customC) || 90
+    } else {
+      const m = MEDIDAS[s.medida]
+      l = m.w * 100
+      c = m.c * 100
+    }
+    // Always landscape
+    let dL = l, dC = c
+    if (dL < dC) { const t = dL; dL = dC; dC = t }
+    const H = Math.round(svgW / (dL / dC))
+    const label =
+      s.medida === 'custom'
+        ? `${s.customL || '?'}×${s.customC || '?'} cm`
+        : MEDIDAS[s.medida].l
+    return { svgH: H, medidaLabel: label }
+  }, [s.medida, s.customL, s.customC, svgW])
+
+  // Keep dims ref updated
+  useEffect(() => { svgDimsRef.current = { w: svgW, h: svgH } }, [svgW, svgH])
+
+  // ── Price
+  const preco = useMemo(() => {
+    if (s.medida === 'custom') {
+      const l = parseFloat(s.customL) || 0
+      const c = parseFloat(s.customC) || 0
+      return l > 0 && c > 0 ? Math.round((l / 100) * (c / 100) * 300) : null
+    }
+    const m = MEDIDAS[s.medida]
+    return Math.round(m.w * m.c * 300)
+  }, [s.medida, s.customL, s.customC])
+
+  // ── Computed colors/objects
+  const corTapeteObj = CORES_TAPETE.find(c => c.id === s.corTapete)!
+  const corTextoObj = CORES_TEXTO.find(c => c.id === s.corTexto)!
+  const fonteObj = FONTES.find(f => f.id === s.fonte)!
+  const isLight = ['bege', 'cinza'].includes(s.corTapete)
+  const bordaHex = CORES_BORDA.find(c => c.id === s.corBorda)?.hex ?? '#FFFFFF'
+
+  // ── Logo SVG dims
+  const logoDims = useMemo(() => {
+    if (!s.logoSrc) return null
+    const baseLW = Math.min(130, svgW * 0.32)
+    const baseLH = Math.min(90, svgH * 0.38)
+    const lw = baseLW * s.logoScale
+    const lh = baseLH * s.logoScale
+    const cx = s.logoX !== null ? s.logoX : svgW / 2
+    const cy = s.logoY !== null ? s.logoY : s.texto ? svgH / 2 - lh / 2 - 10 : svgH / 2
+    return { x: cx - lw / 2, y: cy - lh / 2, w: lw, h: lh, cx, cy }
+  }, [s.logoSrc, s.logoX, s.logoY, s.logoScale, svgW, svgH, s.texto])
+
+  // ── Text SVG dims
+  const textoDims = useMemo(() => {
+    if (!s.texto) return null
+    const maxFont = Math.min(42, Math.max(12, Math.floor(svgW / (s.texto.length * 0.6 + 1))))
+    const tx = s.textoX !== null ? s.textoX : svgW / 2
+    const ty = s.textoY !== null ? s.textoY : s.logoSrc ? svgH * 0.76 : svgH / 2
+    const estW = Math.min(svgW - 20, maxFont * s.texto.length * 0.62 + 16)
+    const estH = maxFont * 1.5
+    return { x: tx, y: ty, fontSize: maxFont, estW, estH }
+  }, [s.texto, s.textoX, s.textoY, svgW, svgH, s.logoSrc])
+
+  // ── WhatsApp URL
+  const wppUrl = useMemo(() => {
+    const corBordaLabel = CORES_BORDA.find(c => c.id === s.corBorda)?.label ?? s.corBorda
+    const bordaObj = BORDAS.find(b => b.id === s.borda)!
+    const msg = `Olá! Quero montar meu capacho personalizado 🚪\n\n👤 Nome: ${s.nome || 'não informado'}\n📐 Medida: ${medidaLabel}\n🎨 Cor do tapete: ${corTapeteObj.label}\n✏️ Texto: ${s.texto || 'sem texto'}\n🖊️ Cor do texto: ${corTextoObj.label}\n🔲 Borda: ${bordaObj.l}${s.borda !== 'sem' ? ` — Cor: ${corBordaLabel}` : ''}\n🖼️ Logo: ${s.logoSrc ? 'SIM — envio no próximo passo' : 'não'}\n💰 Preço estimado: ${preco ? `R$ ${preco.toLocaleString('pt-BR')}` : 'a calcular'}\n\nAguardo o orçamento! 😊`
+    return `https://wa.me/${WPP}?text=${encodeURIComponent(msg)}`
+  }, [s, medidaLabel, corTapeteObj, corTextoObj, preco])
+
+  // ── getSVGPt (reads from ref to avoid stale closure)
+  const getSVGPt = useCallback((e: MouseEvent | TouchEvent) => {
+    const svg = svgRef.current
+    if (!svg) return { x: 0, y: 0 }
+    const r = svg.getBoundingClientRect()
+    const { w, h } = svgDimsRef.current
+    const cx = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX
+    const cy = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY
+    return { x: (cx - r.left) / r.width * w, y: (cy - r.top) / r.height * h }
+  }, [])
+
+  // ── Drag handlers (stable — reads fresh values via refs)
+  useEffect(() => {
+    const svg = svgRef.current
+    if (!svg) return
+
+    const onDown = (e: MouseEvent | TouchEvent) => {
+      const tgt = (e.target as Element).getAttribute('data-drag')
+      if (!tgt) return
+      e.preventDefault()
+      const pt = getSVGPt(e)
+      const { w, h } = svgDimsRef.current
+      const cur = stateRef.current
+      dragRef.current = {
+        active: true,
+        target: tgt,
+        svgX0: pt.x,
+        svgY0: pt.y,
+        startX: tgt === 'logo' ? (cur.logoX ?? w / 2) : (cur.textoX ?? w / 2),
+        startY: tgt === 'logo' ? (cur.logoY ?? h / 2) : (cur.textoY ?? h / 2),
+      }
+    }
+
+    const onMove = (e: MouseEvent | TouchEvent) => {
+      if (!dragRef.current.active) return
+      e.preventDefault()
+      const pt = getSVGPt(e)
+      const { w, h } = svgDimsRef.current
+      let nx = dragRef.current.startX + (pt.x - dragRef.current.svgX0)
+      let ny = dragRef.current.startY + (pt.y - dragRef.current.svgY0)
+      nx = Math.max(20, Math.min(w - 20, nx))
+      ny = Math.max(20, Math.min(h - 20, ny))
+      const snapX = Math.abs(nx - w / 2) < SNAP
+      const snapY = Math.abs(ny - h / 2) < SNAP
+      if (snapX) nx = w / 2
+      if (snapY) ny = h / 2
+      setSnapGuides({ v: snapX, h: snapY })
+      if (dragRef.current.target === 'logo') {
+        setS(prev => ({ ...prev, logoX: nx, logoY: ny }))
+      } else {
+        setS(prev => ({ ...prev, textoX: nx, textoY: ny }))
+      }
+    }
+
+    const onUp = () => {
+      if (!dragRef.current.active) return
+      dragRef.current.active = false
+      setSnapGuides({ v: false, h: false })
+    }
+
+    svg.addEventListener('mousedown', onDown)
+    svg.addEventListener('touchstart', onDown, { passive: false })
+    window.addEventListener('mousemove', onMove)
+    window.addEventListener('touchmove', onMove, { passive: false })
+    window.addEventListener('mouseup', onUp)
+    window.addEventListener('touchend', onUp)
+
+    return () => {
+      svg.removeEventListener('mousedown', onDown)
+      svg.removeEventListener('touchstart', onDown)
+      window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('touchmove', onMove)
+      window.removeEventListener('mouseup', onUp)
+      window.removeEventListener('touchend', onUp)
+    }
+  }, [getSVGPt])
+
+  // ── Handlers
+  const set = (patch: Partial<State>) => setS(prev => ({ ...prev, ...patch }))
+
+  const loadLogo = (file: File) => {
+    const r = new FileReader()
+    r.onload = e => {
+      set({ logoSrc: e.target?.result as string, logoX: null, logoY: null })
+    }
+    r.readAsDataURL(file)
+  }
+
+  const removeLogo = () => set({ logoSrc: null, logoX: null, logoY: null, logoScale: 1, logoRotacao: 0 })
+
+  const rotLogo = (delta: number, modo?: 'reset') => {
+    if (modo === 'reset') { set({ logoRotacao: 0 }); return }
+    set({ logoRotacao: ((s.logoRotacao + delta) % 360 + 360) % 360 })
+  }
+
+  const copiarMsg = async () => {
+    const bordaObj = BORDAS.find(b => b.id === s.borda)!
+    const msg = `ENTRATTA Capachos — Pedido\nMedida: ${medidaLabel}\nCor: ${corTapeteObj.label}\nTexto: ${s.texto || '—'}\nLogo: ${s.logoSrc ? 'Sim' : 'Não'}\nPreço estimado: ${preco ? 'R$' + preco : 'a calcular'}\nBorda: ${bordaObj.l}\nWhatsApp: (64) 99206-6855`
+    try {
+      await navigator.clipboard.writeText(msg)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2200)
+    } catch {}
+  }
 
   // Panel input style
   const inputStyle: React.CSSProperties = {
@@ -141,7 +453,7 @@ export function Configurator() {
       >
         {/* Dados */}
         <div style={secStyle}>
-          <SectionTitle>Seus dados</SectionTitle>
+          <SecTitle>Seus dados</SecTitle>
           <input
             type="text"
             placeholder="Seu nome ou empresa"
@@ -160,7 +472,7 @@ export function Configurator() {
 
         {/* Medida */}
         <div style={secStyle}>
-          <SectionTitle>Medida do capacho</SectionTitle>
+          <SecTitle>Medida do capacho</SecTitle>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '7px' }}>
             {Object.entries(MEDIDAS).map(([key, m]) => (
               <button
@@ -237,7 +549,7 @@ export function Configurator() {
 
         {/* Cor tapete */}
         <div style={secStyle}>
-          <SectionTitle>Cor do tapete</SectionTitle>
+          <SecTitle>Cor do tapete</SecTitle>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '9px', alignItems: 'center' }}>
             {CORES_TAPETE.map(c => (
               <ColorChip
@@ -254,7 +566,7 @@ export function Configurator() {
 
         {/* Texto */}
         <div style={secStyle}>
-          <SectionTitle>Texto personalizado</SectionTitle>
+          <SecTitle>Texto personalizado</SecTitle>
           <input
             type="text"
             placeholder="BEM-VINDO · SEU NOME · CLÍNICA"
@@ -280,7 +592,7 @@ export function Configurator() {
 
         {/* Cor texto */}
         <div style={secStyle}>
-          <SectionTitle>Cor do texto</SectionTitle>
+          <SecTitle>Cor do texto</SecTitle>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '9px', alignItems: 'center' }}>
             {CORES_TEXTO.map(c => (
               <ColorChip
@@ -297,7 +609,7 @@ export function Configurator() {
 
         {/* Borda */}
         <div style={secStyle}>
-          <SectionTitle>Acabamento</SectionTitle>
+          <SecTitle>Acabamento</SecTitle>
           <div style={{ display: 'flex', gap: '7px' }}>
             {BORDAS.map(b => (
               <button key={b.id} onClick={() => set({ borda: b.id })} style={bordaBtnStyle(s.borda === b.id)}>
@@ -310,7 +622,7 @@ export function Configurator() {
         {/* Cor borda */}
         {s.borda !== 'sem' && (
           <div style={secStyle}>
-            <SectionTitle>Cor da borda</SectionTitle>
+            <SecTitle>Cor da borda</SecTitle>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '9px', alignItems: 'center' }}>
               {CORES_BORDA.map(c => (
                 <ColorChip
@@ -328,7 +640,7 @@ export function Configurator() {
 
         {/* Logo */}
         <div style={secStyle}>
-          <SectionTitle>Logo da empresa (opcional)</SectionTitle>
+          <SecTitle>Logo da empresa (opcional)</SecTitle>
           <input
             type="file"
             id="file-logo-conf"
