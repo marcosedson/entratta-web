@@ -103,7 +103,6 @@ export default function Configurador({ lockedTamanho, lockedCor, pedidoInicial, 
   const [corBorda, setCorBorda] = useState('branco')
   const [textos, setTextos] = useState<TextoItem[]>([])
   const [logos, setLogos] = useState<LogoItem[]>([])
-  const [copiado, setCopiado] = useState(false)
   const [adminConfig, setAdminConfig] = useState<AdminConfig>({
     diasUteis: 7, coresDisponiveis: CORES_TAPETE.map(c => c.id), aviso: '',
   })
@@ -270,147 +269,7 @@ Prazo: ${adminConfig.diasUteis} dias úteis
 Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
   }
 
-  function copiarMsg() {
-    navigator.clipboard.writeText(buildMsg()).then(() => {
-      setCopiado(true)
-      setTimeout(() => setCopiado(false), 2200)
-    })
-  }
-
   const wppLink = `https://wa.me/5564992066855?text=${encodeURIComponent(buildMsg())}`
-
-  // ── PDF ──
-  async function gerarPDF() {
-    const { jsPDF } = await import('jspdf')
-    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
-    const W_PDF = 210
-
-    doc.setFillColor(255, 255, 255)
-    doc.rect(0, 0, W_PDF, 297, 'F')
-
-    // Header bar
-    doc.setFillColor(10, 22, 40)
-    doc.rect(0, 0, W_PDF, 30, 'F')
-    doc.setTextColor(255, 255, 255)
-    doc.setFont('helvetica', 'bold')
-    doc.setFontSize(20)
-    doc.text('ENTRATTA', 15, 17)
-    doc.setFontSize(8)
-    doc.setFont('helvetica', 'normal')
-    doc.setTextColor(148, 163, 184)
-    doc.text('CAPACHOS E TAPETES PERSONALIZADOS', 15, 25)
-
-    let y = 44
-
-    // Canal + pedido
-    if (canal || pedido) {
-      doc.setFillColor(240, 253, 244)
-      doc.setDrawColor(34, 197, 94)
-      doc.setLineWidth(0.4)
-      doc.roundedRect(15, y - 5, W_PDF - 30, 14, 3, 3, 'FD')
-      doc.setFont('helvetica', 'bold')
-      doc.setFontSize(10)
-      doc.setTextColor(21, 128, 61)
-      const canalLabel = canal === 'ml' ? 'MERCADO LIVRE' : canal === 'shopee' ? 'SHOPEE' : ''
-      doc.text(`${canalLabel ? canalLabel + (pedido ? ' · ' : '') : ''}${pedido ? 'Pedido #' + pedido : ''}`, 20, y + 3)
-      y += 20
-    }
-
-    // Date
-    doc.setFont('helvetica', 'normal')
-    doc.setFontSize(8)
-    doc.setTextColor(148, 163, 184)
-    doc.text(`Gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}`, 15, y)
-    y += 10
-
-    // Divider
-    doc.setDrawColor(34, 197, 94)
-    doc.setLineWidth(0.4)
-    doc.line(15, y, W_PDF - 15, y)
-    y += 8
-
-    function section(title: string) {
-      doc.setFont('helvetica', 'bold')
-      doc.setFontSize(9)
-      doc.setTextColor(30, 58, 95)
-      doc.text(title, 15, y)
-      doc.setDrawColor(200, 200, 200)
-      doc.setLineWidth(0.2)
-      doc.line(15, y + 2, W_PDF - 15, y + 2)
-      y += 8
-    }
-
-    function row(label: string, value: string) {
-      doc.setFont('helvetica', 'normal')
-      doc.setFontSize(9)
-      doc.setTextColor(100, 116, 139)
-      doc.text(label + ':', 15, y)
-      doc.setTextColor(30, 41, 59)
-      doc.text(value, 55, y)
-      y += 6
-    }
-
-    // Cliente
-    section('CLIENTE')
-    row('Nome', nome || 'Não informado')
-    if (wpp) row('WhatsApp', wpp)
-    y += 4
-
-    // Produto
-    section('PRODUTO')
-    row('Medida', medidaLabel + (lockedTamanho ? ' (via marketplace)' : ''))
-    row('Cor do tapete', corTapeteObj.label + (lockedCor ? ' (via marketplace)' : ''))
-    row('Borda', BORDAS.find(b => b.id === borda)?.l || borda)
-    if (borda !== 'sem') row('Cor da borda', CORES_BORDA.find(c => c.id === corBorda)?.label || corBorda)
-    row('Preço estimado', precoFmt)
-    row('Prazo', `${adminConfig.diasUteis} dias úteis`)
-    y += 4
-
-    // Textos
-    const textosValidos = textos.filter(t => t.texto)
-    if (textosValidos.length > 0) {
-      section(`TEXTOS PERSONALIZADOS (${textosValidos.length})`)
-      textosValidos.forEach((t, i) => {
-        const cor = CORES_TEXTO.find(c => c.id === t.corId)?.label || t.corId
-        const fnt = FONTES.find(f => f.id === t.fonteId)?.l || t.fonteId
-        const tam = t.tamanho === 0 ? 'Auto' : t.tamanho + 'px'
-        doc.setFont('helvetica', 'bold')
-        doc.setFontSize(9)
-        doc.setTextColor(30, 41, 59)
-        doc.text(`${i + 1}. "${t.texto.toUpperCase()}"`, 15, y)
-        y += 5
-        doc.setFont('helvetica', 'normal')
-        doc.setFontSize(8)
-        doc.setTextColor(100, 116, 139)
-        doc.text(`   Fonte: ${fnt} · Cor: ${cor} · Tamanho: ${tam}`, 15, y)
-        y += 6
-      })
-      y += 2
-    }
-
-    // Logos
-    if (logos.length > 0) {
-      section(`LOGOS (${logos.length})`)
-      doc.setFont('helvetica', 'normal')
-      doc.setFontSize(9)
-      doc.setTextColor(100, 116, 139)
-      doc.text(`${logos.length} arquivo(s) de imagem incluído(s)`, 15, y)
-      y += 10
-    }
-
-    // Footer
-    y = 282
-    doc.setDrawColor(200, 200, 200)
-    doc.setLineWidth(0.3)
-    doc.line(15, y, W_PDF - 15, y)
-    y += 5
-    doc.setFont('helvetica', 'normal')
-    doc.setFontSize(7)
-    doc.setTextColor(150, 150, 150)
-    doc.text('ENTRATTA · entratta.com.br · WhatsApp: (64) 99206-6855', 15, y)
-
-    doc.save(`entratta-pedido-${pedido || Date.now()}.pdf`)
-  }
 
   // ── Finalizar: salva PDF + TAP na pasta do servidor e abre WhatsApp ──
   async function finalizarPedido() {
@@ -1023,22 +882,6 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
                   </div>
                 </div>
               )}
-
-              {/* Botões secundários */}
-              <div style={{ display: 'flex', gap: 6 }}>
-                <button onClick={gerarPDF} style={{
-                  flex: 1, padding: '9px 8px', borderRadius: 9,
-                  background: 'rgba(96,165,250,.05)', border: '1px solid rgba(96,165,250,.15)',
-                  color: '#60A5FA', fontSize: '.7rem', fontWeight: 700, cursor: 'pointer', outline: 'none',
-                }}>
-                  Baixar PDF
-                </button>
-                <button onClick={copiarMsg} style={{
-                  flex: 1, padding: 9, borderRadius: 9,
-                  background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.07)',
-                  color: copiado ? '#22C55E' : '#64748B', fontSize: '.7rem', fontWeight: 600, cursor: 'pointer', outline: 'none',
-                }}>{copiado ? '✓ Copiado!' : 'Copiar resumo'}</button>
-              </div>
 
               <p style={{ fontSize: '.63rem', color: '#1E3550', textAlign: 'center', marginTop: 10, lineHeight: 1.6 }}>
                 ✓ {adminConfig.diasUteis} dias úteis · ✓ Entrega em todo o Brasil · ✓ Sem compromisso
