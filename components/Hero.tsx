@@ -232,7 +232,7 @@ export function Hero() {
               marginBottom: '1rem',
             }}
           >
-            🎯 MAIS BARATO DO MERCADO
+            MAIS BARATO DO MERCADO
           </div>
 
           <div
@@ -352,7 +352,9 @@ export function Hero() {
           <div ref={carpetRef} style={{ width: '100%', maxWidth: '460px' }}>
             <div
               className="relative"
-              style={{ animation: 'float 4s ease-in-out infinite' }}
+              style={{
+                animation: 'float-hero 4s ease-in-out infinite',
+              }}
               onMouseMove={handleCarpetMove}
             >
               <div

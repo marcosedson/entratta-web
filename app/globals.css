@@ -35,6 +35,11 @@
   50% { transform: translateY(-12px); }
 }
 
+@keyframes float-hero {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
