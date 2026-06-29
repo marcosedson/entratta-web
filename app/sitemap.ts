@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next"
 import { getAllCitySlugs } from "@/lib/data"
 import { getAllSegmentSlugs } from "@/lib/segments"
+import { getAllBlogPosts } from "@/lib/blog"
 
 const baseUrl = "https://entratta.com.br"
 
@@ -29,6 +30,12 @@ const staticPages = [
     changeFrequency: "monthly" as const,
     priority: 0.6,
   },
+  {
+    url: `${baseUrl}/blog`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  },
 ]
 
 const cityPages = getAllCitySlugs().map((slug) => ({
@@ -45,6 +52,13 @@ const segmentPages = getAllSegmentSlugs().map((slug) => ({
   priority: 0.7,
 }))
 
+const blogPages = getAllBlogPosts().map((post) => ({
+  url: `${baseUrl}/blog/${post.slug}`,
+  lastModified: post.publishedAt,
+  changeFrequency: "monthly" as const,
+  priority: 0.6,
+}))
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...staticPages, ...cityPages, ...segmentPages]
+  return [...staticPages, ...cityPages, ...segmentPages, ...blogPages]
 }
