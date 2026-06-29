@@ -14,6 +14,7 @@ npm run lint         # Run ESLint
 ## Reference Documentation
 
 - **@AGENTS.md** — Stack versions, component rules, file map, business context, SEO strategy
+- **@ARCHITECTURE.md** — Current state analysis, SRP violations, DRY violations, refactoring plan (SOLID + DRY)
 - **Memory** — Check `/Users/marcosmarcon/.claude/projects/-Users-marcosmarcon-projetos-entratta-web/memory/` for project context from prior sessions
 
 ## Core Stack & Patterns
@@ -140,6 +141,75 @@ npm run lint         # Run ESLint
 - Refactors: "refactor: what changed and why"
 - One commit per logical change (don't batch unrelated work)
 - No force-push to main unless explicitly authorized
+
+## Architecture Standards (SOLID + DRY)
+
+### File Size Limits
+- Components: max 200 lines (use composition if larger)
+- Utilities: max 300 lines
+- Data files: data-only, separate from logic
+- Use `index.ts` to re-export and create module boundaries
+
+### Adding New Code
+When adding features, apply SOLID:
+- **S**: One reason to change per file
+  - Colors go in `lib/constants/colors.ts`, not in component
+  - Component logic goes in `useMyComponent.ts` hook, not inline
+  - Business rules go in `lib/services/`, not in component
+  
+- **O**: Open for extension, closed for modification
+  - Add new city? Edit `lib/data/cities.ts`, not `app/capacho-personalizado-[slug]/page.tsx`
+  - New color? Add to `lib/constants/colors.ts`, don't touch components
+  
+- **L**: Components are interchangeable
+  - `<ColorPicker color={color} onChange={setColor} />` can be swapped for different UI
+  
+- **I**: Segregate interfaces
+  - Don't pass entire `ConfiguratorState` to `ColorPicker` — just `{ color, onChange }`
+  
+- **D**: Depend on abstractions
+  - Pass functions/callbacks, not concrete instances
+  - Use custom hooks to abstract complexity
+
+### DRY Checklist Before Committing
+- [ ] No hardcoded colors (use `lib/constants/colors.ts`)
+- [ ] No hardcoded measurements (use `lib/constants/measurements.ts`)
+- [ ] Data separated from logic (`lib/data/` vs `lib/services/`)
+- [ ] Component < 200 lines (use sub-components if not)
+- [ ] Reusable logic extracted to hooks (`lib/hooks/`)
+- [ ] Types in `lib/types/`, not in components
+- [ ] Constants in `lib/constants/`, not scattered
+
+### Example: Adding a New Feature
+```typescript
+// ❌ DON'T: Put everything in one component file
+export function NewFeature() {
+  const COLORS = [...] // ← Data here
+  function calculate() { ... } // ← Logic here
+  return <div>...</div> // ← UI here
+}
+
+// ✅ DO: Separate concerns
+// components/NewFeature/index.tsx (50 lines, orchestrator)
+import { useNewFeature } from '@/lib/hooks/useNewFeature'
+import { NewFeatureContent } from './NewFeatureContent'
+export function NewFeature() {
+  const { state, update } = useNewFeature()
+  return <NewFeatureContent {...state} onChange={update} />
+}
+
+// lib/hooks/useNewFeature.ts (100 lines, state + logic)
+export function useNewFeature() { ... }
+
+// lib/constants/newFeature.ts (30 lines, data)
+export const COLORS = [...]
+
+// lib/services/newFeature.service.ts (80 lines, business rules)
+export class NewFeatureService { ... }
+
+// lib/types/newFeature.ts (20 lines, types)
+export interface NewFeatureState { ... }
+```
 
 ## Browser Testing
 
