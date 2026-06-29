@@ -8,22 +8,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04a163c1-cd9c-408b-997f-6af6eba92428" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/2026-06-ENTRATTA-607KK-cascata-5x.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/2026-06-ENTRATTA-607KK-logo-01-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/2026-06-ENTRATTA-607KK-projeto.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/2026-06-ENTRATTA-607KK-projeto.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/2026-06-ENTRATTA-607KK-tapete-cinza.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/2026-06-ENTRATTA-607KK-texto-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/RESUMO.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-607KK/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/2026-06-ENTRATTA-I9EC8-cascata-5x.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/2026-06-ENTRATTA-I9EC8-logo-01-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/2026-06-ENTRATTA-I9EC8-projeto.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/2026-06-ENTRATTA-I9EC8-projeto.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/2026-06-ENTRATTA-I9EC8-tapete-cinza.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/2026-06-ENTRATTA-I9EC8-texto-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/RESUMO.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-I9EC8/metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/orders/criar-pedido/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/orders/criar-pedido/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-cascata-5x.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-logo-01-preto.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-projeto.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-projeto.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-tapete-cinza.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-texto-preto.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/RESUMO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-cascata-5x.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-logo-01-preto.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-projeto.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-projeto.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-tapete-cinza.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-texto-verde.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/RESUMO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-cascata-5x.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-logo-01-preto.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-projeto.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-projeto.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-tapete-cinza.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-texto-verde.tap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/RESUMO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/metadata.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
