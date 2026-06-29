@@ -7,33 +7,7 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04a163c1-cd9c-408b-997f-6af6eba92428" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/api/orders/criar-pedido/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/orders/criar-pedido/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-cascata-5x.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-logo-01-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-projeto.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-projeto.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-tapete-cinza.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/2026-06-ENTRATTA-AM1L6-texto-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/RESUMO.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-AM1L6/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-cascata-5x.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-logo-01-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-projeto.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-projeto.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-tapete-cinza.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/2026-06-ENTRATTA-KJZF9-texto-verde.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/RESUMO.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-KJZF9/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-cascata-5x.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-logo-01-preto.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-projeto.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-projeto.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-tapete-cinza.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/2026-06-ENTRATTA-PKO1H-texto-verde.tap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/RESUMO.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/gerados/2026-06-ENTRATTA-PKO1H/metadata.json" beforeDir="false" />
-    </list>
+    <list default="true" id="04a163c1-cd9c-408b-997f-6af6eba92428" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,23 +31,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000006335667677" />
-      <entry key="MS500" value="1.057591511637419" />
-      <entry key="S2" value="1.4898798988116648" />
-      <entry key="S5" value="1.7516849374691446" />
-      <entry key="S10" value="1.8669976571301357" />
-      <entry key="S30" value="1.9535408606864575" />
-      <entry key="S60" value="1.9764962688248346" />
-      <entry key="M2" value="1.9920117467197935" />
-      <entry key="M5" value="2.34364554581862" />
-      <entry key="M10" value="3.6723643973147855" />
-      <entry key="M15" value="5.098730924966275" />
-      <entry key="M30" value="8.656823054528921" />
-      <entry key="H1" value="12.780169023726735" />
-      <entry key="H2" value="17.2080915970619" />
-      <entry key="H4" value="22.55580212582529" />
-      <entry key="D1" value="49.996546884972105" />
-      <entry key="W1" value="103.858790930631" />
+      <entry key="MS100" value="1.000000000011105" />
+      <entry key="MS500" value="1.0064432308485163" />
+      <entry key="S2" value="1.2833191452941732" />
+      <entry key="S5" value="1.6039375367516873" />
+      <entry key="S10" value="1.7920985438512864" />
+      <entry key="S30" value="2.310986848803963" />
+      <entry key="S60" value="2.843797528326454" />
+      <entry key="M2" value="3.3095731913035094" />
+      <entry key="M5" value="3.7046924511486417" />
+      <entry key="M10" value="4.123220544551332" />
+      <entry key="M15" value="4.816938687646559" />
+      <entry key="M30" value="7.633293803693998" />
+      <entry key="H1" value="12.314333769004353" />
+      <entry key="H2" value="17.88884244481898" />
+      <entry key="H4" value="24.267164077438455" />
+      <entry key="D1" value="53.11457306649809" />
+      <entry key="W1" value="107.59523979138292" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -95,23 +69,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.972655491370814" />
-      <entry key="MS500" value="1.0503317413205135" />
-      <entry key="S2" value="1.4847736207523712" />
-      <entry key="S5" value="1.7488415413167704" />
-      <entry key="S10" value="1.8653993388738543" />
-      <entry key="S30" value="1.9529638761152022" />
-      <entry key="S60" value="1.9762019116145508" />
-      <entry key="M2" value="1.9918629520172686" />
-      <entry key="M5" value="2.3435812108533787" />
-      <entry key="M10" value="3.6723227328431496" />
-      <entry key="M15" value="5.098694860024209" />
-      <entry key="M30" value="8.656792458753287" />
-      <entry key="H1" value="12.780145641211577" />
-      <entry key="H2" value="17.208075418468063" />
-      <entry key="H4" value="22.555791178531674" />
-      <entry key="D1" value="49.99654318903979" />
-      <entry key="W1" value="103.85878995587204" />
+      <entry key="MS100" value="0.9794202975977282" />
+      <entry key="MS500" value="1.0022573539631825" />
+      <entry key="S2" value="1.2818874732294814" />
+      <entry key="S5" value="1.6031869247848825" />
+      <entry key="S10" value="1.7916704805710189" />
+      <entry key="S30" value="2.3107917593030005" />
+      <entry key="S60" value="2.8436725050872957" />
+      <entry key="M2" value="3.3094986376530477" />
+      <entry key="M5" value="3.704658300830876" />
+      <entry key="M10" value="4.123199670668681" />
+      <entry key="M15" value="4.816920193130495" />
+      <entry key="M30" value="7.633274701718861" />
+      <entry key="H1" value="12.31431544972145" />
+      <entry key="H2" value="17.888827839499523" />
+      <entry key="H4" value="24.267153468878693" />
+      <entry key="D1" value="53.1145693073599" />
+      <entry key="W1" value="107.59523880075955" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{

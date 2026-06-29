@@ -134,8 +134,20 @@ function generatePDF(
 
       // Adiciona a imagem capturada do canvas
       // jsPDF automaticamente detecta o tipo pela data URL
-      pdf.addImage(svgPreview, 20, yPos, previewWidth, previewHeight)
+      console.log(`   🎬 Chamando pdf.addImage()...`)
+      console.log(`      Data URL length: ${svgPreview.length}`)
+      console.log(`      Data URL starts with: ${svgPreview.substring(0, 60)}`)
 
+      try {
+        pdf.addImage(svgPreview, 20, yPos, previewWidth, previewHeight)
+        console.log(`✅ pdf.addImage() retornou SEM ERRO`)
+      } catch (innerError) {
+        console.error(`❌ pdf.addImage() jogou erro:`)
+        console.error(`   ${innerError}`)
+        throw innerError
+      }
+
+      // Verifica se a imagem foi realmente adicionada
       console.log(`✅ SUCESSO! Preview do canvas adicionado ao PDF`)
       console.log(`   Imagem: ${previewWidth}×${previewHeight}mm @ (20, ${yPos})`)
       yPos += previewHeight + 12
