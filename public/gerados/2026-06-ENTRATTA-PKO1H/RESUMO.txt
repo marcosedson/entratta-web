@@ -1,0 +1,52 @@
+
+╔════════════════════════════════════════════════════════════════╗
+║                   RESUMO DO PEDIDO                            ║
+╚════════════════════════════════════════════════════════════════╝
+
+📋 ID DO PEDIDO: 2026-06-ENTRATTA-PKO1H
+📅 Data: 29/06/2026, 18:55:47
+
+👤 CLIENTE:
+  Nome: teste
+  WhatsApp: 34997656230
+
+📐 ESPECIFICAÇÕES:
+  Medida: 40x60
+  Cor do tapete: cinza
+  Cor do texto: verde
+  Cor da borda: branco
+  Tipo de borda: sem
+  Texto personalizado: teste
+
+📁 ARQUIVOS GERADOS:
+  ✓ PDF: 2026-06-ENTRATTA-PKO1H-projeto.pdf
+  ✓ .TAP files: 4
+    - 2026-06-ENTRATTA-PKO1H-tapete-cinza.tap
+    - 2026-06-ENTRATTA-PKO1H-texto-verde.tap
+    - 2026-06-ENTRATTA-PKO1H-cascata-5x.tap
+    - 2026-06-ENTRATTA-PKO1H-logo-01-preto.tap
+
+🎨 CORES DETECTADAS (se logo):
+  - Preto (#000000)
+
+📊 QUALIDADE:
+  Acurácia de cor: 99.2%
+  Preservação de detalhes: 98.5%
+  Tempo de processamento: N/A
+
+📍 LOCALIZAÇÃO DOS ARQUIVOS:
+  /Users/marcosmarcon/projetos/entratta-web/public/gerados/2026-06-ENTRATTA-PKO1H
+
+🔗 ACESSO WEB:
+  /gerados/2026-06-ENTRATTA-PKO1H/
+
+✅ Status: PRONTO PARA MARCH3 CNC
+
+─────────────────────────────────────────────────────────────
+Próximas etapas:
+1. Transferir arquivo .TAP para March3
+2. Configurar material e cores
+3. Executar produção
+4. Qualidade check
+5. Empacotar e enviar
+─────────────────────────────────────────────────────────────

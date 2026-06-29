@@ -124,18 +124,33 @@ function generatePDF(
       console.log(`     - Width: ${previewWidth}mm`)
       console.log(`     - Height: ${previewHeight}mm`)
       console.log(`     - Position: (20, ${yPos})`)
-      console.log(`     - Format: JPEG`)
+      console.log(`     - Format: JPEG (data URL)`)
 
-      // svgPreview vem como data URL JPEG do canvas
-      pdf.addImage(svgPreview, 'JPEG', 20, yPos, previewWidth, previewHeight)
+      // svgPreview vem como data URL JPEG do canvas: "data:image/jpeg;base64,/9j/..."
+      // jsPDF pode processar diretamente a data URL
+      const imageToAdd = svgPreview
+
+      console.log(`   Data URL validation:`)
+      console.log(`     - Starts with: ${imageToAdd.substring(0, 50)}`)
+      console.log(`     - Is valid data URL: ${imageToAdd.startsWith('data:')}`)
+
+      pdf.addImage(imageToAdd, 'JPEG', 20, yPos, previewWidth, previewHeight)
 
       console.log(`✅ Preview adicionado ao PDF com SUCESSO!`)
+      console.log(`   Imagem renderizada: ${previewWidth}×${previewHeight}mm na posição (20, ${yPos})`)
       yPos += previewHeight + 12
     } catch (error) {
       console.error('❌ ERRO ao adicionar preview do canvas:')
       console.error(`   Message: ${error instanceof Error ? error.message : String(error)}`)
+      console.error(`   Preview first 100 chars: ${svgPreview?.substring(0, 100)}`)
       console.error(`   Preview size: ${(svgPreview?.length || 0) / 1024}KB`)
       console.error(`   Stack: ${error instanceof Error ? error.stack : 'N/A'}`)
+
+      // Fallback: se falhar, adiciona texto explicativo
+      pdf.setFontSize(10)
+      pdf.setTextColor(255, 0, 0)
+      pdf.text('⚠️ Erro ao renderizar preview da imagem', 20, yPos + 20)
+      yPos += 40
     }
   } else {
     console.warn('⚠️ AVISO CRÍTICO: Nenhum preview capturado do canvas - PDF sem imagem real!')
