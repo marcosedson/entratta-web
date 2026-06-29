@@ -116,121 +116,260 @@ function BlogArticleSchemas({ post }: { post: ReturnType<typeof getBlogPostBySlu
 }
 
 function ArticleContent({ content }: { content: string }) {
-  const sections = content.split("\n\n").filter((s) => s.trim())
+  const lines = content.split("\n")
+  const elements: React.ReactNode[] = []
+  let i = 0
+
+  while (i < lines.length) {
+    const line = lines[i]
+
+    // Skip empty lines
+    if (!line.trim()) {
+      i++
+      continue
+    }
+
+    // Main separator (═══)
+    if (line.includes("═══")) {
+      i++
+      continue
+    }
+
+    // Section separator (───)
+    if (line.includes("───")) {
+      elements.push(
+        <hr
+          key={`sep-${i}`}
+          style={{
+            borderTop: "2px solid #E2E8F0",
+            marginTop: "2rem",
+            marginBottom: "2rem",
+            borderBottom: "none",
+          }}
+        />
+      )
+      i++
+      continue
+    }
+
+    // Main title (all caps, after ═══)
+    if (line.match(/^[A-ZÁÉÍÓÚ\s\?]+$/) && line.length > 20) {
+      elements.push(
+        <h1
+          key={`h1-${i}`}
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "3rem",
+            color: "#0F172A",
+            marginTop: "3rem",
+            marginBottom: "1.5rem",
+            lineHeight: 1.2,
+            fontWeight: 700,
+          }}
+        >
+          {line}
+        </h1>
+      )
+      i++
+      continue
+    }
+
+    // Subtitle (smaller caps text)
+    if (
+      line.match(/^[A-ZÁÉÍÓÚ\s\:]+$/) &&
+      line.length < 80 &&
+      line.length > 10 &&
+      !line.startsWith("PASSO")
+    ) {
+      elements.push(
+        <p
+          key={`subtitle-${i}`}
+          style={{
+            fontSize: "1.1rem",
+            color: "#64748B",
+            marginBottom: "2rem",
+            fontStyle: "italic",
+          }}
+        >
+          {line}
+        </p>
+      )
+      i++
+      continue
+    }
+
+    // Section header (PASSO, ERRO, etc)
+    if (line.match(/^(PASSO|ERRO|RAZÃO|VANTAGEM|FATOR|EXEMPLO|OPÇÃO)[\s\d\:]/)) {
+      elements.push(
+        <h2
+          key={`h2-${i}`}
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: "1.5rem",
+            color: "#0F172A",
+            marginTop: "2rem",
+            marginBottom: "1rem",
+            fontWeight: 600,
+          }}
+        >
+          {line}
+        </h2>
+      )
+      i++
+      continue
+    }
+
+    // Table
+    if (line.trim().startsWith("|")) {
+      const tableLines = []
+      while (i < lines.length && lines[i].trim().startsWith("|")) {
+        tableLines.push(lines[i])
+        i++
+      }
+
+      elements.push(
+        <div
+          key={`table-${i}`}
+          className="overflow-x-auto"
+          style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}
+        >
+          <table
+            style={{
+              width: "100%",
+              borderCollapse: "collapse",
+              fontSize: "0.95rem",
+            }}
+          >
+            <tbody>
+              {tableLines.map((row, ridx) => {
+                if (row.includes("---")) return null
+                const cells = row.split("|").filter((c) => c.trim())
+                return (
+                  <tr
+                    key={ridx}
+                    style={{
+                      backgroundColor: ridx % 2 === 0 ? "#F8FAFC" : "#fff",
+                      borderBottom: "1px solid #E2E8F0",
+                    }}
+                  >
+                    {cells.map((cell, cidx) => (
+                      <td
+                        key={cidx}
+                        style={{
+                          padding: "1rem",
+                          textAlign: "left",
+                          color: "#0F172A",
+                          fontWeight: ridx === 0 ? 600 : 400,
+                        }}
+                      >
+                        {cell.trim()}
+                      </td>
+                    ))}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
+      )
+      continue
+    }
+
+    // Bulleted lists (✓ or →)
+    if (line.match(/^(✓|→|-)/)) {
+      const listItems = []
+      while (i < lines.length && lines[i].match(/^(✓|→|-)/)) {
+        listItems.push(lines[i].replace(/^(✓|→|-)\s*/, ""))
+        i++
+      }
+
+      elements.push(
+        <ul
+          key={`list-${i}`}
+          style={{
+            marginLeft: "1.5rem",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+            color: "#475569",
+          }}
+        >
+          {listItems.map((item, lidx) => (
+            <li
+              key={lidx}
+              style={{
+                marginBottom: "0.5rem",
+                lineHeight: "1.6",
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      )
+      continue
+    }
+
+    // Numbered lists
+    if (line.match(/^\d+\./)) {
+      const listItems = []
+      while (i < lines.length && lines[i].match(/^\d+\./)) {
+        listItems.push(lines[i].replace(/^\d+\.\s*/, ""))
+        i++
+      }
+
+      elements.push(
+        <ol
+          key={`olist-${i}`}
+          style={{
+            marginLeft: "1.5rem",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+            color: "#475569",
+          }}
+        >
+          {listItems.map((item, lidx) => (
+            <li
+              key={lidx}
+              style={{
+                marginBottom: "0.5rem",
+                lineHeight: "1.6",
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ol>
+      )
+      continue
+    }
+
+    // Regular paragraph
+    if (line.trim()) {
+      elements.push(
+        <p
+          key={`p-${i}`}
+          style={{
+            color: "#475569",
+            lineHeight: "1.8",
+            marginBottom: "1rem",
+            fontSize: "0.95rem",
+          }}
+        >
+          {line}
+        </p>
+      )
+    }
+
+    i++
+  }
 
   return (
-    <div className="prose prose-lg max-w-none">
-      {sections.map((section, idx) => {
-        if (section.startsWith("# ")) {
-          const text = section.replace(/^# /, "")
-          return (
-            <h1
-              key={idx}
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "2.5rem",
-                color: "#0F172A",
-                marginTop: "2rem",
-                marginBottom: "1rem",
-              }}
-            >
-              {text}
-            </h1>
-          )
-        }
-
-        if (section.startsWith("## ")) {
-          const text = section.replace(/^## /, "")
-          return (
-            <h2
-              key={idx}
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "1.75rem",
-                color: "#0F172A",
-                marginTop: "1.5rem",
-                marginBottom: "0.75rem",
-              }}
-            >
-              {text}
-            </h2>
-          )
-        }
-
-        if (section.startsWith("| ")) {
-          return (
-            <div key={idx} className="overflow-x-auto">
-              <table
-                style={{
-                  width: "100%",
-                  borderCollapse: "collapse",
-                  marginTop: "1rem",
-                  marginBottom: "1rem",
-                }}
-              >
-                <tbody>
-                  {section.split("\n").map((row, ridx) => {
-                    if (row.startsWith("|") && !row.includes("---")) {
-                      const cells = row.split("|").filter((c) => c.trim())
-                      return (
-                        <tr
-                          key={ridx}
-                          style={{
-                            borderBottom: "1px solid #E2E8F0",
-                          }}
-                        >
-                          {cells.map((cell, cidx) => (
-                            <td
-                              key={cidx}
-                              style={{
-                                padding: "0.75rem",
-                                textAlign: "left",
-                              }}
-                            >
-                              {cell.trim()}
-                            </td>
-                          ))}
-                        </tr>
-                      )
-                    }
-                    return null
-                  })}
-                </tbody>
-              </table>
-            </div>
-          )
-        }
-
-        if (section.startsWith("✓") || section.startsWith("-")) {
-          return (
-            <ul key={idx} style={{ marginLeft: "1.5rem", color: "#475569" }}>
-              {section.split("\n").map((item, iidx) => (
-                <li key={iidx} style={{ marginBottom: "0.5rem" }}>
-                  {item.replace(/^[✓-]\s*/, "")}
-                </li>
-              ))}
-            </ul>
-          )
-        }
-
-        if (section.match(/^[0-9]\./)) {
-          return (
-            <ol key={idx} style={{ marginLeft: "1.5rem", color: "#475569" }}>
-              {section.split("\n").map((item, iidx) => (
-                <li key={iidx} style={{ marginBottom: "0.5rem" }}>
-                  {item.replace(/^[0-9]\.\s*/, "")}
-                </li>
-              ))}
-            </ol>
-          )
-        }
-
-        return (
-          <p key={idx} style={{ color: "#475569", lineHeight: "1.8" }}>
-            {section}
-          </p>
-        )
-      })}
+    <div
+      style={{
+        maxWidth: "100%",
+      }}
+    >
+      {elements}
     </div>
   )
 }
