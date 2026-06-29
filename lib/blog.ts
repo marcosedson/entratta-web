@@ -33,20 +33,20 @@ COMPONENTES DO PREÇO
 
 1. Tamanho — quanto maior, mais vinil e impressão
    - 40×60 cm: base
-   - 60×90 cm: +30%
-   - 80×120 cm: +80%
+   - 60×90 cm: acréscimo proporcional ao tamanho
+   - 80×120 cm: acréscimo proporcional ao tamanho
 
 2. Quantidade — quanto mais unidades, melhor o preço unitário
    - 1 unidade: preço cheio
-   - 5+ unidades: desconto 15%
-   - 10+ unidades: desconto 25%
-   - 50+ unidades: desconto 40%
+   - 5+ unidades: desconto progressivo
+   - 10+ unidades: desconto progressivo maior
+   - 50+ unidades: desconto progressivo máximo
 
 3. Personalização — cores, logos, bordas especiais
    - Cor sólida: base
-   - Múltiplas cores: +10% por cor
-   - Logo bordado em borracha: +R$ 50 por unidade
-   - Borda especial (emborrachada 5cm): +R$ 30
+   - Múltiplas cores: custo adicional por cor
+   - Logo bordado em borracha: custo adicional
+   - Borda especial (emborrachada 5cm): custo adicional
 
 4. Prazo — entrega acelerada
    - Prazo padrão (3 dias úteis): base
@@ -59,19 +59,19 @@ CLÍNICA COM 10 UNIDADES
 - Tamanho: 60×90 cm
 - Personalização: logo + nome + cores corporativas
 - Quantidade: 10 un
-- Orçamento: R$ 850/un = R$ 8.500 total (desconto 25% aplicado)
+- Orçamento: (valores dependem de volume — solicite via WhatsApp)
 
 ESCRITÓRIO COM 1 UNIDADE
 - Tamanho: 40×60 cm
 - Personalização: logo simples
 - Quantidade: 1 un
-- Orçamento: R$ 280/un
+- Orçamento: (valor a ser solicitado)
 
 LOJA COM 20 UNIDADES
 - Tamanho: 80×120 cm
 - Personalização: logo + bordas especiais
 - Quantidade: 20 un
-- Orçamento: R$ 420/un = R$ 8.400 total (desconto 35% aplicado)
+- Orçamento: (valores dependem de quantidade — solicite via WhatsApp)
 
 COMO RECEBER SEU ORÇAMENTO?
 
@@ -167,14 +167,14 @@ DURABILIDADE
 
 SOLICITANDO SEU CAPACHO PARA CLÍNICA
 
-1. **Defina o tamanho:** entrada principal + secundárias
-2. **Escolha as cores:** corporativas ou recomendadas
-3. **Prepare a logo:** em alta resolução (300 DPI)
-4. **Indique textos:** nome, telefone, mensagem de boas-vindas
-5. **Envie para orçamento** via WhatsApp: https://wa.me/5564992066855
+1. Defina o tamanho: entrada principal + secundárias
+2. Escolha as cores: corporativas ou recomendadas
+3. Prepare a logo: em alta resolução (300 DPI)
+4. Indique textos: nome, telefone, mensagem de boas-vindas
+5. Envie para orçamento via WhatsApp: https://wa.me/5564992066855
 
-**Prazo:** 3 dias úteis
-**Garantia:** 2 anos contra defeitos de fabricação
+Prazo: 3 dias úteis
+Garantia: 2 anos contra defeitos de fabricação
     `,
   },
   {
@@ -307,7 +307,7 @@ Nós respondemos com:
 - Prazo estimado
 - Parcelamento disponível
 
-Tempo:** 30 minutos a 1 hora
+Tempo: 30 minutos a 1 hora
 
 PASSO 2: APROVAÇÃO DO DESIGN (2-4 HORAS)
 Nosso time de design:
@@ -323,7 +323,7 @@ Você pode solicitar ajustes:
 - "Mover para a esquerda"
 - Etc.
 
-Tempo total neste passo:** até 4 horas
+Tempo total neste passo: até 4 horas
 
 PASSO 3: PREPARAÇÃO DA PRODUÇÃO (1-2 DIAS)
 Após aprovação, enviamos para a gráfica:
@@ -337,7 +337,7 @@ Neste passo:
 - Verificamos estoque de vinil
 - Agendamos produção
 
-Tempo:** 1-2 dias úteis
+Tempo: 1-2 dias úteis
 
 PASSO 4: IMPRESSÃO E ACABAMENTO (1-2 DIAS)
 Processo de fabricação:
@@ -348,7 +348,7 @@ Processo de fabricação:
 5. Corte das bordas e acabamento
 6. Inspeção de qualidade
 
-Tempo:** 1-2 dias úteis
+Tempo: 1-2 dias úteis
 
 PASSO 5: EMBALAGEM E ENVIO (1-2 DIAS)
 - Embalagem em caixa padronizada
@@ -422,7 +422,7 @@ Próximos passos:
 
 Depois de centenas de pedidos, identificamos os 5 erros mais comuns que clientes cometem ao solicitar um capacho personalizado. Leia para evitá-los.
 
-ERRO #1: ENVIAR LOGO EM BAIXA RESOLUÇÃO
+ERRO 1: ENVIAR LOGO EM BAIXA RESOLUÇÃO
 
 O Problema:
 Você envia uma foto 800×600px de uma tela de celular. Quando imprimimos no tamanho grande (80×120cm), a logo fica pixelada.
@@ -435,7 +435,7 @@ A Solução:
 
 Impacto: Logo pixelada reduz profissionalismo em 80%
 
-ERRO #2: ESCOLHER CORES SEM CONSIDERAR O PISO
+ERRO 2: ESCOLHER CORES SEM CONSIDERAR O PISO
 
 O Problema:
 Você pediu capacho branco, mas o piso da sua empresa é branco. Resultado: invisível e sem contraste.
@@ -450,7 +450,7 @@ Exemplo bom:
 - Piso preto → capacho branco ou cinza
 - Piso madeira → capacho verde ou azul
 
-ERRO #3: TAMANHO MUITO PEQUENO
+ERRO 3: TAMANHO MUITO PEQUENO
 
 O Problema:
 Você pediu 40×60cm para uma entrada que recebe 100 pessoas/dia. Resultado: capacho acaba rápido, pessoas pisam nas bordas, fica feio.
@@ -462,7 +462,7 @@ A Solução:
 
 Cálculo: tamanho = metade da largura da porta de entrada
 
-ERRO #4: TEXTO MUITO PEQUENO OU ILEGÍVEL
+ERRO 4: TEXTO MUITO PEQUENO OU ILEGÍVEL
 
 O Problema:
 Você quer colocar o número de telefone no capacho. Coloca em fonte 8pt. Ninguém consegue ler.
@@ -474,7 +474,7 @@ A Solução:
 
 Regra: se não consegue ler a 1 metro de distância no preview, aumenta.
 
-ERRO #5: NÃO APROVAR O DESIGN COM ANTECEDÊNCIA
+ERRO 5: NÃO APROVAR O DESIGN COM ANTECEDÊNCIA
 
 O Problema:
 Você pediu capacho, aprovou rápido sem olhar direito, recebeu e "não ficou como imaginava" — já estava impresso.
