@@ -7,7 +7,7 @@ interface EvolutionMessage {
 }
 
 export class WhatsAppService {
-  private static readonly EVOLUTION_API = 'https://evo.entratta.com.br'
+  private static readonly EVOLUTION_API = 'https://evo.marconlabs.com.br'
   private static readonly GROUP_ID = 'novos-pedidos@g.us'
 
   static async sendOrderNotification(
