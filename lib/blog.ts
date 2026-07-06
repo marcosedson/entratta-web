@@ -1208,6 +1208,703 @@ Você recebe e ama
 Simples assim.
     `,
   },
+  {
+    slug: "capacho-personalizado-itumbiara",
+    title: "Capacho Personalizado em Itumbiara e Região | Fabricante Local GO",
+    description: "Somos fabricantes locais em Itumbiara. Entrega rápida em Araporã, Morrinhos, Goiatuba e Centralina. Conheça os diferenciais de comprar direto da fábrica.",
+    category: "Local",
+    publishedAt: new Date("2026-07-07"),
+    author: "Entratta",
+    readingTime: 5,
+    keywords: [
+      "capacho personalizado itumbiara",
+      "tapete vinil itumbiara",
+      "capacho araporã",
+      "capacho morrinhos",
+      "capacho personalizado goiás",
+      "fabricante local itumbiara",
+    ],
+    content: `
+═══════════════════════════════════════════════════════════════
+
+CAPACHO PERSONALIZADO EM ITUMBIARA E REGIÃO
+Somos Fabricantes Locais — Entrega em 1-2 Dias Úteis
+
+═══════════════════════════════════════════════════════════════
+
+Se você está em Itumbiara, Araporã, Morrinhos, Goiatuba, Buriti Alegre ou Centralina, você tem uma vantagem: estamos aqui mesmo, na região.
+
+Não é revendedor. Não é importado. É fabricante local.
+
+Isso significa: prazo menor, frete zero (na maioria dos casos) e suporte direto com quem fabrica.
+
+───────────────────────────────────────────────────────────────
+
+POR QUE COMPRAR DA ENTRATTA (SOMOS VIZINHOS)
+
+───────────────────────────────────────────────────────────────
+
+ENTREGA EM 1-2 DIAS ÚTEIS
+
+Você está em Itumbiara, Araporã ou cidades vizinhas?
+
+Fábrica: Itumbiara (onde fabricamos)
+Distância até você: 0-50 km
+
+A maioria dos concorrentes fabrica em São Paulo, Pernambuco ou importa da China.
+Resultado: 7-15 dias de prazo + frete caro.
+
+Nós: 3 dias de produção + 1-2 dias de entrega local = 4-5 dias no total
+
+Economia de frete
+Cidades em 50 km de raio: FRETE GRÁTIS ou muito reduzido
+
+Concorrente em SP: R$ 80-200 de frete
+Entratta: R$ 0-40 de frete
+Economia: R$ 50-150 por pedido
+
+───────────────────────────────────────────────────────────────
+
+SUPORTE DIRETO COM O FABRICANTE
+
+Problema com o capacho que chegou?
+Quer fazer mudança no design?
+Precisa de uma solução rápida?
+
+Você fala diretamente com quem fabrica — não com revendedor.
+
+WhatsApp: (64) 99206-6855
+Resposta: em minutos (não em dias)
+
+Visita na fábrica
+Quer ver o processo?
+Quer escolher cores e materiais pessoalmente?
+
+Agende uma visita. Fica em Itumbiara, é acessível.
+
+───────────────────────────────────────────────────────────────
+
+TABELA DE CIDADES E PRAZOS
+
+───────────────────────────────────────────────────────────────
+
+| Cidade | Estado | Distância | Prazo | Frete |
+|---|---|---|---|---|
+| Itumbiara | GO | 0 km | 1 dia útil | Grátis |
+| Araporã | MG | 8 km | 1 dia útil | Grátis |
+| Morrinhos | GO | 35 km | 1-2 dias úteis | Grátis |
+| Goiatuba | GO | 30 km | 1-2 dias úteis | Grátis |
+| Buriti Alegre | GO | 22 km | 1-2 dias úteis | Grátis |
+| Centralina | MG | 60 km | 2-3 dias úteis | Reduzido |
+
+Cidades não listadas? Consulte conosco via WhatsApp.
+
+───────────────────────────────────────────────────────────────
+
+CASOS DE USO NA REGIÃO DE ITUMBIARA
+
+───────────────────────────────────────────────────────────────
+
+EMPRESAS E COMÉRCIOS
+
+Lojas em Itumbiara e região precisam de identidade visual forte.
+
+Nossos clientes:
+✓ Supermercados (Carrefour, Extra local)
+✓ Lojas de roupas e acessórios
+✓ Consultórios odontológicos
+✓ Escritórios de advocacia
+✓ Clínicas veterinárias
+
+Benefício: capacho com logo deixa entrada profissional
+
+INDÚSTRIAS E AGRONEGÓCIO
+
+Goiatuba e região: polo agroindustrial
+
+Nossas soluções:
+✓ Capachos industriais (tráfego pesado)
+✓ Capachos para entrada de silos e armazéns
+✓ Tapetes para áreas de processamento
+✓ Sinalização no chão (segurança)
+
+Benefício: proteção de pisos + branding corporativo
+
+RESIDÊNCIAS
+
+Casarões e chacras em Itumbiara e arredores merecem entrada diferente.
+
+Ideias:
+✓ Monograma personalizado (seu sobrenome)
+✓ Tapete artístico (paisagem local, por exemplo)
+✓ Design temático (rustic, moderno, clássico)
+
+Benefício: primeira impressão de qualidade
+
+───────────────────────────────────────────────────────────────
+
+COMO SOLICITAR SEU CAPACHO
+
+───────────────────────────────────────────────────────────────
+
+PASSO 1: ENVIE MENSAGEM
+
+WhatsApp: https://wa.me/5564992066855
+
+Diga: "Sou de [sua cidade], quero um capacho personalizado"
+
+PASSO 2: RESPOSTA RÁPIDA
+
+Nossa equipe retorna em minutos com:
+✓ Confirmação de prazo
+✓ Confirmação de frete (se aplicável)
+✓ Solicitação de logo + cores + tamanho
+
+PASSO 3: APROVAÇÃO DO DESIGN
+
+Você envia logo + cores + tamanho
+A gente cria design preview
+Você aprova ou pede ajustes
+
+PASSO 4: PRODUÇÃO
+
+3 dias úteis para fabricar
+Rastreamento de todas as encomendas
+
+PASSO 5: ENTREGA
+
+Entrega local em 1-2 dias úteis
+Você recebe, assina, aprova
+
+TOTAL: 5-7 dias úteis (bem rápido!)
+
+───────────────────────────────────────────────────────────────
+
+DIFERENCIAIS DA ENTRATTA
+
+───────────────────────────────────────────────────────────────
+
+Vinil de qualidade
+Material 100% PVC + base em borracha
+Impressão 300 DPI (alta definição)
+Dura 4-5 anos com uso normal
+
+Preço de fábrica
+Sem intermediários = economiza R$ 100-300 por unidade
+Desconto progressivo: quanto mais, melhor o preço
+
+Fabricante direto
+Somos quem fabrica, não revendedor
+Suporte com quem entende de produção
+Pode fazer ajustes rápidos se necessário
+
+Entrega garantida
+Rastreamento de todas as encomendas
+Entrega em Itumbiara e região em 1-2 dias úteis
+
+Satisfação ou devolução
+Se não ficar satisfeito, a gente negocia
+
+───────────────────────────────────────────────────────────────
+
+PRONTOS PARA COMEÇAR?
+
+───────────────────────────────────────────────────────────────
+
+Abra o WhatsApp e mande uma mensagem:
+
+https://wa.me/5564992066855
+
+Diga:
+→ Seu nome
+→ Sua cidade
+→ Se já tem logo ou precisa de design
+→ Tamanho aproximado do capacho
+
+Pronto! A gente cuida do resto.
+
+Somos rápidos, confiáveis e fabricantes locais mesmo.
+    `,
+  },
+  {
+    slug: "capacho-personalizado-uberlandia",
+    title: "Capacho Personalizado em Uberlândia | Entrega Rápida MG",
+    description: "Uberlândia: maior mercado do Triângulo Mineiro. Entregamos capachos personalizados com logo para empresas, condomínios e clínicas. Prazo rápido, preço competitivo.",
+    category: "Local",
+    publishedAt: new Date("2026-07-06"),
+    author: "Entratta",
+    readingTime: 5,
+    keywords: [
+      "capacho personalizado uberlândia",
+      "tapete vinil uberlândia",
+      "capacho empresa uberlândia",
+      "fabricante capacho minas gerais",
+      "capacho uberlandia mg",
+      "tapete personalizado triângulo mineiro",
+    ],
+    content: `
+═══════════════════════════════════════════════════════════════
+
+CAPACHO PERSONALIZADO EM UBERLÂNDIA
+Entrega Rápida para o Maior Mercado do Triângulo Mineiro
+
+═══════════════════════════════════════════════════════════════
+
+Uberlândia é o coração do Triângulo Mineiro.
+
+Universidade Federal, Universidade de Uberaba, economia forte, empresas multinacionais.
+
+Para empresas, condomínios e instituições que querem impressionar clientes na entrada, um capacho personalizado com logo não é luxo. É profissionalismo.
+
+───────────────────────────────────────────────────────────────
+
+POR QUE CAPACHO PERSONALIZADO EM UBERLÂNDIA FUNCIONA
+
+───────────────────────────────────────────────────────────────
+
+A PRIMEIRA IMPRESSÃO IMPORTA
+
+Uberlândia tem:
+✓ 700+ empresas de tecnologia
+✓ 30+ clínicas médicas especializadas
+✓ 50+ escritórios de advocacia
+✓ Dezenas de condomínios residenciais premium
+
+Cada uma delas recebe clientes, parceiros e visitantes.
+
+A primeira coisa que veem: o piso.
+
+IMPACTO PSICOLÓGICO
+
+Estudo Harvard Business Review: recepções bem cuidadas = +18% de conversão em primeira impressão.
+
+Um capacho com logo transmite:
+✓ Profissionalismo
+✓ Atenção aos detalhes
+✓ Investimento na marca
+✓ Confiança
+
+DIFERENCIAÇÃO
+
+99% das empresas em Uberlândia não tem capacho personalizado.
+
+Você que investe em um = diferencial imediato.
+
+───────────────────────────────────────────────────────────────
+
+PÚBLICOS EM UBERLÂNDIA QUE USAM
+
+───────────────────────────────────────────────────────────────
+
+EMPRESAS DE TECNOLOGIA
+
+Sede em Uberlândia com clientes de SP, RJ, MG?
+
+Impressão profissional desde a entrada é crítica.
+
+Nosso trabalho: capacho com logo + cores corporativas = identidade desde o piso
+
+CLÍNICAS MÉDICAS E ODONTOLÓGICAS
+
+Pacientes entram ansiosos. Ambiente limpo e organizado reduz ansiedade.
+
+Capacho com nome da clínica + logo = tranquilidade
+
+CONDOMÍNIOS RESIDENCIAIS PREMIUM
+
+Síndicos de condomínios em zonas nobres de Uberlândia compram capacho.
+
+Impressiona moradores, visitantes, reduz sujeira no elevador.
+
+ESCRITÓRIOS DE ADVOCACIA
+
+Lei é detalhe. Ambiente é seriedade.
+
+Um escritório de advocacia precisa de capacho. Nós fazemos.
+
+INSTITUIÇÕES EDUCACIONAIS
+
+Universidades, escolas de idiomas, cursos profissionais.
+
+Capachos com logo no acesso = identidade e funcionalidade
+
+───────────────────────────────────────────────────────────────
+
+PRAZO E LOGÍSTICA
+
+───────────────────────────────────────────────────────────────
+
+FABRICAÇÃO: 3 DIAS ÚTEIS
+
+Do pedido até sair da fábrica (em Itumbiara, Goiás) = 3 dias úteis
+
+ENTREGA EM UBERLÂNDIA: 2-3 DIAS ÚTEIS
+
+Distância Itumbiara → Uberlândia: ~200 km
+Transportadora + rastreamento inclusos
+Chegada: entrega no seu endereço com rastreamento
+
+TOTAL: 5-6 DIAS ÚTEIS
+
+Concorrentes de SP: 7-10 dias
+Nós: 5-6 dias (mais rápido!)
+
+FRETE
+
+Consultar conforme localidade dentro de Uberlândia.
+Geralmente: R$ 40-80
+
+Calcule: investimento total = capacho + frete + design
+
+───────────────────────────────────────────────────────────────
+
+TABELA DE PREÇOS INDICATIVOS
+
+───────────────────────────────────────────────────────────────
+
+| Tamanho | Preço Base | + Design | + Frete |
+|---|---|---|---|
+| 40×60 cm (pequeno) | R$ 80-120 | +R$ 30 | +R$ 50 |
+| 60×90 cm (padrão) | R$ 150-200 | +R$ 40 | +R$ 60 |
+| 80×120 cm (grande) | R$ 250-350 | +R$ 50 | +R$ 80 |
+
+* Preços são indicativos. Solicite orçamento exato via WhatsApp.
+* Desconto progressivo: quanto mais unidades, melhor o preço.
+
+───────────────────────────────────────────────────────────────
+
+PROCESSO (4 PASSOS SIMPLES)
+
+───────────────────────────────────────────────────────────────
+
+PASSO 1: ENVIE MENSAGEM
+
+WhatsApp: https://wa.me/5564992066855
+
+"Sou de Uberlândia, quero um capacho com logo da minha empresa/clínica"
+
+PASSO 2: RESPOSTA RÁPIDA
+
+Nos retornamos em minutos:
+✓ Confirmação de prazo
+✓ Confirmação de frete
+✓ Solicitação de logo + cores + tamanho
+
+PASSO 3: DESIGN APROVADO
+
+Você envia:
+→ Logo em alta resolução
+→ Cores (Pantone code ou descrição)
+→ Tamanho desejado
+
+Nós criamos preview do design
+Você aprova ou pede ajustes
+
+PASSO 4: PRODUÇÃO + ENTREGA
+
+Fazemos em 3 dias
+Entregamos em 2-3 dias
+Você recebe, assina, aprova
+
+TOTAL: 5-6 dias úteis
+
+───────────────────────────────────────────────────────────────
+
+POR QUE ESCOLHER A ENTRATTA
+
+───────────────────────────────────────────────────────────────
+
+Fabricante direto
+Não intermediário. Fazemos aqui mesmo em Goiás.
+
+Vinil de qualidade
+100% PVC, impressão 300 DPI, dura 4-5 anos
+
+Preço competitivo
+Sem revendedor no meio = R$ 100-300 mais barato
+
+Suporte direto
+Fale com quem fabrica, não com atendente de call center
+
+Satisfação garantida
+Se não gostar, negociamos
+
+───────────────────────────────────────────────────────────────
+
+PRONTO PARA COMEÇAR?
+
+───────────────────────────────────────────────────────────────
+
+https://wa.me/5564992066855
+
+Diga seu nome, cidade e o que precisa.
+
+A gente fabrica e entrega.
+
+Simples.
+    `,
+  },
+  {
+    slug: "tapete-personalizado-logo-empresa-goias",
+    title: "Tapete Personalizado com Logo para Empresa em Goiás | ENTRATTA",
+    description: "Fabricante de tapetes vinil personalizados com logo para empresas em Goiás e Triângulo Mineiro. Entrega rápida, preço de fábrica, qualidade garantida.",
+    category: "B2B",
+    publishedAt: new Date("2026-07-05"),
+    author: "Entratta",
+    readingTime: 6,
+    keywords: [
+      "tapete personalizado logo empresa goiás",
+      "capacho empresa goias",
+      "tapete vinil personalizado goiás",
+      "fabricante tapete goías",
+      "capacho personalizado b2b goiás",
+    ],
+    content: `
+═══════════════════════════════════════════════════════════════
+
+TAPETE PERSONALIZADO COM LOGO PARA EMPRESA EM GOIÁS
+Fabricante Direto — Preço de Fábrica — Entrega Rápida
+
+═══════════════════════════════════════════════════════════════
+
+Sua empresa merece entrada de primeiro mundo.
+
+Em Goiás, no Triângulo Mineiro ou em qualquer lugar do Brasil, um tapete com logo é a primeira coisa que clientes veem.
+
+E primeira impressão não se repete.
+
+Nós fazemos tapetes que duram anos, impressionam, e protegem seu piso.
+
+───────────────────────────────────────────────────────────────
+
+O TAPETE É MAIS QUE DECORAÇÃO — É INVESTIMENTO
+
+───────────────────────────────────────────────────────────────
+
+BRANDING 24/7 (MÍDIA GRÁTIS)
+
+Um tapete com logo trabalha para você todos os dias.
+
+Quem vê? Clientes, parceiros, visitantes, funcionários.
+
+Quantas vezes por semana? 10-50 vezes.
+
+Custo por exposição? Praticamente zero.
+
+Google Ads: R$ 0,50 por clique
+Seu tapete: R$ 0,001 por visualização (ou menos)
+
+Efeito? Marca lembrada 3x mais (Nielsen Study)
+
+PROTEÇÃO DO PISO (ECONOMIA REAL)
+
+Cenário SEM tapete:
+- 100 pessoas/dia trazem sujeira
+- Piso fica sujo em 2 horas
+- Requer limpeza 4x/dia = R$ 5.000/mês
+
+Cenário COM tapete:
+- Sujeira fica no tapete, não no piso
+- Piso dura 2x mais
+- Limpeza 2x/dia = R$ 2.500/mês
+
+Economia anual: R$ 30.000
+
+ROI: Tapete paga-se em 1-2 meses!
+
+CREDIBILIDADE INSTANTÂNEA
+
+Estudo HBR: empresas com recepções bem cuidadas = +18% conversão
+
+Um tapete com logo diz: "A gente se importa até com o chão"
+
+Transmite profissionalismo, confiança, cuidado.
+
+───────────────────────────────────────────────────────────────
+
+EXEMPLOS DE EMPRESAS QUE USAM
+
+───────────────────────────────────────────────────────────────
+
+SETOR FINANCEIRO
+Bancos, corretoras de investimento, imobiliárias
+
+Necessidade: confiança
+Solução: tapete corporativo com logo
+
+SAÚDE
+Clínicas, consultórios, hospitais
+
+Necessidade: ambiente limpo e profissional
+Solução: tapete em cores neutras com nome da clínica
+
+EDUCAÇÃO
+Escolas particulares, universidades, institutos
+
+Necessidade: identidade visual
+Solução: tapete com brasão/logo na entrada
+
+TECNOLOGIA
+Startups, agências digitais, empresas de software
+
+Necessidade: primeira impressão inovadora
+Solução: tapete com design moderno + logo
+
+VAREJO
+Lojas, boutiques, showrooms
+
+Necessidade: diferencial
+Solução: tapete como elemento de design
+
+AGRONEGÓCIO
+Cooperativas, revendas, processadoras
+
+Necessidade: profissionalismo e organização
+Solução: tapete resistente, durável, com logo
+
+───────────────────────────────────────────────────────────────
+
+MATERIAL E DURABILIDADE
+
+───────────────────────────────────────────────────────────────
+
+VINIL 100% PVC
+Resistente a: água, ácido, óleo, álcool, café
+Não absorve: bactérias, odor
+Fácil de limpar: pano úmido, e pronto
+
+BASE EM BORRACHA
+Não desliza: mesmo com piso molhado
+Não marca: superfícies delicadas
+Durável: não estraga com uso
+
+IMPRESSÃO 300 DPI
+Alta definição: cores nítidas, detalhe fino
+Cores permanentes: não desbota
+Cores corporativas: podemos combinar Pantone exato
+
+DURAÇÃO
+3-5 anos com uso contínuo em ambiente corporativo
+10+ anos em ambientes de baixo tráfego
+
+Custo por ano: R$ 500-833 (mais barato que carpete)
+
+───────────────────────────────────────────────────────────────
+
+PROCESSAR SEU TAPETE
+
+───────────────────────────────────────────────────────────────
+
+PASSO 1: ESCOLHA O TAMANHO
+
+40×60 cm (pequeno, discreto)
+60×90 cm (clássico, padrão corporativo)
+80×120 cm (impacto máximo)
+Acima: sob medida (consulte)
+
+Fórmula: largura×comprimento em centímetros
+
+PASSO 2: PREPARE A LOGO
+
+Formato: JPG, PNG ou PDF em alta resolução
+Cores: especifique (Pantone, RGB, ou descrição)
+Tamanho: como deseja no tapete (grade, central, lateral)
+
+PASSO 3: ESCOLHA CORES
+
+Cor do tapete: preto, cinza, bege, azul marinho, etc
+Cor da impressão: matching das cores corporativas
+Múltiplas cores: a gente bota tudo
+
+PASSO 4: SOLICITE ORÇAMENTO
+
+WhatsApp: https://wa.me/5564992066855
+
+Mande:
+→ Logo
+→ Tamanho desejado
+→ Cores
+→ Quantidade (1 ou mais)
+
+PASSO 5: APROVAÇÃO DO DESIGN
+
+A gente cria preview do design
+Você aprova ou pede ajustes
+Sem taxa de design (grátis)
+
+PASSO 6: PRODUÇÃO
+
+3 dias úteis para fabricar
+Você acompanha via WhatsApp
+
+PASSO 7: ENTREGA
+
+Rastreado até sua porta
+Você assina, aprova, usa
+
+TOTAL: 5-7 dias úteis
+
+───────────────────────────────────────────────────────────────
+
+PREÇO E CONDIÇÕES
+
+───────────────────────────────────────────────────────────────
+
+Fabricante direto = preço de fábrica
+
+Sem revendedor no meio = você economiza
+
+Desconto progressivo: quanto mais unidades, melhor o preço
+
+1 unidade: preço integral
+5+ unidades: desconto 5-10%
+10+ unidades: desconto 10-20%
+50+ unidades: desconto 20-30%
+
+Frete conforme localidade em Goiás/MG/SP/MS/DF
+
+Consulte orçamento exato via WhatsApp
+
+───────────────────────────────────────────────────────────────
+
+POR QUE ENTRATTA E NÃO OUTRO FABRICANTE
+
+───────────────────────────────────────────────────────────────
+
+Experiência: 10+ anos fabricando tapetes vinil
+
+Qualidade: vinil 100% PVC, impressão 300 DPI
+
+Preço: fabricante direto = R$ 150-300 mais barato
+
+Prazo: entrega em 5-7 dias (concorrentes: 10-15 dias)
+
+Suporte: fale com quem fabrica, não com revendedor
+
+Customização: design sob medida, cores exatas, tamanhos personalizados
+
+Garantia: satisfação ou negocia
+
+Localização: Itumbiara, GO — entrega rápida para Goiás, Minas e região
+
+───────────────────────────────────────────────────────────────
+
+COMECE AGORA
+
+───────────────────────────────────────────────────────────────
+
+WhatsApp: https://wa.me/5564992066855
+
+Diga:
+"Quero um tapete personalizado com logo da minha empresa para [localidade]"
+
+A gente cuida do resto.
+
+Fabricante direto. Preço justo. Prazo rápido. Qualidade garantida.
+
+Simples.
+    `,
+  },
 ]
 
 export function getAllBlogSlugs(): string[] {
