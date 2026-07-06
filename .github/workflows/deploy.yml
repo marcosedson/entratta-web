@@ -15,6 +15,6 @@ jobs:
       - name: Deploy via Coolify
         run: |
           curl -fsSL -X GET \
-            "https://coolify.entratta.com.br/api/v1/deploy?uuid=focseagmdyc05gq0d77f2su3&force=false" \
+            "https://coolify.marconlabs.com.br/api/v1/deploy?uuid=focseagmdyc05gq0d77f2su3&force=false" \
             -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}" \
             -H "Accept: application/json"
