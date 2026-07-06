@@ -118,7 +118,7 @@ function IntegracoesPainel() {
             Notificações de novos pedidos enviadas para o grupo do WhatsApp. Configure no <code style={{ color: '#4ADE80', background: 'rgba(0,0,0,.3)', padding: '1px 5px', borderRadius: 4 }}>.env.local</code>:
           </p>
           <pre style={{ background: 'rgba(0,0,0,.4)', borderRadius: 8, padding: '12px 14px', fontSize: '.72rem', color: '#4ADE80', overflowX: 'auto', lineHeight: 1.8 }}>
-{`EVOLUTION_API_URL=https://evo.entratta.com.br
+{`EVOLUTION_API_URL=https://evo.marconlabs.com.br
 EVOLUTION_API_KEY=sua-api-key
 EVOLUTION_INSTANCE=nome-da-instancia
 EVOLUTION_GROUP_JID=120363XXXXXXXX@g.us`}
