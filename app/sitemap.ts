@@ -5,56 +5,69 @@ import { getAllBlogPosts } from "@/lib/blog"
 import { getAllCitySegmentCombos } from "@/lib/city-segment"
 
 const baseUrl = "https://entratta.com.br"
+const staticLastModified = new Date("2026-07-06")
 
 const staticPages = [
   {
     url: baseUrl,
-    lastModified: new Date(),
+    lastModified: staticLastModified,
     changeFrequency: "weekly" as const,
     priority: 1.0,
   },
   {
     url: `${baseUrl}/melhor-preco`,
-    lastModified: new Date(),
+    lastModified: staticLastModified,
     changeFrequency: "monthly" as const,
     priority: 0.9,
   },
   {
     url: `${baseUrl}/como-funciona`,
-    lastModified: new Date(),
+    lastModified: staticLastModified,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   },
   {
     url: `${baseUrl}/lojas`,
-    lastModified: new Date(),
+    lastModified: staticLastModified,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   },
   {
     url: `${baseUrl}/depoimentos`,
-    lastModified: new Date(),
+    lastModified: staticLastModified,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   },
   {
     url: `${baseUrl}/blog`,
-    lastModified: new Date(),
+    lastModified: staticLastModified,
     changeFrequency: "weekly" as const,
     priority: 0.8,
+  },
+  {
+    url: `${baseUrl}/atendemos`,
+    lastModified: staticLastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  },
+  {
+    url: `${baseUrl}/contato`,
+    lastModified: staticLastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   },
 ]
 
 const cityPages = getAllCitySlugs().map((slug) => ({
   url: `${baseUrl}/capacho-personalizado-${slug}`,
-  lastModified: new Date(),
+  lastModified: staticLastModified,
   changeFrequency: "monthly" as const,
   priority: 0.8,
 }))
 
 const segmentPages = getAllSegmentSlugs().map((slug) => ({
   url: `${baseUrl}/capacho-para-${slug}`,
-  lastModified: new Date(),
+  lastModified: staticLastModified,
   changeFrequency: "monthly" as const,
   priority: 0.7,
 }))
@@ -68,7 +81,7 @@ const blogPages = getAllBlogPosts().map((post) => ({
 
 const citySegmentPages = getAllCitySegmentCombos().map((combo) => ({
   url: `${baseUrl}/capacho-para-${combo.segment.slug}-em-${combo.city.slug}`,
-  lastModified: new Date(),
+  lastModified: staticLastModified,
   changeFrequency: "monthly" as const,
   priority: 0.5,
 }))

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import {
   getCitySegmentCombo,
   getCitySegmentCombosForSegment,
+  getAllCitySegmentCombos,
   getCityBySlug,
   getSegmentBySlug,
 } from "@/lib/city-segment"
@@ -45,9 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const combos = getCitySegmentCombosForSegment("empresa") // Generate for all combos
-  // For performance, we'll use dynamic params for less-visited combinations
-  // Pre-generate top combinations only
+  const combos = getAllCitySegmentCombos()
+  // Pre-generate top 70 combinations for better performance
   return combos.slice(0, 70).map((combo) => ({
     segmento: combo.segment.slug,
     cidade: combo.city.slug,
@@ -253,6 +253,61 @@ export default async function CitySegmentPage({ params }: Props) {
               <li>Produção em até 3 dias úteis</li>
               <li>Entregamos em {combo.city.name} com rastreamento</li>
             </ol>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+              Perguntas Frequentes
+            </h2>
+            <div className="space-y-3">
+              <details
+                className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition"
+                style={{ background: "#f9fafb" }}
+              >
+                <summary
+                  className="font-bold text-gray-800 flex items-center justify-between"
+                  style={{ userSelect: "none" }}
+                >
+                  <span>Qual o preço de {combo.segment.name.toLowerCase()} em {combo.city.name}?</span>
+                  <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
+                </summary>
+                <p className="text-gray-700 mt-3">
+                  O preço de um capacho personalizado para {combo.segment.name.toLowerCase()} em {combo.city.name} varia conforme tamanho, quantidade e personalização. Solicite seu orçamento personalizado via WhatsApp.
+                </p>
+              </details>
+
+              <details
+                className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition"
+                style={{ background: "#f9fafb" }}
+              >
+                <summary
+                  className="font-bold text-gray-800 flex items-center justify-between"
+                  style={{ userSelect: "none" }}
+                >
+                  <span>Qual o prazo de entrega em {combo.city.name}?</span>
+                  <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
+                </summary>
+                <p className="text-gray-700 mt-3">
+                  Produzimos em até 3 dias úteis. {combo.city.diferencial}
+                </p>
+              </details>
+
+              <details
+                className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition"
+                style={{ background: "#f9fafb" }}
+              >
+                <summary
+                  className="font-bold text-gray-800 flex items-center justify-between"
+                  style={{ userSelect: "none" }}
+                >
+                  <span>Como solicitar um {combo.segment.name.toLowerCase()} em {combo.city.name}?</span>
+                  <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
+                </summary>
+                <p className="text-gray-700 mt-3">
+                  Envie mensagem no WhatsApp com foto da logo, cores desejadas e tamanho. Você recebe orçamento em menos de 1 hora.
+                </p>
+              </details>
+            </div>
           </section>
 
           <section

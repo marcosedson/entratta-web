@@ -197,7 +197,62 @@ export default async function SegmentPage({ params }: Props) {
             </ol>
           </section>
 
-          <section className="bg-green-50 rounded-lg p-8 border border-green-200">
+          <section className="mt-12">
+            <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "var(--font-heading)" }}>
+              Perguntas Frequentes
+            </h2>
+            <div className="space-y-3">
+              <details
+                className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition"
+                style={{ background: "#f9fafb" }}
+              >
+                <summary
+                  className="font-bold text-gray-800 flex items-center justify-between"
+                  style={{ userSelect: "none" }}
+                >
+                  <span>Qual o preço do {segment.name}?</span>
+                  <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
+                </summary>
+                <p className="text-gray-700 mt-3">
+                  O preço varia conforme tamanho, quantidade e personalização. Enviamos orçamento customizado em minutos pelo WhatsApp.
+                </p>
+              </details>
+
+              <details
+                className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition"
+                style={{ background: "#f9fafb" }}
+              >
+                <summary
+                  className="font-bold text-gray-800 flex items-center justify-between"
+                  style={{ userSelect: "none" }}
+                >
+                  <span>Qual o prazo de entrega do {segment.name}?</span>
+                  <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
+                </summary>
+                <p className="text-gray-700 mt-3">
+                  Produzimos em até 3 dias úteis. Entregamos em todo o Brasil com rastreamento.
+                </p>
+              </details>
+
+              <details
+                className="border border-gray-200 rounded-lg p-4 cursor-pointer hover:bg-gray-50 transition"
+                style={{ background: "#f9fafb" }}
+              >
+                <summary
+                  className="font-bold text-gray-800 flex items-center justify-between"
+                  style={{ userSelect: "none" }}
+                >
+                  <span>Qual o tamanho mínimo para {segment.name}?</span>
+                  <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
+                </summary>
+                <p className="text-gray-700 mt-3">
+                  O tamanho mínimo é 40×60 cm. Você pode escolher o tamanho que melhor se adapte ao seu espaço.
+                </p>
+              </details>
+            </div>
+          </section>
+
+          <section className="bg-green-50 rounded-lg p-8 border border-green-200 mt-12">
             <h2 className="text-2xl font-bold mb-4" style={{ color: "#22C55E" }}>
               Orçamento Personalizado
             </h2>
