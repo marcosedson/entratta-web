@@ -11,7 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" alt="ENTRATTA — Capachos Personalizados de Vinil" width={44} height={44} className="rounded-xl flex-shrink-0" />
+              <Image src="/icon.png" alt="ENTRATTA — Capachos Personalizados de Vinil" width={44} height={44} className="rounded-xl flex-shrink-0" />
               <div>
                 <div
                   style={{

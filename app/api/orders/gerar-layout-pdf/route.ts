@@ -32,9 +32,9 @@ export async function POST(request: NextRequest) {
     // Load logo
     let logoBase64 = ''
     try {
-      const logoPath = join(process.cwd(), 'public', 'logo.png')
+      const logoPath = join(process.cwd(), 'public', 'logo.jpeg')
       const logoBuffer = readFileSync(logoPath)
-      logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
+      logoBase64 = `data:image/jpeg;base64,${logoBuffer.toString('base64')}`
     } catch (err) {
       console.warn('Could not load logo:', err)
     }

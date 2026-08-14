@@ -530,9 +530,9 @@ export async function POST(request: NextRequest) {
     // Load Entratta logo (para PDF)
     let entrattaLogoBase64 = ''
     try {
-      const logoPath = join(process.cwd(), 'public', 'logo.png')
+      const logoPath = join(process.cwd(), 'public', 'logo.jpeg')
       const logoBuffer = readFileSync(logoPath)
-      entrattaLogoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
+      entrattaLogoBase64 = `data:image/jpeg;base64,${logoBuffer.toString('base64')}`
     } catch (err) {
       console.warn('Could not load Entratta logo')
     }

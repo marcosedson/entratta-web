@@ -15,8 +15,11 @@ const handleWhatsAppClick = (source: string) => {
 const NAV_LINKS = [
   { href: '/#produtos', label: 'Produtos' },
   { href: '/como-funciona', label: 'Como Funciona' },
+  { href: '/melhor-preco', label: 'Fabricante Direto' },
+  { href: '/atendemos', label: 'Onde Atendemos' },
   { href: '/blog', label: 'Blog' },
   { href: '/depoimentos', label: 'Depoimentos' },
+  { href: '/contato', label: 'Contato' },
 ]
 
 export function Header() {
@@ -42,7 +45,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto flex items-center justify-between h-16 gap-4">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 flex-shrink-0">
-          <Image src="/logo.png" alt="ENTRATTA — Fabricante de Capachos Personalizados em Vinil" width={40} height={40} className="rounded-xl flex-shrink-0" priority />
+          <Image src="/icon.png" alt="ENTRATTA — Fabricante de Capachos Personalizados em Vinil" width={40} height={40} className="rounded-xl flex-shrink-0" priority />
           <div>
             <div
               style={{
