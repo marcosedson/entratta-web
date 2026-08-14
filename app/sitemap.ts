@@ -5,7 +5,7 @@ import { getAllBlogPosts } from "@/lib/blog"
 import { getAllCitySegmentCombos } from "@/lib/city-segment"
 
 const baseUrl = "https://entratta.com.br"
-const staticLastModified = new Date("2026-07-06")
+const staticLastModified = new Date("2026-08-14")
 
 const staticPages = [
   {
