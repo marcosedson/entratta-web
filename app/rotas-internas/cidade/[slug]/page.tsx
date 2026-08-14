@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCityBySlug(slug) || ({} as any)
 
   const title = city.name
-    ? `Capacho Personalizado em ${city.name} | ENTRATTA Fabricante GO`
+    ? `Capacho Personalizado em ${city.name}-${city.state} | ENTRATTA Fabricante`
     : "Capacho Personalizado com Logo | Fabricante | Entratta"
   const description = city.name
     ? `Capacho personalizado com logo para empresas e condomínios em ${city.name}. Fabricante direto em Goiás. Entrega rápida. Orçamento grátis no WhatsApp.`
@@ -80,6 +80,42 @@ function CitySchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
   )
 }
 
+function ProductSchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `Capacho de Vinil Personalizado com Logo em ${city.name}`,
+    description: `Capacho de vinil com logo e texto personalizados, impressão 300 DPI, base antiderrapante — fabricado para ${city.demanda} em ${city.name}, ${city.state}.`,
+    brand: {
+      "@type": "Brand",
+      name: "ENTRATTA",
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "BRL",
+      availability: "https://schema.org/InStock",
+      areaServed: {
+        "@type": "City",
+        name: city.name,
+        addressRegion: city.state,
+      },
+      seller: {
+        "@type": "LocalBusiness",
+        name: "ENTRATTA Capachos Personalizados",
+        telephone: "+55-64-99206-6855",
+        url: "https://entratta.com.br",
+      },
+    },
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 function FAQSchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
   const schema = {
     "@context": "https://schema.org",
@@ -90,7 +126,7 @@ function FAQSchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
         name: `Quanto custa um capacho personalizado em ${city.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Nossos capachos personalizados começam a partir de R$ 72. O preço varia conforme tamanho, material e complexidade do design. Solicite um orçamento personalizado via WhatsApp.`,
+          text: `O valor varia conforme tamanho, material e complexidade do design — sem preço fixo, já que cada capacho é personalizado. Solicite um orçamento pelo WhatsApp e receba a resposta em minutos.`,
         },
       },
       {
@@ -131,6 +167,7 @@ export default async function CityPage({ params }: Props) {
   return (
     <>
       <CitySchema city={city} />
+      <ProductSchema city={city} />
       <FAQSchema city={city} />
       <Header />
       <main className="flex-1">
@@ -197,7 +234,7 @@ export default async function CityPage({ params }: Props) {
                   Quanto custa um capacho personalizado em {city.name}?
                 </summary>
                 <p className="mt-3 text-gray-700">
-                  Nossos capachos personalizados começam a partir de R$ 72. O preço varia conforme tamanho, material e complexidade do design. Solicite um orçamento personalizado via WhatsApp.
+                  O valor varia conforme tamanho, material e complexidade do design — sem preço fixo, já que cada capacho é personalizado. Solicite um orçamento pelo WhatsApp e receba a resposta em minutos.
                 </p>
               </details>
               <details className="border border-gray-200 rounded-lg p-4">
