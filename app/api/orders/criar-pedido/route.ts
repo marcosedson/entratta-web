@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import jsPDF from 'jspdf'
 import { ConfiguratorState } from '@/lib/hooks'
 import { ConfiguratorService } from '@/lib/services'
-import { LogoProcessingService } from '@/lib/services/logo-processing.service'
+// TODO: arquivo ./lib/services/logo-processing.service.ts não existe ainda — import comentado pra destravar build
+// import { LogoProcessingService } from '@/lib/services/logo-processing.service'
 import { CoordinateScaler } from '@/lib/services/coordinate-scaler'
 import { SVGGenerator } from '@/lib/services/svg-generator'
 import {
@@ -556,17 +557,15 @@ export async function POST(request: NextRequest) {
         // Converte base64 para buffer
         const logoBuffer = Buffer.from(clientLogoBase64.replace(/^data:image\/(png|jpeg);base64,/, ''), 'base64')
 
-        // Processa logo (extrai cores e gera .TAP)
-        const logoResult = await LogoProcessingService.processLogoComplete(logoBuffer, orderId)
-
-        if (logoResult.success) {
-          logoTapFiles = logoResult.tapFiles
-          logoColors = logoResult.colors
-
-          console.log(`✅ Logo do cliente processada:`)
-          console.log(`   Cores: ${logoColors.map((c: any) => c.label).join(', ')}`)
-          console.log(`   .TAP files: ${logoTapFiles.length}`)
-        }
+        // TODO: LogoProcessingService não existe ainda — extração de cores/.TAP da logo desativada
+        // const logoResult = await LogoProcessingService.processLogoComplete(logoBuffer, orderId)
+        // if (logoResult.success) {
+        //   logoTapFiles = logoResult.tapFiles
+        //   logoColors = logoResult.colors
+        //   console.log(`✅ Logo do cliente processada:`)
+        //   console.log(`   Cores: ${logoColors.map((c: any) => c.label).join(', ')}`)
+        //   console.log(`   .TAP files: ${logoTapFiles.length}`)
+        // }
       } catch (error) {
         console.warn('Erro ao processar logo do cliente:', error)
       }

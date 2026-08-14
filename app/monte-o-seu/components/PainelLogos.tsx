@@ -4,7 +4,10 @@ import { useRef } from 'react'
 
 import { aciByCode } from '@/lib/constants/aci-palette'
 
-import { CORES_PINTURA, LogoItem } from '../types'
+import { LogoItem } from '../types'
+
+// TODO: '../types' não exporta CORES_PINTURA ainda — placeholder vazio pra destravar build
+const CORES_PINTURA: { aci: string; label: string; hex: string }[] = []
 import { Section, rotBtnStyle } from './ui'
 
 interface Props {
