@@ -69,27 +69,9 @@ export function Hero() {
         ENTRATTA
       </div>
 
-      <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Left: copy */}
+      <div className="relative max-w-3xl mx-auto grid grid-cols-1 items-center">
+        {/* Copy */}
         <div>
-          <div
-            className="hero-price-badge mb-4"
-            style={{
-              display: 'inline-block',
-              background: 'rgba(34,197,94,0.12)',
-              border: '1px solid rgba(34,197,94,0.3)',
-              borderRadius: '24px',
-              padding: '8px 16px',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '1.5px',
-              color: '#22C55E',
-              marginBottom: '1rem',
-            }}
-          >
-            MAIS BARATO DO MERCADO
-          </div>
-
           <div
             className="hero-badge mb-6"
             style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
@@ -202,44 +184,6 @@ export function Hero() {
               <svg width="14" height="14" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="8" fill="#FFE600"/><circle cx="24" cy="14" r="5" fill="#3483FA"/><path d="M14 34c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#3483FA" strokeWidth="4" strokeLinecap="round" fill="none"/></svg>
               Ver loja no Mercado Livre
             </a>
-          </div>
-        </div>
-
-        {/* Right: carpet mockup */}
-        <div className="hero-carpet flex items-center justify-center">
-          <div ref={carpetRef} style={{ width: '100%', maxWidth: '460px' }}>
-            <div
-              className="relative"
-              style={{
-                animation: 'float-hero 4s ease-in-out infinite',
-              }}
-              onMouseMove={handleCarpetMove}
-            >
-              <div
-                className="absolute inset-0 rounded-3xl blur-3xl"
-                style={{ background: 'rgba(34,197,94,0.15)', transform: 'scale(1.15)' }}
-              />
-              <Image
-                src="/hero-tapete.png"
-                alt="Capacho personalizado Entratta — tapetes de vinil com sua logo"
-                width={1536}
-                height={1024}
-                priority
-                className="relative rounded-2xl"
-                style={{ width: '100%', height: 'auto', mixBlendMode: 'multiply' }}
-              />
-
-              {/* Canvas de ripple — simula pressão na superfície de vinil */}
-              <canvas
-                ref={rippleRef}
-                style={{
-                  position: 'absolute', inset: 0,
-                  pointerEvents: 'none', borderRadius: '16px',
-                  width: '100%', height: '100%',
-                }}
-                aria-hidden="true"
-              />
-            </div>
           </div>
         </div>
       </div>

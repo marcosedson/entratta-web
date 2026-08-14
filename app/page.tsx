@@ -25,8 +25,8 @@ export default function Home() {
         <ProblemSolution />
         <Testimonials />
         <FAQ />
-        <CTAFinal />
         <CitiesLinks />
+        <CTAFinal />
       </main>
       <Footer />
       <FloatingWhatsApp />
