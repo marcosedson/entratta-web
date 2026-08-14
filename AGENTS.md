@@ -70,4 +70,4 @@ logo:/public/logo.png  whatsapp:5564992066855
 | Públicos | B2B: clínicas, escritórios, lojas · B2C: presentes, residências |
 | Canais | Site (configurador→WhatsApp · página `/melhor-preco`) · Shopee · ML (links `#` → preencher) |
 | Estado | v0.2: configurador+TAP prontos · ✗ pagamento, dashboard, SheetCAM real |
-| Estratégia SEO | Posicionamento psicológico "mais barato" sem números no site · capturas de lead via WhatsApp · FAQ schema com claim de melhor preço |
+| Estratégia SEO | Posicionamento "fabricante direto, sem intermediário" (sem claim de menor preço) · capturas de lead via WhatsApp · FAQ schema focado em diferencial verificável |

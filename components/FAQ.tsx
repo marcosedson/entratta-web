@@ -4,8 +4,8 @@ import { useState } from 'react'
 
 const FAQS = [
   {
-    q: 'Vocês são realmente os mais baratos do mercado?',
-    a: 'Sim! Somos fabricante direto, sem intermediários. Comparamos com 10+ concorrentes — sempre ofrecemos o melhor custo-benefício. Envie mensagem no WhatsApp para verificar seu orçamento específico.',
+    q: 'Por que comprar direto da Entratta?',
+    a: 'Somos fabricante direto — sem intermediários, sem revenda. Isso significa preço justo e contato direto com quem produz seu capacho. Envie mensagem no WhatsApp para receber seu orçamento personalizado.',
   },
   {
     q: 'Qual é o prazo de produção e entrega?',

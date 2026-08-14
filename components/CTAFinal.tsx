@@ -4,7 +4,7 @@ import { trackWhatsAppClick, trackLeadGenerated } from '@/lib/analytics'
 
 const WPP_URL = 'https://wa.me/5564992066855?text=Ol%C3%A1!%20Quero%20montar%20meu%20capacho%20personalizado'
 
-const handleCTAClick = (type: 'verify_price' | 'specialist') => {
+const handleCTAClick = (type: 'direct_factory' | 'specialist') => {
   trackWhatsAppClick(`cta_final_${type}`)
   trackLeadGenerated('cta_final', 'whatsapp')
 }
@@ -39,27 +39,27 @@ export function CTAFinal() {
             lineHeight: 1.1,
           }}
         >
-          Pronto para descobrir{' '}
-          <span style={{ color: '#4ADE80', fontStyle: 'italic' }}>o melhor preço?</span>
+          Pronto para comprar{' '}
+          <span style={{ color: '#4ADE80', fontStyle: 'italic' }}>direto da fábrica?</span>
         </h2>
 
         <p className="mb-10 text-lg" style={{ color: '#94A3B8', maxWidth: '480px', margin: '0 auto 40px' }}>
-          Orçamento grátis em minutos. Garantia: se encontrar mais barato, a gente bate.
+          Orçamento grátis em minutos, sem intermediários e sem compromisso.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="https://wa.me/5564992066855?text=Ol%C3%A1!%20Quero%20verificar%20se%20a%20Entratta%20realmente%20tem%20o%20melhor%20pre%C3%A7o.%20Pode%20me%20ajudar%20com%20um%20or%C3%A7amento%3F"
+            href="https://wa.me/5564992066855?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20comprar%20direto%20da%20f%C3%A1brica.%20Pode%20me%20ajudar%20com%20um%20or%C3%A7amento%3F"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => handleCTAClick('verify_price')}
+            onClick={() => handleCTAClick('direct_factory')}
             className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-black text-lg transition-all hover:-translate-y-0.5 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg,#22C55E,#15803D)',
               boxShadow: '0 10px 40px rgba(34,197,94,0.4)',
             }}
           >
-            Verificar Melhor Preço
+            Pedir Orçamento Agora
           </a>
           <a
             href={WPP_URL}

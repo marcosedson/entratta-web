@@ -134,7 +134,7 @@ Business logic. Stateless, testable, reusable methods.
 
 ## SEO & Schema Strategy
 
-**No explicit prices on site** — psychological positioning as "most affordable" without numbers
+**No explicit prices on site** — positioning as "direct-from-factory, no middleman" (verifiable claim, not a "cheapest" superlative)
 - Captures leads via WhatsApp instead
 - Maintains price flexibility across channels (ML, Shopee, etc.)
 
@@ -142,7 +142,7 @@ Business logic. Stateless, testable, reusable methods.
 - `LocalBusiness` (in `app/layout.tsx`) — priceRange "$", slogan, address, areaServed
 - `BlogPosting` (in blog pages) — headline, author, datePublished
 - `BreadcrumbList` (in blog pages) — Home > Blog > Article
-- `FAQPage` (in `components/FAQSchema.tsx`) — First Q: "Vocês são realmente os mais baratos?"
+- `FAQPage` (in `components/FAQSchema.tsx`) — First Q: "Por que comprar direto da Entratta?"
 - `Offer` (in `/melhor-preco`) — no visible price, but schema structure
 
 **Open Graph & Twitter Cards:**

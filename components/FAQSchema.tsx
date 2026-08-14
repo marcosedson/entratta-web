@@ -5,10 +5,10 @@ export function FAQSchema() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Vocês são realmente os mais baratos do mercado?",
+        name: "Por que comprar direto da Entratta?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sim! Somos fabricante direto, sem intermediários. Comparamos com 10+ concorrentes — sempre ofrecemos o melhor custo-benefício. Envie mensagem no WhatsApp para verificar seu orçamento específico.",
+          text: "Somos fabricante direto — sem intermediários, sem revenda. Isso significa preço justo e contato direto com quem produz seu capacho. Envie mensagem no WhatsApp para receber seu orçamento personalizado.",
         },
       },
       {
