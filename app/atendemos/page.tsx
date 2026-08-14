@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { getAllCitySlugs } from "@/lib/data"
 import { CITIES_DATA } from "@/lib/data/cities"
+import { SEGMENTS_DATA, getSegmentUrl } from "@/lib/segments"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
@@ -184,6 +185,38 @@ export default function ServeAreasPage() {
               </section>
             )
           })}
+
+          {/* Segmentos Atendidos */}
+          <section className="mb-16">
+            <h2
+              className="text-3xl font-bold mb-6"
+              style={{ fontFamily: "var(--font-heading)", color: "#0F172A" }}
+            >
+              Ver todos os segmentos
+            </h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              Além de cidade, fabricamos capacho personalizado para o seu tipo de espaço ou uso. Veja todos os segmentos que atendemos:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {SEGMENTS_DATA.map((segment) => (
+                <Link
+                  key={segment.slug}
+                  href={getSegmentUrl(segment.slug)}
+                  className="p-4 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50 transition"
+                >
+                  <h3
+                    className="font-bold text-lg mb-2"
+                    style={{ color: "#22C55E" }}
+                  >
+                    {segment.name}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    {segment.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
 
           {/* CTA Final */}
           <section className="mt-16 p-8 rounded-lg bg-green-50 border border-green-200 text-center">

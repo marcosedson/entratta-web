@@ -143,6 +143,82 @@ export const SEGMENTS_DATA: Segment[] = [
     ],
     diferencial: "Indústrias confiam em demarcações ENTRATTA para segurança e conformidade regulatória.",
   },
+  {
+    slug: "residencial",
+    name: "Residencial",
+    title: "Capacho Personalizado para Casa",
+    description: "Dê personalidade à entrada da sua casa com capachos que combinam com o seu estilo — do clássico \"bem-vindo\" ao nome da família.",
+    useCases: [
+      "Portas de apartamento",
+      "Entrada de casa",
+      "Presente de casa nova",
+      "Varanda e área externa",
+    ],
+    benefits: [
+      "Design exclusivo para sua casa",
+      "Resistente à chuva e ao sol",
+      "Fácil de limpar",
+      "Base antiderrapante",
+    ],
+    diferencial: "Famílias escolhem ENTRATTA para transformar a entrada de casa em algo só delas.",
+  },
+  {
+    slug: "churrasco",
+    name: "Churrasco",
+    title: "Capacho Personalizado para Área de Churrasco",
+    description: "Capacho com humor e personalidade para área gourmet, churrasqueira ou varanda — presente certeiro para quem ama receber.",
+    useCases: [
+      "Área gourmet",
+      "Churrasqueira",
+      "Varanda e quintal",
+      "Presente para o churrasqueiro da casa",
+    ],
+    benefits: [
+      "Frases divertidas e exclusivas",
+      "Resistente a gordura e respingos",
+      "Base antiderrapante",
+      "Presente que sempre agrada",
+    ],
+    diferencial: "O presente perfeito para quem manda no churrasco — personalizado do jeito que só a ENTRATTA faz.",
+  },
+  {
+    slug: "nautico",
+    name: "Náutico",
+    title: "Capacho Personalizado para Barcos e Lanchas",
+    description: "Tapete de vinil sob medida para o convés da sua embarcação — antiderrapante, resistente à água e com o nome do barco personalizado.",
+    useCases: [
+      "Convés de lancha",
+      "Canoas e caiaques",
+      "Plataforma de popa",
+      "Marinas e ancoradouros",
+    ],
+    benefits: [
+      "Nome da embarcação personalizado",
+      "Antiderrapante mesmo molhado",
+      "Resistente à água e ao sol",
+      "Sob medida para o casco",
+    ],
+    diferencial: "Proprietários de embarcação escolhem ENTRATTA para dar identidade ao convés com segurança.",
+  },
+  {
+    slug: "motorista-aplicativo",
+    name: "Motorista de Aplicativo",
+    title: "Tapete Personalizado para Carro de Aplicativo",
+    description: "Tapete de vinil sob medida para o carro que protege o forro original e passa profissionalismo para o passageiro do Uber, 99 ou InDriver.",
+    useCases: [
+      "Carro de aplicativo",
+      "Táxi",
+      "Frota de transporte executivo",
+      "Presente para motorista",
+    ],
+    benefits: [
+      "Protege o forro original do carro",
+      "Fácil de limpar entre corridas",
+      "Base antiderrapante",
+      "Sob medida para o modelo do veículo",
+    ],
+    diferencial: "Motoristas de aplicativo escolhem ENTRATTA para manter o carro limpo e com cara de profissional.",
+  },
 ]
 
 export function getSegmentBySlug(slug: string): Segment | undefined {
