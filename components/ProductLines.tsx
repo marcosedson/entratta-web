@@ -11,6 +11,7 @@ interface Category {
   title: string
   sublabel: string
   accent: string
+  accentText: string
   accentRgb: string
   cardBg: string
   previewBg: string
@@ -27,6 +28,7 @@ const CATEGORIES: Category[] = [
     title: 'Sua empresa na entrada',
     sublabel: 'Escritórios · Clínicas · Lojas · Academias · Condomínios',
     accent: '#60A5FA',
+    accentText: '#0870F0',
     accentRgb: '96,165,250',
     cardBg: '#060C18',
     previewBg: '#0A1628',
@@ -41,6 +43,7 @@ const CATEGORIES: Category[] = [
     title: 'Personalidade em casa',
     sublabel: 'Apartamento · Casa · Família · Casa nova',
     accent: '#4ADE80',
+    accentText: '#198741',
     accentRgb: '74,222,128',
     cardBg: '#060F09',
     previewBg: '#071A0B',
@@ -55,6 +58,7 @@ const CATEGORIES: Category[] = [
     title: 'Churrasco e área gourmet',
     sublabel: 'Churrasqueira · Varanda · Área de lazer · Presente',
     accent: '#FB923C',
+    accentText: '#BE5804',
     accentRgb: '251,146,60',
     cardBg: '#0F0800',
     previewBg: '#1A0D00',
@@ -69,6 +73,7 @@ const CATEGORIES: Category[] = [
     title: 'Presente que emociona',
     sublabel: 'Casamento · Aniversário · Pets · Housewarming',
     accent: '#F472B6',
+    accentText: '#E0127E',
     accentRgb: '244,114,182',
     cardBg: '#150810',
     previewBg: '#1F0B16',
@@ -278,8 +283,7 @@ function CategoryCard({ cat }: { cat: Category }) {
               fontSize: '0.6rem',
               fontWeight: 800,
               letterSpacing: '2.5px',
-              color: cat.accent,
-              opacity: 0.8,
+              color: cat.accentText,
             }}
           >
             {cat.tag}
