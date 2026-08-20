@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { trackWhatsAppClick, trackLeadGenerated } from '@/lib/analytics'
 
 const WPP_URL =
-  'https://wa.me/5564992066855?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Entratta%20e%20quero%20saber%20mais%20sobre%20capachos%20personalizados%20%F0%9F%9A%AA'
+  'https://wa.me/5564992066855?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Entratta%20e%20quero%20saber%20mais%20sobre%20capachos%20personalizados'
 
 const handleFloatingWhatsAppClick = () => {
   trackWhatsAppClick('floating_button')
