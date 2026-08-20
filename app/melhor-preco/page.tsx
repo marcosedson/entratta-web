@@ -42,12 +42,10 @@ const jsonLd = {
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
+          "@type": "Service",
           name: "Capacho Personalizado com Logo",
           description: "Vinil de alta resistência com sua logo ou design exclusivo",
         },
-        priceCurrency: "BRL",
-        availability: "https://schema.org/InStock",
       },
     ],
   },

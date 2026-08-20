@@ -127,7 +127,7 @@ const jsonLd = {
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
+          "@type": "Service",
           name: "Capacho Liso de Vinil",
           description: "Capacho de vinil cor sólida com base antiderrapante, resistente ao tráfego intenso",
         },
@@ -135,7 +135,7 @@ const jsonLd = {
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
+          "@type": "Service",
           name: "Capacho com Arte Pronta",
           description: "Capacho de vinil com design pronto — bem-vindo, patas, monogramas e outras artes",
         },
@@ -143,7 +143,7 @@ const jsonLd = {
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
+          "@type": "Service",
           name: "Capacho de Vinil Personalizado com Logo",
           description: "Capacho de vinil com logo e texto personalizados, impressão 300 DPI, base antiderrapante",
         },
@@ -151,7 +151,7 @@ const jsonLd = {
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
+          "@type": "Service",
           name: "Tapete de Vinil Personalizado Sob Medida",
           description: "Tapete de vinil com medidas customizadas para a entrada da sua empresa ou residência",
         },

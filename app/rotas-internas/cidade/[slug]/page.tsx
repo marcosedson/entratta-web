@@ -83,28 +83,23 @@ function CitySchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
 function ProductSchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name: `Capacho de Vinil Personalizado com Logo em ${city.name}`,
     description: `Capacho de vinil com logo e texto personalizados, impressão 300 DPI, base antiderrapante — fabricado para ${city.demanda} em ${city.name}, ${city.state}.`,
     brand: {
       "@type": "Brand",
       name: "ENTRATTA",
     },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "BRL",
-      availability: "https://schema.org/InStock",
-      areaServed: {
-        "@type": "City",
-        name: city.name,
-        addressRegion: city.state,
-      },
-      seller: {
-        "@type": "LocalBusiness",
-        name: "ENTRATTA Capachos Personalizados",
-        telephone: "+55-64-99206-6855",
-        url: "https://entratta.com.br",
-      },
+    areaServed: {
+      "@type": "City",
+      name: city.name,
+      addressRegion: city.state,
+    },
+    provider: {
+      "@type": "LocalBusiness",
+      name: "ENTRATTA Capachos Personalizados",
+      telephone: "+55-64-99206-6855",
+      url: "https://entratta.com.br",
     },
   }
 
