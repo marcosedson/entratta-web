@@ -11,7 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/icon.png" alt="ENTRATTA — Capachos Personalizados de Vinil" width={44} height={44} className="rounded-xl flex-shrink-0" />
+              <Image src="/entratta-mark.png" alt="ENTRATTA — Capachos Personalizados de Vinil" width={44} height={44} className="rounded-xl flex-shrink-0" />
               <div>
                 <div
                   style={{
@@ -29,7 +29,7 @@ export function Footer() {
                 </div>
               </div>
             </div>
-            <p style={{ color: '#64748B', fontSize: '0.85rem', lineHeight: 1.7 }}>
+            <p style={{ color: '#94A3B8', fontSize: '0.85rem', lineHeight: 1.7 }}>
               Capachos e tapetes de vinil — lisos, com artes prontas ou personalizados com sua logo.
               Produção nacional e entrega em todo o Brasil.
             </p>
@@ -76,7 +76,7 @@ export function Footer() {
                   <a
                     href={href}
                     className="link-hover"
-                    style={{ color: '#64748B', fontSize: '0.875rem' }}
+                    style={{ color: '#94A3B8', fontSize: '0.875rem' }}
                     {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   >
                     {label}
@@ -110,7 +110,7 @@ export function Footer() {
                 </div>
               </a>
 
-              <div className="text-xs pt-2 space-y-1.5" style={{ color: '#374151' }}>
+              <div className="text-xs pt-2 space-y-1.5" style={{ color: '#94A3B8' }}>
                 <div>Segunda a Sexta: 8h – 18h</div>
                 <div>Produção nacional · Entrega em todo o Brasil</div>
                 <div style={{ paddingTop: '4px', borderTop: '1px solid rgba(255,255,255,0.04)', marginTop: '4px' }}>
@@ -125,10 +125,10 @@ export function Footer() {
           className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8"
           style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
         >
-          <p style={{ color: '#374151', fontSize: '0.8rem' }}>
+          <p style={{ color: '#94A3B8', fontSize: '0.8rem' }}>
             © {new Date().getFullYear()} Entratta. Todos os direitos reservados.
           </p>
-          <p style={{ color: '#374151', fontSize: '0.75rem' }}>
+          <p style={{ color: '#94A3B8', fontSize: '0.75rem' }}>
             Tapetes e capachos de vinil personalizados • Entrega em todo o Brasil
           </p>
         </div>

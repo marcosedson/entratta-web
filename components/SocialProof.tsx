@@ -88,7 +88,7 @@ export function SocialProof() {
                     fontFamily: 'var(--font-accent)',
                     fontSize: 'clamp(1.8rem, 4vw, 2.4rem)',
                     fontWeight: 800,
-                    color: '#22C55E',
+                    color: '#15803D',
                     lineHeight: 1,
                     marginBottom: '6px',
                     letterSpacing: '-0.5px',

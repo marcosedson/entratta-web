@@ -11,7 +11,7 @@ export function CitiesLinks() {
             style={{ fontFamily: "var(--font-heading)", color: "#0F172A" }}
           >
             Capachos Personalizados em{" "}
-            <span style={{ color: "#22C55E", fontStyle: "italic" }}>Itumbiara e Região</span>
+            <span style={{ color: "#15803D", fontStyle: "italic" }}>Itumbiara e Região</span>
           </h2>
           <p className="text-gray-700 max-w-2xl mx-auto">
             Somos fabricantes em Itumbiara, GO, e atendemos com entrega rápida toda a região: Araporã,

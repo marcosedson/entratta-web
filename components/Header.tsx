@@ -45,7 +45,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto flex items-center justify-between h-16 gap-4">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 flex-shrink-0">
-          <Image src="/icon.png" alt="ENTRATTA — Fabricante de Capachos Personalizados em Vinil" width={40} height={40} className="rounded-xl flex-shrink-0" priority />
+          <Image src="/entratta-mark.png" alt="ENTRATTA — Fabricante de Capachos Personalizados em Vinil" width={40} height={40} className="rounded-xl flex-shrink-0" priority />
           <div>
             <div
               style={{
@@ -61,7 +61,7 @@ export function Header() {
             <div
               style={{
                 fontSize: '0.6rem',
-                color: '#22C55E',
+                color: '#15803D',
                 fontWeight: 700,
                 letterSpacing: '1px',
                 lineHeight: 1.4,

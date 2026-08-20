@@ -385,7 +385,7 @@ function CategoryCard({ cat }: { cat: Category }) {
                 ? 'linear-gradient(135deg,#22C55E,#15803D)'
                 : 'rgba(34,197,94,0.08)',
               border: `1px solid ${hovered ? 'transparent' : 'rgba(34,197,94,0.2)'}`,
-              color: hovered ? '#000' : '#22C55E',
+              color: hovered ? '#000' : '#15803D',
               boxShadow: hovered ? '0 6px 28px rgba(34,197,94,0.35)' : 'none',
               transition: 'all 0.35s ease',
             }}
@@ -422,7 +422,7 @@ export function ProductLines() {
               fontSize: '0.65rem',
               fontWeight: 700,
               letterSpacing: '2.5px',
-              color: '#22C55E',
+              color: '#15803D',
               marginBottom: '14px',
             }}
           >
