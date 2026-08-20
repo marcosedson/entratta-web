@@ -219,6 +219,44 @@ export const SEGMENTS_DATA: Segment[] = [
     ],
     diferencial: "Motoristas de aplicativo escolhem ENTRATTA para manter o carro limpo e com cara de profissional.",
   },
+  {
+    slug: "futebol",
+    name: "Time de Futebol",
+    title: "Capacho Personalizado Time de Futebol",
+    description: "Capacho com escudo e cores do seu time do coração — o jeito certo de receber a torcida na porta de casa ou no bar do jogo.",
+    useCases: [
+      "Entrada de casa do torcedor",
+      "Bar e área de jogo",
+      "Presente para torcedor",
+      "Área de churrasco e lazer",
+    ],
+    benefits: [
+      "Escudo e cores do seu time",
+      "Vinil resistente ao uso diário",
+      "Presente certeiro pra torcedor",
+      "Base antiderrapante",
+    ],
+    diferencial: "Torcedores escolhem ENTRATTA para levar a paixão pelo time até a porta de casa.",
+  },
+  {
+    slug: "escola-infantil",
+    name: "Escola Infantil",
+    title: "Tapete Personalizado para Escola Infantil",
+    description: "Tapete de vinil com desenhos lúdicos — amarelinha, alfabeto, mapa-múndi, estrada — que transforma o chão da sala em espaço de aprendizado.",
+    useCases: [
+      "Salas de aula infantil",
+      "Brinquedoteca",
+      "Berçário",
+      "Área de recreação",
+    ],
+    benefits: [
+      "Desenhos lúdicos e educativos sob medida",
+      "Vinil lavável, resistente ao uso diário",
+      "Seguro e antiderrapante para os pequenos",
+      "Estimula aprendizado através da brincadeira",
+    ],
+    diferencial: "Escolas infantis escolhem ENTRATTA para transformar o chão da sala em espaço de aprendizado.",
+  },
 ]
 
 export function getSegmentBySlug(slug: string): Segment | undefined {
