@@ -51,6 +51,14 @@ export function FAQSchema() {
           text: "É simples: fale com a gente pelo WhatsApp, informe a medida desejada e envie sua logo ou ideia. Um especialista envia o orçamento em minutos. Sem compromisso — orçamento é gratuito!",
         },
       },
+      {
+        "@type": "Question",
+        name: "Vocês vendem capacho por metro?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sim! Além dos tamanhos prontos, cortamos sob medida — incluindo corredores e espaços maiores, medidos por metro linear. Envie a medida do seu espaço pelo WhatsApp e a gente calcula o orçamento certo pro tamanho que você precisa.",
+        },
+      },
     ],
   }
 

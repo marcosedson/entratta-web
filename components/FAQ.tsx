@@ -27,6 +27,10 @@ const FAQS = [
     q: 'Como funciona o orçamento?',
     a: 'É simples: fale com a gente pelo WhatsApp, informe a medida desejada e envie sua logo ou ideia. Um especialista envia o orçamento em minutos. Sem compromisso — orçamento é gratuito!',
   },
+  {
+    q: 'Vocês vendem capacho por metro?',
+    a: 'Sim! Além dos tamanhos prontos, cortamos sob medida — incluindo corredores e espaços maiores, medidos por metro linear. Envie a medida do seu espaço pelo WhatsApp e a gente calcula o orçamento certo pro tamanho que você precisa.',
+  },
 ]
 
 function FAQItem({ q, a }: { q: string; a: string }) {

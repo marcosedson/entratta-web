@@ -257,6 +257,25 @@ export const SEGMENTS_DATA: Segment[] = [
     ],
     diferencial: "Escolas infantis escolhem ENTRATTA para transformar o chão da sala em espaço de aprendizado.",
   },
+  {
+    slug: "chinelo-de-capacho",
+    name: "Chinelo de Capacho",
+    title: "Chinelo de Capacho de Vinil",
+    description: "Chinelo feito do mesmo vinil resistente dos nossos capachos — confortável, antiderrapante e durável, direto de quem fabrica.",
+    useCases: [
+      "Uso doméstico no dia a dia",
+      "Revenda para lojas e distribuidores",
+      "Brinde para clientes e parceiros",
+      "Presente personalizado",
+    ],
+    benefits: [
+      "Vinil resistente e antiderrapante",
+      "Confortável para uso prolongado",
+      "Fácil de lavar",
+      "Preço direto de fábrica, sem intermediário",
+    ],
+    diferencial: "Quem já usa nossos capachos confia na ENTRATTA pra fabricar chinelo com o mesmo vinil de qualidade.",
+  },
 ]
 
 export function getSegmentBySlug(slug: string): Segment | undefined {
