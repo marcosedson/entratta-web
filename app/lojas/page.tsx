@@ -6,25 +6,26 @@ import { Footer } from '@/components/Footer'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 
 const ML_URL = 'https://lista.mercadolivre.com.br/_CustId_3459954476'
+const SHOPEE_URL = 'https://shopee.com.br/entrattatapetespersonalizados'
 const WPP_URL = 'https://wa.me/5564992066855'
 
 export const metadata: Metadata = {
-  title: 'Loja no Mercado Livre | Entratta — Capachos Personalizados',
+  title: 'Lojas Oficiais Mercado Livre e Shopee | Entratta — Capachos Personalizados',
   description:
-    'Compre capachos e tapetes de vinil personalizados da Entratta no Mercado Livre. Parcelamento em 12x, compra protegida e entrega rastreada em todo o Brasil.',
+    'Compre capachos e tapetes de vinil personalizados da Entratta no Mercado Livre e na Shopee. Parcelamento, compra protegida e entrega rastreada em todo o Brasil.',
   alternates: { canonical: '/lojas' },
   openGraph: {
-    title: 'Compre na Loja Oficial | Entratta',
+    title: 'Nossas Lojas Oficiais | Entratta',
     description:
-      'Capachos personalizados com parcelamento em até 12x, compra protegida e entrega rastreada em todo o Brasil.',
+      'Capachos personalizados com parcelamento, compra protegida e entrega rastreada — no Mercado Livre e na Shopee.',
     url: 'https://entratta.com.br/lojas',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Compre na Loja Oficial | Entratta',
+    title: 'Nossas Lojas Oficiais | Entratta',
     description:
-      'Parcelamento em 12x, compra protegida, entrega rastreada. Qualidade Entratta com segurança de marketplace.',
+      'Parcelamento, compra protegida, entrega rastreada. Qualidade Entratta com segurança de marketplace.',
   },
 }
 
@@ -59,7 +60,7 @@ export default function LojasPage() {
               }}
             >
               Compre com{' '}
-              <span style={{ color: '#16A34A', fontStyle: 'italic' }}>segurança no Mercado Livre</span>
+              <span style={{ color: '#16A34A', fontStyle: 'italic' }}>segurança nas nossas lojas oficiais</span>
             </h1>
             <p style={{ color: '#475569', lineHeight: 1.7, maxWidth: '480px', margin: '0 auto' }}>
               Parcelamento em até 12x, proteção de compra e entrega rastreada — com a qualidade Entratta.
@@ -132,6 +133,67 @@ export default function LojasPage() {
                 }}
               >
                 Ver produtos no Mercado Livre ↗
+              </a>
+            </div>
+
+            <div
+              className="rounded-2xl p-8 flex flex-col gap-6 mt-6"
+              style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}
+            >
+              <div className="flex items-center gap-5">
+                <Image
+                  src="/shopee.png"
+                  alt="Shopee"
+                  width={64}
+                  height={64}
+                  style={{ borderRadius: '12px', objectFit: 'cover' }}
+                />
+                <div>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-accent)',
+                      fontSize: '1.5rem',
+                      letterSpacing: '2px',
+                      color: '#EE4D2D',
+                      lineHeight: 1,
+                    }}
+                  >
+                    SHOPEE
+                  </div>
+                  <div style={{ color: '#64748B', fontSize: '0.85rem', marginTop: '4px' }}>
+                    Loja Oficial Entratta
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {['ShopeePay', 'Parcelamento', 'Entrega rastreada', 'Garantia Shopee'].map(b => (
+                  <span
+                    key={b}
+                    className="px-3 py-1 rounded-full text-xs font-semibold"
+                    style={{
+                      background: 'rgba(238,77,45,0.07)',
+                      border: '1px solid rgba(238,77,45,0.18)',
+                      color: '#EE4D2D',
+                    }}
+                  >
+                    {b}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={SHOPEE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:-translate-y-0.5"
+                style={{
+                  background: 'linear-gradient(135deg,#EE4D2D,#C73D1F)',
+                  color: '#fff',
+                  boxShadow: '0 8px 28px rgba(238,77,45,0.3)',
+                }}
+              >
+                Ver produtos na Shopee ↗
               </a>
             </div>
 

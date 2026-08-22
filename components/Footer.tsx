@@ -60,6 +60,20 @@ export function Footer() {
                 <Image src="/mercado-livre.jpg" alt="Mercado Livre" width={16} height={16} style={{ borderRadius: '3px', objectFit: 'cover' }} />
                 Mercado Livre
               </a>
+              <a
+                href="https://shopee.com.br/entrattatapetespersonalizados"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-opacity hover:opacity-80"
+                style={{
+                  background: 'rgba(238,77,45,0.12)',
+                  border: '1px solid rgba(238,77,45,0.25)',
+                  color: '#EE4D2D',
+                }}
+              >
+                <Image src="/shopee.png" alt="Shopee" width={16} height={16} style={{ borderRadius: '3px', objectFit: 'cover' }} />
+                Shopee
+              </a>
             </div>
           </div>
 
