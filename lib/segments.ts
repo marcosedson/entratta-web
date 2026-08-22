@@ -276,6 +276,25 @@ export const SEGMENTS_DATA: Segment[] = [
     ],
     diferencial: "Quem já usa nossos capachos confia na ENTRATTA pra fabricar chinelo com o mesmo vinil de qualidade.",
   },
+  {
+    slug: "restaurante",
+    name: "Restaurante",
+    title: "Capacho Personalizado para Restaurante",
+    description: "Capacho com a marca do seu restaurante na entrada — reforça identidade visual e recebe o cliente com o mesmo cuidado da cozinha.",
+    useCases: [
+      "Entrada principal do salão",
+      "Área de espera / recepção",
+      "Cozinha e área de serviço",
+      "Franquias e redes de restaurante",
+    ],
+    benefits: [
+      "Reforça identidade visual da marca",
+      "Resistente a gordura e respingos",
+      "Fácil higienização entre turnos",
+      "Base antiderrapante para área de grande circulação",
+    ],
+    diferencial: "Restaurantes escolhem ENTRATTA para levar o cuidado da cozinha até a entrada do salão.",
+  },
 ]
 
 export function getSegmentBySlug(slug: string): Segment | undefined {

@@ -8,22 +8,22 @@ import { Footer } from '@/components/Footer'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 
 export const metadata: Metadata = {
-  title: 'Como Funciona | Entratta — Capachos Personalizados',
+  title: 'Como Pedir Seu Capacho Personalizado em 3 Passos | Entratta',
   description:
-    'Veja como é simples pedir seu capacho personalizado na Entratta. Configure online, confirme pelo WhatsApp e receba em casa em até 7 dias úteis.',
+    'Configure online, confirme pelo WhatsApp e receba em casa — sem loja física, sem intermediário. Veja o passo a passo completo do pedido ao capacho pronto.',
   alternates: { canonical: '/como-funciona' },
   openGraph: {
-    title: 'Como Funciona | Entratta',
+    title: 'Como Pedir Seu Capacho Personalizado em 3 Passos | Entratta',
     description:
-      'Veja como é simples pedir seu capacho personalizado. 3 passos, 7 dias úteis — do pedido à entrega.',
+      'Configure online, confirme pelo WhatsApp, receba em casa. Sem loja física, sem intermediário.',
     url: 'https://entratta.com.br/como-funciona',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Como Funciona | Entratta',
+    title: 'Como Pedir Seu Capacho Personalizado em 3 Passos | Entratta',
     description:
-      'Veja como é simples pedir seu capacho personalizado. 3 passos, 7 dias úteis.',
+      'Configure online, confirme pelo WhatsApp, receba em casa. Sem loja física, sem intermediário.',
   },
 }
 

@@ -198,8 +198,8 @@ Sem problema → Clique em Solicitar Orçamento e nosso time recomenda baseado n
   },
   {
     slug: "capacho-personalizado-para-clinica",
-    title: "Capacho Personalizado para Clínica: Guia Completo",
-    description: "Como escolher o capacho ideal para sua clínica. Design, higiene, durabilidade e como solicitar.",
+    title: "Capacho Personalizado para Clínica: Higiene, Durabilidade e Preço",
+    description: "Guia prático pra escolher o capacho de vinil certo pra sua clínica: material, medidas ideais, como higienizar e como pedir orçamento pelo WhatsApp.",
     category: "Segmentos",
     publishedAt: new Date("2026-06-05"),
     author: "Entratta",

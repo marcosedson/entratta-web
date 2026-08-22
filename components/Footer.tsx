@@ -70,6 +70,7 @@ export function Footer() {
               {[
                 { href: '/como-funciona', label: 'Como Funciona', external: false },
                 { href: '/depoimentos', label: 'Depoimentos', external: false },
+                { href: '/capacho-personalizado-itumbiara', label: 'Capacho em Itumbiara', external: false },
                 { href: 'https://lista.mercadolivre.com.br/_CustId_3459954476', label: 'Mercado Livre', external: true },
               ].map(({ href, label, external }) => (
                 <li key={href}>

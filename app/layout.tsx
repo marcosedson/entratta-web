@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Entratta" }],
   creator: "Entratta",
   metadataBase: new URL("https://entratta.com.br"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Capachos e Tapetes Personalizados com Logo | Entratta",
     description:
@@ -160,6 +163,13 @@ const jsonLd = {
   },
 }
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "ENTRATTA Capachos Personalizados",
+  url: "https://entratta.com.br",
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -169,6 +179,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
