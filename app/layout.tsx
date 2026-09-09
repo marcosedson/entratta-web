@@ -60,15 +60,22 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "ManufacturingBusiness"],
   name: "ENTRATTA Capachos Personalizados",
   description:
-    "Fabricante de capachos personalizados em vinil com logo para empresas, condomínios, indústrias e residências. Entrega em 3 dias para todo o Brasil.",
+    "Fabricante de capachos personalizados em vinil com logo para empresas, condomínios, indústrias e residências. Corte e vulcanização CNC direta de fábrica. Entrega rápida para todo o Brasil.",
   url: "https://entratta.com.br",
   telephone: "+55-64-99206-6855",
   image: "https://entratta.com.br/opengraph-image.png",
   priceRange: "$",
   slogan: "Capacho personalizado direto de fábrica — sem intermediários, sem revenda.",
+  knowsAbout: [
+    "Corte e Fresagem CNC de Vinil",
+    "Vulcanização a Quente de Capachos",
+    "Tapetes Personalizados com Logomarca",
+    "Capachos Corporativos e Industriais",
+    "Especificação Técnica para Arquitetura e Construtoras"
+  ],
   sameAs: [
     "https://www.instagram.com/entrattaofficial",
     "https://lista.mercadolivre.com.br/_CustId_3459954476"

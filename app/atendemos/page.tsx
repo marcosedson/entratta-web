@@ -101,35 +101,66 @@ export default function ServeAreasPage() {
             Entregamos capachos personalizados em todo o Brasil. Clique em sua cidade para conhecer nossos diferenciais e prazo de entrega.
           </p>
 
-          {/* Destaque: Região de Itumbiara */}
-          <section className="mb-16 p-8 rounded-lg bg-green-50 border-2 border-green-200">
-            <h2
-              className="text-2xl font-bold mb-4"
-              style={{ fontFamily: "var(--font-heading)", color: "#15803D" }}
-            >
-              🚀 Região de Itumbiara — Entrega em 1-2 dias úteis
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Somos fabricantes locais em Itumbiara. Se você está nessa região, aproveitamos prazo de entrega reduzido e zero frete de longa distância.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {["Itumbiara", "Araporã", "Morrinhos", "Goiatuba", "Buriti Alegre", "Centralina"].map(
-                (cityName) => {
-                  const city = CITIES_DATA.find((c) => c.name === cityName)
-                  return city ? (
-                    <Link
-                      key={city.slug}
-                      href={`/capacho-personalizado-${city.slug}`}
-                      className="px-4 py-3 rounded-lg font-bold text-green-700 text-center transition hover:bg-green-100"
-                      style={{ background: "rgba(34,197,94,0.1)" }}
-                    >
-                      {city.name}
-                    </Link>
-                  ) : null
-                }
-              )}
-            </div>
-          </section>
+          {/* Destaque: Região de Itumbiara & Triângulo Mineiro */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <section className="p-8 rounded-2xl bg-green-50 border-2 border-green-200 shadow-sm">
+              <h2
+                className="text-2xl font-bold mb-3"
+                style={{ fontFamily: "var(--font-heading)", color: "#15803D" }}
+              >
+                🚀 Sul de Goiás — Entrega em 3-5 dias úteis
+              </h2>
+              <p className="text-gray-700 mb-6 text-sm leading-relaxed">
+                Somos fabricantes locais em Itumbiara. Atendemos todo o sul goiano com prazo recorde, produção direta sem intermediários e frete reduzido.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                {["Itumbiara", "Morrinhos", "Goiatuba", "Buriti Alegre", "Caldas Novas", "Rio Verde"].map(
+                  (cityName) => {
+                    const city = CITIES_DATA.find((c) => c.name === cityName)
+                    return city ? (
+                      <Link
+                        key={city.slug}
+                        href={`/capacho-personalizado-${city.slug}`}
+                        className="px-3 py-2.5 rounded-lg font-bold text-green-800 text-center text-xs md:text-sm transition hover:bg-green-200"
+                        style={{ background: "rgba(34,197,94,0.15)" }}
+                      >
+                        {city.name}
+                      </Link>
+                    ) : null
+                  }
+                )}
+              </div>
+            </section>
+
+            <section className="p-8 rounded-2xl bg-emerald-50 border-2 border-emerald-200 shadow-sm">
+              <h2
+                className="text-2xl font-bold mb-3"
+                style={{ fontFamily: "var(--font-heading)", color: "#065F46" }}
+              >
+                ⚡ Triângulo Mineiro (MG) — Rota Direta de Fábrica
+              </h2>
+              <p className="text-gray-700 mb-6 text-sm leading-relaxed">
+                Vizinhos de fronteira: abastecemos as empresas e condomínios do Triângulo Mineiro com envio expresso e preços direto de fábrica.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                {["Araporã", "Centralina", "Uberlândia", "Araguari", "Uberaba", "Ituiutaba"].map(
+                  (cityName) => {
+                    const city = CITIES_DATA.find((c) => c.name === cityName)
+                    return city ? (
+                      <Link
+                        key={city.slug}
+                        href={`/capacho-personalizado-${city.slug}`}
+                        className="px-3 py-2.5 rounded-lg font-bold text-emerald-800 text-center text-xs md:text-sm transition hover:bg-emerald-200"
+                        style={{ background: "rgba(16,185,129,0.15)" }}
+                      >
+                        {city.name}
+                      </Link>
+                    ) : null
+                  }
+                )}
+              </div>
+            </section>
+          </div>
 
           {/* Cidades por Estado */}
           {stateOrder.map((state) => {

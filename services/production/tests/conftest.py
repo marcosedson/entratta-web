@@ -1,0 +1,25 @@
+import pytest
+
+from app.schemas import DesignPayload
+
+
+@pytest.fixture
+def payload_simples() -> DesignPayload:
+    return DesignPayload(
+        pedido_id="ENTR-260718-001",
+        tamanho_mm={"largura": 600, "altura": 400},
+        viewbox_px={"w": 600, "h": 400},
+        fundo={"cor_id": "cinza"},
+        borda={"estilo": "fina", "aci": 9},
+        textos=[
+            {
+                "texto": "ENTRATTA",
+                "fonte_id": "bebas",
+                "aci": 230,
+                "x": 300,
+                "y": 200,
+                "tamanho_px": 80,
+            }
+        ],
+        logos=[],
+    )
