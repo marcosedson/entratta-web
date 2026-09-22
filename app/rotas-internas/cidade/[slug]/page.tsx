@@ -85,7 +85,7 @@ function ProductSchema({ city }: { city: (typeof CITIES_DATA)[0] }) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `Capacho de Vinil Personalizado com Logo em ${city.name}`,
-    description: `Capacho de vinil com logo e texto personalizados, impressão 300 DPI, base antiderrapante — fabricado para ${city.demanda} em ${city.name}, ${city.state}.`,
+    description: `Capacho de vinil com logo e texto personalizados, recortado em CNC, base antiderrapante — fabricado para ${city.demanda} em ${city.name}, ${city.state}.`,
     brand: {
       "@type": "Brand",
       name: "ENTRATTA",
@@ -262,7 +262,7 @@ export default async function CityPage({ params }: Props) {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-500 font-bold">✓</span>
-                <span>Vinil de alta resistência com impressão 300 DPI</span>
+                <span>Vinil de alta resistência recortado em CNC</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-500 font-bold">✓</span>

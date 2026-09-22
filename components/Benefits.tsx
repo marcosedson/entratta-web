@@ -9,7 +9,7 @@ import {
 
 const TITLES = [
   'Vinil de Alta Resistência',
-  'Impressão Sublimação 300 DPI',
+  'Recorte CNC de precisão',
   'Base Antiderrapante',
   'Personalização Total',
   'Medidas sob Medida',

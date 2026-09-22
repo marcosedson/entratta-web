@@ -13,11 +13,11 @@ const FAQS = [
   },
   {
     q: 'Posso enviar a logo da minha empresa?',
-    a: 'Sim! Basta enviar sua logo pelo WhatsApp (PNG, JPG ou SVG em boa resolução). A arte é impressa em alta definição com sublimação 300 DPI — cores vivas e duradouras mesmo com uso intenso.',
+    a: 'Sim! Basta enviar sua logo pelo WhatsApp (PNG, JPG ou SVG em boa resolução). A arte é vetorizada e recortada em CNC no vinil — acabamento preciso e cores sólidas e duradouras mesmo com uso intenso.',
   },
   {
     q: 'Quais materiais são utilizados nos capachos?',
-    a: 'Utilizamos vinil de alta resistência com base em borracha antiderrapante. A impressão é feita por sublimação digital, garantindo cores vivas e duradouras. O material é resistente à água, produtos de limpeza e tráfego intenso.',
+    a: 'Utilizamos vinil de alta resistência com base em borracha antiderrapante. O desenho é recortado em CNC no próprio vinil, com cores sólidas e duradouras. O material é resistente à água, produtos de limpeza e tráfego intenso.',
   },
   {
     q: 'Existe pedido mínimo?',

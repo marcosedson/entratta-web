@@ -155,7 +155,7 @@ const jsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Capacho de Vinil Personalizado com Logo",
-          description: "Capacho de vinil com logo e texto personalizados, impressão 300 DPI, base antiderrapante",
+          description: "Capacho de vinil com logo e texto personalizados, recortado em CNC, base antiderrapante",
         },
       },
       {

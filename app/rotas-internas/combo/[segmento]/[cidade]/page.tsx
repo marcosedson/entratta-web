@@ -339,7 +339,7 @@ export default async function CitySegmentPage({ params }: Props) {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-500 font-bold">✓</span>
-                <span>Vinil de alta resistência com impressão 300 DPI</span>
+                <span>Vinil de alta resistência recortado em CNC</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-green-500 font-bold">✓</span>
