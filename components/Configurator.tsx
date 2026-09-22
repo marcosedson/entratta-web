@@ -162,7 +162,7 @@ export function Configurator() {
         <div style={secStyle}>
           <SectionTitle>Medida do capacho</SectionTitle>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '7px' }}>
-            {Object.entries(MEDIDAS).map(([key, m]) => (
+            {Object.entries(MEDIDAS).filter(([, m]) => !m.legacy).map(([key, m]) => (
               <button
                 key={key}
                 onClick={() => set({ medida: key })}

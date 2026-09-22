@@ -8,6 +8,7 @@ export interface Measurement {
   l: string
   w: number
   c: number
+  legacy?: boolean
 }
 
 export interface BorderOption {

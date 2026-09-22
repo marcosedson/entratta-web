@@ -44,13 +44,16 @@ export const CORES_BORDA = [
   { id: 'preto', label: 'Preto', hex: '#111111' },
   { id: 'ouro', label: 'Ouro', hex: '#B8860B' },
 ]
-export const MEDIDAS: Record<string, { l: string; w: number | null; c: number | null }> = {
+// legacy: fora do catálogo, mantidas para links antigos do ML/Shopee (?tamanho=)
+export const MEDIDAS: Record<string, { l: string; w: number | null; c: number | null; legacy?: boolean }> = {
   '40x60': { l: '40×60 cm', w: 0.40, c: 0.60 },
   '50x80': { l: '50×80 cm', w: 0.50, c: 0.80 },
   '60x90': { l: '60×90 cm', w: 0.60, c: 0.90 },
-  '80x120': { l: '80×120 cm', w: 0.80, c: 1.20 },
-  '100x150': { l: '100×150 cm', w: 1.00, c: 1.50 },
+  '60x120': { l: '60×120 cm', w: 0.60, c: 1.20 },
+  '90x120': { l: '90×120 cm', w: 0.90, c: 1.20 },
   'custom': { l: 'Sob medida', w: null, c: null },
+  '80x120': { l: '80×120 cm', w: 0.80, c: 1.20, legacy: true },
+  '100x150': { l: '100×150 cm', w: 1.00, c: 1.50, legacy: true },
 }
 export const BORDAS = [
   { id: 'sem', l: 'Sem borda' },
@@ -70,17 +73,6 @@ export const FONTES = [
   { id: 'rounded',   l: 'Arredondada', f: "'Nunito', sans-serif",               w: '800' },
 ]
 
-export function calcPreco(medida: string, customL: string, customC: string) {
-  if (medida === 'custom') {
-    const l = parseFloat(customL) || 0
-    const c = parseFloat(customC) || 0
-    if (l > 0 && c > 0) return Math.round((l / 100) * (c / 100) * 300)
-    return null
-  }
-  const m = MEDIDAS[medida]
-  if (!m.w || !m.c) return null
-  return Math.round(m.w * m.c * 300)
-}
 
 export function makeId() {
   return Math.random().toString(36).slice(2, 9)

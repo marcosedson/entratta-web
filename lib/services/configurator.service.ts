@@ -2,18 +2,6 @@ import { ConfiguratorState } from '@/lib/hooks'
 import { MEASUREMENTS, WPP_PHONE } from '@/lib/constants'
 
 export class ConfiguratorService {
-  static calculatePrice(state: ConfiguratorState): number | null {
-    if (state.medida === 'custom') {
-      const l = parseFloat(state.customL) || 0
-      const c = parseFloat(state.customC) || 0
-      return l > 0 && c > 0 ? Math.round((l / 100) * (c / 100) * 300) : null
-    }
-
-    const measurement = MEASUREMENTS[state.medida]
-    if (!measurement) return null
-    return Math.round(measurement.w * measurement.c * 300)
-  }
-
   static getMeasurementLabel(state: ConfiguratorState): string {
     if (state.medida === 'custom') {
       return `${state.customL || '?'}×${state.customC || '?'} cm`

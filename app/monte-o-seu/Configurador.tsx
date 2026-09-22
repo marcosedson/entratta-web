@@ -5,7 +5,7 @@ import { trackOrderCompleted, trackConfiguradorConfig } from '@/lib/analytics'
 import {
   TextoItem, LogoItem,
   CORES_TAPETE, CORES_TEXTO, CORES_BORDA, MEDIDAS, BORDAS, FONTES,
-  calcPreco, makeId,
+  makeId,
 } from './types'
 
 // ── Styles ──
@@ -140,8 +140,6 @@ export default function Configurador({ lockedTamanho, lockedCor, pedidoInicial, 
   const PAD = 18
   const SNAP = 14
 
-  const preco = calcPreco(medida, customL, customC)
-  const precoFmt = preco ? `R$ ${preco.toLocaleString('pt-BR')}` : '—'
   const medidaLabel = medida === 'custom' ? `${customL || '?'}×${customC || '?'} cm` : MEDIDAS[medida].l
   const bordaHex = CORES_BORDA.find(c => c.id === corBorda)?.hex || '#FFFFFF'
 
@@ -264,7 +262,6 @@ Cor: ${corObj.label}${lockedCor ? ' (via marketplace)' : ''}
 Textos: ${textosDesc}
 Borda: ${bordaObj.l}${borda !== 'sem' ? ' — ' + bordaCorLabel : ''}
 Logos: ${logos.length > 0 ? logos.length + ' logo(s)' : 'não'}
-Valor estimado: ${precoFmt}
 Prazo: ${adminConfig.diasUteis} dias úteis
 
 Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
@@ -455,7 +452,6 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
     row('Cor do tapete', corTapeteObj.label + (lockedCor ? ' (via marketplace)' : ''))
     row('Borda', BORDAS.find(b => b.id === borda)?.l || borda)
     if (borda !== 'sem') row('Cor da borda', CORES_BORDA.find(c => c.id === corBorda)?.label || corBorda)
-    row('Valor estimado', precoFmt)
     row('Prazo de produção', `${adminConfig.diasUteis} dias úteis`)
     y += 3
 
@@ -701,7 +697,7 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
             {/* Medida */}
             <Section title="Medida do capacho" locked={!!lockedTamanho}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 7, pointerEvents: lockedTamanho ? 'none' : undefined, opacity: lockedTamanho ? 0.75 : 1 }}>
-                {Object.entries(MEDIDAS).map(([id, md]) => (
+                {Object.entries(MEDIDAS).filter(([id, md]) => !md.legacy || id === medida).map(([id, md]) => (
                   <button key={id} onClick={() => setMedida(id)} disabled={!!lockedTamanho} style={{
                     padding: '9px 6px', borderRadius: 8, cursor: lockedTamanho ? 'not-allowed' : 'pointer', outline: 'none', fontSize: '.75rem', fontWeight: 600, textAlign: 'center', position: 'relative',
                     border: `1.5px solid ${medida === id ? '#22C55E' : 'rgba(255,255,255,.07)'}`,
@@ -709,7 +705,7 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
                     color: medida === id ? '#22C55E' : '#94A3B8',
                   }}>
                     {md.l}
-                    {(id === '60x90' || id === '80x120') && !lockedTamanho && <span style={{ position: 'absolute', top: -6, right: -4, background: '#22C55E', color: '#000', fontSize: '.52rem', fontWeight: 800, padding: '1px 5px', borderRadius: 5 }}>POP</span>}
+                    {(id === '60x90' || id === '60x120') && !lockedTamanho && <span style={{ position: 'absolute', top: -6, right: -4, background: '#22C55E', color: '#000', fontSize: '.52rem', fontWeight: 800, padding: '1px 5px', borderRadius: 5 }}>POP</span>}
                   </button>
                 ))}
               </div>
@@ -718,13 +714,6 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
                   <input type="text" placeholder="Largura (cm)" maxLength={4} value={customL} onChange={e => setCustomL(e.target.value)} style={{ ...inputStyle, textAlign: 'center' }} />
                   <span style={{ display: 'flex', alignItems: 'center', color: '#4B6A8A', fontSize: '1.1rem' }}>×</span>
                   <input type="text" placeholder="Comprim. (cm)" maxLength={4} value={customC} onChange={e => setCustomC(e.target.value)} style={{ ...inputStyle, textAlign: 'center' }} />
-                </div>
-              )}
-              {preco && (
-                <div style={{ marginTop: 10 }}>
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(34,197,94,.1)', border: '1px solid rgba(34,197,94,.25)', borderRadius: 10, padding: '8px 14px', fontWeight: 800, fontSize: '1.1rem', color: '#22C55E' }}>
-                    💰 {precoFmt} <span style={{ fontSize: '.65rem', fontWeight: 400, color: '#4ADE80', marginLeft: 4 }}>tapete pronto</span>
-                  </div>
                 </div>
               )}
             </Section>
@@ -1041,7 +1030,7 @@ Arte aprovada digitalmente — aguardo confirmação para produção.`.trim()
                 { l: 'Medida', v: medidaLabel },
                 { l: 'Cor', v: corTapeteObj.label },
                 { l: 'Textos', v: textos.filter(t => t.texto).length > 0 ? textos.filter(t => t.texto).length.toString() : '—' },
-                { l: 'Preço', v: precoFmt, green: true },
+                { l: 'Prazo', v: `${adminConfig.diasUteis} dias úteis` },
               ].map(c => (
                 <div key={c.l} style={{ background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.06)', borderRadius: 8, padding: '8px 10px' }}>
                   <div style={{ fontSize: '.58rem', color: '#2E4A6A', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.4px', marginBottom: 2 }}>{c.l}</div>
