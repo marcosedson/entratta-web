@@ -202,30 +202,13 @@ export default function AdminPage() {
           {salvando ? 'Salvando...' : saved ? '✓ Salvo com sucesso!' : 'Salvar configurações'}
         </button>
 
-        {/* URL template */}
+        {/* Pós-venda */}
         <div style={{ ...card, marginTop: 32, background: 'rgba(30,58,95,.15)', border: '1px solid rgba(30,58,95,.4)' }}>
-          <span style={{ ...label, color: '#60A5FA' }}>🛒 Template de URL para ML/Shopee</span>
-          <p style={{ fontSize: '.75rem', color: '#94A3B8', marginBottom: 10, lineHeight: 1.6 }}>
-            Configure na mensagem pós-compra do ML/Shopee. Substitua os valores conforme o produto:
-          </p>
-          {[
-            { label: 'Tapete Preto 60×90', url: '/monte-o-seu?tamanho=60x90&cor=preto&pedido={order_id}&canal=ml' },
-            { label: 'Tapete Verde 40×60', url: '/monte-o-seu?tamanho=40x60&cor=verde&pedido={order_id}&canal=ml' },
-            { label: 'Shopee genérico', url: '/monte-o-seu?tamanho=60x90&cor=preto&pedido={order_id}&canal=shopee' },
-          ].map(ex => (
-            <div key={ex.label} style={{ marginBottom: 8 }}>
-              <div style={{ fontSize: '.65rem', color: '#60A5FA', fontWeight: 700, marginBottom: 3 }}>{ex.label}</div>
-              <code style={{
-                display: 'block', background: 'rgba(0,0,0,.3)', padding: '7px 10px',
-                borderRadius: 6, fontSize: '.7rem', color: '#4ADE80',
-                wordBreak: 'break-all', fontFamily: 'monospace',
-              }}>
-                {`https://entratta.com.br${ex.url}`}
-              </code>
-            </div>
-          ))}
-          <p style={{ fontSize: '.68rem', color: '#2E4A6A', marginTop: 8, lineHeight: 1.6 }}>
-            No ML: <strong style={{ color: '#60A5FA' }}>{'{{order.id}}'}</strong> ou <strong style={{ color: '#60A5FA' }}>{'{order_id}'}</strong> — verifique o template disponível na sua conta vendedor.
+          <span style={{ ...label, color: '#60A5FA' }}>🛒 Pós-venda ML/Shopee</span>
+          <p style={{ fontSize: '.75rem', color: '#94A3B8', lineHeight: 1.6 }}>
+            A mensagem ao comprador sai automática pelos webhooks e pede texto e logo pelo próprio chat do pedido.
+            Não coloque link, telefone ou WhatsApp na mensagem pós-compra: ML e Shopee moderam dados de contato
+            e podem penalizar a conta. Responda e envie a prévia da arte no chat do marketplace.
           </p>
         </div>
       </div>

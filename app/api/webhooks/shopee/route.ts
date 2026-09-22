@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getShopeeOrder, sendShopeeMessage, parseShopeeVariation, verifyShopeeWebhook } from '@/lib/shopee-api'
-import { sendWhatsAppGroup, buildOrderNotification } from '@/lib/notifications'
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://entratta.com.br'
+import { sendWhatsAppGroup, buildOrderNotification, buildBuyerPersonalizationMessage } from '@/lib/notifications'
 
 export async function POST(request: NextRequest) {
   const rawBody = await request.text()
@@ -38,20 +36,11 @@ async function processShopeeOrder(body: any) {
   const buyerName: string = order.buyer_username ?? 'Cliente'
   const { tamanho, cor } = parseShopeeVariation(orderData.response ?? orderData)
 
-  const params = new URLSearchParams({ canal: 'shopee', pedido: ordersn })
-  if (tamanho) params.set('tamanho', tamanho)
-  if (cor) params.set('cor', cor)
-  const configuradorUrl = `${BASE_URL}/monte-o-seu?${params}`
-
-  const buyerMsg =
-    `Olá ${buyerName}! 👋\n\n` +
-    `Obrigado pela compra na Entratta! Para personalizar seu capacho com texto e/ou logo, acesse:\n\n` +
-    `${configuradorUrl}\n\n` +
-    `O tamanho e a cor que você escolheu já estão pré-selecionados. Qualquer dúvida, responda aqui! 😊`
+  const buyerMsg = buildBuyerPersonalizationMessage({ buyerName, tamanho, cor })
 
   if (buyerId) await sendShopeeMessage(buyerId, buyerMsg).catch(() => {})
 
   await sendWhatsAppGroup(buildOrderNotification({
-    canal: 'shopee', orderId: ordersn, buyerName, tamanho, cor, configuradorUrl,
+    canal: 'shopee', orderId: ordersn, buyerName, tamanho, cor,
   }))
 }

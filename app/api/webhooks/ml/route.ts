@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getMLOrder, sendMLMessage, getMLTokens, parseMLVariation } from '@/lib/ml-api'
-import { sendWhatsAppGroup, buildOrderNotification } from '@/lib/notifications'
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://entratta.com.br'
+import { sendWhatsAppGroup, buildOrderNotification, buildBuyerPersonalizationMessage } from '@/lib/notifications'
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null)
@@ -32,20 +30,11 @@ async function processMLOrder(body: any) {
 
   const { tamanho, cor } = parseMLVariation(order)
 
-  const params = new URLSearchParams({ canal: 'ml', pedido: orderId })
-  if (tamanho) params.set('tamanho', tamanho)
-  if (cor) params.set('cor', cor)
-  const configuradorUrl = `${BASE_URL}/monte-o-seu?${params}`
-
-  const buyerMsg =
-    `Olá ${buyerName}! 👋\n\n` +
-    `Obrigado pela compra na Entratta! Para personalizar seu capacho com texto e/ou logo, acesse:\n\n` +
-    `${configuradorUrl}\n\n` +
-    `O tamanho e a cor que você escolheu já estão pré-selecionados. Qualquer dúvida, responda aqui! 😊`
+  const buyerMsg = buildBuyerPersonalizationMessage({ buyerName, tamanho, cor })
 
   await sendMLMessage(packId, tokens.user_id, buyerId, buyerMsg).catch(() => {})
 
   await sendWhatsAppGroup(buildOrderNotification({
-    canal: 'ml', orderId, buyerName, tamanho, cor, preco, configuradorUrl,
+    canal: 'ml', orderId, buyerName, tamanho, cor, preco,
   }))
 }

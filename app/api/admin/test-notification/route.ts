@@ -8,16 +8,13 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const configuradorUrl = `${process.env.NEXT_PUBLIC_BASE_URL ?? 'https://entratta.com.br'}/monte-o-seu?tamanho=60x90&cor=preto&pedido=TESTE-001&canal=ml`
-
     await sendWhatsAppGroup(buildOrderNotification({
       canal: 'ml',
       orderId: 'TESTE-001',
       buyerName: 'Cliente Teste',
       tamanho: '60x90',
       cor: 'preto',
-      preco: 'R$ 162,00',
-      configuradorUrl,
+      preco: 'R$ 179,90',
     }))
 
     return NextResponse.json({ ok: true })
