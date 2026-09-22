@@ -12,3 +12,4 @@ export const NAV_LINKS: MenuItem[] = [
 
 export const WPP_PHONE = '5564992066855'
 export const WPP_URL = 'https://wa.me/5564992066855'
+export const ML_STORE_URL = 'https://lista.mercadolivre.com.br/_CustId_3459954476'

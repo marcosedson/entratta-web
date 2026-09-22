@@ -25,3 +25,14 @@ export interface SEOMetadata {
   keywords: string[]
   ogImage?: string
 }
+
+export interface SizeGuideItem {
+  id: string
+  label: string
+  widthCm: number
+  heightCm: number
+  fitsDoor: string
+  bestFor: string
+}
+
+export type ProductLine = 'liso' | 'arte-pronta' | 'personalizado'
