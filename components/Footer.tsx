@@ -82,6 +82,7 @@ export function Footer() {
             <h3 className="font-bold text-white text-sm mb-4">Navegação</h3>
             <ul className="space-y-3">
               {[
+                { href: '/capacho-liso', label: 'Capacho Liso', external: false },
                 { href: '/medidas', label: 'Guia de Medidas', external: false },
                 { href: '/como-funciona', label: 'Como Funciona', external: false },
                 { href: '/depoimentos', label: 'Depoimentos', external: false },

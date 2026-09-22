@@ -21,3 +21,6 @@ export { VINYL_INVENTORY, findClosestVinylColor, type VinylColor } from './vinyl
 
 // Size guide (/medidas)
 export { SIZE_GUIDE, PRODUCT_LINES, SIZE_FAQ, MAX_GUIDE_WIDTH_CM } from './size-guide'
+
+// Capacho liso (/capacho-liso)
+export { LISO_WHATSAPP_MESSAGE, LISO_USES, LISO_FAQ } from './capacho-liso'

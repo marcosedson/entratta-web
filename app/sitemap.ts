@@ -21,6 +21,12 @@ const staticPages = [
     priority: 0.9,
   },
   {
+    url: `${baseUrl}/capacho-liso`,
+    lastModified: staticLastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  },
+  {
     url: `${baseUrl}/medidas`,
     lastModified: staticLastModified,
     changeFrequency: "monthly" as const,

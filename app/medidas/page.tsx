@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { SIZE_FAQ } from '@/lib/constants'
+import { SEOService } from '@/lib/services/seo.service'
 import { SizeQuote } from './SizeQuote'
 
 const title = 'Tamanho de Capacho: Guia de Medidas por Porta | Entratta'
@@ -18,15 +19,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title, description },
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: SIZE_FAQ.map(({ q, a }) => ({
-    '@type': 'Question',
-    name: q,
-    acceptedAnswer: { '@type': 'Answer', text: a },
-  })),
-}
+const faqSchema = SEOService.buildFaqSchema(SIZE_FAQ)
 
 export default function MedidasPage() {
   return (

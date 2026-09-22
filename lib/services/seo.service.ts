@@ -49,6 +49,18 @@ export class SEOService {
     return breadcrumbs
   }
 
+  static buildFaqSchema(items: { q: string; a: string }[]) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: items.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    }
+  }
+
   static isValidUrl(url: string): boolean {
     try {
       new URL(url)
