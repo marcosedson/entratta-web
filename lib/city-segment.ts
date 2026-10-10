@@ -23,6 +23,30 @@ const TOP_CITIES = [
   "morrinhos",
 ]
 
+// Segmentos com demanda local real; os demais (chinelo, náutico, futebol…)
+// não fazem sentido combinados com cidade e redirecionam para a página do segmento
+const COMBO_SEGMENTS = [
+  "empresa",
+  "condominio",
+  "industria",
+  "supermercado",
+  "clinica",
+  "hotel",
+  "residencial",
+  "restaurante",
+  "agronegocio",
+  "concessionaria",
+  "estetica",
+  "academia",
+  "odontologia",
+]
+
+export function isComboSegment(slug: string): boolean {
+  return COMBO_SEGMENTS.includes(slug)
+}
+
+const comboSegments = () => SEGMENTS_DATA.filter((s) => isComboSegment(s.slug))
+
 export function getTopCities(): City[] {
   return CITIES_DATA.filter((city) => TOP_CITIES.includes(city.slug))
 }
@@ -55,7 +79,7 @@ export function getAllCitySegmentCombos(): CitySegmentCombo[] {
   const combos: CitySegmentCombo[] = []
 
   for (const city of getTopCities()) {
-    for (const segment of SEGMENTS_DATA) {
+    for (const segment of comboSegments()) {
       combos.push(generateCitySegmentCombo(city, segment))
     }
   }
@@ -70,7 +94,7 @@ export function getCitySegmentCombo(
   const city = getCityBySlug(citySlug)
   const segment = getSegmentBySlug(segmentSlug)
 
-  if (!city || !segment) return undefined
+  if (!city || !segment || !isComboSegment(segment.slug)) return undefined
 
   return generateCitySegmentCombo(city, segment)
 }
@@ -79,14 +103,14 @@ export function getCitySegmentCombosForCity(citySlug: string): CitySegmentCombo[
   const city = getCityBySlug(citySlug)
   if (!city) return []
 
-  return SEGMENTS_DATA.map((segment) => generateCitySegmentCombo(city, segment))
+  return comboSegments().map((segment) => generateCitySegmentCombo(city, segment))
 }
 
 export function getCitySegmentCombosForSegment(
   segmentSlug: string
 ): CitySegmentCombo[] {
   const segment = getSegmentBySlug(segmentSlug)
-  if (!segment) return []
+  if (!segment || !isComboSegment(segment.slug)) return []
 
   return getTopCities().map((city) => generateCitySegmentCombo(city, segment))
 }

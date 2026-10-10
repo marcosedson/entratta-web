@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import {
   getCitySegmentCombo,
   getCitySegmentCombosForSegment,
@@ -118,7 +118,7 @@ function CitySegmentSchemas({
     mainEntity: [
       {
         "@type": "Question",
-        name: `Qual o preço de ${combo.segment.name.toLowerCase()} em ${combo.city.name}?`,
+        name: `Qual o preço de capacho personalizado para ${combo.segment.name.toLowerCase()} em ${combo.city.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `O preço de um capacho personalizado para ${combo.segment.name.toLowerCase()} em ${combo.city.name} varia conforme tamanho, quantidade e personalização. Solicite seu orçamento personalizado via WhatsApp.`,
@@ -134,7 +134,7 @@ function CitySegmentSchemas({
       },
       {
         "@type": "Question",
-        name: `Como solicitar um ${combo.segment.name.toLowerCase()} em ${combo.city.name}?`,
+        name: `Como pedir capacho personalizado para ${combo.segment.name.toLowerCase()} em ${combo.city.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `Envie mensagem no WhatsApp com foto da logo, cores desejadas e tamanho. Você recebe orçamento em menos de 1 hora.`,
@@ -166,6 +166,7 @@ export default async function CitySegmentPage({ params }: Props) {
   const combo = getCitySegmentCombo(cidade, segmento)
 
   if (!combo) {
+    if (getSegmentBySlug(segmento)) permanentRedirect(`/capacho-para-${segmento}`)
     notFound()
   }
 
@@ -213,7 +214,7 @@ export default async function CitySegmentPage({ params }: Props) {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-              Por que {combo.segment.name} em {combo.city.name}?
+              Por que um capacho personalizado para {combo.segment.name.toLowerCase()} em {combo.city.name}?
             </h2>
             <p className="text-gray-700 mb-4">
               {combo.segment.description}
@@ -268,7 +269,7 @@ export default async function CitySegmentPage({ params }: Props) {
                   className="font-bold text-gray-800 flex items-center justify-between"
                   style={{ userSelect: "none" }}
                 >
-                  <span>Qual o preço de {combo.segment.name.toLowerCase()} em {combo.city.name}?</span>
+                  <span>Qual o preço de capacho personalizado para {combo.segment.name.toLowerCase()} em {combo.city.name}?</span>
                   <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
                 </summary>
                 <p className="text-gray-700 mt-3">
@@ -300,7 +301,7 @@ export default async function CitySegmentPage({ params }: Props) {
                   className="font-bold text-gray-800 flex items-center justify-between"
                   style={{ userSelect: "none" }}
                 >
-                  <span>Como solicitar um {combo.segment.name.toLowerCase()} em {combo.city.name}?</span>
+                  <span>Como pedir capacho personalizado para {combo.segment.name.toLowerCase()} em {combo.city.name}?</span>
                   <span style={{ color: "#22C55E", marginLeft: "1rem" }}>+</span>
                 </summary>
                 <p className="text-gray-700 mt-3">

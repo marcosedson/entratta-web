@@ -180,7 +180,7 @@ export default async function CityPage({ params }: Props) {
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
             A ENTRATTA fabrica capachos personalizados em vinil para empresas, condomínios e residências em {city.name} e região.
-            Como fabricantes diretos em Itumbiara, {city.diferencial}
+            Nossa fábrica fica em Itumbiara-GO. {city.diferencial}
           </p>
 
           <section className="mb-12">
