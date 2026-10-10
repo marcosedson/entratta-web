@@ -108,8 +108,8 @@ export function Hero() {
               lineHeight: 1.08,
             }}
           >
-            A primeira impressão{' '}
-            <span style={{ color: '#16A34A', fontStyle: 'italic' }}>começa no chão.</span>
+            Capacho personalizado{' '}
+            <span style={{ color: '#16A34A', fontStyle: 'italic' }}>direto da fábrica.</span>
           </h1>
 
           <p

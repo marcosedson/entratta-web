@@ -21,22 +21,22 @@ export default function Image() {
           fontFamily: '"Plus Jakarta Sans", sans-serif',
         }}
       >
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: "72px", fontWeight: "bold", marginBottom: "20px" }}>
             Capacho Personalizado com Logo
           </div>
           <div style={{ fontSize: "36px", color: "#22C55E", marginBottom: "20px" }}>
-            ENTRATTA Fabricante — 3 dias úteis
+            ENTRATTA — Fábrica em Itumbiara-GO
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-          <div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: "28px", marginBottom: "10px" }}>
               ✓ Fabricante Direto
             </div>
             <div style={{ fontSize: "28px", marginBottom: "10px" }}>
-              ✓ Entrega em 3 dias úteis
+              ✓ Envio para todo o Brasil
             </div>
             <div style={{ fontSize: "28px" }}>
               ✓ Orçamento Grátis

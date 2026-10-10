@@ -26,7 +26,7 @@ function ContactSchemas() {
     description: "Fabricante de capachos personalizados em vinil.",
     url: "https://entratta.com.br",
     telephone: "+55-64-99206-6855",
-    image: "https://entratta.com.br/opengraph-image.png",
+    image: "https://entratta.com.br/opengraph-image",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Av. Cristo Rei, 410 A - Distrito Novo Horizonte",

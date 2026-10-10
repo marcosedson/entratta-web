@@ -59,7 +59,7 @@ function BlogArticleSchemas({ post }: { post: ReturnType<typeof getBlogPostBySlu
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `https://entratta.com.br/opengraph-image.png`,
+    image: `https://entratta.com.br/opengraph-image`,
     datePublished: post.publishedAt.toISOString(),
     dateModified: post.publishedAt.toISOString(),
     author: {

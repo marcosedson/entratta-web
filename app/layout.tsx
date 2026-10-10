@@ -29,7 +29,7 @@ const syne = Syne({
 export const metadata: Metadata = {
   title: "Capacho Personalizado com Logo | Fabricante | Entratta",
   description:
-    "Fabricante de capachos personalizados em vinil com logo da sua empresa. Entrega em 3 dias para todo o Brasil. Orçamento grátis no WhatsApp.",
+    "Fabricante de capachos personalizados de vinil com a logo da sua empresa. Fábrica em Itumbiara-GO, envio para todo o Brasil. Orçamento grátis no WhatsApp.",
   authors: [{ name: "Entratta" }],
   creator: "Entratta",
   metadataBase: new URL("https://entratta.com.br"),
@@ -66,7 +66,7 @@ const jsonLd = {
     "Fabricante de capachos personalizados em vinil com logo para empresas, condomínios, indústrias e residências. Corte e vulcanização CNC direta de fábrica. Entrega rápida para todo o Brasil.",
   url: "https://entratta.com.br",
   telephone: "+55-64-99206-6855",
-  image: "https://entratta.com.br/opengraph-image.png",
+  image: "https://entratta.com.br/opengraph-image",
   priceRange: "$",
   slogan: "Capacho personalizado direto de fábrica — sem intermediários, sem revenda.",
   knowsAbout: [
@@ -118,12 +118,6 @@ const jsonLd = {
     { "@type": "City", name: "Anápolis", addressRegion: "GO" },
     { "@type": "City", name: "Senador Canedo", addressRegion: "GO" },
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "18",
-    bestRating: "5",
-  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+55-64-99206-6855",

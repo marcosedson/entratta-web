@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : "Capacho Personalizado com Logo | Fabricante | Entratta"
   const description = city.name
     ? `Capacho personalizado com logo para empresas e condomínios em ${city.name}. Fabricante direto em Goiás. Entrega rápida. Orçamento grátis no WhatsApp.`
-    : "Fabricante de capachos personalizados em vinil com logo da sua empresa. Entrega em 3 dias para todo o Brasil. Orçamento grátis no WhatsApp."
+    : "Fabricante de capachos personalizados de vinil com a logo da sua empresa. Fábrica em Itumbiara-GO, envio para todo o Brasil. Orçamento grátis no WhatsApp."
 
   return {
     title,
