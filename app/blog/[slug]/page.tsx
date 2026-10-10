@@ -157,7 +157,7 @@ function ArticleContent({ content }: { content: string }) {
     // Main title (all caps, after ═══)
     if (line.match(/^[A-ZÁÉÍÓÚ\s\?]+$/) && line.length > 20) {
       elements.push(
-        <h1
+        <h2
           key={`h1-${i}`}
           style={{
             fontFamily: "var(--font-heading)",
@@ -170,7 +170,7 @@ function ArticleContent({ content }: { content: string }) {
           }}
         >
           {line}
-        </h1>
+        </h2>
       )
       i++
       continue

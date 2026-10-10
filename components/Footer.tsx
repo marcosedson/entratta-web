@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { FACTORY } from '@/lib/constants'
 
 const WPP_URL = 'https://wa.me/5564992066855'
 const WPP_DISPLAY = '(64) 99206-6855'
@@ -130,8 +131,13 @@ export function Footer() {
               </a>
 
               <div className="text-xs pt-2 space-y-1.5" style={{ color: '#94A3B8' }}>
+                <address className="not-italic leading-relaxed">
+                  {FACTORY.street}
+                  <br />
+                  {FACTORY.postalCode} · {FACTORY.city}-{FACTORY.state}
+                </address>
                 <div>Segunda a Sexta: 8h – 18h</div>
-                <div>Produção nacional · Entrega em todo o Brasil</div>
+                <div>Fábrica em Itumbiara-GO · Entrega em todo o Brasil</div>
                 <div style={{ paddingTop: '4px', borderTop: '1px solid rgba(255,255,255,0.04)', marginTop: '4px' }}>
                   CNPJ 63.097.185/0001-14
                 </div>
