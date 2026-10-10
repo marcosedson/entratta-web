@@ -82,16 +82,16 @@ const jsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "R. Urupema, Nº 236 - Planalto",
+    streetAddress: "Av. Cristo Rei, 410 A - Distrito Novo Horizonte",
     addressLocality: "Itumbiara",
     addressRegion: "GO",
-    postalCode: "75533-130",
+    postalCode: "75532-150",
     addressCountry: "BR",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: -18.4186,
-    longitude: -49.2155,
+    latitude: -18.4139,
+    longitude: -49.2361,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",

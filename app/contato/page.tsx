@@ -29,16 +29,16 @@ function ContactSchemas() {
     image: "https://entratta.com.br/opengraph-image.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "R. Urupema, Nº 236 - Planalto",
+      streetAddress: "Av. Cristo Rei, 410 A - Distrito Novo Horizonte",
       addressLocality: "Itumbiara",
       addressRegion: "GO",
-      postalCode: "75533-130",
+      postalCode: "75532-150",
       addressCountry: "BR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -18.4186,
-      longitude: -49.2155,
+      latitude: -18.4139,
+      longitude: -49.2361,
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -119,10 +119,10 @@ export default function ContactPage() {
                 <strong>ENTRATTA Capachos Personalizados</strong>
               </p>
               <p className="text-gray-700 mb-1">
-                R. Urupema, Nº 236 - Planalto
+                Av. Cristo Rei, 410 A - Distrito Novo Horizonte
               </p>
               <p className="text-gray-700 mb-4">
-                75533-130 — Itumbiara, GO
+                75532-150 — Itumbiara, GO
               </p>
 
               <h3
@@ -148,7 +148,7 @@ export default function ContactPage() {
                 loading="lazy"
                 allowFullScreen={true}
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.1628649267296!2d-49.21547622349122!3d-18.418586271234286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bc849b56b5c5cd%3A0xa56b56b56b56b56b!2sR.%20Urupema%2C%20236%20-%20Planalto%2C%20Itumbiara%20-%20GO%2C%2075533-130!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                src="https://www.google.com/maps?q=Av.%20Cristo%20Rei%2C%20410%20A%20-%20Novo%20Horizonte%2C%20Itumbiara%20-%20GO%2C%2075532-150&output=embed"
               ></iframe>
             </div>
           </section>
