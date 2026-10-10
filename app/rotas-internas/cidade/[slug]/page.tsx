@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { getCityBySlug, getAllCitySlugs, CITIES_DATA } from "@/lib/data"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
+import { CityLocalLinks } from "@/components/CityLocalLinks"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
 import { Breadcrumb } from "@/components/Breadcrumb"
 
@@ -278,6 +279,8 @@ export default async function CityPage({ params }: Props) {
               </li>
             </ul>
           </section>
+
+          <CityLocalLinks city={city} />
         </div>
       </main>
       <Footer />

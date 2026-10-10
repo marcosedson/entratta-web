@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { getSegmentBySlug, getAllSegmentSlugs, SEGMENTS_DATA } from "@/lib/segments"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
+import { SegmentCityLinks } from "@/components/SegmentCityLinks"
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
 
 interface Props {
@@ -294,6 +295,8 @@ export default async function SegmentPage({ params }: Props) {
               </li>
             </ul>
           </section>
+
+          <SegmentCityLinks segmentSlug={segment.slug} segmentName={segment.name} />
         </div>
       </main>
       <Footer />

@@ -24,3 +24,6 @@ export { SIZE_GUIDE, PRODUCT_LINES, SIZE_FAQ, MAX_GUIDE_WIDTH_CM } from './size-
 
 // Capacho liso (/capacho-liso)
 export { LISO_WHATSAPP_MESSAGE, LISO_USES, LISO_FAQ } from './capacho-liso'
+
+// Fábrica (NAP — igual ao Google Business Profile)
+export { FACTORY } from './business'
