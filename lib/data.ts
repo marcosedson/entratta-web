@@ -57,6 +57,17 @@ export const CITIES_DATA: City[] = [
     lng: -49.3613,
   },
   {
+    slug: "buriti-alegre",
+    name: "Buriti Alegre",
+    state: "GO",
+    region: "sul de Goiás",
+    nearCities: "Goiatuba, Morrinhos e Itumbiara",
+    demanda: "comércio e agronegócio",
+    diferencial: "Buriti Alegre fica a cerca de 50 km da nossa fábrica em Itumbiara — atendimento regional sem intermediários.",
+    lat: -18.1397,
+    lng: -49.0417,
+  },
+  {
     slug: "centralina",
     name: "Centralina",
     state: "MG",

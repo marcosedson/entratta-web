@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { cities } from "@/lib/cities"
+import { CITIES_DATA as cities } from "@/lib/data"
 
 export function CitiesLinks() {
   return (

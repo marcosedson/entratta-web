@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { getAllCitySlugs } from "@/lib/data"
-import { CITIES_DATA } from "@/lib/data/cities"
+import { getAllCitySlugs, CITIES_DATA } from "@/lib/data"
 import { SEGMENTS_DATA, getSegmentUrl } from "@/lib/segments"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
@@ -9,13 +8,13 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"
 
 export const metadata: Metadata = {
   title: "Cidades Atendidas — Capachos Personalizados em Todo o Brasil | ENTRATTA",
-  description: "Entregamos capachos personalizados em 49 cidades do Brasil. Veja a lista completa de cidades atendidas pela ENTRATTA em Goiás, Minas Gerais e outros estados.",
+  description: "Entregamos capachos personalizados em 50 cidades do Brasil. Veja a lista completa de cidades atendidas pela ENTRATTA em Goiás, Minas Gerais e outros estados.",
   alternates: {
     canonical: "https://entratta.com.br/atendemos",
   },
   openGraph: {
     title: "Cidades Atendidas — Capachos Personalizados | ENTRATTA",
-    description: "Conheça todas as 49 cidades atendidas pela ENTRATTA para capachos personalizados.",
+    description: "Conheça todas as 50 cidades atendidas pela ENTRATTA para capachos personalizados.",
     url: "https://entratta.com.br/atendemos",
     type: "website",
   },
